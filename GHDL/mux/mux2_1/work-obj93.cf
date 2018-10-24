@@ -1,0 +1,7 @@
+v 4
+file . "mux2_1.vhd" "afdc35e8f4699f527efdc7877bb5242af0fc692e" "20181018214157.688":
+  entity mux2_1 at 9( 252) + 0 on 29;
+  architecture dataflow of mux2_1 at 21( 504) + 0 on 30;
+file . "mux2_1_testbench.vhd" "d1fe8b2bac9b8e6924d6dc8fd87b0414c9349aef" "20181018214157.682":
+  entity mux2_1_testbench at 4( 69) + 0 on 27;
+  architecture behavioral of mux2_1_testbench at 10( 163) + 0 on 28;
