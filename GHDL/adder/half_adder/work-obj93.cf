@@ -1,0 +1,7 @@
+v 4
+file . "half_adder.vhd" "8165a2cd3df8bed3f378c2cf7227600bb6b1188c" "20181024215831.724":
+  entity half_adder at 8( 269) + 0 on 17;
+  architecture dataflow of half_adder at 20( 516) + 0 on 18;
+file . "half_adder_testbench.vhd" "7d8799a8606bb6adfaa9a89945c5f55ed72c58f2" "20181024215831.720":
+  entity half_adder_testbench at 4( 73) + 0 on 15;
+  architecture behavioral of half_adder_testbench at 10( 175) + 0 on 16;

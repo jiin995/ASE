@@ -1,0 +1,42 @@
+$date
+  Wed Oct 24 23:58:31 2018
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$var reg 1 ! x $end
+$var reg 1 " y $end
+$var reg 1 # c $end
+$var reg 1 $ s $end
+$scope module uuit $end
+$var reg 1 % x $end
+$var reg 1 & y $end
+$var reg 1 ' c $end
+$var reg 1 ( s $end
+$upscope $end
+$enddefinitions $end
+#0
+1!
+0"
+0#
+1$
+1%
+0&
+0'
+1(
+#15000000
+0!
+1"
+0%
+1&
+#25000000
+1!
+1#
+0$
+1%
+1'
+0(
+#35000000
