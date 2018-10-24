@@ -11,7 +11,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 --definisco il componente e ne dichiaro l'interfaccia
 entity mux2_1 is
-  Port( SEL : in  STD_LOGIC;
+  PORT( SEL : in  STD_LOGIC;
         A   : in  STD_LOGIC;
         B   : in  STD_LOGIC;
         X   : out STD_LOGIC
