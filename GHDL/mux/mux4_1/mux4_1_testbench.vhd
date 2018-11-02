@@ -10,7 +10,7 @@ end mux4_1_testbench;
 architecture behavioral of mux4_1_testbench is
 
   component mux4_1 is
-    port (  SEL1  : in STD_LOGIC;
+    PORT (  SEL1  : in STD_LOGIC;
             SEL0  : in STD_LOGIC;
             A     : in STD_LOGIC;
             B     : in STD_LOGIC;
@@ -55,7 +55,7 @@ architecture behavioral of mux4_1_testbench is
             wait for 10 ns;
               SEL1 <= '1';
             wait for 10 ns;
-              C<= '1','0' after 10 ns;
+              C <= '1','0' after 10 ns;
             wait;
         end process;
 end behavioral;

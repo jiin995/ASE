@@ -23,7 +23,7 @@ end mux4_1;
 architecture architectural of mux4_1 is
   -- componente usato per costruire il mux4_1
   component mux2_1 is
-      Port( SEL : in  STD_LOGIC;
+      PORT( SEL : in  STD_LOGIC;
             A   : in  STD_LOGIC;
             B   : in  STD_LOGIC;
             X   : out STD_LOGIC
