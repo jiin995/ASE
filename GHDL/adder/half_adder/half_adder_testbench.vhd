@@ -24,16 +24,16 @@ architecture behavioral of half_adder_testbench is
   signal  S  :  STD_LOGIC :='0';
 
   begin
-    uuit: half_adder PORT MAP ( X =>  X,
+    uut: half_adder PORT MAP ( X =>  X,
                                 Y =>  Y,
                                 C =>  C,
                                 S =>  S
                               );
 
-    stim_proc: process
+    stim_proc : process
       begin
-        X <= '1','0' after 15 ns,'1' after 25 ns,'1' after 35 ns;
-        Y <= '0','1' after 15 ns,'1' after 25 ns,'1' after 35 ns;
+        X <=  '1','0' after 15 ns,'1' after 25 ns,'1' after 35 ns;
+        Y <=  '0','1' after 15 ns,'1' after 25 ns,'1' after 35 ns;
         wait;
     end process;
 end behavioral;
