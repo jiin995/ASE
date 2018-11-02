@@ -39,7 +39,7 @@ fi
 
 
 if [ ${#VHD_FILES[@]} != 0 ] ;then
-	for i in $(seq 1 ${#VHD_FILES[@]}); do
+	for i in $(seq 0 ${#VHD_FILES[@]}); do
 		echo "Loading in ghdl workspace" ${VHD_FILES[$i-1]}
 		ghdl -a  ${VHD_FILES[$i-1]}
 

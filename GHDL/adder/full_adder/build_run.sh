@@ -21,7 +21,7 @@ else
 			#echo "valuting " ${INPUT[$i]}
 			if [[ ${INPUT[$i-1]} == *.vhd ]] ; then
 				if [ -f ${INPUT[$i-1]} ]; then
-					echo 'found vhd files' ${INPUT[$i-1]}
+					echo 'found input vhd files' ${INPUT[$i-1]}
 					VHD_FILES+=${INPUT[$i-1]}
 				else
 					echo "vhd file not exist, passing " ${INPUT[$i-1]}
@@ -39,7 +39,7 @@ fi
 
 
 if [ ${#VHD_FILES[@]} != 0 ] ;then
-	for i in $(seq 1 ${#VHD_FILES[@]}); do
+	for i in $(seq 0 ${#VHD_FILES[@]}); do
 		echo "Loading in ghdl workspace" ${VHD_FILES[$i-1]}
 		ghdl -a  ${VHD_FILES[$i-1]}
 

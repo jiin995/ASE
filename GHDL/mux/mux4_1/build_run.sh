@@ -1,4 +1,4 @@
-#!/bin/bash
+ls#!/bin/bash
 
 DIR_NAME=${PWD##*/}
 
