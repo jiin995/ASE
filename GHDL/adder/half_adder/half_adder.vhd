@@ -1,7 +1,7 @@
--------------------------------------------------------
+--------------------------------------------------------------------------
 --! @file
---! @brief half_adder with only 2 input e 2 output, carry and sum
--------------------------------------------------------
+--! @brief half_adder with 2 inputs e 2 outputs, carry and sum
+--------------------------------------------------------------------------
 -- half_adder.vhd describes an simple half_adder
 -- Author : Gabriele Previtera
 
