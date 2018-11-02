@@ -40,23 +40,22 @@ architecture structural of full_adder is
     GEN_2_HALF_ADDER  : for i in 0 to 2 generate
       FIRST_HALF  : if i = 0 generate
         HALF_1  : half_adder PORT MAP (
-                                        X => X;
-                                        Y => Y;
-                                        S => SOUT;
-                                        C => COUT1;
+                                        X => X,
+                                        Y => Y,
+                                        S => SOUT,
+                                        C => COUT1
                                   );
       end generate FIRST_HALF;
       SECOND_HALF : if i = 1 generate
-        HALF_2  : hald_adder PORT MAP (
-                                        X => SOUT;
-                                        Y => CIN;
-                                        S => S;
-                                        C => COUT2;
-
+        HALF_2  : half_adder PORT MAP (
+                                        X => SOUT,
+                                        Y => CIN,
+                                        S => S,
+                                        C => COUT2
                                     );
       end generate SECOND_HALF;
     end generate GEN_2_HALF_ADDER;
 
-    C <= ( COUT1 and COUT2 );
+    C <= ( COUT1 or COUT2 );
 
   end structural;
