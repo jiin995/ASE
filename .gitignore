@@ -1,0 +1,4 @@
+#ignore all cf e vcd file
+*.cf
+*.vcd
+
