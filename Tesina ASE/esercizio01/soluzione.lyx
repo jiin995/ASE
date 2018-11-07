@@ -1,7 +1,9 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass book
 \begin_preamble
 \usepackage{listings,xcolor,courier,bookmark}
@@ -60,16 +62,18 @@ morecomment=[s]{--}
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman default
-\font_sans default
-\font_typewriter default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
-
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -80,16 +84,26 @@ morecomment=[s]{--}
 \use_hyperref false
 \papersize default
 \use_geometry true
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 1
-\use_mathdots 1
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -102,7 +116,10 @@ morecomment=[s]{--}
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -134,25 +151,270 @@ Descrivere la soluzione relizzata per mezzo di schematici e riportare il
 \end_layout
 
 \begin_layout Subsection
-Schematici
+Esercizio 1
+\end_layout
+
+\begin_layout Standard
+Si progetti una macchina M che, data una parola X di 6 bit in ingresso (X
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+
+X
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+
+X
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+X
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+X
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+X
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+
+), restituisca una parola Y di 3 bit (Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+
+) che rappresenta la codifica binaria del 
+\series bold
+numero di bit alti in X.
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Utilizzando una rappresentazione 4-2-1 per l'uscita 
+\series bold
+Y
+\series default
+, si riportano gli ON-SET ottenuti per ogni uscita:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\series bold
+2
+\end_layout
+
+\end_inset
+
+:
+\series default
+ ON-SET = {15, 23, 27, 29, 30, 31, 39, 43, 45, 46, 47, 51, 53, 54, 55, 57,
+ 58, 59, 60, 61, 62, 63};
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\series bold
+1
+\end_layout
+
+\end_inset
+
+:
+\series default
+ ON-SET = {3, 5, 6, 7, 9, 10, 11, 12, 13, 14, 17, 18, 19, 20, 21, 22, 24,
+ 25, 26, 28, 33, 34, 35, 36, 37, 38, 40, 41, 42, 44, 48, 52, 56, 63};
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\series bold
+0
+\end_layout
+
+\end_inset
+
+:
+\series default
+ ON-SET = {1, 2, 4, 7, 8, 11, 13, 14, 16, 19, 21, 22, 25, 26, 28, 31, 32,
+ 35, 37, 38, 41, 42, 44, 47, 49, 50, 52, 55, 56, 59, 61, 62}.
 \end_layout
 
 \begin_layout Subsection
-Codice
+Esercizio 2
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
+Si derivi la forma minima (
+\series bold
+SOP
+\series default
+) per ciascuna delle variabili in uscita dalla macchina M (considerate separatam
+ente l’una dall’altra) utilizzando lo strumento 
+\series bold
+SIS
+\series default
+, e si confronti la soluzione trovata dal tool con quella ricavabile con
+ una procedura esatta manuale (Karnaugh o Mc-Cluskey).
+ Per una delle uscite si effettui anche il 
+\series bold
+mapping
+\series default
+ su una delle librerie disponibili in SIS e si commentino i risultati ottenuti
+ in diverse modalità di sintesi.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Si riportano i risultati ottenuti con lo strumento SIS: dapprima si è stampata
+ la funzione non semplificata usando il comando 
+\shape italic
+write_eqn
+\shape default
+ (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:SIS_print_stats"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), e poi si è proceduto alla minimizzazione tramite comando 
+\shape italic
+simplify
+\shape default
+ delle uscite separate (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:SIS_simplify"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+)
+\shape italic
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-Nell'eventialità in cui alcuni componenti sia stati utilizzati in altri
- esercizi inserire solo un riferimento (es.
- Multiplexer Generico - traccia n° 1)
+\align center
+\begin_inset Graphics
+	filename images/soluzione/print_stats.png
+	scale 50
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
-Segue un esempio di inclusione di codice
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:SIS_print_stats"
+
+\end_inset
+
+Stampa della funzione non semplificata in SIS.
 \end_layout
 
 \end_inset
@@ -160,255 +422,328 @@ Segue un esempio di inclusione di codice
 
 \end_layout
 
-\begin_layout Subsubsection
-Bit String Comparator
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Il componente Top Module è ottenuto con costrutto 
-\emph on
-Generate
-\emph default
- e le connessioni sono fatte sfruttando tre array monodimensionali (aGT,
- aLT, aEQ).
-\end_layout
-
-\begin_layout Standard
-I valori MSB di questi array sono posti a (0,0,1) rispettivamente per garantire
- che sui bit più significativi della stringa in ingresso sia fatta una comparazi
-one assoluta, e non relativa.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
+\begin_inset Float figure
+placement h
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/soluzione/simplify.png
+	scale 50
 
+\end_inset
 
-\backslash
-begin{lstlisting}[language=VHDL,caption={Definizione del componente Bit
- String Comparator Generic}] 
-\end_layout
-
-\begin_layout Plain Layout
-
-library IEEE;
-\end_layout
-
-\begin_layout Plain Layout
-
-use IEEE.STD_LOGIC_1164.ALL;
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
 \begin_layout Plain Layout
-
-entity bit_string_comparator is
-\end_layout
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:SIS_simplify"
 
-GENERIC(N: Integer:=4);
-\end_layout
+\end_inset
 
-\begin_layout Plain Layout
-
-    Port ( a : in  STD_LOGIC_VECTOR (N-1 downto 0);
-\end_layout
-
-\begin_layout Plain Layout
-
-           b : in  STD_LOGIC_VECTOR (N-1 downto 0);
-\end_layout
-
-\begin_layout Plain Layout
-
-           aGTb : out  STD_LOGIC;
-\end_layout
-
-\begin_layout Plain Layout
-
-           aEQb : out  STD_LOGIC;
-\end_layout
-
-\begin_layout Plain Layout
-
-           aLTb : out  STD_LOGIC);
-\end_layout
-
-\begin_layout Plain Layout
-
-end bit_string_comparator;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-architecture Structural of bit_string_comparator is
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-component bit_comparator_comp
-\end_layout
-
-\begin_layout Plain Layout
-
-    Port ( a : in  STD_LOGIC;
-\end_layout
-
-\begin_layout Plain Layout
-
-           b : in  STD_LOGIC;
-\end_layout
-
-\begin_layout Plain Layout
-
-           aEQ_INb : in  STD_LOGIC;
-\end_layout
-
-\begin_layout Plain Layout
-
-           aLT_INb : in  STD_LOGIC;
-\end_layout
-
-\begin_layout Plain Layout
-
-           aGT_INb : in  STD_LOGIC;
-\end_layout
-
-\begin_layout Plain Layout
-
-           aEQb : out  STD_LOGIC;
-\end_layout
-
-\begin_layout Plain Layout
-
-           aLTb : out  STD_LOGIC;
-\end_layout
-
-\begin_layout Plain Layout
-
-           aGTb : out  STD_LOGIC);
-\end_layout
-
-\begin_layout Plain Layout
-
-end component bit_comparator_comp;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-for all: bit_comparator_comp use entity WORK.bit_comparator(Dataflow);
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-signal aGT, aLT, aEQ: STD_LOGIC_VECTOR(N downto 0); --Array di GT, LT ed
- EQ per la propagazione
-\end_layout
-
-\begin_layout Plain Layout
-
-begin
-\end_layout
-
-\begin_layout Plain Layout
-
-aGT(N)<='0';
-\end_layout
-
-\begin_layout Plain Layout
-
-aLT(N)<='0';
-\end_layout
-
-\begin_layout Plain Layout
-
-aEQ(N)<='1'; --Altrimenti non vengono riconosciute mai come uguali!!!
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-aGTb<=aGT(0);
-\end_layout
-
-\begin_layout Plain Layout
-
-aEQb<=aEQ(0);
-\end_layout
-
-\begin_layout Plain Layout
-
-aLTb<=aLT(0);
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-one_bcc: for i in N-1 downto 0 GENERATE begin
-\end_layout
-
-\begin_layout Plain Layout
-
-	bit_comparator: bit_comparator_comp port map(a(i), b(i), aEQ(i+1), aLT(i+1),
- aGT(i+1),aEQ(i), aLT(i), aGT(i));
-\end_layout
-
-\begin_layout Plain Layout
-
-end GENERATE one_bcc;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-end Structural;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{lstlisting}
+Stampa della uscite semplificate separatamente in SIS.
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per quanto concerne la procedura di minimizzazione manuale, si è stato utilizzat
+o il metodo di 
+\series bold
+Mc-Cluskey
+\series default
+ sulle tre uscite separate, ottenendo i seguenti risultati:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\series bold
+2
+\end_layout
+
+\end_inset
+
+
+\series default
+= X3*X2*X1*X0 + X4*X2*X1*X0 + X4*X3*X1*X0 + X4*X3*X2*X0 + X4*X3*X2*X1 +
+ X5*X2*X1*X0 + X5*X3*X1*X0 + X5*X3*X2*X0 + X5*X3*X2*X1 + X5*X4*X1*X0 + X5*X4*X2*
+X0 + X5*X4*X2*X1 + X5*X4*X3*X0 + X5*X4*X3*X1 + X5*X4*X3*X2
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\series bold
+1
+\end_layout
+
+\end_inset
+
+
+\series default
+= !X5*!X4*!X3*X2*X0 + X5*!X4*X3*!X2*!X0 + !X4*!X3*X2*X1*!X0 + !X5*X3*!X2*!X1*X0
+ + !X5*X4*!X2*X1*!X0 + !X4*!X3*X2*!X1*X0 + !X5*!X4*X3*X1*!X0 + !X5*!X4*!X2*X1*X0
+ + X5*!X3*X2*!X1*!X0 + X5*!X4*!X3*!X2*X1 + !X5*X4*X3*!X1*!X0 + X5*X4*!X2*!X1*!X0
+ + X5*!X4*!X2*!X1*X0 + !X5*X4*!X3*!X2*X0 + !X5*X4*!X3*X2*!X1 + !X4*X3*X2*!X1*!X0
+ + !X5*!X4*X2*!X1*X0 + !X5*X4*!X3*X2*!X0 + X5*X4*X3*X2*X1*X0
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+
+\series bold
+0
+\end_layout
+
+\end_inset
+
+= 
+\series default
+!X5*!X4*!X3*!X2*!X1*X0 + !X5*!X4*!X3*!X2*X1*!X0 + !X5*!X4*!X3*X2*!X1*!X0
+ + !X5*!X4*!X3*X2*X1*X0 + !X5*!X4*X3*!X2*!X1*!X0 + !X5*!X4*X3*!X2*X1*X0
+ + !X5*!X4*X3*X2*!X1*X0 + !X5*!X4*X3*X2*X1*!X0 + !X5*X4*!X3*!X2*!X1*!X0
+ + !X5*X4*!X3*!X2*X1*X0 + !X5*X4*!X3*X2*!X1*X0 + !X5*X4*!X3*X2*X1*!X0 +
+ !X5*X4*X3*!X2*!X1*X0 + !X5*X4*X3*!X2*X1*!X0 + !X5*X4*X3*X2*!X1*!X0 + !X5*X4*X3*
+X2*X1*X0 + X5*!X4*!X3*!X2*!X1*!X0 + X5*!X4*!X3*!X2*X1*X0 + X5*!X4*!X3*X2*!X1*X0
+ + X5*!X4*!X3*X2*X1*!X0 + X5*!X4*X3*!X2*!X1*X0 + X5*!X4*X3*!X2*X1*!X0 +
+ X5*!X4*X3*X2*!X1*!X0 + X5*!X4*X3*X2*X1*X0 + X5*X4*!X3*!X2*!X1*X0 + X5*X4*!X3*!X
+2*X1*!X0 + X5*X4*!X3*X2*!X1*!X0 + X5*X4*!X3*X2*X1*X0 + X5*X4*X3*!X2*!X1*!X0
+ + X5*X4*X3*!X2*X1*X0 + X5*X4*X3*X2*!X1*X0 + X5*X4*X3*X2*X1*!X0
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Confrontando le due soluzioni, si nota che i risultati sono perfettamente
+ coerenti tra loro.
+ Si noti inoltre come l'uscita Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+
+ non sia stata alterata durante il processo di minimizzazione, a differenza
+ delle altre due uscite che risultano notevolmente ridotte.
+ Ciò è perfettamente compatibile con il risultato ottenibile attraverso
+ Mc-Cluskey (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:mc-cluskey"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), dove si nota chiaramente che, per quanto concerne l'uscita Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+
+, non è possibile generare consensi.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/soluzione/tabella_consensi_y0.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:mc-cluskey"
+
+\end_inset
+
+Minimizzazione di Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+0 
+\end_layout
+
+\end_inset
+
+con Mc-Cluskey.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per quanto concerne il mapping tecnologico, si è utilizzata la libreria
+ 
+\series bold
+mcnc.genlib
+\series default
+, contenente le caratteristiche di ogni porta in termini di equazioni, area
+ e ritardi.
+ Come riportato in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:mapping"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, sono stati effettuati più esperimenti alterando la funzione costo rispetto
+ alla quale ottimizzare il mapping della rete.
+ Ciò è stato fatto utilizzando l’opzione 
+\series bold
+–m
+\series default
+ del comando 
+\series bold
+map
+\series default
+: in particolare, con -m 1 si è preferito ottimizzare il ritardo, con -m
+ 0 l'area, mentre con -m 0.5 si è effettuata un mapping più bilanciato.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/soluzione/mapping.png
+	scale 170
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:mapping"
+
+\end_inset
+
+Mapping tecnologico effettuato tramite libreria 
+\shape italic
+mcnc.genlib
+\shape default
+ fornendo come parametri di bilanciamento, rispettivamente, 1, 0 e 0.5.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I risultati ottenuti sono perfettamente coerenti con quanto stabilito: nel
+ primo caso, ottimizzando il ritardo, lo slack negativo totale è di -41.13,
+ ma l'area totale risulta essere 196.
+ Nel secondo caso invece, ottimizzando l'area, questa risulta essere scesa
+ a 159, ma lo slack negativo totale raggiunge -53.00.
+ Nel terzo caso infine, dove si è scelta una mediazione tra tempo e area,
+ si è ottenuta una rete la cui area e slack negativo totale si assestano
+ ad un valore 
+\begin_inset Quotes eld
+\end_inset
+
+intermedio
+\begin_inset Quotes erd
+\end_inset
+
+ rispetto ai due casi precedenti: in particolare, la rete avrà un'area di
+ 169 e uno slack negativo totale pari a -46.50.
 \end_layout
 
 \end_body

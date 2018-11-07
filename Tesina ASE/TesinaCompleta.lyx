@@ -72,7 +72,7 @@ morecomment=[s]{--}
 \use_default_options true
 \maintain_unincluded_children false
 \language italian
-\language_package default
+\language_package auto
 \inputencoding auto
 \fontencoding global
 \font_roman "default" "default"
@@ -377,21 +377,7 @@ esercizio01/Tesina.lyx ->esercizio02/Tesina.lyx e così via.
 \end_layout
 
 \begin_layout Chapter
-Esercizio 1
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "esercizio01/Tesina.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Chapter
-Esercizio 2
+Sintesi di macchine combinatorie
 \end_layout
 
 \begin_layout Standard

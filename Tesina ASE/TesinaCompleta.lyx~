@@ -72,7 +72,7 @@ morecomment=[s]{--}
 \use_default_options true
 \maintain_unincluded_children false
 \language italian
-\language_package default
+\language_package none
 \inputencoding auto
 \fontencoding global
 \font_roman "default" "default"
@@ -235,32 +235,24 @@ status open
 
 
 \backslash
-author{Studente 1 - Mat.
- XX/XXXX
+author{Gabriele Previtera - Mat.
+ M63/000834
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-and Studente 2 - Mat.
- XX/XXXX
+and Mirko Pennone - Mat.
+ M63/000876
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-and Studente 3 - Mat.
- XX/XXXX
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-and Studente 4 - Mat.
- XX/XXXX
+and Simone Penna - Mat.
+ M63/000858
 \end_layout
 
 \begin_layout Plain Layout
@@ -385,21 +377,7 @@ esercizio01/Tesina.lyx ->esercizio02/Tesina.lyx e così via.
 \end_layout
 
 \begin_layout Chapter
-Esercizio 1
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "esercizio01/Tesina.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Chapter
-Esercizio 2
+Sintesi di macchine combinatorie
 \end_layout
 
 \begin_layout Standard
