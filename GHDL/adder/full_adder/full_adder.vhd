@@ -22,6 +22,10 @@ architecture dataflow of full_adder is
     C <=  ((X and Y) or ((X xor Y) and CIN));
   end dataflow;
 
+--=============================================================================
+-- architecture begin
+--=============================================================================
+
 architecture structural of full_adder is
   component half_adder is
     PORT (  X : in  STD_LOGIC;
@@ -59,3 +63,6 @@ architecture structural of full_adder is
     C <= ( COUT1 or COUT2 );
 
   end structural;
+--=============================================================================
+-- architecture end
+--=============================================================================

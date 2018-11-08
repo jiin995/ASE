@@ -2,7 +2,7 @@
 -- Author: Gabriele Previtera
 
 library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_1164.all;
 
 entity half_adder_testbench is
 end half_adder_testbench;
@@ -10,7 +10,7 @@ end half_adder_testbench;
 architecture behavioral of half_adder_testbench is
 
   component half_adder is
-    PORT (  X : in  STD_LOGIC;
+    port (  X : in  STD_LOGIC;
             Y : in  STD_LOGIC;
             C : out STD_LOGIC;
             S : out STD_LOGIC
@@ -24,7 +24,7 @@ architecture behavioral of half_adder_testbench is
   signal  S  :  STD_LOGIC :='0';
 
   begin
-    uut: half_adder PORT MAP ( X =>  X,
+    uut: half_adder port map ( X =>  X,
                                 Y =>  Y,
                                 C =>  C,
                                 S =>  S

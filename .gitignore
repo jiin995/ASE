@@ -4,3 +4,14 @@
 .vscode
 *.lyx#
 *.lyx~ 
+annotated.tex
+doxygen.sty
+files.tex
+refman.aux
+refman.idx
+refman.ilg
+refman.ind
+refman.log
+refman.out
+refman.tex
+refman.tox
