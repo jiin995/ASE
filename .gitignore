@@ -1,4 +1,6 @@
 #ignore all cf e vcd file
 *.cf
 *.vcd
-
+.vscode
+*.lyx#
+*.lyx~ 
