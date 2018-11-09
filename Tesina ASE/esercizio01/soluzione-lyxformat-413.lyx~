@@ -1,0 +1,415 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass book
+\begin_preamble
+\usepackage{listings,xcolor,courier,bookmark}
+\usepackage{listingsutf8}
+\definecolor{darkblue}{named}{blue}
+\definecolor{darkred}{named}{red}
+\definecolor{grau}{named}{gray}
+\let\Righttorque\relax
+\lstset{
+captionpos=b,
+commentstyle=\color[rgb]{0.133,0.545,0.133},
+keywordstyle=\color{darkblue},
+stringstyle=\color{darkred},
+extendedchars=true,
+basicstyle=\small\ttfamily,
+showstringspaces=false,
+tabsize=2,
+numbers=left,
+numberstyle=\tiny,
+breakautoindent  = true,
+breakindent      = 2em,
+breaklines       = true,
+postbreak        = ,
+prebreak         = \raisebox{-.8ex}[0ex][0ex]{\Righttorque},
+showspaces=false, 
+showtabs=false, 
+showstringspaces=false,
+language=VHDL,
+frame=single,
+morecomment=[s]{--}
+}
+
+
+\renewcommand*{\lstlistingname}{Codice Componente}
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancyhead{} 
+\fancyfoot{} 
+
+\fancyhead[RO,LE]{\bfseries \leftmark}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[LO,CE]{Tesina in ASE: Architetture dei Sistemi di Elaborazione}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\date{}
+\cfoot{}
+\end_preamble
+\use_default_options true
+\master Tesina.lyx
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2.5cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Soluzione
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Descrivere la soluzione relizzata per mezzo di schematici e riportare il
+ codice dei soli componenti significativi.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Schematici
+\end_layout
+
+\begin_layout Subsection
+Codice
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Nell'eventialità in cui alcuni componenti sia stati utilizzati in altri
+ esercizi inserire solo un riferimento (es.
+ Multiplexer Generico - traccia n° 1)
+\end_layout
+
+\begin_layout Plain Layout
+Segue un esempio di inclusione di codice
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Bit String Comparator
+\end_layout
+
+\begin_layout Standard
+Il componente Top Module è ottenuto con costrutto 
+\emph on
+Generate
+\emph default
+ e le connessioni sono fatte sfruttando tre array monodimensionali (aGT,
+ aLT, aEQ).
+\end_layout
+
+\begin_layout Standard
+I valori MSB di questi array sono posti a (0,0,1) rispettivamente per garantire
+ che sui bit più significativi della stringa in ingresso sia fatta una comparazi
+one assoluta, e non relativa.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Definizione del componente Bit
+ String Comparator Generic}] 
+\end_layout
+
+\begin_layout Plain Layout
+
+library IEEE;
+\end_layout
+
+\begin_layout Plain Layout
+
+use IEEE.STD_LOGIC_1164.ALL;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+entity bit_string_comparator is
+\end_layout
+
+\begin_layout Plain Layout
+
+GENERIC(N: Integer:=4);
+\end_layout
+
+\begin_layout Plain Layout
+
+    Port ( a : in  STD_LOGIC_VECTOR (N-1 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+           b : in  STD_LOGIC_VECTOR (N-1 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+           aGTb : out  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           aEQb : out  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           aLTb : out  STD_LOGIC);
+\end_layout
+
+\begin_layout Plain Layout
+
+end bit_string_comparator;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+architecture Structural of bit_string_comparator is
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+component bit_comparator_comp
+\end_layout
+
+\begin_layout Plain Layout
+
+    Port ( a : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           b : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           aEQ_INb : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           aLT_INb : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           aGT_INb : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           aEQb : out  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           aLTb : out  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+           aGTb : out  STD_LOGIC);
+\end_layout
+
+\begin_layout Plain Layout
+
+end component bit_comparator_comp;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+for all: bit_comparator_comp use entity WORK.bit_comparator(Dataflow);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+signal aGT, aLT, aEQ: STD_LOGIC_VECTOR(N downto 0); --Array di GT, LT ed
+ EQ per la propagazione
+\end_layout
+
+\begin_layout Plain Layout
+
+begin
+\end_layout
+
+\begin_layout Plain Layout
+
+aGT(N)<='0';
+\end_layout
+
+\begin_layout Plain Layout
+
+aLT(N)<='0';
+\end_layout
+
+\begin_layout Plain Layout
+
+aEQ(N)<='1'; --Altrimenti non vengono riconosciute mai come uguali!!!
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+aGTb<=aGT(0);
+\end_layout
+
+\begin_layout Plain Layout
+
+aEQb<=aEQ(0);
+\end_layout
+
+\begin_layout Plain Layout
+
+aLTb<=aLT(0);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+one_bcc: for i in N-1 downto 0 GENERATE begin
+\end_layout
+
+\begin_layout Plain Layout
+
+	bit_comparator: bit_comparator_comp port map(a(i), b(i), aEQ(i+1), aLT(i+1),
+ aGT(i+1),aEQ(i), aLT(i), aGT(i));
+\end_layout
+
+\begin_layout Plain Layout
+
+end GENERATE one_bcc;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+end Structural;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
