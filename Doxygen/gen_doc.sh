@@ -23,3 +23,4 @@ fi
 
 doxygen Doxyfile
 cd latex && make pdf && cd ../
+cp latex/refman.pdf $DIR_NAME.pdf
