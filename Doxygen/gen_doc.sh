@@ -1,10 +1,9 @@
 #!/bin/bash
 
 #Eseguimi nella cartella dei file VHDL e creo la documentazione
-#Ricorda di cambiare il path di DOXYGEN_FILE
 
 DIR_NAME=${PWD##*/}
-DOXYGEN_FILES="/home/jiin995/ASE_WorkSpace/Doxygen"
+DOXYGEN_FILES=$(git rev-parse --show-toplevel)"/Doxygen"
 
 if [ $1 == "clear" ]; then 
     rm -dr latex

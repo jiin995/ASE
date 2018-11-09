@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DIR_NAME=${PWD##*/}
-DOXYGEN_FILES="/home/jiin995/ASE_WorkSpace/Doxygen"
+DOXYGEN_FILES=$(git rev-parse --show-toplevel)"/Doxygen"
 
 if [ $1 == "clear" ]; then 
     rm -dr latex
