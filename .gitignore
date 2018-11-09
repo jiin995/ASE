@@ -5,6 +5,7 @@
 *.lyx#
 *.lyx~ 
 annotated.tex
+latex/*
 doxygen.sty
 files.tex
 refman.aux
