@@ -262,6 +262,27 @@ Y
 \begin_layout Standard
 
 \series bold
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
 Y
 \begin_inset script subscript
 
@@ -279,7 +300,7 @@ Y
  58, 59, 60, 61, 62, 63};
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 
 \series bold
 Y
@@ -299,7 +320,7 @@ Y
  25, 26, 28, 33, 34, 35, 36, 37, 38, 40, 41, 42, 44, 48, 52, 56, 63};
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 
 \series bold
 Y
@@ -317,6 +338,11 @@ Y
 \series default
  ON-SET = {1, 2, 4, 7, 8, 11, 13, 14, 16, 19, 21, 22, 25, 26, 28, 31, 32,
  35, 37, 38, 41, 42, 44, 47, 49, 50, 52, 55, 56, 59, 61, 62}.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -348,8 +374,28 @@ mapping
 \begin_inset Newline newline
 \end_inset
 
-Si riportano i risultati ottenuti con lo strumento SIS: dapprima si è stampata
- la funzione non semplificata usando il comando 
+Per poter effettuare tale esercizio, rispettando i requisiti forniti, è
+ stato necessario suddividere la descrizione delle tre uscite in di tre
+ file blif separati.
+ Tale operazione si è resa necessaria in quanto il comando 
+\shape italic
+simplify
+\shape default
+ di SIS,
+\shape italic
+ 
+\shape default
+nel procedere alla minimizzazione di una rete combinatoria, utilizza anche
+ trasformazioni globali come ad esempio 
+\shape italic
+substitute
+\shape default
+.
+\begin_inset Newline newline
+\end_inset
+
+Si riportano i risultati ottenuti con lo strumento SIS: si è stampata la
+ funzione non semplificata usando il comando 
 \shape italic
 write_eqn
 \shape default
@@ -363,7 +409,7 @@ noprefix "false"
 
 \end_inset
 
-), e poi si è proceduto alla minimizzazione tramite comando 
+) e poi si è proceduto alla minimizzazione tramite comando 
 \shape italic
 simplify
 \shape default
@@ -469,8 +515,8 @@ Stampa della uscite semplificate separatamente in SIS.
 \end_layout
 
 \begin_layout Standard
-Per quanto concerne la procedura di minimizzazione manuale, si è stato utilizzat
-o il metodo di 
+Per quanto concerne la procedura di minimizzazione manuale, si è utilizzato
+ il metodo di 
 \series bold
 Mc-Cluskey
 \series default
@@ -479,9 +525,25 @@ Mc-Cluskey
 \end_inset
 
 
-\end_layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
 
-\begin_layout Standard
+\begin_layout Plain Layout
 
 \series bold
 Y
@@ -502,7 +564,7 @@ Y
 X0 + X5*X4*X2*X1 + X5*X4*X3*X0 + X5*X4*X3*X1 + X5*X4*X3*X2
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 
 \series bold
 Y
@@ -525,7 +587,7 @@ Y
  + !X5*!X4*X2*!X1*X0 + !X5*X4*!X3*X2*!X0 + X5*X4*X3*X2*X1*X0
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 
 \series bold
 Y
@@ -551,6 +613,11 @@ X2*X1*X0 + X5*!X4*!X3*!X2*!X1*!X0 + X5*!X4*!X3*!X2*X1*X0 + X5*!X4*!X3*X2*!X1*X0
  X5*!X4*X3*X2*!X1*!X0 + X5*!X4*X3*X2*X1*X0 + X5*X4*!X3*!X2*!X1*X0 + X5*X4*!X3*!X
 2*X1*!X0 + X5*X4*!X3*X2*!X1*!X0 + X5*X4*!X3*X2*X1*X0 + X5*X4*X3*!X2*!X1*!X0
  + X5*X4*X3*!X2*X1*X0 + X5*X4*X3*X2*!X1*X0 + X5*X4*X3*X2*X1*!X0
+\end_layout
+
+\end_inset
+
+
 \begin_inset Newline newline
 \end_inset
 
@@ -582,7 +649,7 @@ noprefix "false"
 
 \end_inset
 
-), dove si nota chiaramente che, per quanto concerne l'uscita Y
+), dove si nota chiaramente che per l'uscita Y
 \begin_inset script subscript
 
 \begin_layout Plain Layout
@@ -591,8 +658,9 @@ noprefix "false"
 
 \end_inset
 
-, non è possibile generare consensi.
- 
+ non vengono generati consensi: questo è dovuto al fatto che non ci sono
+ classi adiacenti che hanno distanza di Hamming pari a 1, pertanto è impossibile
+ che vengano generati consensi.
 \begin_inset Newline newline
 \end_inset
 
@@ -650,11 +718,10 @@ con Mc-Cluskey.
 \end_layout
 
 \begin_layout Standard
-Per quanto concerne il mapping tecnologico, si è utilizzata la libreria
- 
-\series bold
+Per il mapping tecnologico, si è utilizzata la libreria 
+\shape italic
 mcnc.genlib
-\series default
+\shape default
 , contenente le caratteristiche di ogni porta in termini di equazioni, area
  e ritardi.
  Come riportato in fig.
@@ -667,8 +734,9 @@ noprefix "false"
 
 \end_inset
 
-, sono stati effettuati più esperimenti alterando la funzione costo rispetto
- alla quale ottimizzare il mapping della rete.
+, sono stati effettuati diversi esperimenti variando la funzione di costo
+ rispetto alla quale viene ottimizzata in base alla tecnologia scelta per
+ il mapping.
  Ciò è stato fatto utilizzando l’opzione 
 \series bold
 –m
@@ -692,7 +760,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/soluzione/mapping.png
-	scale 200
+	scale 170
 
 \end_inset
 
@@ -744,6 +812,150 @@ intermedio
 
  rispetto ai due casi precedenti: in particolare, la rete avrà un'area di
  169 e uno slack negativo totale pari a -46.50.
+\end_layout
+
+\begin_layout Subsection
+Esercizio 3
+\end_layout
+
+\begin_layout Standard
+Si calcoli la forma minima della macchina M come rete multi-uscita utilizzando
+ lo strumento SIS e si disegni il grafo corrispondente.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Per effettuare quest'operazione è stato possibile scegliere tra i diversi
+ algoritmi visti a lezione in grado di minimizzare una funzione a due livelli
+ multiuscita fornendoci una funzione a due livelli o multilivello.
+ Si è deciso di utilizzare lo script 
+\shape italic
+rugged.script
+\shape default
+, in grado di operare sia su funzioni multilivello che a due livelli applicando
+ una serie di trasformazioni prestabilite e fornendo, in uscita, una funzione
+ multilivello che ben si presta alla rappresentazione grafica mediante grafo.
+\end_layout
+
+\begin_layout Standard
+In fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rugged_script"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ è possibile osservare il risultato.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/soluzione/rugged_script.png
+	scale 200
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rugged_script"
+
+\end_inset
+
+Risultato della minimizzazione con 
+\shape italic
+rugged.script
+\shape default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il grafo ottenuto da questo risultato è consultabile in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:grafo_rugged_script"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/soluzione/grafo_rugged_script.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:grafo_rugged_script"
+
+\end_inset
+
+Grafo della funzione minimizzata tramite 
+\shape italic
+rugged.script
+\shape default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

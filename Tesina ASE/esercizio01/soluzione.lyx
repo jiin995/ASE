@@ -379,10 +379,14 @@ Per poter effettuare tale esercizio, rispettando i requisiti forniti, è
  file blif separati.
  Tale operazione si è resa necessaria in quanto il comando 
 \shape italic
-simplify 
+simplify
+\shape default
+ di SIS,
+\shape italic
+ 
 \shape default
 nel procedere alla minimizzazione di una rete combinatoria, utilizza anche
- trasformazioni globali , come ad esempio 
+ trasformazioni globali come ad esempio 
 \shape italic
 substitute
 \shape default
@@ -405,7 +409,7 @@ noprefix "false"
 
 \end_inset
 
-), e poi si è proceduto alla minimizzazione tramite comando 
+) e poi si è proceduto alla minimizzazione tramite comando 
 \shape italic
 simplify
 \shape default
@@ -511,8 +515,8 @@ Stampa della uscite semplificate separatamente in SIS.
 \end_layout
 
 \begin_layout Standard
-Per quanto concerne la procedura di minimizzazione manuale, si è stato utilizzat
-o il metodo di 
+Per quanto concerne la procedura di minimizzazione manuale, si è utilizzato
+ il metodo di 
 \series bold
 Mc-Cluskey
 \series default
@@ -654,19 +658,8 @@ noprefix "false"
 
 \end_inset
 
- non vengono generati consensi.
- Un ulteriore modo per osservare questo risultato è che suddividendo in
- classi i mintermini dell'uscita Y
-\begin_inset script subscript
-
-\begin_layout Plain Layout
-0
-\end_layout
-
-\end_inset
-
- , in base al numero di uno nella stringa di ingresso , non ci sono classi
- adiacenti che hanno distanza di Hamming pari a 1, pertanto è impossibile
+ non vengono generati consensi: questo è dovuto al fatto che non ci sono
+ classi adiacenti che hanno distanza di Hamming pari a 1, pertanto è impossibile
  che vengano generati consensi.
 \begin_inset Newline newline
 \end_inset
@@ -726,9 +719,9 @@ con Mc-Cluskey.
 
 \begin_layout Standard
 Per il mapping tecnologico, si è utilizzata la libreria 
-\series bold
+\shape italic
 mcnc.genlib
-\series default
+\shape default
 , contenente le caratteristiche di ogni porta in termini di equazioni, area
  e ritardi.
  Come riportato in fig.
@@ -743,7 +736,7 @@ noprefix "false"
 
 , sono stati effettuati diversi esperimenti variando la funzione di costo
  rispetto alla quale viene ottimizzata in base alla tecnologia scelta per
- il mappign.
+ il mapping.
  Ciò è stato fatto utilizzando l’opzione 
 \series bold
 –m
@@ -819,6 +812,147 @@ intermedio
 
  rispetto ai due casi precedenti: in particolare, la rete avrà un'area di
  169 e uno slack negativo totale pari a -46.50.
+\end_layout
+
+\begin_layout Subsection
+Esercizio 3
+\end_layout
+
+\begin_layout Standard
+Si calcoli la forma minima della macchina M come rete multi-uscita utilizzando
+ lo strumento SIS e si disegni il grafo corrispondente.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Per effettuare quest'operazione è stato possibile scegliere tra i diversi
+ algoritmi visti a lezione in grado di minimizzare una funzione a due livelli
+ multiuscita fornendoci una funzione a due livelli o multilivello.
+ Si è deciso di utilizzare lo script 
+\shape italic
+rugged.script
+\shape default
+, in grado di operare sia su funzioni multilivello che a due livelli applicando
+ una serie di trasformazioni prestabilite e fornendo, in uscita, una funzione
+ multilivello che ben si presta alla rappresentazione grafica mediante grafo.
+ In fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rugged_script"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ è possibile osservare il risultato.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/soluzione/rugged_script.png
+	scale 200
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:rugged_script"
+
+\end_inset
+
+Risultato della minimizzazione con 
+\shape italic
+rugged.script
+\shape default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il grafo ottenuto da questo risultato è consultabile in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:grafo_rugged_script"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/soluzione/grafo_rugged_script.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:grafo_rugged_script"
+
+\end_inset
+
+Grafo della funzione minimizzata tramite 
+\shape italic
+rugged.script
+\shape default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
