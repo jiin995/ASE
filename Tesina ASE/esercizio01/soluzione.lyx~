@@ -1156,8 +1156,8 @@ status open
 
 
 \backslash
-begin{lstlisting}[float][language=VHDL,caption={Implementazione in VHDL
- della macchina M in modalità 
+begin{lstlisting}[language=VHDL,caption={Implementazione in VHDL della macchina
+ M in modalità 
 \begin_inset Quotes eld
 \end_inset
 
