@@ -52,3 +52,4 @@ xlnx_auto_0_xdb
 *.ptwx
 *.twr
 *.twx
+*.xmsgs
