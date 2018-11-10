@@ -515,6 +515,34 @@ Stampa della uscite semplificate separatamente in SIS.
 \end_layout
 
 \begin_layout Standard
+Tra il comando 
+\shape italic
+print_stats 
+\shape default
+è possibile osservare come i numero di letterali sia sceso da 132 a 60 per
+ Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+ e da 204 a 96 per Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+.
+ Per quanto riguarda Y0, invece
+\end_layout
+
+\begin_layout Standard
 Per quanto concerne la procedura di minimizzazione manuale, si è utilizzato
  il metodo di 
 \series bold
@@ -636,8 +664,9 @@ Confrontando le due soluzioni, si nota che i risultati sono perfettamente
 
 \end_inset
 
- non sia stata alterata durante il processo di minimizzazione, a differenza
- delle altre due uscite che risultano notevolmente ridotte.
+ ancora una volta non sia stata alterata durante il processo di minimizzazione,
+ a differenza delle altre due uscite che risultano notevolmente ridotte
+ in entrambi i casi.
  Ciò è perfettamente compatibile con il risultato ottenibile attraverso
  Mc-Cluskey (fig.
 \begin_inset CommandInset ref
@@ -658,8 +687,8 @@ noprefix "false"
 
 \end_inset
 
- non vengono generati consensi: questo è dovuto al fatto che non ci sono
- classi adiacenti che hanno distanza di Hamming pari a 1, pertanto è impossibile
+ non vengono generati consensi: questo è dovuto al fatto che non ci siano
+ classi adiacenti aventi distanza di Hamming pari a 1, pertanto è impossibile
  che vengano generati consensi.
 \begin_inset Newline newline
 \end_inset
@@ -838,10 +867,7 @@ rugged.script
 , in grado di operare sia su funzioni multilivello che a due livelli applicando
  una serie di trasformazioni prestabilite e fornendo, in uscita, una funzione
  multilivello che ben si presta alla rappresentazione grafica mediante grafo.
-\end_layout
-
-\begin_layout Standard
-In fig.
+ In fig.
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:rugged_script"
@@ -897,6 +923,41 @@ rugged.script
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Si noti come minimizzando tutte le uscite contemporaneamente, e dunque grazie
+ al riutilizzo di alcuni dei nodi della rete per la realizzazione di più
+ uscite, il numero totale di letterali sia sceso a 59, mentre nel caso della
+ minimizzazione delle uscite separate si erano ottenuti 60, 96 e 192 letterali
+ rispettivamente per Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+, Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+ e Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
