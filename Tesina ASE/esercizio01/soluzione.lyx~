@@ -239,15 +239,13 @@ Y
 ) che rappresenta la codifica binaria del 
 \series bold
 numero di bit alti in X.
-\series default
-
 \begin_inset Newline newline
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
 Utilizzando una rappresentazione 4-2-1 per l'uscita 
 \series bold
 Y
@@ -371,9 +369,9 @@ mapping
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
 Per poter effettuare tale esercizio, rispettando i requisiti forniti, è
  stato necessario suddividere la descrizione delle tre uscite in di tre
  file blif separati.
@@ -394,8 +392,12 @@ substitute
 \begin_inset Newline newline
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 Si riportano i risultati ottenuti con lo strumento SIS: si è stampata la
- funzione non semplificata usando il comando 
+ funzione non semplificata usando 
 \shape italic
 write_eqn
 \shape default
@@ -434,16 +436,16 @@ noprefix "false"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement ph
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/soluzione/print_stats.png
-	scale 50
+	scale 40
 
 \end_inset
 
@@ -475,16 +477,16 @@ Stampa della funzione non semplificata in SIS.
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement ph
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/soluzione/simplify.png
-	scale 50
+	scale 40
 
 \end_inset
 
@@ -539,20 +541,29 @@ print_stats
 \end_inset
 
 .
- Per quanto riguarda Y0, invece
+ Per quanto riguarda Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+0
 \end_layout
 
-\begin_layout Standard
-Per quanto concerne la procedura di minimizzazione manuale, si è utilizzato
- il metodo di 
-\series bold
-Mc-Cluskey
-\series default
- sulle tre uscite separate, ottenendo i seguenti risultati:
+\end_inset
+
+, invece, lo strumento SIS non è stato in grado di ridurre il numero di
+ letterali, dunque la funzione è già in forma minima.
+ 
 \begin_inset Newline newline
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
 \begin_inset Box Frameless
 position "t"
 hor_pos "c"
@@ -646,16 +657,23 @@ X2*X1*X0 + X5*!X4*!X3*!X2*!X1*!X0 + X5*!X4*!X3*!X2*X1*X0 + X5*!X4*!X3*X2*!X1*X0
 \end_inset
 
 
-\begin_inset Newline newline
+\end_layout
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-Confrontando le due soluzioni, si nota che i risultati sono perfettamente
- coerenti tra loro.
- Si noti inoltre come l'uscita Y
+Per quanto concerne la procedura di minimizzazione manuale, si è utilizzato
+ il metodo di 
+\series bold
+Mc-Cluskey
+\series default
+ sulle tre uscite separate.
+ Confrontando le due soluzioni, si è notato che i numeri di letterali ottenuti
+ in entrambi i casi sono coerenti tra loro.
+ Si è inoltre notato come l'uscita Y
 \begin_inset script subscript
 
 \begin_layout Plain Layout
@@ -698,16 +716,16 @@ noprefix "false"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement ph
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/soluzione/tabella_consensi_y0.png
-	scale 40
+	scale 35
 
 \end_inset
 
@@ -776,14 +794,18 @@ map
 \series default
 : in particolare, con -m 1 si è preferito ottimizzare il ritardo, con -m
  0 l'area, mentre con -m 0.5 si è effettuata un mapping più bilanciato.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement ph
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -854,9 +876,9 @@ Si calcoli la forma minima della macchina M come rete multi-uscita utilizzando
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
 Per effettuare quest'operazione è stato possibile scegliere tra i diversi
  algoritmi visti a lezione in grado di minimizzare una funzione a due livelli
  multiuscita fornendoci una funzione a due livelli o multilivello.
@@ -878,14 +900,18 @@ noprefix "false"
 \end_inset
 
  è possibile osservare il risultato.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement ph
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -976,10 +1002,10 @@ noprefix "false"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement ph
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1005,6 +1031,389 @@ name "fig:grafo_rugged_script"
 Grafo della funzione minimizzata tramite 
 \shape italic
 rugged.script
+\shape default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Esercizio 4
+\end_layout
+
+\begin_layout Standard
+Si implementi la macchina M, nella forma ottenuta al punto 3, in VHDL seguendo
+ una modalità di descrizione di tipo “data-flow”.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Di seguito è riportata l'implementazione in VHDL della macchina M.
+ Si noti come, descrivendo la macchina in modalità data-flow, sono stati
+ riportati i nodi forniti da 
+\shape italic
+rugged.script 
+\shape default
+come segnali d'appoggio da utilizzare per la realizzazione di Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+, Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+ e Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+
+.
+ Sono stati inoltre utilizzati dei segnali temporanei d'uscita 
+\shape italic
+y2_temp
+\shape default
+, 
+\shape italic
+y1_temp
+\shape default
+ e 
+\shape italic
+y0_temp
+\shape default
+ per permettere la definizione di Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+ in funzione di Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+
+ e di Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+ in funzione di Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Implementazione in VHDL della macchina
+ M in modalità 
+\begin_inset Quotes eld
+\end_inset
+
+data-flow
+\begin_inset Quotes erd
+\end_inset
+
+.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+architecture Dataflow of M is
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+-- definition of nodes and temporary outputs
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+begin
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+-- update nodes
+\end_layout
+
+\begin_layout Plain Layout
+
+n10 <= x3 AND x2;
+\end_layout
+
+\begin_layout Plain Layout
+
+n3 <= ( x5 AND (NOT x4) ) OR ( (NOT x5) AND x4);
+\end_layout
+
+\begin_layout Plain Layout
+
+n4 <= ( (NOT x3) AND (NOT n3) ) OR ( x3 AND n3 );
+\end_layout
+
+\begin_layout Plain Layout
+
+n5 <= ( (NOT x2) AND (NOT n4) ) OR ( x2 AND n4 );
+\end_layout
+
+\begin_layout Plain Layout
+
+n6 <= x0 OR x1;
+\end_layout
+
+\begin_layout Plain Layout
+
+n8 <= x2 OR x3;
+\end_layout
+
+\begin_layout Plain Layout
+
+n9 <= x1 AND x0;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+-- update temporary output y0
+\end_layout
+
+\begin_layout Plain Layout
+
+y0_temp <= ( (NOT n5) AND n6 AND (not n9) ) OR ( n5 AND n9 ) OR ( n5 AND
+ (NOT n6) ); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\end_layout
+
+\begin_layout Plain Layout
+
+-- update node n7 (requires y0_temp)
+\end_layout
+
+\begin_layout Plain Layout
+
+n7 <= (x5 AND (NOT y0_temp)) OR n10;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+-- update temporary outputs y2 and y1
+\end_layout
+
+\begin_layout Plain Layout
+
+y2_temp <= ( x5 AND (NOT y0_temp) AND n10 ) OR ( x4 AND n8 AND n9 )
+\end_layout
+
+\begin_layout Plain Layout
+
+			OR ( x4 AND n6 AND n7 ) OR ( n7 AND n9 );
+\end_layout
+
+\begin_layout Plain Layout
+
+y1_temp <= ( x4 AND (NOT n3) AND (NOT n6) AND (NOT n10) ) OR ( x4 AND (NOT
+ n3) AND n9 AND n10 )
+\end_layout
+
+\begin_layout Plain Layout
+
+			OR ( (NOT y2_temp) AND (NOT y0_temp) AND n8 ) OR ( (NOT y2_temp) AND
+ n3 AND n6 )
+\end_layout
+
+\begin_layout Plain Layout
+
+			OR ( (NOT y2_temp) AND n10 ) OR ( (NOT y2_temp) AND n9 );
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+-- update outputs
+\end_layout
+
+\begin_layout Plain Layout
+
+y0 <= y0_temp;
+\end_layout
+
+\begin_layout Plain Layout
+
+y1 <= y1_temp;
+\end_layout
+
+\begin_layout Plain Layout
+
+y2 <= y2_temp;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+end Dataflow;
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si è poi proceduto alla realizzazione di un 
+\shape italic
+testbench 
+\shape default
+per simulare la macchina tramite il tool 
+\shape italic
+GHDL
+\shape default
+.
+ In tale testbench, i sei ingressi vengono portati da 0 ad 1 a distanza
+ di 10 ns da una transizione all'altra.
+ Il risultato è visibile in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:M_simulation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/soluzione/M_simulation.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:M_simulation"
+
+\end_inset
+
+Simulazione della macchina M in 
+\shape italic
+gtkwave
 \shape default
 .
 \end_layout
