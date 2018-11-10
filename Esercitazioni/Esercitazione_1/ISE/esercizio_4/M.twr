@@ -1,0 +1,69 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v 3 -s 3 -n
+3 -fastpaths -xml M.twx M.ncd -o M.twr M.pcf
+
+Design file:              M.ncd
+Physical constraint file: M.pcf
+Device,package,speed:     xc7a100t,csg324,C,-3 (PRODUCTION 1.10 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+x0             |y0             |    5.465|
+x0             |y1             |    6.054|
+x0             |y2             |    5.570|
+x1             |y0             |    5.348|
+x1             |y1             |    5.835|
+x1             |y2             |    5.250|
+x2             |y0             |    5.039|
+x2             |y1             |    5.655|
+x2             |y2             |    5.171|
+x3             |y0             |    5.321|
+x3             |y1             |    6.013|
+x3             |y2             |    5.529|
+x4             |y0             |    5.154|
+x4             |y1             |    6.081|
+x4             |y2             |    5.597|
+x5             |y0             |    5.479|
+x5             |y1             |    6.085|
+x5             |y2             |    5.601|
+---------------+---------------+---------+
+
+
+Analysis completed Sat Nov 10 12:58:56 2018 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 764 MB
+
+
+
