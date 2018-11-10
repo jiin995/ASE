@@ -2,7 +2,7 @@
 -- Author: Gabriele Previtera
 
 library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_1164.all;
 
 entity mux4_1_testbench is
 end mux4_1_testbench;
@@ -10,7 +10,7 @@ end mux4_1_testbench;
 architecture behavioral of mux4_1_testbench is
 
   component mux4_1 is
-    PORT (  SEL1  : in STD_LOGIC;
+    port (  SEL1  : in STD_LOGIC;
             SEL0  : in STD_LOGIC;
             A     : in STD_LOGIC;
             B     : in STD_LOGIC;
@@ -31,7 +31,7 @@ architecture behavioral of mux4_1_testbench is
   signal Z    : STD_LOGIC :='0';
 
   begin
-      uut: mux4_1 PORT MAP  (
+      uut: mux4_1 port map  (
                               A =>A,
                               B => B,
                               C => C,

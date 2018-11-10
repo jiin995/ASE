@@ -1,6 +1,5 @@
 ---------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------
--- --
+-- 
 -- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
 -- 
 ---------------------------------------------------------------------------------------------------
@@ -13,8 +12,12 @@
 --! @author     Gabriele Previtera
 --! @date       15/10/2018
 --! @version    0.1
---! @brief      mux2_1 describes a multiplex with 2 ingress and 1 output
---
+--! @brief      mux2_1 descrive il comportamento di un multiplexer con 2 ingressi e una uscita
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothings
+--!
 -- modified by: Gabriele Previtera
 --
 ---------------------------------------------------------------------------------------------------
@@ -22,33 +25,37 @@
 --                Aggiunta doc doxygen
 ---------------------------------------------------------------------------------------------------
 
-
---! Use standard library
+--! Uso la libreria standard di IEEE
 library IEEE;
---! Use logic elements
-  use IEEE.STD_LOGIC_1164.ALL;
+--! Uso gli elementi logici della libreria IEEE
+    use IEEE.STD_LOGIC_1164.all;
 
---! When SEL is low the output is the value of signal on input A, otherwise if select is high the 
---! output is the value of signal B
+-- Descrizione comportamento
+--! Quando l'ingresso SEL è basso, l'uscita assume il valore del segnale A, altrimenti quando il 
+--! segnale SEL è alto l'uscita assume il valore del segnale B. 
 
--- define componet with their interface
+-- definisco il componente e la sua interfaccia 
 
 entity mux2_1 is
-  PORT( SEL : in  STD_LOGIC;    --! Mux select input
-        A   : in  STD_LOGIC;    --! Mux first input
-        B   : in  STD_LOGIC;    --! Mux second input
-        X   : out STD_LOGIC     --! Mux output
-      );
+    port(   SEL : in  STD_LOGIC;        --! mux2_1 input : selezione 
+            A   : in  STD_LOGIC;        --! mux2_1 input
+            B   : in  STD_LOGIC;        --! mux2_1 input
+            X   : out STD_LOGIC         --! mux2_1 output
+        );
 end mux2_1;
 
-
---! @brief Architecture definition of the MUX 
---! @details More details about this mux element.
---! When SEL is low the output is the value of signal on input A, otherwise if select is high the 
---! output is the value of signal B
+--================================================================================================
+-- architecture declaration
+--================================================================================================
 architecture dataflow of mux2_1 is
 
-begin
+--================================================================================================
+-- architecture dataflow of mux2_1 begin
+--================================================================================================
+    begin
     --X <= A when SEL='0' else B;
-    X <= (A and (not SEL) ) or (B and (SEL));
-end dataflow;
+        X <= (A and (not SEL) ) or (B and (SEL));
+    end dataflow;
+--================================================================================================
+-- architecture dataflow of mux2_1 end
+--================================================================================================
