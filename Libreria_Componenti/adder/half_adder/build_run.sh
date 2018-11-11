@@ -39,9 +39,11 @@ fi
 
 
 if [ ${#VHD_FILES[@]} != 0 ] ;then
-	for i in $(seq 0 ${#VHD_FILES[@]}); do
+	for i in $(seq 1 ${#VHD_FILES[@]}); do
 		echo "Loading in ghdl workspace" ${VHD_FILES[$i-1]}
-		ghdl -a  ${VHD_FILES[$i-1]}
+		if [ ${VHD_FILES[$i-1]} -ne "*_testbench" ] ; then 
+			ghdl -a  ${VHD_FILES[$i-1]}
+		fi
 
 		if [ $? != 0 ]; then
 			echo -e "\t\e[31mError: \e[39mwhile l loading vhdl file:  " ${VHD_FILES[$i-1]}
@@ -54,6 +56,7 @@ if [ ${#VHD_FILES[@]} != 0 ] ;then
 	done
 
 	echo "VHD Files are completely loaded"
+	ghdl -a ${DIR_NAME}_testbench.vhd
 	ghdl -e ${DIR_NAME}_testbench
 	ghdl -r ${DIR_NAME}_testbench --vcd=${DIR_NAME}.vcd
 
