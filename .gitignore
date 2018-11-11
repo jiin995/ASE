@@ -1,10 +1,14 @@
-#ignore all cf e vcd file
+# ignore ghdl files
 *.cf
 *.vcd
 .vscode
 work-obj93.cf
+
+# ignore lyx temp files
 *.lyx#
 *.lyx~ 
+
+# ignora i file in lattice generati da doxygen
 annotated.tex
 latex/
 doxygen.sty
@@ -17,6 +21,8 @@ files.tex
 *refman.out
 *refman.tex
 *refman.tox
+
+# ignore ise temp files
 *.stx
 *.xst
 *.lso
