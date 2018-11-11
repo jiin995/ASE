@@ -9,9 +9,8 @@ end mux4_1_testbench;
 
 architecture behavioral of mux4_1_testbench is
 
-  component mux4_1 is
-    port (  SEL1  : in STD_LOGIC;
-            SEL0  : in STD_LOGIC;
+  component mux4_1_b is
+    port (  SEL   : in STD_LOGIC_VECTOR (1 downto 0);
             A     : in STD_LOGIC;
             B     : in STD_LOGIC;
             C     : in STD_LOGIC;
@@ -21,8 +20,7 @@ architecture behavioral of mux4_1_testbench is
   end component;
 
 -- define signal that are used for test the component
-  signal SEL1 : STD_LOGIC :='0';
-  signal SEL0 : STD_LOGIC :='0';
+  signal SEL  : STD_LOGIC_VECTOR (1 downto 0):= (others => '0');
   signal A    : STD_LOGIC :='0';
   signal B    : STD_LOGIC :='0';
   signal C    : STD_LOGIC :='0';
@@ -30,14 +28,17 @@ architecture behavioral of mux4_1_testbench is
 
   signal Z    : STD_LOGIC :='0';
 
+  for uut: mux4_1_b use entity
+         work.mux4_1(behavioral);
+
   begin
-      uut: mux4_1 port map  (
+
+      uut: mux4_1_b port map  (
                               A =>A,
                               B => B,
                               C => C,
                               D => D,
-                              SEL0 => SEL0,
-                              SEL1 =>  SEL1,
+                              SEL => SEL,
                               Z => Z
                             );
       stim_proc: process
@@ -45,15 +46,15 @@ architecture behavioral of mux4_1_testbench is
             wait for 10 ns;
               A <= '1';
             wait for 10 ns;
-              SEL0 <= '1';
+              SEL(0) <= '1';
             wait for 10 ns;
               B <= '1';
             wait for 10 ns;
               D <= '1';
             wait for 10 ns;
-              SEL0 <= '0';
+              SEL(0) <= '0';
             wait for 10 ns;
-              SEL1 <= '1';
+              SEL(1) <= '1';
             wait for 10 ns;
               C <= '1','0' after 10 ns;
             wait;

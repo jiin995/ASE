@@ -33,8 +33,7 @@ library IEEE;
 -- Descrizione comportamento
 
 entity mux4_1 is
-    port (    SEL1  : in STD_LOGIC;       --! mux4_1 input primo bit di selezione
-              SEL0  : in STD_LOGIC;       --! mux4_1 input secondo bit di selezione
+    port (    SEL   : in STD_LOGIC_VECTOR (1 downto 0);       --! mux4_1 input primo bit di selezione
               A     : in STD_LOGIC;       --! mux4_1 input 
               B     : in STD_LOGIC;       --! mux4_1 input 
               C     : in STD_LOGIC;       --! mux4_1 input 
@@ -52,7 +51,7 @@ architecture architectural of mux4_1 is
         PORT(   SEL : in  STD_LOGIC;
                 A   : in  STD_LOGIC;
                 B   : in  STD_LOGIC;
-              X   : out STD_LOGIC
+                X   : out STD_LOGIC
             );
     end component;
 
@@ -71,7 +70,7 @@ architecture architectural of mux4_1 is
     -- collego l'input e l'uscita al componente 
               M1: mux2_1 port map(    A => A,
                                       B => B,
-                                      SEL =>  SEL0,
+                                      SEL =>  SEL(0),
                                       X => X
                                 );
           end generate FIRST_MUX;
@@ -79,7 +78,7 @@ architecture architectural of mux4_1 is
           SECOND_MUX: if i=1 generate
               M2: mux2_1 port map(    A => C,
                                       B => D,
-                                      SEL =>  SEL0,
+                                      SEL =>  SEL(0),
                                       X => Y
                                   );
           end generate SECOND_MUX;
@@ -87,7 +86,7 @@ architecture architectural of mux4_1 is
           THIRD_MUX: if i=2 generate
               M3: mux2_1 port map(    A => X,
                                       B => Y,
-                                      SEL =>  SEL1,
+                                      SEL =>  SEL(1),
                                       X => Z
                                   );
             end generate THIRD_MUX;
@@ -97,3 +96,17 @@ architecture architectural of mux4_1 is
 --================================================================================================
 -- architecture architectural of mux4_1 end
 --================================================================================================
+
+architecture behavioral of mux4_1 is
+begin
+    process (A, B, C, D, SEL)
+    begin
+      case SEL is 
+         when "00" => Z <= A;
+         when "01" => Z <= B;
+         when "10" => Z <= C;
+         when "11" => Z <= D;
+         when others => Z <= A;
+      end case;
+    end process;
+end behavioral;
