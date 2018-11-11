@@ -30,34 +30,34 @@ end machine_M;
 
 architecture structural of machine_M is
 
-component full_adder is 
-  port (  X   :   in  STD_LOGIC;
-          Y   :   in  STD_LOGIC;
-          CIN :   in  STD_LOGIC;
-          S   :   out STD_LOGIC;
-          C   :   out STD_LOGIC
+	component full_adder is 
+	  port (  X   :   in  STD_LOGIC;
+				 Y   :   in  STD_LOGIC;
+				 CIN :   in  STD_LOGIC;
+				 S   :   out STD_LOGIC;
+				 C   :   out STD_LOGIC
 
-  );
-end component;
+	  );
+	end component;
 -- signals used for connect the carry output of full_adders to input of adder on second level adders
-signal C : STD_LOGIC_VECTOR ( 1 downto 0) :=( others => '0' );
+	signal C : STD_LOGIC_VECTOR ( 1 downto 0) :=( others => '0' );
 
 -- signals used for connect the sum output of full_adders to input of adder on second level adders
-signal S	: STD_LOGIC_VECTOR (	1 downto 0) :=( others => '0' ); 
+	signal S	: STD_LOGIC_VECTOR (	1 downto 0) :=( others => '0' ); 
 
 -- signals used for connect the carry output of second level adder to adder of same level
-signal C_1 : STD_LOGIC :='0';
+	signal C_1 : STD_LOGIC :='0';
 
 begin
 
 -- generate the two adders on input
-	in_adders_0: for i in 0 to 5 generate 
-		in_adder_0: full_adder port map (	X => X(i),
-														Y => X(i+1),
-														CIN = X(i+2),
+	in_adders_0: for i in 0 to 1 generate 
+		in_adder_0: full_adder port map (	X => X(i*3),
+														Y => X((i*3)+1),
+														CIN => X((i*3)+2),
 														S => S(i),
 														C => C(i));
-	end generate in_adders;
+	end generate in_adders_0;
 
 	adder_1_1: full_adder port map (		X => S(0),
 													Y => S(1),
@@ -65,8 +65,8 @@ begin
 													S => Y(0),
 													C => C_1);
 
-	adder_1_1: full_adder port map (		X => R(0),
-													Y => R(1),
+	adder_1_2: full_adder port map (		X => C(0),
+													Y => C(1),
 													CIN => C_1,
 													S => Y(1),
 													C => Y(2));
