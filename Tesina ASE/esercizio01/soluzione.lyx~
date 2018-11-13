@@ -1156,8 +1156,8 @@ status open
 
 
 \backslash
-begin{lstlisting}[language=VHDL,caption={Implementazione in VHDL della macchina
- M in modalità 
+begin{lstlisting}[float][language=VHDL,caption={Implementazione in VHDL
+ della macchina M in modalità 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1416,6 +1416,103 @@ Simulazione della macchina M in
 gtkwave
 \shape default
 .
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Esercizio 5
+\end_layout
+
+\begin_layout Standard
+Si progetti la macchina M per composizione di macchine a partire da blocchi
+ full-adder, e si implementi la soluzione trovata in VHDL.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ricordando che un full-adder è in grado di sommare 3 bit riportando in uscita
+ il bit meno significativo s
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+ e quello più significativo r
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+, possiamo procedere come segue: scomponendo la somma di 6 bit in due somme
+ di 3 bit, effettuabili tramite 2 full-adder, otterremo due somme parziali
+ s0 e s1 che andranno a loro volta sommate tra loro per ottenere il bit
+ meno significativo dell'uscita y0.
+ Per quanto riguarda i riporti r0 e r1, aventi entrambi peso 1, questi andranno
+ sommati tra loro tenendo anche conto del riporto ottenuto calcolando y0
+ (ossia r2, di peso 1).
+ Il risultato di questa ultima operazione di somma sarà la cifra di peso
+ 1 (y1) della nostra soluzione, mentre il riporto sarà la cifra di peso
+ 2 (y2).
+ Usando dunque 4 full-adder, lo schema ottenuto è consultabile in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:full_adder_implementation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/soluzione/full_adder_implementaion.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:full_adder_implementation"
+
+\end_inset
+
+Implementazione della macchina M a partire da blocchi full-adder.
 \end_layout
 
 \end_inset
