@@ -70,6 +70,7 @@
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
     <transform xil_pn:end_ts="1542050446" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1542050446">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
     </transform>
     <transform xil_pn:end_ts="1542050446" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-7005182572666351394" xil_pn:start_ts="1542050446">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -98,19 +99,10 @@
     <transform xil_pn:end_ts="1542050458" xil_pn:in_ck="4692622082066243813" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="2803846452079945229" xil_pn:start_ts="1542050446">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
-      <outfile xil_pn:name="machine_M.lso"/>
-      <outfile xil_pn:name="machine_M.ngc"/>
-      <outfile xil_pn:name="machine_M.ngr"/>
-      <outfile xil_pn:name="machine_M.prj"/>
-      <outfile xil_pn:name="machine_M.stx"/>
-      <outfile xil_pn:name="machine_M.syr"/>
-      <outfile xil_pn:name="machine_M.xst"/>
-      <outfile xil_pn:name="machine_M_xst.xrpt"/>
-      <outfile xil_pn:name="webtalk_pn.xml"/>
-      <outfile xil_pn:name="xst"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1542050458" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-5609815277670514955" xil_pn:start_ts="1542050458">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -118,47 +110,40 @@
     </transform>
     <transform xil_pn:end_ts="1542050465" xil_pn:in_ck="2391706333713191687" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-7055045067369304959" xil_pn:start_ts="1542050458">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_ngo"/>
-      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
-      <outfile xil_pn:name="machine_M.bld"/>
-      <outfile xil_pn:name="machine_M.ngd"/>
-      <outfile xil_pn:name="machine_M_ngdbuild.xrpt"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1542050493" xil_pn:in_ck="2391706333713191688" xil_pn:name="TRANEXT_map_virtex7" xil_pn:prop_ck="2100985583056581773" xil_pn:start_ts="1542050465">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
-      <outfile xil_pn:name="machine_M.pcf"/>
-      <outfile xil_pn:name="machine_M_map.map"/>
-      <outfile xil_pn:name="machine_M_map.mrp"/>
-      <outfile xil_pn:name="machine_M_map.ncd"/>
-      <outfile xil_pn:name="machine_M_map.ngm"/>
-      <outfile xil_pn:name="machine_M_map.xrpt"/>
-      <outfile xil_pn:name="machine_M_summary.xml"/>
-      <outfile xil_pn:name="machine_M_usage.xml"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1542050528" xil_pn:in_ck="3398211988136781345" xil_pn:name="TRANEXT_par_virtex5" xil_pn:prop_ck="-2283627392121029586" xil_pn:start_ts="1542050493">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
-      <outfile xil_pn:name="machine_M.ncd"/>
-      <outfile xil_pn:name="machine_M.pad"/>
-      <outfile xil_pn:name="machine_M.par"/>
-      <outfile xil_pn:name="machine_M.ptwx"/>
-      <outfile xil_pn:name="machine_M.unroutes"/>
-      <outfile xil_pn:name="machine_M.xpi"/>
-      <outfile xil_pn:name="machine_M_pad.csv"/>
-      <outfile xil_pn:name="machine_M_pad.txt"/>
-      <outfile xil_pn:name="machine_M_par.xrpt"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1542050528" xil_pn:in_ck="2391706333713191556" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1542050514">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
-      <outfile xil_pn:name="machine_M.twr"/>
-      <outfile xil_pn:name="machine_M.twx"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
   </transforms>
 

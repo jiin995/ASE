@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2018-11-13T14:37:26</DateModified>
+  <DateModified>2018-11-13T14:43:44</DateModified>
   <ModuleName>machine_M</ModuleName>
   <SummaryTimeStamp>2018-11-11T20:27:40</SummaryTimeStamp>
-  <SavedFilePath>/home/jiin995/ASE_WorkSpace/Esercitazioni/Esercitazione_1/ISE/esercizio_5/iseconfig/machine_M.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/jiin995/ASE_WorkSpace/Esercitazioni/Esercitazione_1/ISE/esercizio_5/</ImplementationReportsDirectory>
+  <SavedFilePath>/home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_1/ISE/esercizio_5/iseconfig/machine_M.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>/home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_1/ISE/esercizio_5/</ImplementationReportsDirectory>
   <DateInitialized>2018-11-11T20:10:37</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

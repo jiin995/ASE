@@ -372,8 +372,71 @@ mapping
 \end_layout
 
 \begin_layout Standard
+Per poter effettuare tale esercizio, rispettando i requisiti forniti, è
+ stato necessario suddividere la descrizione delle tre uscite in di tre
+ file blif separati.
+ Tale operazione si è resa necessaria in quanto il comando 
+\shape italic
+simplify
+\shape default
+ di SIS,
+\shape italic
+ 
+\shape default
+nel procedere alla minimizzazione di una rete combinatoria, utilizza anche
+ trasformazioni globali come ad esempio 
+\shape italic
+substitute
+\shape default
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si riportano i risultati ottenuti con lo strumento SIS: si è stampata la
+ funzione non semplificata usando 
+\shape italic
+write_eqn
+\shape default
+ (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:SIS_print_stats"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) e poi si è proceduto alla minimizzazione tramite comando 
+\shape italic
+simplify
+\shape default
+ delle uscite separate (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:SIS_simplify"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+)
+\shape italic
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
-placement h
+placement ph
 wide false
 sideways false
 status collapsed
@@ -413,75 +476,8 @@ Stampa della funzione non semplificata in SIS.
 \end_layout
 
 \begin_layout Standard
-Per poter effettuare tale esercizio, rispettando i requisiti forniti, è
- stato necessario suddividere la descrizione delle tre uscite in di tre
- file blif separati.
- Tale operazione si è resa necessaria in quanto il comando 
-\shape italic
-simplify
-\shape default
- di SIS,
-\shape italic
- 
-\shape default
-nel procedere alla minimizzazione di una rete combinatoria, utilizza anche
- trasformazioni globali come ad esempio 
-\shape italic
-substitute
-\shape default
-.
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Si riportano i risultati ottenuti con lo strumento SIS: si è stampata la
- funzione non semplificata usando 
-\end_layout
-
-\begin_layout Standard
- 
-\shape italic
-write_eqn
-\shape default
- (fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:SIS_print_stats"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-) e poi si è proceduto alla minimizzazione tramite comando 
-\shape italic
-simplify
-\shape default
- delle uscite separate (fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:SIS_simplify"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-)
-\shape italic
-.
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
-placement h
+placement ph
 wide false
 sideways false
 status collapsed
@@ -669,56 +665,6 @@ X2*X1*X0 + X5*!X4*!X3*!X2*!X1*!X0 + X5*!X4*!X3*!X2*X1*X0 + X5*!X4*!X3*X2*!X1*X0
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement h
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename images/soluzione/tabella_consensi_y0.png
-	scale 35
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:mc-cluskey"
-
-\end_inset
-
-Minimizzazione di Y
-\begin_inset script subscript
-
-\begin_layout Plain Layout
-0 
-\end_layout
-
-\end_inset
-
-con Mc-Cluskey.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Per quanto concerne la procedura di minimizzazione manuale, si è utilizzato
  il metodo di 
 \series bold
@@ -778,8 +724,8 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename images/soluzione/mapping.png
-	scale 170
+	filename images/soluzione/tabella_consensi_y0.png
+	scale 35
 
 \end_inset
 
@@ -792,15 +738,20 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:mapping"
+name "fig:mc-cluskey"
 
 \end_inset
 
-Mapping tecnologico effettuato tramite libreria 
-\shape italic
-mcnc.genlib
-\shape default
- fornendo come parametri di bilanciamento, rispettivamente, 1, 0 e 0.5.
+Minimizzazione di Y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+0 
+\end_layout
+
+\end_inset
+
+con Mc-Cluskey.
 \end_layout
 
 \end_inset
@@ -850,6 +801,51 @@ map
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/soluzione/mapping.png
+	scale 170
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:mapping"
+
+\end_inset
+
+Mapping tecnologico effettuato tramite libreria 
+\shape italic
+mcnc.genlib
+\shape default
+ fornendo come parametri di bilanciamento, rispettivamente, 1, 0 e 0.5.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 I risultati ottenuti sono perfettamente coerenti con quanto stabilito: nel
  primo caso, ottimizzando il ritardo, lo slack negativo totale è di -41.13,
  ma l'area totale risulta essere 196.
@@ -883,8 +879,36 @@ Si calcoli la forma minima della macchina M come rete multi-uscita utilizzando
 \end_layout
 
 \begin_layout Standard
+Per effettuare quest'operazione è stato possibile scegliere tra i diversi
+ algoritmi visti a lezione in grado di minimizzare una funzione a due livelli
+ multiuscita fornendoci una funzione a due livelli o multilivello.
+ Si è deciso di utilizzare lo script 
+\shape italic
+rugged.script
+\shape default
+, in grado di operare sia su funzioni multilivello che a due livelli applicando
+ una serie di trasformazioni prestabilite e fornendo, in uscita, una funzione
+ multilivello che ben si presta alla rappresentazione grafica mediante grafo.
+ In fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:rugged_script"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ è possibile osservare il risultato.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
-placement p
+placement ph
 wide false
 sideways false
 status collapsed
@@ -922,79 +946,6 @@ rugged.script
 
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement p
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename images/soluzione/grafo_rugged_script.png
-	scale 35
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:grafo_rugged_script"
-
-\end_inset
-
-Grafo della funzione minimizzata tramite 
-\shape italic
-rugged.script
-\shape default
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Per effettuare quest'operazione è stato possibile scegliere tra i diversi
- algoritmi visti a lezione in grado di minimizzare una funzione a due livelli
- multiuscita fornendoci una funzione a due livelli o multilivello.
- Si è deciso di utilizzare lo script 
-\shape italic
-rugged.script
-\shape default
-, in grado di operare sia su funzioni multilivello che a due livelli applicando
- una serie di trasformazioni prestabilite e fornendo, in uscita, una funzione
- multilivello che ben si presta alla rappresentazione grafica mediante grafo.
- In fig.
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:rugged_script"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- è possibile osservare il risultato.
-\begin_inset Newline newline
 \end_inset
 
 
@@ -1047,6 +998,51 @@ noprefix "false"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/soluzione/grafo_rugged_script.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:grafo_rugged_script"
+
+\end_inset
+
+Grafo della funzione minimizzata tramite 
+\shape italic
+rugged.script
+\shape default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1160,8 +1156,8 @@ status open
 
 
 \backslash
-begin{lstlisting}[language=VHDL,caption={Implementazione in VHDL della macchina
- M in modalità 
+begin{lstlisting}[float][language=VHDL,caption={Implementazione in VHDL
+ della macchina M in modalità 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1363,8 +1359,33 @@ selectlanguage{italian}%
 \end_layout
 
 \begin_layout Standard
+Si è poi proceduto alla realizzazione di un 
+\shape italic
+testbench 
+\shape default
+per simulare la macchina tramite il tool 
+\shape italic
+GHDL
+\shape default
+.
+ In tale testbench, i sei ingressi vengono portati da 0 ad 1 a distanza
+ di 10 ns da una transizione all'altra.
+ Il risultato è visibile in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:M_simulation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
-placement h
+placement ph
 wide false
 sideways false
 status collapsed
@@ -1407,22 +1428,36 @@ gtkwave
 
 \end_layout
 
+\begin_layout Subsection
+Esercizio 5
+\end_layout
+
 \begin_layout Standard
-Si è poi proceduto alla realizzazione di un 
-\shape italic
-testbench 
-\shape default
-per simulare la macchina tramite il tool 
-\shape italic
-GHDL
-\shape default
-.
- In tale testbench, i sei ingressi vengono portati da 0 ad 1 a distanza
- di 10 ns da una transizione all'altra.
- Il risultato è visibile in fig.
+Si progetti la macchina M per composizione di macchine a partire da blocchi
+ full-adder, e si implementi la soluzione trovata in VHDL.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ricordando che un full-adder è in grado di sommare 3 bit riportando in uscite
+ il bit meno significativo del risultato e quello più significativo come
+ riporto, possiamo procedere come segue: scomponendo la somma di 6 bit in
+ due somme di 3 bit, effettuabili tramite 2 full-adder, otterremo due somme
+ parziali s0 e s1 che andranno a loro volta sommati tra loro per ottenere
+ il bit meno significativo dell'uscita y0.
+ Per quanto riguarda i riporti r0 e r1, aventi peso 1, questi andranno sommati
+ separatamente tenendo anche conto del riporto ottenuto calcolando y0 (ossia
+ r2, di peso 1).
+ Il risultato di questa ultima operazione di somma sarà la cifra di peso
+ 1 (y1) della nostra soluzione, mentre il riporto sarà la cifra di peso
+ 2 (y2).
+ Usando dunque 4 full-adder, lo schema ottenuto è consultabile in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:M_simulation"
+reference "fig:grafo_rugged_script"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1430,6 +1465,47 @@ noprefix "false"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/soluzione/full_adder_implementaion.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:full_adder_implementation"
+
+\end_inset
+
+Implementazione della macchina M a partire da blocchi .
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
