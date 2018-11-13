@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/jiin995/ASE_WorkSpace/Test/test_pin_map/test_led_blink.ncd
+OUTFILE=/home/jiin995/ASE_WorkSpace/Test/test_pin_map/test_led_blink.bit
+FAMILY=Artix7
+PART=xc7a100t-1csg324
+WORKINGDIR=/home/jiin995/ASE_WorkSpace/Test/test_pin_map
+LICENSE=WebPack
+USER_INFO=211602214_0_0_275
