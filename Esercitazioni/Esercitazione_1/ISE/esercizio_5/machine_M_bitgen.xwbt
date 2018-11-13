@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/jiin995/ASE_WorkSpace/Esercitazioni/Esercitazione_1/ISE/esercizio_5/machine_M.ncd
+OUTFILE=/home/jiin995/ASE_WorkSpace/Esercitazioni/Esercitazione_1/ISE/esercizio_5/machine_M.bit
+FAMILY=Spartan6
+PART=xc6slx4-3tqg144
+WORKINGDIR=/home/jiin995/ASE_WorkSpace/Esercitazioni/Esercitazione_1/ISE/esercizio_5
+LICENSE=WebPack
+USER_INFO=211602214_0_0_275
