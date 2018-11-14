@@ -1442,22 +1442,118 @@ Si progetti la macchina M per composizione di macchine a partire da blocchi
 \end_layout
 
 \begin_layout Standard
-Ricordando che un full-adder è in grado di sommare 3 bit riportando in uscite
- il bit meno significativo del risultato e quello più significativo come
- riporto, possiamo procedere come segue: scomponendo la somma di 6 bit in
- due somme di 3 bit, effettuabili tramite 2 full-adder, otterremo due somme
- parziali s0 e s1 che andranno a loro volta sommati tra loro per ottenere
- il bit meno significativo dell'uscita y0.
- Per quanto riguarda i riporti r0 e r1, aventi peso 1, questi andranno sommati
- separatamente tenendo anche conto del riporto ottenuto calcolando y0 (ossia
- r2, di peso 1).
+Ricordando che un full-adder è in grado di sommare 3 bit riportando in uscita
+ il bit meno significativo s
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+ e quello più significativo r
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+, possiamo procedere come segue: scomponendo la somma di 6 bit in due somme
+ di 3 bit, effettuabili tramite 2 full-adder, otterremo due somme parziali
+ s
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+
+ e s
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+ che andranno a loro volta sommate tra loro per ottenere il bit meno significati
+vo dell'uscita y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+
+.
+ Per quanto riguarda i riporti r
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+
+ e r
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+, aventi entrambi peso 1, questi andranno sommati tra loro tenendo anche
+ conto del riporto ottenuto calcolando y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+
+ (ossia r
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+, di peso 1).
  Il risultato di questa ultima operazione di somma sarà la cifra di peso
- 1 (y1) della nostra soluzione, mentre il riporto sarà la cifra di peso
- 2 (y2).
+ 1 (y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+) della nostra soluzione, mentre il riporto sarà la cifra di peso 2 (y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+).
  Usando dunque 4 full-adder, lo schema ottenuto è consultabile in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:grafo_rugged_script"
+reference "fig:full_adder_implementation"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1465,6 +1561,10 @@ noprefix "false"
 \end_inset
 
 .
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1472,13 +1572,13 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/soluzione/full_adder_implementaion.png
-	scale 50
+	scale 60
 
 \end_inset
 
@@ -1495,12 +1595,249 @@ name "fig:full_adder_implementation"
 
 \end_inset
 
-Implementazione della macchina M a partire da blocchi .
+Implementazione della macchina M a partire da blocchi full-adder.
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per quanto concerne l'implementazione in VHDL, si è dapprima proceduto all'imple
+mentazione di un full-adder seguendo una modalità di descrizione di tipo
+ “behavioural”.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[float][language=VHDL,caption={Implementazione in VHDL
+ di un full-adder.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+entity full_adder is
+\end_layout
+
+\begin_layout Plain Layout
+
+Port (  X : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+		Y : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+		CIN : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+		S : out  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+		C : out  STD_LOGIC
+\end_layout
+
+\begin_layout Plain Layout
+
+	);
+\end_layout
+
+\begin_layout Plain Layout
+
+end full_adder;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+architecture dataflow of full_adder is
+\end_layout
+
+\begin_layout Plain Layout
+
+	begin
+\end_layout
+
+\begin_layout Plain Layout
+
+		S <=  (X xor Y xor CIN);
+\end_layout
+
+\begin_layout Plain Layout
+
+		C <=  ((X and Y) or ((X xor Y) and CIN));
+\end_layout
+
+\begin_layout Plain Layout
+
+	end dataflow;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dopodiché, utilizzando questi componenti, si è proceduto a costruire la
+ macchina M seguendo una modalità di descrizione di tipo “structural”.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[float][language=VHDL,caption={Implementazione in VHDL
+ della macchina M usando i full-adder.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+entity M is
+\end_layout
+
+\begin_layout Plain Layout
+
+Port (  X : in  STD_LOGIC_VECTOR (5 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+		Y : out  STD_LOGIC_VECTOR (2 downto 0));
+\end_layout
+
+\begin_layout Plain Layout
+
+end M;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+architecture structural of M is
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+-- signals used for the carry output of the full-adders
+\end_layout
+
+\begin_layout Plain Layout
+
+signal C : STD_LOGIC_VECTOR ( 3 downto 0) :=( others => '0' );
+\end_layout
+
+\begin_layout Plain Layout
+
+-- signals used for the sum output of the full-adders
+\end_layout
+
+\begin_layout Plain Layout
+
+signal S	: STD_LOGIC_VECTOR (	3 downto 0) :=( others => '0' ); 
+\end_layout
+
+\begin_layout Plain Layout
+
+begin
+\end_layout
+
+\begin_layout Plain Layout
+
+	adder_0: full_adder port map (		X => X(0), 													Y => X(1), 												
+	CIN => X(2), 													S => S(0), 													C => C(0) );
+\end_layout
+
+\begin_layout Plain Layout
+
+	adder_1: full_adder port map (		X => X(3), 													Y => X(4), 												
+	CIN => X(5), 													S => S(1), 													C => C(1) );
+\end_layout
+
+\begin_layout Plain Layout
+
+	adder_2: full_adder port map (		X => S(0), 													Y => S(1), 												
+	CIN => '0', 													S => S(2), 													C => C(2) );
+\end_layout
+
+\begin_layout Plain Layout
+
+	adder_3: full_adder port map (		X => C(0), 													Y => C(1), 												
+	CIN => C(2), 													S => S(3), 													C => C(3) ); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	Y(0) <= S(2); 	Y(1) <= S(3); 	Y(2) <= C(3);
+\end_layout
+
+\begin_layout Plain Layout
+
+end structural;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
 \end_layout
 
 \end_inset

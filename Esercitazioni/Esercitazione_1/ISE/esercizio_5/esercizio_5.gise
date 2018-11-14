@@ -184,6 +184,7 @@
     <transform xil_pn:end_ts="1542209179" xil_pn:in_ck="93092307" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="1689536023665491669" xil_pn:start_ts="1542209172">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="M.bld"/>
       <outfile xil_pn:name="M.ngd"/>
@@ -195,6 +196,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="M.pcf"/>
       <outfile xil_pn:name="M_map.map"/>
@@ -209,6 +211,7 @@
     <transform xil_pn:end_ts="1542209239" xil_pn:in_ck="112486916428525" xil_pn:name="TRANEXT_par_virtex5" xil_pn:prop_ck="-2283627392121029586" xil_pn:start_ts="1542209206">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="M.ncd"/>
       <outfile xil_pn:name="M.pad"/>
