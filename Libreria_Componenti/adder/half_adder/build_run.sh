@@ -2,6 +2,7 @@
 
 DIR_NAME=${PWD##*/}
 DEP_FILE="dependencies"
+SIMULATION_TIME="300ns"
 
 #default ! load only ${DIR_NAME}*.vhd  files and dependecies 
 if [ $# == 0 ] ; then
@@ -65,7 +66,7 @@ if [ ${#VHD_FILES[@]} != 0 ] ;then
 	echo "VHD Files are completely loaded"
 	ghdl -a ${DIR_NAME}_testbench.vhd
 	ghdl -e ${DIR_NAME}_testbench
-	ghdl -r ${DIR_NAME}_testbench --vcd=${DIR_NAME}.vcd
+	ghdl -r ${DIR_NAME}_testbench --vcd=${DIR_NAME}.vcd --stop-time=$SIMULATION_TIME
 
         echo "Done. Running gtkwave"
 

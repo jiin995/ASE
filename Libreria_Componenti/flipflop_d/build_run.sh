@@ -41,7 +41,7 @@ fi
 if [ ${#VHD_FILES[@]} != 0 ] ;then
 	for i in $(seq 1 ${#VHD_FILES[@]}); do
 		echo "Loading in ghdl workspace" ${VHD_FILES[$i-1]}
-		if [ ${VHD_FILES[$i-1]} -ne "*_testbench" ] ; then 
+		if [ ${VHD_FILES[$i-1]} != "*_testbench" ] ; then 
 			ghdl -a  ${VHD_FILES[$i-1]}
 		fi
 
@@ -58,7 +58,7 @@ if [ ${#VHD_FILES[@]} != 0 ] ;then
 	echo "VHD Files are completely loaded"
 	ghdl -a ${DIR_NAME}_testbench.vhd
 	ghdl -e ${DIR_NAME}_testbench
-	ghdl -r ${DIR_NAME}_testbench --vcd=${DIR_NAME}.vcd
+	ghdl -r ${DIR_NAME}_testbench --vcd=${DIR_NAME}.vcd --stop-time=200ns
 
         echo "Done. Running gtkwave"
 
