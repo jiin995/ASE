@@ -7,17 +7,57 @@
    <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
-         <ClosedNode>/full_adder - structural |home|jiin995|ASE_WorkSpace|Libreria_Componenti|adder|full_adder|full_adder.vhd</ClosedNode>
-         <ClosedNode>/machine_M - structural |home|jiin995|ASE_WorkSpace|Esercitazioni|Esercitazione_1|ISE|esercizio_5|machine_M.vhd</ClosedNode>
+         <ClosedNode>/M - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_1|ISE|esercizio_5|M.vhd</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>full_adder - structural (/home/simone/Scrivania/ASE/Libreria_Componenti/adder/full_adder/full_adder.vhd)</SelectedItem>
+         <SelectedItem>M - structural (/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_1/ISE/esercizio_5/M.vhd)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >3</ScrollbarPosition>
-      <ScrollbarPosition orientation="horizontal" >73</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000019c000000020000000000000000000000000200000064ffffffff0000008100000003000000020000019c0000000100000003000000000000000100000003</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>full_adder - structural (/home/simone/Scrivania/ASE/Libreria_Componenti/adder/full_adder/full_adder.vhd)</CurrentItem>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000002d0000000020000000000000000000000000200000064ffffffff000000810000000300000002000002d00000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>M - structural (/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_1/ISE/esercizio_5/M.vhd)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Configure Target Device</ClosedNode>
+         <ClosedNode>Design Utilities</ClosedNode>
+         <ClosedNode>Implement Design</ClosedNode>
+         <ClosedNode>Synthesize - XST</ClosedNode>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Generate Programming File</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000230000000010000000100000000000000000000000064ffffffff000000810000000000000001000002300000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Generate Programming File</CurrentItem>
+   </ItemView>
+   <ItemView guiview="File" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000000000000000100000000000000000000000000000000000003cd000000040101000100000000000000000000000064ffffffff0000008100000000000000040000027b00000001000000000000005d0000000100000000000000840000000100000000000000710000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_1/ISE/esercizio_5/full_adder.vhd</CurrentItem>
+   </ItemView>
+   <ItemView guiview="Library" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>work</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000128000000010001000100000000000000000000000064ffffffff000000810000000000000001000001280000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>work</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -29,120 +69,10 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000fa000000010000000100000000000000000000000064ffffffff000000810000000000000001000000fa0000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000230000000010000000100000000000000000000000064ffffffff000000810000000000000001000002300000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem/>
    </ItemView>
-   <ItemView guiview="File" >
-      <ClosedNodes>
-         <ClosedNodesVersion>1</ClosedNodesVersion>
-      </ClosedNodes>
-      <SelectedItems/>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
-      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000028a000000040101000100000000000000000000000064ffffffff0000008100000000000000040000004f00000001000000000000002900000001000000000000008400000001000000000000018e0000000100000000</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>full_adder.vhd</CurrentItem>
-   </ItemView>
-   <ItemView guiview="Library" >
-      <ClosedNodes>
-         <ClosedNodesVersion>1</ClosedNodesVersion>
-      </ClosedNodes>
-      <SelectedItems>
-         <SelectedItem>work</SelectedItem>
-      </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
-      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000128000000010001000100000000000000000000000064ffffffff000000810000000000000001000001280000000100000000</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>work</CurrentItem>
-   </ItemView>
-   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
-      <ClosedNodes>
-         <ClosedNodesVersion>1</ClosedNodesVersion>
-         <ClosedNode>Configure Target Device</ClosedNode>
-         <ClosedNode>Implement Design</ClosedNode>
-         <ClosedNode>User Constraints</ClosedNode>
-      </ClosedNodes>
-      <SelectedItems>
-         <SelectedItem></SelectedItem>
-      </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
-      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000162000000010000000100000000000000000000000064ffffffff000000810000000000000001000001620000000100000000</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
-   </ItemView>
-   <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
-      <ClosedNodes>
-         <ClosedNodesVersion>2</ClosedNodesVersion>
-         <ClosedNode>/full_adder - structural |home|jiin995|ASE_WorkSpace|GHDL|adder|full_adder|full_adder.vhd</ClosedNode>
-         <ClosedNode>/machine_M_TestBench - behavior |home|jiin995|ASE_WorkSpace|Esercitazioni|Esercitazione_1|ISE|esercizio_5|machine_M_TestBench.vhd/uut - machine_M - structural</ClosedNode>
-      </ClosedNodes>
-      <SelectedItems>
-         <SelectedItem>machine_M_TestBench - behavior (/home/jiin995/ASE_WorkSpace/Esercitazioni/Esercitazione_1/ISE/esercizio_5/machine_M_TestBench.vhd)</SelectedItem>
-      </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
-      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001d3000000020000000000000000000000000200000064ffffffff000000810000000300000002000001d30000000100000003000000000000000100000003</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>machine_M_TestBench - behavior (/home/jiin995/ASE_WorkSpace/Esercitazioni/Esercitazione_1/ISE/esercizio_5/machine_M_TestBench.vhd)</CurrentItem>
-   </ItemView>
-   <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
-      <ClosedNodes>
-         <ClosedNodesVersion>1</ClosedNodesVersion>
-         <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
-      </ClosedNodes>
-      <SelectedItems>
-         <SelectedItem/>
-      </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
-      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f4000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f40000000100000000</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
-   </ItemView>
-   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
-      <ClosedNodes>
-         <ClosedNodesVersion>1</ClosedNodesVersion>
-      </ClosedNodes>
-      <SelectedItems>
-         <SelectedItem/>
-      </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
-      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f4000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f40000000100000000</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
-   </ItemView>
-   <ItemView engineview="PostTransSim" guiview="Source" compilemode="AutoCompile" >
-      <ClosedNodes>
-         <ClosedNodesVersion>2</ClosedNodesVersion>
-         <ClosedNode>/machine_M_TestBench - behavior |home|jiin995|ASE_WorkSpace|Esercitazioni|Esercitazione_1|ISE|esercizio_5|machine_M_TestBench.vhd</ClosedNode>
-      </ClosedNodes>
-      <SelectedItems>
-         <SelectedItem>Unassigned User Library Modules</SelectedItem>
-      </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
-      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001d3000000020000000000000000000000000200000064ffffffff000000810000000300000002000001d30000000100000003000000000000000100000003</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Unassigned User Library Modules</CurrentItem>
-   </ItemView>
-   <ItemView engineview="PostTransSim" sourcetype="" guiview="Process" >
-      <ClosedNodes>
-         <ClosedNodesVersion>1</ClosedNodesVersion>
-         <ClosedNode>Design Utilities</ClosedNode>
-      </ClosedNodes>
-      <SelectedItems>
-         <SelectedItem/>
-      </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
-      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f4000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f40000000100000000</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
-   </ItemView>
-   <SourceProcessView>000000ff0000000000000002000001440000011d01000000060100000002</SourceProcessView>
+   <SourceProcessView>000000ff00000000000000020000014c0000011d01000000060100000002</SourceProcessView>
    <CurrentView>Implementation</CurrentView>
 </Project>
