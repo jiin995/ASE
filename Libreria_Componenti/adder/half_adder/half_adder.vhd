@@ -52,7 +52,7 @@ architecture dataflow of half_adder is
 --================================================================================================
 -- architecture dataflow of half_adder begin
 --================================================================================================
-    begin
+begin
       C <=  (X and Y);
       S <=  (X xor Y);
 end dataflow;

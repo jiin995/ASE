@@ -25,6 +25,10 @@ architecture behavioral of full_adder_testbench is
     signal C    : STD_LOGIC :='0';
     signal S    : STD_LOGIC :='0';
 
+-- Scelgo di testare la definzione architetturale del componente!
+    for all : full_adder use entity
+        work.full_adder(structural);
+
     begin
         uut: full_adder port map (
                                     X   => X,
