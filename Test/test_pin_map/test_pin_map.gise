@@ -161,6 +161,8 @@
     <transform xil_pn:end_ts="1542118458" xil_pn:in_ck="-6650825819837034490" xil_pn:name="TRANEXT_bitFile_virtex7" xil_pn:prop_ck="306664139534459597" xil_pn:start_ts="1542118430">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
       <outfile xil_pn:name="test_led_blink.bgn"/>
       <outfile xil_pn:name="test_led_blink.bit"/>
@@ -170,7 +172,11 @@
       <outfile xil_pn:name="webtalk.log"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1542118623" xil_pn:in_ck="-6650825819837047344" xil_pn:name="TRAN_configureTargetDevice" xil_pn:prop_ck="-6383737364629502382" xil_pn:start_ts="1542118621">
+    <transform xil_pn:end_ts="1542125112" xil_pn:in_ck="-6650825819837047344" xil_pn:name="TRAN_configureTargetDevice" xil_pn:prop_ck="-6383737364629502382" xil_pn:start_ts="1542125110">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1542124836" xil_pn:in_ck="-6650825819837047344" xil_pn:name="TRAN_genImpactFile" xil_pn:prop_ck="-7946589813949879364" xil_pn:start_ts="1542124834">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
