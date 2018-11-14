@@ -40,13 +40,10 @@ ARCHITECTURE behavior OF flipflop_d_testbench IS
     -- Component Declaration for the Unit Under Test (UUT)
  
     COMPONENT flipflop_d
-    generic (   init_level   :  STD_LOGIC   :='0';
-                reset_level  :  STD_LOGIC   :='0';
-                enable_level :  STD_LOGIC   :='1');
     PORT(
          clock : IN  std_logic;
          enable : IN  std_logic;
-         reset : IN  std_logic;
+         reset_n : IN  std_logic;
          d : IN  std_logic;
          q : OUT  std_logic
         );
@@ -71,7 +68,7 @@ BEGIN
    uut: flipflop_d PORT MAP (
           clock => clock,
           enable => enable,
-          reset => reset_n,
+          reset_n=> reset_n,
           d => d,
           q => q
         );
