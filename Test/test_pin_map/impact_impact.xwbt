@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=/home/simone/Scrivania/ASE/Test/test_pin_map/impact.xsl
+OUTFILE=/home/simone/Scrivania/ASE/Test/test_pin_map/impact.xsl
+FAMILY=Single
+PART=Single
+WORKINGDIR=/home/simone/Scrivania/ASE/Test/test_pin_map
+LICENSE=iMPACT
+USER_INFO=iMPACT
