@@ -102,19 +102,12 @@
     <transform xil_pn:end_ts="1542118337" xil_pn:in_ck="-6650825819837025613" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="-2128787239073997007" xil_pn:start_ts="1542118328">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
-      <outfile xil_pn:name="test_led_blink.lso"/>
-      <outfile xil_pn:name="test_led_blink.ngc"/>
-      <outfile xil_pn:name="test_led_blink.ngr"/>
-      <outfile xil_pn:name="test_led_blink.prj"/>
-      <outfile xil_pn:name="test_led_blink.stx"/>
-      <outfile xil_pn:name="test_led_blink.syr"/>
-      <outfile xil_pn:name="test_led_blink.xst"/>
-      <outfile xil_pn:name="test_led_blink_xst.xrpt"/>
-      <outfile xil_pn:name="webtalk_pn.xml"/>
-      <outfile xil_pn:name="xst"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1542118369" xil_pn:in_ck="8727754723594036668" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-2808039817804209285" xil_pn:start_ts="1542118369">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -123,63 +116,55 @@
     <transform xil_pn:end_ts="1542118376" xil_pn:in_ck="-8762477150085853883" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-2134427483283360891" xil_pn:start_ts="1542118369">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_ngo"/>
-      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
-      <outfile xil_pn:name="test_led_blink.bld"/>
-      <outfile xil_pn:name="test_led_blink.ngd"/>
-      <outfile xil_pn:name="test_led_blink_ngdbuild.xrpt"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1542118399" xil_pn:in_ck="-8762477150085853882" xil_pn:name="TRANEXT_map_virtex7" xil_pn:prop_ck="-7188367874928765557" xil_pn:start_ts="1542118376">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
-      <outfile xil_pn:name="test_led_blink.pcf"/>
-      <outfile xil_pn:name="test_led_blink_map.map"/>
-      <outfile xil_pn:name="test_led_blink_map.mrp"/>
-      <outfile xil_pn:name="test_led_blink_map.ncd"/>
-      <outfile xil_pn:name="test_led_blink_map.ngm"/>
-      <outfile xil_pn:name="test_led_blink_map.xrpt"/>
-      <outfile xil_pn:name="test_led_blink_summary.xml"/>
-      <outfile xil_pn:name="test_led_blink_usage.xml"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1542118430" xil_pn:in_ck="-1325262077416321185" xil_pn:name="TRANEXT_par_virtex5" xil_pn:prop_ck="-2283627392121029586" xil_pn:start_ts="1542118399">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
-      <outfile xil_pn:name="test_led_blink.ncd"/>
-      <outfile xil_pn:name="test_led_blink.pad"/>
-      <outfile xil_pn:name="test_led_blink.par"/>
-      <outfile xil_pn:name="test_led_blink.ptwx"/>
-      <outfile xil_pn:name="test_led_blink.unroutes"/>
-      <outfile xil_pn:name="test_led_blink.xpi"/>
-      <outfile xil_pn:name="test_led_blink_pad.csv"/>
-      <outfile xil_pn:name="test_led_blink_pad.txt"/>
-      <outfile xil_pn:name="test_led_blink_par.xrpt"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1542118458" xil_pn:in_ck="-6650825819837034490" xil_pn:name="TRANEXT_bitFile_virtex7" xil_pn:prop_ck="306664139534459597" xil_pn:start_ts="1542118430">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
-      <outfile xil_pn:name="test_led_blink.bgn"/>
-      <outfile xil_pn:name="test_led_blink.bit"/>
-      <outfile xil_pn:name="test_led_blink.drc"/>
-      <outfile xil_pn:name="test_led_blink.ut"/>
-      <outfile xil_pn:name="usage_statistics_webtalk.html"/>
-      <outfile xil_pn:name="webtalk.log"/>
-      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1542118623" xil_pn:in_ck="-6650825819837047344" xil_pn:name="TRAN_configureTargetDevice" xil_pn:prop_ck="-6383737364629502382" xil_pn:start_ts="1542118621">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="InputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1542118430" xil_pn:in_ck="-8762477150085854014" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416183" xil_pn:start_ts="1542118417">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
-      <outfile xil_pn:name="test_led_blink.twr"/>
-      <outfile xil_pn:name="test_led_blink.twx"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
   </transforms>
 

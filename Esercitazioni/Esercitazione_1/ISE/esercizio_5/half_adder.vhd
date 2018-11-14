@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    20:45:27 11/12/2018 
+-- Create Date:    15:50:54 11/14/2018 
 -- Design Name: 
--- Module Name:    test_led_blink - Behavioral 
+-- Module Name:    half_adder - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -29,15 +29,13 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity test_led_blink is
-    Port ( 	led : out  STD_LOGIC;
-				switch : in STD_LOGIC );
-end test_led_blink;
+entity half_adder is
+end half_adder;
 
-architecture Behavioral of test_led_blink is
+architecture Behavioral of half_adder is
 
 begin
-	led <= switch;
+
 
 end Behavioral;
 

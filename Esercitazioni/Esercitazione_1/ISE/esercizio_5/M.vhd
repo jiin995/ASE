@@ -16,19 +16,19 @@
 -- Revision 0.01 - File Created
 -- Additional Comments: 
 --
-----------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
 --todo 
 	-- si puo' fare con un unico for generate e si deve provare anche 
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity machine_M is
+entity M is
     Port ( X : in  STD_LOGIC_VECTOR (5 downto 0);
            Y : out  STD_LOGIC_VECTOR (2 downto 0));
-end machine_M;
+end M;
 
-architecture structural of machine_M is
+architecture structural of M is
 
 	component full_adder is 
 	  port (  X   :   in  STD_LOGIC;
@@ -39,37 +39,42 @@ architecture structural of machine_M is
 
 	  );
 	end component;
+	
 -- signals used for connect the carry output of full_adders to input of adder on second level adders
-	signal C : STD_LOGIC_VECTOR ( 1 downto 0) :=( others => '0' );
+	signal C : STD_LOGIC_VECTOR ( 3 downto 0) :=( others => '0' );
 
 -- signals used for connect the sum output of full_adders to input of adder on second level adders
-	signal S	: STD_LOGIC_VECTOR (	1 downto 0) :=( others => '0' ); 
+	signal S	: STD_LOGIC_VECTOR (	3 downto 0) :=( others => '0' ); 
 
--- signals used for connect the carry output of second level adder to adder of same level
-	signal C_1 : STD_LOGIC :='0';
 
 begin
 
--- generate the two adders on input
-	in_adders_0: for i in 0 to 1 generate 
-		in_adder_0: full_adder port map (	X => X(i*3),
-														Y => X((i*3)+1),
-														CIN => X((i*3)+2),
-														S => S(i),
-														C => C(i));
-	end generate in_adders_0;
+	adder_0: full_adder port map (		X => X(0),
+													Y => X(1),
+													CIN => X(2),
+													S => S(0),
+													C => C(0) );
 
-	adder_1_1: full_adder port map (		X => S(0),
+	adder_1: full_adder port map (		X => X(3),
+													Y => X(4),
+													CIN => X(5),
+													S => S(1),
+													C => C(1) );
+
+	adder_2: full_adder port map (		X => S(0),
 													Y => S(1),
 													CIN => '0',
-													S => Y(0),
-													C => C_1);
+													S => S(2),
+													C => C(2) );
 
-	adder_1_2: full_adder port map (		X => C(0),
+	adder_3: full_adder port map (		X => C(0),
 													Y => C(1),
-													CIN => C_1,
-													S => Y(1),
-													C => Y(2));
+													CIN => C(2),
+													S => S(3),
+													C => C(3) );
+	
+	Y(0) <= S(2);
+	Y(1) <= S(3);
+	Y(2) <= C(3);
 
 end structural;
-

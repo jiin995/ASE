@@ -4,7 +4,7 @@
 --
 -- Create Date:   19:55:02 11/09/2018
 -- Design Name:   
--- Module Name:   /home/cris/vhdl_uni/flipflop_d_tb.vhd
+-- Module Name:   /home/cris/vhdl_uni/flipflop_d_testbench.vhd
 -- Project Name:  vhdl_uni
 -- Target Device:  
 -- Tool versions:  
@@ -32,10 +32,10 @@ USE ieee.std_logic_1164.ALL;
 -- arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
-ENTITY flipflop_d_tb IS
-END flipflop_d_tb;
+ENTITY flipflop_d_testbench IS
+END flipflop_d_testbench;
  
-ARCHITECTURE behavior OF flipflop_d_tb IS 
+ARCHITECTURE behavior OF flipflop_d_testbench IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
