@@ -1,13 +1,12 @@
 #!/bin/bash
 
 DIR_NAME=${PWD##*/}
+DEP_FILE="dependencies"
 
+#default ! load only ${DIR_NAME}*.vhd  files and dependecies 
 if [ $# == 0 ] ; then
-
 	echo "No input, i find all vhd file that namig with " $DIR_NAME;
 	VHD_FILES=( $(ls -al ${DIR_NAME}*.vhd | awk '{split ($0,a," ");print a[9]}') )
-
-
 else
 	INPUT=( "$@" )
 	#echo $INPUT
@@ -15,8 +14,9 @@ else
 	if [ $1 == 'ALL' ] ; then
 		echo "loading all vhd files"
 		VHD_FILES=($(ls -al *.vhd | awk '{split ($0,a," ");print a[9]}'))
+	#load input file from cmd
 	else
-#load only DIR_NAME.vhd files and files that are passed
+		#load only DIR_NAME.vhd files and files that are passed
 		for i in $(seq 1 $#); do
 			#echo "valuting " ${INPUT[$i]}
 			if [[ ${INPUT[$i-1]} == *.vhd ]] ; then
@@ -37,11 +37,18 @@ fi
 
 #VHD_FILES=( $(ls -al ${DIR_NAME}*.vhd | awk '{split ($0,a," ");print a[9]}') )
 
+##Prepare to load dependecies in work space for run ghdl 
+if [ -f $DEP_FILE ]; then 
+	echo "find dependecies file, add components!"
+		while IFS='' read -r line || [[ -n "$line" ]]; do
+			VHD_FILES+=($line)
+		done < "$DEP_FILE"
+fi
 
 if [ ${#VHD_FILES[@]} != 0 ] ;then
 	for i in $(seq 1 ${#VHD_FILES[@]}); do
 		echo "Loading in ghdl workspace" ${VHD_FILES[$i-1]}
-		if [ ${VHD_FILES[$i-1]} -ne "*_testbench" ] ; then 
+		if [[ ${VHD_FILES[$i-1]} != *"_testbench"* ]] ; then 
 			ghdl -a  ${VHD_FILES[$i-1]}
 		fi
 
