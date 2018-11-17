@@ -16,12 +16,6 @@ entity full_adder is
   );
 end full_adder;
 
-architecture dataflow of full_adder is
-  begin
-    S <=  (X xor Y xor CIN);
-    C <=  ((X and Y) or ((X xor Y) and CIN));
-  end dataflow;
-
 --=============================================================================
 -- architecture begin
 --=============================================================================
@@ -60,3 +54,9 @@ architecture structural of full_adder is
 --=============================================================================
 -- architecture end
 --=============================================================================
+
+architecture dataflow of full_adder is
+  begin
+    S <=  (X xor Y xor CIN);
+    C <=  ((X and Y) or ((X xor Y) and CIN));
+  end dataflow;
