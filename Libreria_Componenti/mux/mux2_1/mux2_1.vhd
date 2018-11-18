@@ -54,7 +54,9 @@ architecture dataflow of mux2_1 is
 --================================================================================================
     begin
     --X <= A when SEL='0' else B;
-        X <= (A and (not SEL) ) or (B and (SEL));
+    --X <= (A and (not SEL) ) or (B and (SEL));
+	X <= A when SEL='0' else
+	     B when SEL='1' else 'X';
     end dataflow;
 --================================================================================================
 -- architecture dataflow of mux2_1 end
