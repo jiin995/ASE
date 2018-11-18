@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=/home/jiin995/ASE_WorkSpace/Test/Test7Segmenti/Test_clockFilter_counter/impact.xsl
+OUTFILE=/home/jiin995/ASE_WorkSpace/Test/Test7Segmenti/Test_clockFilter_counter/impact.xsl
+FAMILY=Single
+PART=Single
+WORKINGDIR=/home/jiin995/ASE_WorkSpace/Test/Test7Segmenti/Test_clockFilter_counter
+LICENSE=iMPACT
+USER_INFO=iMPACT

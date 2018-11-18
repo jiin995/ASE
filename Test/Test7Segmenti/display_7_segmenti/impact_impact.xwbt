@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=/home/jiin995/ASE_WorkSpace/Test/Test7Segmenti/display_7_segmenti/impact.xsl
+OUTFILE=/home/jiin995/ASE_WorkSpace/Test/Test7Segmenti/display_7_segmenti/impact.xsl
+FAMILY=Single
+PART=Single
+WORKINGDIR=/home/jiin995/ASE_WorkSpace/Test/Test7Segmenti/display_7_segmenti
+LICENSE=iMPACT
+USER_INFO=iMPACT

@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/jiin995/ASE_WorkSpace/Test/Test7Segmenti/Test_clockFilter_counter/clock_divisor_counter.ncd
+OUTFILE=/home/jiin995/ASE_WorkSpace/Test/Test7Segmenti/Test_clockFilter_counter/clock_divisor_counter.bit
+FAMILY=Artix7
+PART=xc7a100t-1csg324
+WORKINGDIR=/home/jiin995/ASE_WorkSpace/Test/Test7Segmenti/Test_clockFilter_counter
+LICENSE=WebPack
+USER_INFO=211602214_0_0_275
