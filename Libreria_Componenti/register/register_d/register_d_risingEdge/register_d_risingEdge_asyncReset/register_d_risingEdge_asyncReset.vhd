@@ -57,7 +57,7 @@ begin
         begin
             --! se il reset è paria al livello di reset, allora il contenuto del registro viene posto a 0
             if( reset = reset_level) then
-                Q_temp <= ( others <= '0')
+                Q_temp <= ( others => '0');
             --! se 
             elsif rising_edge(clock) and (enable = enable_level) then
                 Q_temp <= D;

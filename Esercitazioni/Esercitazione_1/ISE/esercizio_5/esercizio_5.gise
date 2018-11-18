@@ -164,18 +164,7 @@
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="M.lso"/>
-      <outfile xil_pn:name="M.ngc"/>
-      <outfile xil_pn:name="M.ngr"/>
-      <outfile xil_pn:name="M.prj"/>
-      <outfile xil_pn:name="M.stx"/>
-      <outfile xil_pn:name="M.syr"/>
-      <outfile xil_pn:name="M.xst"/>
-      <outfile xil_pn:name="M_xst.xrpt"/>
-      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
-      <outfile xil_pn:name="full_adder.ngr"/>
-      <outfile xil_pn:name="webtalk_pn.xml"/>
-      <outfile xil_pn:name="xst"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1542209172" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-5044820888807098047" xil_pn:start_ts="1542209172">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -186,11 +175,9 @@
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
-      <outfile xil_pn:name="M.bld"/>
-      <outfile xil_pn:name="M.ngd"/>
-      <outfile xil_pn:name="M_ngdbuild.xrpt"/>
-      <outfile xil_pn:name="_ngo"/>
-      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1542209206" xil_pn:in_ck="93092308" xil_pn:name="TRANEXT_map_virtex7" xil_pn:prop_ck="5451868258518597909" xil_pn:start_ts="1542209179">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -198,39 +185,27 @@
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
-      <outfile xil_pn:name="M.pcf"/>
-      <outfile xil_pn:name="M_map.map"/>
-      <outfile xil_pn:name="M_map.mrp"/>
-      <outfile xil_pn:name="M_map.ncd"/>
-      <outfile xil_pn:name="M_map.ngm"/>
-      <outfile xil_pn:name="M_map.xrpt"/>
-      <outfile xil_pn:name="M_summary.xml"/>
-      <outfile xil_pn:name="M_usage.xml"/>
-      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1542209239" xil_pn:in_ck="112486916428525" xil_pn:name="TRANEXT_par_virtex5" xil_pn:prop_ck="-2283627392121029586" xil_pn:start_ts="1542209206">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
-      <outfile xil_pn:name="M.ncd"/>
-      <outfile xil_pn:name="M.pad"/>
-      <outfile xil_pn:name="M.par"/>
-      <outfile xil_pn:name="M.ptwx"/>
-      <outfile xil_pn:name="M.unroutes"/>
-      <outfile xil_pn:name="M.xpi"/>
-      <outfile xil_pn:name="M_pad.csv"/>
-      <outfile xil_pn:name="M_pad.txt"/>
-      <outfile xil_pn:name="M_par.xrpt"/>
-      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1542209239" xil_pn:in_ck="93092176" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1542209225">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
-      <outfile xil_pn:name="M.twr"/>
-      <outfile xil_pn:name="M.twx"/>
-      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
   </transforms>
 

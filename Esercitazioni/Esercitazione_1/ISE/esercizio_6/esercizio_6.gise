@@ -78,6 +78,7 @@
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
     <transform xil_pn:end_ts="1542214956" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1542214956">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
     </transform>
     <transform xil_pn:end_ts="1542215146" xil_pn:in_ck="4192677332778475136" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1542215146">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -128,6 +129,7 @@
     </transform>
     <transform xil_pn:end_ts="1542213879" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1542213879">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
     </transform>
     <transform xil_pn:end_ts="1542213879" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="4706881042193877562" xil_pn:start_ts="1542213879">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -156,6 +158,7 @@
     <transform xil_pn:end_ts="1542214860" xil_pn:in_ck="988248123177680670" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="-6033033519602782553" xil_pn:start_ts="1542214849">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="S.lso"/>
@@ -177,6 +180,7 @@
     <transform xil_pn:end_ts="1542214867" xil_pn:in_ck="100207833" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="3144161062584815579" xil_pn:start_ts="1542214860">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="S.bld"/>
       <outfile xil_pn:name="S.ngd"/>
       <outfile xil_pn:name="S_ngdbuild.xrpt"/>
@@ -187,6 +191,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="S.pcf"/>
       <outfile xil_pn:name="S_map.map"/>
       <outfile xil_pn:name="S_map.mrp"/>
@@ -200,6 +205,7 @@
     <transform xil_pn:end_ts="1542214928" xil_pn:in_ck="120925368137971" xil_pn:name="TRANEXT_par_virtex5" xil_pn:prop_ck="-2283627392121029586" xil_pn:start_ts="1542214893">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="S.ncd"/>
       <outfile xil_pn:name="S.pad"/>
       <outfile xil_pn:name="S.par"/>
@@ -214,6 +220,7 @@
     <transform xil_pn:end_ts="1542214928" xil_pn:in_ck="100207702" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1542214914">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="S.twr"/>
       <outfile xil_pn:name="S.twx"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
