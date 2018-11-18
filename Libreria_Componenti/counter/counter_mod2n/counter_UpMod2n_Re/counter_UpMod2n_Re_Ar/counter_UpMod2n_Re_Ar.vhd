@@ -1,7 +1,7 @@
 library IEEE;
     use IEEE.STD_LOGIC_1164.all;
     use IEEE.numeric_std.all;
-    use IEEE.math_real.all
+    use IEEE.math_real.all;
    
     
 entity counter_UpMod2n_Re_Ar is 
