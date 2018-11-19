@@ -3,16 +3,16 @@
 -- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
 -- 
 ---------------------------------------------------------------------------------------------------
--- project name : flipflop_d_risingEdge_asyncReset
+-- project name : flipflop_d_fallingEdge_asyncReset
 --
--- unit name: flipflop_d_risingEdge_asyncReset.vhdl
+-- unit name: flipflop_d_fallingEdge_asyncReset.vhdl
 --     
 -- file description:
 --! @file
 --! @author     Gabriele Previtera
 --! @date       13/11/2018
 --! @version    0.1
---! @brief      flipflop_d_risingEdge_asyncReset implementa un flipflop di tipo che commuta sul fronte di salita.
+--! @brief      flipflop_d_fallingEdge_asyncReset implementa un flipflop di tipo che commuta sul fronte di discesa.
 --!             con segnale di enable e reset asincrono con clock
 --! @details
 --!
@@ -30,7 +30,7 @@
 library IEEE;
     use IEEE.STD_LOGIC_1164.all;
 
-entity flipflop_d_risingEdge_asyncReset is 
+entity flipflop_d_fallingEdge_asyncReset is 
 
     generic (   
                 init_value      :   STD_LOGIC :='0';    --! define initial level of flipflop
@@ -39,15 +39,15 @@ entity flipflop_d_risingEdge_asyncReset is
 
     );
     
-    port (  clock   :   in  STD_LOGIC;  --! flipflop_d_risingEdge_asyncReset input    : clock signal for sync
-            enable  :   in  STD_LOGIC;  --! flipflop_d_risingEdge_asyncReset input    : enable signal
-            reset   :   in  STD_LOGIC;  --! flipflop_d_risingEdge_asyncReset input    : reset signal
-            d       :   in  STD_LOGIC;  --! flipflop_d_risingEdge_asyncReset input    : data input
-            q       :   out STD_LOGIC   --! flipflop_d_risingEdge_asyncReset output   : data output
+    port (  clock   :   in  STD_LOGIC;  --! flipflop_d_fallingEdge_asyncReset input    : clock signal for sync
+            enable  :   in  STD_LOGIC;  --! flipflop_d_fallingEdge_asyncReset input    : enable signal
+            reset   :   in  STD_LOGIC;  --! flipflop_d_fallingEdge_asyncReset input    : reset signal
+            d       :   in  STD_LOGIC;  --! flipflop_d_fallingEdge_asyncReset input    : data input
+            q       :   out STD_LOGIC   --! flipflop_d_fallingEdge_asyncReset output   : data output
     );
-end flipflop_d_risingEdge_asyncReset;
+end flipflop_d_fallingEdge_asyncReset;
 
-architecture behavioural of flipflop_d_risingEdge_asyncReset is 
+architecture behavioural of flipflop_d_fallingEdge_asyncReset is 
 
 --! signal used for set the q output before the component receive the first clock event
 signal q_temp   :   STD_LOGIC   :=init_value;
@@ -62,7 +62,7 @@ begin
         -- reset the component status 
             if ( reset = reset_level ) then 
                 q_temp <= init_value;
-            -- check the rising edge event of clock and if component is enable 
+            -- check the falling edge event of clock and if component is enable 
             elsif ( falling_edge (clock) and (enable = enable_level) ) then
                 q_temp <= d;
             end if;

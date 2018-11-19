@@ -3,16 +3,16 @@
 -- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
 -- 
 ---------------------------------------------------------------------------------------------------
--- project name : flipflop_d_risingEdge_syncReset
+-- project name : flipflop_d_fallingEdge_syncReset
 --
--- unit name: flipflop_d_risingEdge_syncReset.vhDl
+-- unit name: flipflop_d_fallingEdge_syncReset.vhDl
 --     
 -- file Description:
 --! @file
 --! @author     Gabriele Previtera
 --! @date       13/11/2018
 --! @version    0.1
---! @brief      flipflop_d_risingEdge_syncReset implementa un flipflop di tipo che commuta sul fronte di salita.
+--! @brief      flipflop_d_fallingEdge_syncReset implementa un flipflop di tipo che commuta sul fronte di salita.
 --!             con segnale di enable e reset sincrono con clock
 --! @details
 --!
@@ -30,7 +30,7 @@ library IEEE;
     use IEEE.STD_LOGIC_1164.all;
 
 
-entity flipflop_d_risingEdge_syncReset is 
+entity flipflop_d_fallingEdge_syncReset is 
 
      generic (   
                 init_value      :   STD_LOGIC :='0';    --! define initial level of flipflop
@@ -45,9 +45,9 @@ entity flipflop_d_risingEdge_syncReset is
             d       :   in  STD_LOGIC;  --! flipflop_d_async_reset input    : data input
             q       :   out STD_LOGIC   --! flipflop_d_async_reset output   : data output
     );
-end flipflop_d_risingEdge_syncReset;
+end flipflop_d_fallingEdge_syncReset;
 
-architecture behavioral of flipflop_d_risingEdge_syncReset is
+architecture behavioral of flipflop_d_fallingEdge_syncReset is
 
 --! signal used for set the q output before the component receive the first clock event
 signal q_temp   :   STD_LOGIC := init_value;
@@ -59,7 +59,7 @@ begin
     -- exec this proces only when have a clock event
     ff : process (clock)
         begin  
-            -- check the rising edge event of clock and if component is enable 
+            -- check the falling edge event of clock and if component is enable 
             if ( falling_edge (clock) and (enable = enable_level) ) then
                 if ( reset = reset_level ) then
                     q_temp <= init_value;

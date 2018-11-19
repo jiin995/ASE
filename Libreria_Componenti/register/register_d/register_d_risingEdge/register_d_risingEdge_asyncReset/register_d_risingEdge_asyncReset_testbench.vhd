@@ -5,13 +5,13 @@ USE ieee.std_logic_1164.ALL;
 -- arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
-ENTITY register_d_testbench IS
+ENTITY register_d_risingedge_asyncreset_testbench IS
     generic (
             dimension_tb  : NATURAL   :=15
     );
-END register_d_testbench;
+END register_d_risingedge_asyncreset_testbench;
  
-ARCHITECTURE behavior OF register_d_testbench IS 
+ARCHITECTURE behavior OF register_d_risingedge_asyncreset_testbench IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  

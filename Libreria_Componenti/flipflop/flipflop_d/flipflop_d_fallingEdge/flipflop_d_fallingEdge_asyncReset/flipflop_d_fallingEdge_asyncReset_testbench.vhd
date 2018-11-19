@@ -6,14 +6,14 @@ USE ieee.std_logic_1164.ALL;
 -- arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
-ENTITY flipflop_d_risingEdge_asyncReset_testbench IS
-END flipflop_d_risingEdge_asyncReset_testbench;
+ENTITY flipflop_d_fallingEdge_asyncReset_testbench IS
+END flipflop_d_fallingEdge_asyncReset_testbench;
  
-ARCHITECTURE behavior OF flipflop_d_risingEdge_asyncReset_testbench IS 
+ARCHITECTURE behavior OF flipflop_d_fallingEdge_asyncReset_testbench IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
-    COMPONENT flipflop_d_risingEdge_asyncReset
+    COMPONENT flipflop_d_fallingEdge_asyncReset
     generic (   init_value   :  STD_LOGIC   :='0';
                 reset_level  :  STD_LOGIC   :='0';
                 enable_level :  STD_LOGIC   :='1');
@@ -42,7 +42,7 @@ ARCHITECTURE behavior OF flipflop_d_risingEdge_asyncReset_testbench IS
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: flipflop_d_risingEdge_asyncReset PORT MAP (
+   uut: flipflop_d_fallingEdge_asyncReset PORT MAP (
           clock => clock,
           enable => enable,
           reset => reset_n,
