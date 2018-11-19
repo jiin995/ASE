@@ -99,9 +99,9 @@ begin
 												C => CARRY(0)
 										);
 										
-	FA_1: full_adder port map (		X => Y0(2),
+	FA_1: full_adder port map (		X => Y2(0),
 												Y => Y1(1),
-												CIN => Y2(0),
+												CIN => Y0(2),
 												S => S(1),
 												C => CARRY(1)
 										);
