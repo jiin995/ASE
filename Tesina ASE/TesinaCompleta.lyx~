@@ -72,7 +72,7 @@ morecomment=[s]{--}
 \use_default_options true
 \maintain_unincluded_children false
 \language italian
-\language_package none
+\language_package auto
 \inputencoding auto
 \fontencoding global
 \font_roman "default" "default"

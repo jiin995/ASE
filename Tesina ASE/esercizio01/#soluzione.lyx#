@@ -1794,36 +1794,170 @@ signal S	: STD_LOGIC_VECTOR (	3 downto 0) :=( others => '0' );
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 begin
 \end_layout
 
 \begin_layout Plain Layout
 
-	adder_0: full_adder port map (		X => X(0), 													Y => X(1), 												
-	CIN => X(2), 													S => S(0), 													C => C(0) );
+	adder_0: full_adder port map (	
 \end_layout
 
 \begin_layout Plain Layout
 
-	adder_1: full_adder port map (		X => X(3), 													Y => X(4), 												
-	CIN => X(5), 													S => S(1), 													C => C(1) );
+		X => X(0), 													
 \end_layout
 
 \begin_layout Plain Layout
 
-	adder_2: full_adder port map (		X => S(0), 													Y => S(1), 												
-	CIN => '0', 													S => S(2), 													C => C(2) );
+		Y => X(1), 												
 \end_layout
 
 \begin_layout Plain Layout
 
-	adder_3: full_adder port map (		X => C(0), 													Y => C(1), 												
-	CIN => C(2), 													S => S(3), 													C => C(3) ); 
+		CIN => X(2), 													
 \end_layout
 
 \begin_layout Plain Layout
 
-	Y(0) <= S(2); 	Y(1) <= S(3); 	Y(2) <= C(3);
+		S => S(0), 													
+\end_layout
+
+\begin_layout Plain Layout
+
+		C => C(0) 
+\end_layout
+
+\begin_layout Plain Layout
+
+	);
+\end_layout
+
+\begin_layout Plain Layout
+
+	adder_1: full_adder port map (
+\end_layout
+
+\begin_layout Plain Layout
+
+		X => X(3), 													
+\end_layout
+
+\begin_layout Plain Layout
+
+		Y => X(4), 													
+\end_layout
+
+\begin_layout Plain Layout
+
+		CIN => X(5), 													
+\end_layout
+
+\begin_layout Plain Layout
+
+		S => S(1), 													
+\end_layout
+
+\begin_layout Plain Layout
+
+		C => C(1)
+\end_layout
+
+\begin_layout Plain Layout
+
+	);
+\end_layout
+
+\begin_layout Plain Layout
+
+	adder_2: full_adder port map (
+\end_layout
+
+\begin_layout Plain Layout
+
+		X => S(0), 													
+\end_layout
+
+\begin_layout Plain Layout
+
+		Y => S(1), 													
+\end_layout
+
+\begin_layout Plain Layout
+
+		CIN => '0', 														
+\end_layout
+
+\begin_layout Plain Layout
+
+		S => S(2), 													
+\end_layout
+
+\begin_layout Plain Layout
+
+		C => C(2) 
+\end_layout
+
+\begin_layout Plain Layout
+
+	);
+\end_layout
+
+\begin_layout Plain Layout
+
+	adder_3: full_adder port map (		
+\end_layout
+
+\begin_layout Plain Layout
+
+		X => C(0), 													
+\end_layout
+
+\begin_layout Plain Layout
+
+		Y => C(1), 												
+\end_layout
+
+\begin_layout Plain Layout
+
+		CIN => C(2), 												
+\end_layout
+
+\begin_layout Plain Layout
+
+		S => S(3), 													
+\end_layout
+
+\begin_layout Plain Layout
+
+		C => C(3) 
+\end_layout
+
+\begin_layout Plain Layout
+
+	); 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	Y(0) <= S(2); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	Y(1) <= S(3); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	Y(2) <= C(3);
 \end_layout
 
 \begin_layout Plain Layout
@@ -1843,6 +1977,42 @@ selectlanguage{italian}%
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Il risultato della simulazione è analogo a quello dell'esercizio 4.
+\end_layout
+
+\begin_layout Subsection
+Esercizio 6
+\end_layout
+
+\begin_layout Standard
+Si progetti una macchina S che, date 6 stringhe di 3 bit ciascuna in ingresso
+ (A, B, C, D, E, F), rappresentanti la codifica binaria di numeri interi
+ positivi, ne calcoli la somma W espressa su 6 bit.
+ La macchina S deve essere progettata per composizione di macchine utilizzando
+ la macchina M progettata al punto 5) e componenti full-adder, opportunamente
+ collegati.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come descritto nell'esercizio 5, la macchina M è in grado di determinare,
+ dati 6 bit in ingresso, il numero di bit alti.
+ Dal momento che si può considerare tale macchina come sommatore in grado
+ di sommare 6 bit, si è deciso di utilizzarla per sommare tra loro le cifre
+ dello stesso peso delle 6 stringhe fornite in ingresso alla macchina S.
+ Essendo tali stringhe composte da 3 bit ciascuna (di peso 2, 1 e 0), sono
+ stati utilizzate 3 macchine M per sommare le cifre di stesso peso tra loro.
+ Una volta ottenute tali somme (ciascuna, rispettivamente, su 3 bit), si
+ sono potute fare queste osservazioni: il bit di peso 0 della somma dei
+ 6 bit di peso 0 non è altro che la cifra di peso 0 del risultato della
+ macchina S, ossia della somma delle 6 stringhe.
+ Essendo t
 \end_layout
 
 \end_body

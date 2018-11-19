@@ -81,7 +81,16 @@ morecomment=[s]{--}
 \index_command default
 \paperfontsize default
 \spacing single
-\use_hyperref false
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
 \papersize default
 \use_geometry true
 \use_package amsmath 1
@@ -1005,7 +1014,7 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1572,7 +1581,7 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1595,7 +1604,7 @@ name "fig:full_adder_implementation"
 
 \end_inset
 
-Implementazione della macchina M a partire da blocchi full-adder.
+Schema della macchina M a partire da blocchi full-adder.
 \end_layout
 
 \end_inset
@@ -2001,6 +2010,169 @@ Si progetti una macchina S che, date 6 stringhe di 3 bit ciascuna in ingresso
 \end_layout
 
 \begin_layout Standard
+Come descritto nell'esercizio 5, la macchina M è in grado di determinare,
+ dati 6 bit in ingresso, il numero di bit alti.
+ Dal momento che si può considerare tale macchina come sommatore in grado
+ di sommare 6 bit, si è deciso di utilizzarla per sommare tra loro le cifre
+ dello stesso peso delle 6 stringhe fornite in ingresso alla macchina S.
+ Essendo tali stringhe composte da 3 bit ciascuna (di peso 2, 1 e 0), sono
+ stati utilizzate 3 macchine M per sommare le cifre di stesso peso tra loro.
+ Una volta ottenute tali somme (ciascuna, rispettivamente, espressa su 3
+ bit in codifica binaria), si sono potute fare queste osservazioni: il bit
+ di peso 0 della somma dei 6 bit di peso 0 non è altro che la cifra di peso
+ 0 del risultato della macchina S, ossia della somma delle 6 stringhe.
+ Il bit di peso 1 della stessa somma, invece, rappresenta invece un bit
+ di peso 1 della somma totale delle stringhe, e lo stesso ragionamento è
+ valido per il bit di peso 2.
+ Passando alla somma dei 6 bit di peso 1 delle stringhe di partenza, si
+ noti che la cifra di peso 0 di tale somma non è altro che un bit di peso
+ 1 della somma totale delle stringhe, menrte la cifra di peso 1 è un bit
+ di peso 2 per la somma totale e così via.
+ Seguendo questo ragionamento, è stato possibile combinare le cifre delle
+ somme di peso analogo utilizzando dei full-adder, ottenendo lo schema consultab
+ile in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:S"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/soluzione/S_design.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:S"
+
+\end_inset
+
+Schema della macchina S.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dopodiché si è proceduto alla sua realizzazione in VHDL utilizzando una
+ modalità di descrizione 
+\begin_inset Quotes eld
+\end_inset
+
+structural
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Il codice è visualizzabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./design/S.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+S.vhd
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Il risultato della simulazione è riportato in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:S_simulation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/soluzione/S_simulation.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:S_simulation"
+
+\end_inset
+
+Risultato della simulazione della macchina S.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
