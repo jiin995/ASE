@@ -1725,13 +1725,7 @@ selectlanguage{italian}%
 \begin_layout Standard
 Dopodiché, utilizzando questi componenti, si è proceduto a costruire la
  macchina M seguendo una modalità di descrizione di tipo “structural”.
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
+ Il codice è visualizzabile qui: 
 \begin_inset ERT
 status open
 
@@ -1739,253 +1733,17 @@ status open
 
 
 \backslash
-begin{lstlisting}[float][language=VHDL,caption={Implementazione in VHDL
- della macchina M usando i full-adder.}]
+href{run:./esercizio01/design/M.vhd}{%
 \end_layout
 
 \begin_layout Plain Layout
 
-entity M is
-\end_layout
-
-\begin_layout Plain Layout
-
-Port (  X : in  STD_LOGIC_VECTOR (5 downto 0);
-\end_layout
-
-\begin_layout Plain Layout
-
-		Y : out  STD_LOGIC_VECTOR (2 downto 0));
-\end_layout
-
-\begin_layout Plain Layout
-
-end M;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-architecture structural of M is
-\end_layout
-
-\begin_layout Plain Layout
-
-[...]
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
--- signals used for the carry output of the full-adders
-\end_layout
-
-\begin_layout Plain Layout
-
-signal C : STD_LOGIC_VECTOR ( 3 downto 0) :=( others => '0' );
-\end_layout
-
-\begin_layout Plain Layout
-
--- signals used for the sum output of the full-adders
-\end_layout
-
-\begin_layout Plain Layout
-
-signal S	: STD_LOGIC_VECTOR (	3 downto 0) :=( others => '0' ); 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-begin
-\end_layout
-
-\begin_layout Plain Layout
-
-	adder_0: full_adder port map (	
-\end_layout
-
-\begin_layout Plain Layout
-
-		X => X(0), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		Y => X(1), 												
-\end_layout
-
-\begin_layout Plain Layout
-
-		CIN => X(2), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		S => S(0), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		C => C(0) 
-\end_layout
-
-\begin_layout Plain Layout
-
-	);
-\end_layout
-
-\begin_layout Plain Layout
-
-	adder_1: full_adder port map (
-\end_layout
-
-\begin_layout Plain Layout
-
-		X => X(3), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		Y => X(4), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		CIN => X(5), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		S => S(1), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		C => C(1)
-\end_layout
-
-\begin_layout Plain Layout
-
-	);
-\end_layout
-
-\begin_layout Plain Layout
-
-	adder_2: full_adder port map (
-\end_layout
-
-\begin_layout Plain Layout
-
-		X => S(0), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		Y => S(1), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		CIN => '0', 														
-\end_layout
-
-\begin_layout Plain Layout
-
-		S => S(2), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		C => C(2) 
-\end_layout
-
-\begin_layout Plain Layout
-
-	);
-\end_layout
-
-\begin_layout Plain Layout
-
-	adder_3: full_adder port map (		
-\end_layout
-
-\begin_layout Plain Layout
-
-		X => C(0), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		Y => C(1), 												
-\end_layout
-
-\begin_layout Plain Layout
-
-		CIN => C(2), 												
-\end_layout
-
-\begin_layout Plain Layout
-
-		S => S(3), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		C => C(3) 
-\end_layout
-
-\begin_layout Plain Layout
-
-	); 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-	Y(0) <= S(2); 	
-\end_layout
-
-\begin_layout Plain Layout
-
-	Y(1) <= S(3); 	
-\end_layout
-
-\begin_layout Plain Layout
-
-	Y(2) <= C(3);
-\end_layout
-
-\begin_layout Plain Layout
-
-end structural;
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{lstlisting}
-\backslash
-selectlanguage{italian}%
+M.vhd}
 \end_layout
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
@@ -2015,20 +1773,24 @@ Come descritto nell'esercizio 5, la macchina M è in grado di determinare,
  Dal momento che si può considerare tale macchina come sommatore in grado
  di sommare 6 bit, si è deciso di utilizzarla per sommare tra loro le cifre
  dello stesso peso delle 6 stringhe fornite in ingresso alla macchina S.
- Essendo tali stringhe composte da 3 bit ciascuna (di peso 2, 1 e 0), sono
- stati utilizzate 3 macchine M per sommare le cifre di stesso peso tra loro.
+ Essendo tali stringhe composte da 3 bit ciascuna (di peso 2, 1 e 0), si
+ è scelto di usare 3 macchine M per sommare le cifre di stesso peso tra
+ loro.
  Una volta ottenute tali somme (ciascuna, rispettivamente, espressa su 3
- bit in codifica binaria), si sono potute fare queste osservazioni: il bit
+ bit in codifica binaria), si è proceduto con tali osservazioni: il bit
  di peso 0 della somma dei 6 bit di peso 0 non è altro che la cifra di peso
  0 del risultato della macchina S, ossia della somma delle 6 stringhe.
  Il bit di peso 1 della stessa somma, invece, rappresenta invece un bit
  di peso 1 della somma totale delle stringhe, e lo stesso ragionamento è
  valido per il bit di peso 2.
  Passando alla somma dei 6 bit di peso 1 delle stringhe di partenza, si
- noti che la cifra di peso 0 di tale somma non è altro che un bit di peso
- 1 della somma totale delle stringhe, menrte la cifra di peso 1 è un bit
- di peso 2 per la somma totale e così via.
- Seguendo questo ragionamento, è stato possibile combinare le cifre delle
+ noti come la cifra di peso 0 di tale somma non è altro che un bit di peso
+ 1 della somma totale delle stringhe, mentree la cifra di peso 1 è un bit
+ di peso 2 per la somma totale, e così via.
+\end_layout
+
+\begin_layout Standard
+Seguendo questo ragionamento, è stato possibile combinare le cifre delle
  somme di peso analogo utilizzando dei full-adder, ottenendo lo schema consultab
 ile in fig.
 \begin_inset CommandInset ref
@@ -2108,12 +1870,7 @@ href{run:./esercizio01/design/S.vhd}{%
 
 \begin_layout Plain Layout
 
-S.vhd
-\end_layout
-
-\begin_layout Plain Layout
-
-}
+S.vhd}
 \end_layout
 
 \end_inset
@@ -2146,7 +1903,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/soluzione/S_simulation.png
-	scale 60
+	scale 40
 
 \end_inset
 
