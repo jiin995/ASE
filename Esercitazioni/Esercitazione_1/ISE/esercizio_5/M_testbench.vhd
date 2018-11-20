@@ -68,10 +68,10 @@ BEGIN
    stim_proc: process
    begin		
 	
-      --! wait per 100 ns (reset)
+      -- wait per 100 ns (reset)
       wait for 100 ns;	
 		
-      --! transizione da 0 a 1 di ogni ingresso Xi (ogni 10 ns)
+      -- transizione da 0 a 1 di ogni ingresso Xi (ogni 10 ns)
 		for i in 0 to 5 loop
 			X(i) <= '1';
 			wait for 10 ns;

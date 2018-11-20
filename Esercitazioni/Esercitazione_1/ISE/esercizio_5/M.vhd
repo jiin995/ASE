@@ -34,8 +34,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 --! La macchina è stata implementata in modalità di descrizione di tipo “structural” tramite l'utilizzo di full-adder.
 
 entity M is
-    Port ( X : in  STD_LOGIC_VECTOR (5 downto 0);
-           Y : out  STD_LOGIC_VECTOR (2 downto 0));
+    Port ( X : in  STD_LOGIC_VECTOR (5 downto 0);	--!vettore in ingresso su 6 bit: X
+           Y : out  STD_LOGIC_VECTOR (2 downto 0));	--!vettore in uscita su 3 bit: Y
 end M;
 
 --================================================================================================
@@ -44,7 +44,7 @@ end M;
 
 architecture structural of M is
 
---! componente full_adder utilizzato
+-- componente full_adder utilizzato
 	component full_adder is 
 	  port (  X   :   in  STD_LOGIC;
 				 Y   :   in  STD_LOGIC;
@@ -55,10 +55,10 @@ architecture structural of M is
 	  );
 	end component;
 	
---! segnali d'appoggio per i carry output dei full-adder
+-- segnali d'appoggio per i carry output dei full-adder
 	signal C : STD_LOGIC_VECTOR ( 3 downto 0) :=( others => '0' );
 
---! segnali d'appoggio per le somme output dei full-adder
+-- segnali d'appoggio per le somme output dei full-adder
 	signal S	: STD_LOGIC_VECTOR ( 3 downto 0) :=( others => '0' ); 
 
 --================================================================================================
@@ -67,7 +67,7 @@ architecture structural of M is
 
 begin
 
---! definizione 4 full_adder utilizzati
+-- definizione 4 full_adder utilizzati
 	adder_0: full_adder port map (		X => X(0),
 													Y => X(1),
 													CIN => X(2),
@@ -91,7 +91,7 @@ begin
 													CIN => C(2),
 													S => S(3),
 													C => C(3) );
---! assegnazione delle uscite
+-- assegnazione delle uscite
 	Y(0) <= S(2);
 	Y(1) <= S(3);
 	Y(2) <= C(3);

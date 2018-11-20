@@ -50,12 +50,12 @@ end M;
 
 architecture Dataflow of M is
 
---! definizione uscite d'appoggio temporanee
+-- definizione uscite d'appoggio temporanee
 signal y0_temp : std_logic := '0'; --! segnale d'appoggio y0 temporaneo
 signal y1_temp : std_logic := '0'; --! segnale d'appoggio y1 temporaneo
 signal y2_temp : std_logic := '0'; --! segnale d'appoggio y2 temporaneo
 
---! definizione nodi della rete generati nell'esercizio 3 (con rugged.script)
+-- definizione nodi della rete generati nell'esercizio 3 (con rugged.script)
 signal n10 : std_logic := '0'; --! nodo n10 della rete
 signal n3 : std_logic := '0'; 	--! nodo n3 della rete
 signal n4 : std_logic := '0'; 	--! nodo n4 della rete
@@ -80,15 +80,15 @@ n6 <= x0 OR x1;
 n8 <= x2 OR x3;
 n9 <= x1 AND x0;
 
---! aggiornamento uscita d'appoggio y0
+-- aggiornamento uscita d'appoggio y0
 y0_temp <= ( (NOT n5) AND n6 AND (not n9) )
 				OR ( n5 AND n9 )
 				OR ( n5 AND (NOT n6) );
 				
---! aggiornamento nodo n7 (richiede y0_temp)
+-- aggiornamento nodo n7 (richiede y0_temp)
 n7 <= (x5 AND (NOT y0_temp)) OR n10;
 
---! aggiornamento uscite d'appoggio y2 e y3
+-- aggiornamento uscite d'appoggio y2 e y3
 y2_temp <= ( x5 AND (NOT y0_temp) AND n10 )
 				OR ( x4 AND n8 AND n9 )
 				OR ( x4 AND n6 AND n7 )
@@ -100,7 +100,7 @@ y1_temp <= ( x4 AND (NOT n3) AND (NOT n6) AND (NOT n10) )
 				OR ( (NOT y2_temp) AND n10 )
 				OR ( (NOT y2_temp) AND n9 );
 
---! aggiornamento uscite
+-- aggiornamento uscite
 y0 <= y0_temp;
 y1 <= y1_temp;
 y2 <= y2_temp;
