@@ -1,3 +1,29 @@
+---------------------------------------------------------------------------------------------------
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
+---------------------------------------------------------------------------------------------------
+-- project name : counter_UpMod2n_Re_Sr
+--
+-- unit name: counter_UpMod2n_Re_Sr_testbench.vhdl
+--     
+-- file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       15/10/2018
+--! @version    0.1
+--! @brief      counter_UpMod2n_Re_Sr_testbench è l'implementazione del testbench di un contatore modulo 2^n
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothing
+--!
+-- modified by: Simone Penna
+--
+---------------------------------------------------------------------------------------------------
+-- last changes: <11/11/2018> <15/10/2018> <log>
+--                Aggiunta doc doxygen
+---------------------------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  
