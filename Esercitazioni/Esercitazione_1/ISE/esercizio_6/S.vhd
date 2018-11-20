@@ -17,7 +17,9 @@
 -- Additional Comments: 
 --
 ----------------------------------------------------------------------------------
+--! Uso la libreria standard di IEEE
 library IEEE;
+--! Uso gli elementi logici della libreria IEEE
 use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
@@ -29,15 +31,21 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
+-- Descrizione
+--!Si progetti una macchina S che, date 6 stringhe di 3 bit ciascuna in ingresso (A, B, C, D, E, F), rappresentanti la codifica
+--!binaria di numeri interi positivi, ne calcoli la somma W espressa su 6 bit.
+--!La macchina S deve essere progettata per composizione di macchine utilizzando la macchina M progettata al punto 5)
+--!e componenti full-adder, opportunamente collegati.
+
 entity S is
-    Port ( A : in  STD_LOGIC_VECTOR (2 downto 0);
-           B : in  STD_LOGIC_VECTOR (2 downto 0);
-           C : in  STD_LOGIC_VECTOR (2 downto 0);
-           D : in  STD_LOGIC_VECTOR (2 downto 0);
-           E : in  STD_LOGIC_VECTOR (2 downto 0);
-           F : in  STD_LOGIC_VECTOR (2 downto 0);
-			  W : out STD_LOGIC_VECTOR (5 downto 0)
-			  );
+    Port ( A : in  STD_LOGIC_VECTOR (2 downto 0);	--! S input su 3 bit : A
+           B : in  STD_LOGIC_VECTOR (2 downto 0);	--! S input su 3 bit : B
+           C : in  STD_LOGIC_VECTOR (2 downto 0);	--! S input su 3 bit : C
+           D : in  STD_LOGIC_VECTOR (2 downto 0);	--! S input su 3 bit : D
+           E : in  STD_LOGIC_VECTOR (2 downto 0);	--! S input su 3 bit : E
+           F : in  STD_LOGIC_VECTOR (2 downto 0);	--! S input su 3 bit : F
+	   W : out STD_LOGIC_VECTOR (5 downto 0)	--! S output su 6 bit : W
+			);
 			  
 end S;
 
