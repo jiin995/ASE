@@ -26,7 +26,7 @@ ARCHITECTURE behavior OF clock_divisor_testbench IS
     
 
    --Inputs
-    signal clock : std_logic := '0';
+    signal clock_in : std_logic := '0';
     signal enable : std_logic := '1';
     signal reset_n : std_logic := '1';
 
@@ -39,7 +39,7 @@ BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
    uut: clock_divisor PORT MAP (
-          clock_in => clock,
+          clock_in => clock_in,
           enable => enable,
           reset_n => reset_n,
           clock_out => clock_out
@@ -48,9 +48,9 @@ BEGIN
    -- Clock process definitions
    clock_process: process
    begin
-		clock <= '0';
+		clock_in <= '0';
 		wait for clock_period/2;
-		clock <= '1';
+		clock_in <= '1';
 		wait for clock_period/2;
    end process;
 
