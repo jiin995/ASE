@@ -1,45 +1,56 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+---------------------------------------------------------------------------------------------------
 -- 
--- Create Date:    16:25:30 11/14/2018 
--- Design Name: 
--- Module Name:    full_adder - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
+---------------------------------------------------------------------------------------------------
+-- project name : full_adder
 --
--- Dependencies: 
+-- unit name: full_adder.vhdl
+--     
+-- file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       15/10/2018
+--! @version    0.1
+--! @brief      full_adder è l'implementazione di un full_adder
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothings
+--!
+-- modified by: Gabriele Previtera
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
---
-----------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+-- last changes: <11/11/2018> <15/10/2018> <log>
+--                Aggiunta doc doxygen
+---------------------------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+-- Descrizione
+--! Somma i 3 bit in ingresso (2 addendi e 1 carry in ingresso).\n In uscita abbiamo il risultato della somma sul bit S e il riporto
+--! sul bit C.
 
 entity full_adder is
-    Port ( X : in  STD_LOGIC;
-           Y : in  STD_LOGIC;
-           CIN : in  STD_LOGIC;
-           S : out  STD_LOGIC;
-           C : out  STD_LOGIC);
-end full_adder;
+  PORT (  X   :   in  STD_LOGIC;	--! full_adder input : addendo
+          Y   :   in  STD_LOGIC;	--! full_adder input : addendo
+          CIN :   in  STD_LOGIC;	--! full_adder input : carry in ingresso
+          S   :   out STD_LOGIC;	--! full_adder output : somma
+          C   :   out STD_LOGIC		--! full_adder output : carry
 
+  );
+end full_adder;
+--================================================================================================
+-- architecture declaration
+--================================================================================================
 architecture dataflow of full_adder is
+--================================================================================================
+-- architecture dataflow of full_adder begin
+--================================================================================================
   begin
     S <=  (X xor Y xor CIN);
     C <=  ((X and Y) or ((X xor Y) and CIN));
   end dataflow;
-
+--================================================================================================
+-- architecture dataflow of full_adder end
+--================================================================================================

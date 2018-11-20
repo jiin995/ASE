@@ -9,7 +9,7 @@
 --     
 -- file description:
 --! @file
---! @author     Gabriele Previtera
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
 --! @date       15/10/2018
 --! @version    0.1
 --! @brief      half_adder è l'implementazione di un half_adder
@@ -25,10 +25,9 @@
 --                Aggiunta doc doxygen
 ---------------------------------------------------------------------------------------------------
 
---! Uso la libreria standard di IEEE
+
 library IEEE;
---! Uso gli elementi logici della libreria IEEE
-    use IEEE.STD_LOGIC_1164.all;
+use IEEE.STD_LOGIC_1164.all;
 
 -- Descrizione
 --! Somma i due bit in ingresso.\n In uscita abbiamo il risultato della somma sul bit S e il riporto
