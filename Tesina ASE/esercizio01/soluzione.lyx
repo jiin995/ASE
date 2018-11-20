@@ -1151,13 +1151,7 @@ y0_temp
 \end_inset
 
 .
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
+ Il codice è disponibile qui: 
 \begin_inset ERT
 status open
 
@@ -1165,206 +1159,19 @@ status open
 
 
 \backslash
-begin{lstlisting}[float][language=VHDL,caption={Implementazione in VHDL
- della macchina M in modalità 
-\begin_inset Quotes eld
-\end_inset
-
-data-flow
-\begin_inset Quotes erd
-\end_inset
-
-.}]
+href{run:./esercizio01/design/M_dataflow.vhd}{%
 \end_layout
 
 \begin_layout Plain Layout
 
-architecture Dataflow of M is
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
--- definition of nodes and temporary outputs
-\end_layout
-
-\begin_layout Plain Layout
-
-[...]
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-begin
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
--- update nodes
-\end_layout
-
-\begin_layout Plain Layout
-
-n10 <= x3 AND x2;
-\end_layout
-
-\begin_layout Plain Layout
-
-n3 <= ( x5 AND (NOT x4) ) OR ( (NOT x5) AND x4);
-\end_layout
-
-\begin_layout Plain Layout
-
-n4 <= ( (NOT x3) AND (NOT n3) ) OR ( x3 AND n3 );
-\end_layout
-
-\begin_layout Plain Layout
-
-n5 <= ( (NOT x2) AND (NOT n4) ) OR ( x2 AND n4 );
-\end_layout
-
-\begin_layout Plain Layout
-
-n6 <= x0 OR x1;
-\end_layout
-
-\begin_layout Plain Layout
-
-n8 <= x2 OR x3;
-\end_layout
-
-\begin_layout Plain Layout
-
-n9 <= x1 AND x0;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
--- update temporary output y0
-\end_layout
-
-\begin_layout Plain Layout
-
-y0_temp <= ( (NOT n5) AND n6 AND (not n9) ) OR ( n5 AND n9 ) OR ( n5 AND
- (NOT n6) ); 	
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\end_layout
-
-\begin_layout Plain Layout
-
--- update node n7 (requires y0_temp)
-\end_layout
-
-\begin_layout Plain Layout
-
-n7 <= (x5 AND (NOT y0_temp)) OR n10;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
--- update temporary outputs y2 and y1
-\end_layout
-
-\begin_layout Plain Layout
-
-y2_temp <= ( x5 AND (NOT y0_temp) AND n10 ) OR ( x4 AND n8 AND n9 )
-\end_layout
-
-\begin_layout Plain Layout
-
-			OR ( x4 AND n6 AND n7 ) OR ( n7 AND n9 );
-\end_layout
-
-\begin_layout Plain Layout
-
-y1_temp <= ( x4 AND (NOT n3) AND (NOT n6) AND (NOT n10) ) OR ( x4 AND (NOT
- n3) AND n9 AND n10 )
-\end_layout
-
-\begin_layout Plain Layout
-
-			OR ( (NOT y2_temp) AND (NOT y0_temp) AND n8 ) OR ( (NOT y2_temp) AND
- n3 AND n6 )
-\end_layout
-
-\begin_layout Plain Layout
-
-			OR ( (NOT y2_temp) AND n10 ) OR ( (NOT y2_temp) AND n9 );
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
--- update outputs
-\end_layout
-
-\begin_layout Plain Layout
-
-y0 <= y0_temp;
-\end_layout
-
-\begin_layout Plain Layout
-
-y1 <= y1_temp;
-\end_layout
-
-\begin_layout Plain Layout
-
-y2 <= y2_temp;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-end Dataflow;
-\end_layout
-
-\begin_layout Plain Layout
-
-[...]
-\end_layout
-
-\begin_layout Plain Layout
-
-
+M
 \backslash
-end{lstlisting}
-\backslash
-selectlanguage{italian}%
+_dataflow.vhd}
 \end_layout
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
@@ -1635,8 +1442,8 @@ status open
 
 
 \backslash
-begin{lstlisting}[float][language=VHDL,caption={Implementazione in VHDL
- di un full-adder.}]
+begin{lstlisting}[language=VHDL,caption={Implementazione in VHDL di un full-adde
+r.}]
 \end_layout
 
 \begin_layout Plain Layout

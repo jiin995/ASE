@@ -1,5 +1,29 @@
--- Definition of testbench for half_adder
--- Author: Gabriele Previtera
+---------------------------------------------------------------------------------------------------
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
+---------------------------------------------------------------------------------------------------
+-- project name : half_adder
+--
+-- unit name: half_adder.vhdl
+--     
+-- file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       15/10/2018
+--! @version    0.1
+--! @brief      half_adder_testbench è l'implementazione del testbench di un half_adder
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothings
+--!
+-- modified by: Gabriele Previtera
+--
+---------------------------------------------------------------------------------------------------
+-- last changes: <11/11/2018> <15/10/2018> <log>
+--                Aggiunta doc doxygen
+---------------------------------------------------------------------------------------------------
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;

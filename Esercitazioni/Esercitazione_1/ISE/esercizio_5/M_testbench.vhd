@@ -1,30 +1,30 @@
---------------------------------------------------------------------------------
--- Company: 
--- Engineer:
+---------------------------------------------------------------------------------------------------
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
+---------------------------------------------------------------------------------------------------
+-- project name : M_testbench
 --
--- Create Date:   15:55:18 11/14/2018
--- Design Name:   
--- Module Name:   /home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_1/ISE/esercizio_5/M_testbench.vhd
--- Project Name:  esercizio_5
--- Target Device:  
--- Tool versions:  
--- Description:   
--- 
--- VHDL Test Bench Created by ISE for module: M
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
+-- unit name: M_testbench.vhd
+--     
+-- file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       25/10/2018
+--! @version    0.1
+--! @brief     	Testbench per la macchina M
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothings
+--!
+-- modified by: Mirko Pennone
 --
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+-- last changes: <21/11/2018> <15/10/2018> <log>
+--                Aggiunta doc doxygen
+---------------------------------------------------------------------------------------------------
+
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  
@@ -67,13 +67,15 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin		
+	
+      -- wait per 100 ns (reset)
       wait for 100 ns;	
 		
+      -- transizione da 0 a 1 di ogni ingresso Xi (ogni 10 ns)
 		for i in 0 to 5 loop
 			X(i) <= '1';
 			wait for 10 ns;
 		end loop;
-      --X(1) <= '1';
 		
       wait;
    end process;
