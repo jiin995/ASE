@@ -52,11 +52,11 @@ architecture structural of rippleCarry_adder is
 
     component full_adder is 
         port (
-                x   :   in  STD_LOGIC;
-                y   :   in  STD_LOGIC;
-                cin :   in  STD_LOGIC;
-                s   :   out STD_LOGIC;  
-                c   :   out STD_LOGIC
+                x       :   in  STD_LOGIC;
+                y       :   in  STD_LOGIC;
+                c_in    :   in  STD_LOGIC;
+                s       :   out STD_LOGIC;  
+                c_out   :   out STD_LOGIC
         );
     end component;
      
@@ -73,11 +73,11 @@ architecture structural of rippleCarry_adder is
 
         rippleCarry_adder : for i in 0 to width-1 generate 
             f_adder: full_adder port map (
-                                                x   => X(i),
-                                                y   => Y(i),
-                                                cin => carries(i),
-                                                s   => S_temp(i),
-                                                c   => carries(i+1)
+                                                x     => X(i),
+                                                y     => Y(i),
+                                                c_in  => carries(i),
+                                                s     => S_temp(i),
+                                                c_out => carries(i+1)
             );
         end generate rippleCarry_adder;
     end structural;
