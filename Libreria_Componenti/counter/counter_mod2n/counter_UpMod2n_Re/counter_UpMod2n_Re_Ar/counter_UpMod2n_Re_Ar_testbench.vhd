@@ -21,7 +21,7 @@ ARCHITECTURE behavior OF counter_UpMod2n_Re_Ar_testbench IS
             reset_n     : in STD_LOGIC;
             clock       : in STD_LOGIC;
             count_hit   : out STD_LOGIC;
-            COUNTS      : out STD_LOGIC_VECTOR (((2**n)-1) downto 0)
+            COUNTS      : out STD_LOGIC_VECTOR ((n-1) downto 0)
     );
     end Component;
     
@@ -33,7 +33,7 @@ ARCHITECTURE behavior OF counter_UpMod2n_Re_Ar_testbench IS
 
  	--Outputs
     signal count_hit : std_logic;
-    signal COUNTS : STD_LOGIC_VECTOR (((2**n_test)-1)downto 0);
+    signal COUNTS : STD_LOGIC_VECTOR ((n_test-1)downto 0);
    -- Clock period definitions
     constant clock_period : time := 10 ns;
  
