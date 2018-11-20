@@ -1,3 +1,29 @@
+---------------------------------------------------------------------------------------------------
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
+---------------------------------------------------------------------------------------------------
+-- project name : register_d_Re_Ar
+--
+-- unit name: register_d_Re_Ar_testbench.vhdl
+--     
+-- file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       13/11/2018
+--! @version    0.1
+--! @brief      register_d_Re_Ar_testbench è l'implementazione del testbench di un register_d_Re_Ar
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothings
+--!
+-- modified by: Gabriele Previtera
+--
+---------------------------------------------------------------------------------------------------
+-- last changes: <16/11/2018> <16/11/2018> <log>
+--              create
+---------------------------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  
@@ -17,8 +43,8 @@ ARCHITECTURE behavior OF register_d_risingedge_asyncreset_testbench IS
  
     COMPONENT register_d
      generic(    dimension   :   NATURAL :=dimension_tb;
-                reset_level     :   STD_LOGIC :='0';    --! define reset level
-                enable_level    :   STD_LOGIC := '1'    --! define enable level
+                reset_level     :   STD_LOGIC :='0';    -- define reset level
+                enable_level    :   STD_LOGIC := '1'    -- define enable level
     );
 
     port(   clock   :   in  STD_LOGIC;
@@ -36,7 +62,7 @@ ARCHITECTURE behavior OF register_d_risingedge_asyncreset_testbench IS
    signal reset_n : std_logic := '1';
    signal d : std_logic_vector (dimension_tb downto 0):= (others => '0');
 
- 	--Outputs
+   --Outputs
    signal q : std_logic_vector (dimension_tb downto 0);
 
    -- Clock period definitions

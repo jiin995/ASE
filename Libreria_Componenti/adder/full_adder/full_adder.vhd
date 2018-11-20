@@ -16,7 +16,7 @@
 --! @details
 --!
 --! <b>Dependencies:</b>\n
---!   Nothings
+--!   half_adder
 --!
 -- modified by: Gabriele Previtera
 --

@@ -31,14 +31,19 @@ library IEEE;
     use IEEE.STD_LOGIC_1164.all;
     
 -- Descrizione comportamento
+--! Caratterizzato da 2 segnali di selezione e 4 segnali di ingresso. In base al valore del segnale di selezione in uscita avremo un valore diverso:\n
+--! SEL = 00 -> Z=A;
+--! SEL = 01 -> Z=B;
+--! SEL = 10 -> Z=C;
+--! SEL = 11 -> Z=D;
 
 entity mux4_1 is
     port (    SEL   : in STD_LOGIC_VECTOR (1 downto 0);       --! mux4_1 input primo bit di selezione
-              A     : in STD_LOGIC;       --! mux4_1 input 
-              B     : in STD_LOGIC;       --! mux4_1 input 
-              C     : in STD_LOGIC;       --! mux4_1 input 
-              D     : in STD_LOGIC;       --! mux4_1 input 
-              Z     : out STD_LOGIC       --! mux4_1 output
+              A     : in STD_LOGIC;       --! mux4_1 input: A 
+              B     : in STD_LOGIC;       --! mux4_1 input: B 
+              C     : in STD_LOGIC;       --! mux4_1 input: C
+              D     : in STD_LOGIC;       --! mux4_1 input: D
+              Z     : out STD_LOGIC       --! mux4_1 output: Z
         );
 end mux4_1;
 
@@ -97,7 +102,13 @@ architecture architectural of mux4_1 is
 -- architecture architectural of mux4_1 end
 --================================================================================================
 
+--================================================================================================
+-- architecture declaration (alternativa behavioral)
+--================================================================================================
 architecture behavioral of mux4_1 is
+--================================================================================================
+-- architecture behavioral of mux4_1 begin
+--================================================================================================
 begin
     process (A, B, C, D, SEL)
     begin
@@ -110,3 +121,6 @@ begin
       end case;
     end process;
 end behavioral;
+--================================================================================================
+-- architecture behavioral of mux4_1 end
+--================================================================================================

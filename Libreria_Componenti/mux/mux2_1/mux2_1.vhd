@@ -9,7 +9,7 @@
 --     
 -- file description:
 --! @file
---! @author     Gabriele Previtera
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
 --! @date       15/10/2018
 --! @version    0.1
 --! @brief      mux2_1 descrive il comportamento di un multiplexer con 2 ingressi e una uscita
@@ -25,22 +25,21 @@
 --                Aggiunta doc doxygen
 ---------------------------------------------------------------------------------------------------
 
---! Uso la libreria standard di IEEE
-library IEEE;
---! Uso gli elementi logici della libreria IEEE
-    use IEEE.STD_LOGIC_1164.all;
 
--- Descrizione comportamento
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+
+-- Descrizione
 --! Quando l'ingresso SEL è basso, l'uscita assume il valore del segnale A, altrimenti quando il 
 --! segnale SEL è alto l'uscita assume il valore del segnale B. 
 
 -- definisco il componente e la sua interfaccia 
 
 entity mux2_1 is
-    port(   SEL : in  STD_LOGIC;        --! mux2_1 input : selezione 
-            A   : in  STD_LOGIC;        --! mux2_1 input
-            B   : in  STD_LOGIC;        --! mux2_1 input
-            X   : out STD_LOGIC         --! mux2_1 output
+    port(   SEL : in  STD_LOGIC;        --! mux2_1 input: selezione 
+            A   : in  STD_LOGIC;        --! mux2_1 input: A
+            B   : in  STD_LOGIC;        --! mux2_1 input: B
+            X   : out STD_LOGIC         --! mux2_1 output: X
         );
 end mux2_1;
 
