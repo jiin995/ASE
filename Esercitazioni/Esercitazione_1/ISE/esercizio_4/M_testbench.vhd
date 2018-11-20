@@ -1,30 +1,30 @@
---------------------------------------------------------------------------------
--- Company: Gruppo 14
--- Engineer: Gabriele Previtera, Mirko Pennone, Simone Penna
+---------------------------------------------------------------------------------------------------
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
+---------------------------------------------------------------------------------------------------
+-- project name : M_testbench
 --
--- Create Date:   13:01:03 11/10/2018
--- Design Name:   
--- Module Name:   /home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_1/ISE/esercizio_4/M_testbench.vhd
--- Project Name:  esercizio_4
--- Target Device:  
--- Tool versions:  
--- Description: Testbench for machine M.
--- 
--- VHDL Test Bench Created by ISE for module: M
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
+-- unit name: M_testbench.vhd
+--     
+-- file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       25/10/2018
+--! @version    0.1
+--! @brief     	Testbench per la macchina M
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothings
+--!
+-- modified by: Mirko Pennone
 --
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+-- last changes: <21/11/2018> <15/10/2018> <log>
+--                Aggiunta doc doxygen
+---------------------------------------------------------------------------------------------------
+
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  
@@ -81,12 +81,12 @@ BEGIN
 
    -- Stimulus process
    stim_proc: process
-   begin		
-      -- hold reset state for 100 ns.
+   begin	
+	
+      --! wait per 100 ns (reset)
       wait for 100 ns;	
 
-      -- update the xi inputs from 0 to 1, one by one, waiting 10 ns between each one.
-		
+      --! transizione da 0 a 1 di ogni ingresso Xi (ogni 10 ns)
 		x0 <= '1';
 		wait for 10 ns;
 		x1 <= '1';
