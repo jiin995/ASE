@@ -1,0 +1,9 @@
+tipocomponente_caratteristica_fronteDIcommutazione_tipoDiReset
+
+fronte di commutazione :   
+    - Re <==> Rising Edge commuta sul fronte di salita
+    - Fe <==> Falling Edge commuta sul fronte di discesa
+
+tipi di Reset:
+    - Ar <==> Reset asyncrono rispetto al segnale di clock
+    - Sr <==> Reset sincrono rispetto al segnale di clock

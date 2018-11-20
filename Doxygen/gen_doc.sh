@@ -18,7 +18,7 @@ if [ ! -f Doxyfile ]; then
     sed -i "s/PROJECT_NAME           = \"My Project\"/PROJECT_NAME = \"$DIR_NAME\"/g" Doxyfile
     sed -i "s|LATEX_HEADER           =|LATEX_HEADER           = \"$DOXYGEN_FILES/header.tex\"|g" Doxyfile
     sed -i "s|GENERATE_HTML          = YES|GENERATE_HTML          = NO|g" Doxyfile
-    
+    sed -i "s|EXCLUDE_PATTERNS       =|EXCLUDE_PATTERNS       =*_testbench*|g" Doxyfile
 fi
 
 doxygen Doxyfile
