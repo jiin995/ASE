@@ -1,36 +1,33 @@
---------------------------------------------------------------------------------
--- Company: 
--- Engineer:
+---------------------------------------------------------------------------------------------------
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
+---------------------------------------------------------------------------------------------------
+-- project name : S_testbench
 --
--- Create Date:   18:02:38 11/14/2018
--- Design Name:   
--- Module Name:   /home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_1/ISE/esercizio_6/S_testbench.vhd
--- Project Name:  esercizio_6
--- Target Device:  
--- Tool versions:  
--- Description:   
--- 
--- VHDL Test Bench Created by ISE for module: S
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
+-- unit name: S_testbench.vhd
+--     
+-- file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       25/10/2018
+--! @version    0.1
+--! @brief     	Testbench della macchina S.
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothings
+--!
+-- modified by: Simone Penna
 --
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+-- last changes: <21/11/2018> <15/10/2018> <log>
+--                Aggiunta doc doxygen
+---------------------------------------------------------------------------------------------------
+
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---USE ieee.numeric_std.ALL;
  
 ENTITY S_testbench IS
 END S_testbench;
@@ -83,9 +80,10 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin		
-      -- hold reset state for 100 ns.
+      -- wait di 100 ns (reset)
       wait for 100 ns;	
 
+		--alzo tutti i bit delle stringhe in ingresso, a distanza di 10 ns l'una dall'altra.
 		A <= (others => '1');
 		wait for 10 ns;
 		B <= (others => '1');
