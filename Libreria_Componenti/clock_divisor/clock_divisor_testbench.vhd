@@ -19,8 +19,8 @@ ARCHITECTURE behavior OF clock_divisor_testbench IS
 
     port (  enable      :   in STD_LOGIC;
             reset_n     :   in STD_LOGIC;
-            clock_in    :   in STD_LOGIC ;
-            clock_out   :   out STD_LOGIC 
+            clock_freq_in    :   in STD_LOGIC ;
+            clock_freq_out   :   out STD_LOGIC 
     );
     end Component;
     
@@ -39,10 +39,10 @@ BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
    uut: clock_divisor PORT MAP (
-          clock_in => clock_in,
+          clock_freq_in => clock_in,
           enable => enable,
           reset_n => reset_n,
-          clock_out => clock_out
+          clock_freq_out => clock_out
         );
 
    -- Clock process definitions
