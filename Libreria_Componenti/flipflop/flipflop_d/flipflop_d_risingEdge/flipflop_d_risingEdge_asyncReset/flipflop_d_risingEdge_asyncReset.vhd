@@ -12,7 +12,7 @@
 --! @author     Gabriele Previtera
 --! @date       13/11/2018
 --! @version    0.1
---! @brief      flipflop_d_risingEdge_asyncReset implementa un flipflop di tipo che commuta sul fronte di salita.
+--! @brief      flipflop_d_risingEdge_asyncReset implementa un flipflop di tipo d che commuta sul fronte di salita.
 --!             con segnale di enable e reset asincrono con clock
 --! @details
 --!
@@ -26,43 +26,47 @@
 --              create
 ---------------------------------------------------------------------------------------------------
 
---! use IEEE standar library and standard logics
+--! use IEEE standard library and standard logics
 library IEEE;
     use IEEE.STD_LOGIC_1164.all;
 
+--! Detailed description of this 
+--! flipflop d design element.
 entity flipflop_d_risingEdge_asyncReset is 
 
     generic (   
-                init_value      :   STD_LOGIC :='0';    --! define initial level of flipflop
-                reset_level     :   STD_LOGIC :='0';    --! define reset level
-                enable_level    :   STD_LOGIC := '1'    --! define enable level
+                init_value      :   STD_LOGIC :='0';    --! definisce il livello iniziale del flipflop
+                reset_level     :   STD_LOGIC :='0';    --! definisce il livello reset
+                enable_level    :   STD_LOGIC := '1'    --! definisce il livello enable
 
     );
     
-    port (  clock   :   in  STD_LOGIC;  --! flipflop_d_risingEdge_asyncReset input    : clock signal for sync
-            enable  :   in  STD_LOGIC;  --! flipflop_d_risingEdge_asyncReset input    : enable signal
-            reset   :   in  STD_LOGIC;  --! flipflop_d_risingEdge_asyncReset input    : reset signal
-            d       :   in  STD_LOGIC;  --! flipflop_d_risingEdge_asyncReset input    : data input
-            q       :   out STD_LOGIC   --! flipflop_d_risingEdge_asyncReset output   : data output
+    port (  clock   :   in  STD_LOGIC;  --! flipflop_d_risingEdge_asyncReset input    : segnale di clock per sincronizzare
+            enable  :   in  STD_LOGIC;  --! flipflop_d_risingEdge_asyncReset input    : segnale enable
+            reset   :   in  STD_LOGIC;  --! flipflop_d_risingEdge_asyncReset input    : segnale reset
+            d       :   in  STD_LOGIC;  --! flipflop_d_risingEdge_asyncReset input    : input data
+            q       :   out STD_LOGIC   --! flipflop_d_risingEdge_asyncReset output   : output data
     );
 end flipflop_d_risingEdge_asyncReset;
 
+--! @brief Architecture definition of the flipflop d
+--! @details More details about this flipflop d element.
 architecture behavioural of flipflop_d_risingEdge_asyncReset is 
 
---! signal used for set the q output before the component receive the first clock event
+-- signal used for set the q output before the component receive the first clock event 
 signal q_temp   :   STD_LOGIC   :=init_value;
 
 begin
-    --! attach q_temp signal at q output
+    -- assegno il segnale q_temp all'output q
     q   <=  q_temp;
 
-    -- exec this proces only when have a clock event or reset event
+    -- esegui questo processo solo quando c'è un evento di clock o di reset (sensitivity list)
     ff : process(clock,reset)
         begin   
-        -- reset the component status 
+        -- reset dello stato del componente 
             if ( reset = reset_level ) then 
                 q_temp <= init_value;
-            -- check the rising edge event of clock and if component is enable 
+            -- controlla il fronte di salita del clock e se il componente è abilitato 
             elsif ( rising_edge(clock) and (enable = enable_level) ) then
                 q_temp <= d;
             end if;
