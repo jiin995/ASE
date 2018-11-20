@@ -50,12 +50,12 @@ end M;
 
 architecture Dataflow of M is
 
--- definizione uscite d'appoggio temporanee
+--! definizione uscite d'appoggio temporanee
 signal y0_temp : std_logic := '0'; --! segnale d'appoggio y0 temporaneo
 signal y1_temp : std_logic := '0'; --! segnale d'appoggio y1 temporaneo
 signal y2_temp : std_logic := '0'; --! segnale d'appoggio y2 temporaneo
 
--- definizione nodi della rete generati nell'esercizio 3 (con rugged.script)
+--! definizione nodi della rete generati nell'esercizio 3 (con rugged.script)
 signal n10 : std_logic := '0'; --! nodo n10 della rete
 signal n3 : std_logic := '0'; 	--! nodo n3 della rete
 signal n4 : std_logic := '0'; 	--! nodo n4 della rete
@@ -66,7 +66,7 @@ signal n8 : std_logic := '0'; 	--! nodo n8 della rete
 signal n9 : std_logic := '0'; 	--! nodo n9 della rete
 
 --================================================================================================
--- architecture dataflow of half_adder begin
+-- architecture dataflow begin
 --================================================================================================
 
 begin
@@ -108,6 +108,6 @@ y2 <= y2_temp;
 end Dataflow;
 
 --================================================================================================
--- architecture dataflow of half_adder end
+-- architecture dataflow end
 --================================================================================================
 

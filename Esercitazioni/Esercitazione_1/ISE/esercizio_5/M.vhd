@@ -1,35 +1,50 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+---------------------------------------------------------------------------------------------------
 -- 
--- Create Date:    19:30:12 11/10/2018 
--- Design Name: 
--- Module Name:    machine_M - structural 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
+---------------------------------------------------------------------------------------------------
+-- project name : M
 --
--- Dependencies: 
+-- unit name: M.vhd
+--     
+-- file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       25/10/2018
+--! @version    0.1
+--! @brief     	Implementazione della macchina M in modalità di descrizione di tipo “structural”
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothings
+--!
+-- modified by: Simone Penna
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
---
----------------------------------------------------------------------------------------
---todo 
-	-- si puo' fare con un unico for generate e si deve provare anche 
+---------------------------------------------------------------------------------------------------
+-- last changes: <21/11/2018> <15/10/2018> <log>
+--                Aggiunta doc doxygen
+---------------------------------------------------------------------------------------------------
+
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+
+-- Descrizione
+--! Data una parola X di 6 bit in ingresso (X5X4X3X2X1X0), la macchina M restituisce una parola Y di 3 bit (Y2Y1Y0) che rappresenta la codifica binaria del numero di bit alti in X.\n
+--! La macchina è stata implementata in modalità di descrizione di tipo “structural” tramite l'utilizzo di full-adder.
 
 entity M is
     Port ( X : in  STD_LOGIC_VECTOR (5 downto 0);
            Y : out  STD_LOGIC_VECTOR (2 downto 0));
 end M;
 
+--================================================================================================
+-- architecture declaration
+--================================================================================================
+
 architecture structural of M is
 
+--! componente full_adder utilizzato
 	component full_adder is 
 	  port (  X   :   in  STD_LOGIC;
 				 Y   :   in  STD_LOGIC;
@@ -40,15 +55,19 @@ architecture structural of M is
 	  );
 	end component;
 	
--- signals used for connect the carry output of full_adders to input of adder on second level adders
+--! segnali d'appoggio per i carry output dei full-adder
 	signal C : STD_LOGIC_VECTOR ( 3 downto 0) :=( others => '0' );
 
--- signals used for connect the sum output of full_adders to input of adder on second level adders
-	signal S	: STD_LOGIC_VECTOR (	3 downto 0) :=( others => '0' ); 
+--! segnali d'appoggio per le somme output dei full-adder
+	signal S	: STD_LOGIC_VECTOR ( 3 downto 0) :=( others => '0' ); 
 
+--================================================================================================
+-- architecture structural begin
+--================================================================================================
 
 begin
 
+--! definizione 4 full_adder utilizzati
 	adder_0: full_adder port map (		X => X(0),
 													Y => X(1),
 													CIN => X(2),
@@ -72,9 +91,13 @@ begin
 													CIN => C(2),
 													S => S(3),
 													C => C(3) );
-	
+--! assegnazione delle uscite
 	Y(0) <= S(2);
 	Y(1) <= S(3);
 	Y(2) <= C(3);
 
 end structural;
+
+--================================================================================================
+-- architecture structural end
+--================================================================================================
