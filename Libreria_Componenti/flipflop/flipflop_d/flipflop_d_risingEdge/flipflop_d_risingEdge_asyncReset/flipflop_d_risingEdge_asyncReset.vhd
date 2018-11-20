@@ -9,11 +9,10 @@
 --     
 -- file description:
 --! @file
---! @author     Gabriele Previtera
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
 --! @date       13/11/2018
 --! @version    0.1
---! @brief      flipflop_d_risingEdge_asyncReset implementa un flipflop di tipo d che commuta sul fronte di salita.
---!             con segnale di enable e reset asincrono con clock
+--! @brief      Implementazione di un flipflop D rising edge con reset asincrono.
 --! @details
 --!
 --! <b>Dependencies:</b>\n
@@ -26,12 +25,12 @@
 --              create
 ---------------------------------------------------------------------------------------------------
 
---! use IEEE standard library and standard logics
 library IEEE;
-    use IEEE.STD_LOGIC_1164.all;
+use IEEE.STD_LOGIC_1164.all;
 
---! Detailed description of this 
---! flipflop d design element.
+--Descrizione
+--! flipflop_d_risingEdge_asyncReset implementa un flipflop di tipo d che commuta sul fronte di salita, con segnale di enable e reset asincrono.
+
 entity flipflop_d_risingEdge_asyncReset is 
 
     generic (   
@@ -49,26 +48,42 @@ entity flipflop_d_risingEdge_asyncReset is
     );
 end flipflop_d_risingEdge_asyncReset;
 
---! @brief Architecture definition of the flipflop d
---! @details More details about this flipflop d element.
+--================================================================================================
+-- architecture declaration
+--================================================================================================
+
 architecture behavioural of flipflop_d_risingEdge_asyncReset is 
 
--- signal used for set the q output before the component receive the first clock event 
-signal q_temp   :   STD_LOGIC   :=init_value;
+signal q_temp   :   STD_LOGIC   :=init_value; -- segnale temporaneo d'appoggio per definire il valore dell'uscita
+
+--================================================================================================
+-- architecture behavioural begin
+--================================================================================================
 
 begin
+
     -- assegno il segnale q_temp all'output q
     q   <=  q_temp;
 
-    -- esegui questo processo solo quando c'è un evento di clock o di reset (sensitivity list)
-    ff : process(clock,reset)
+    -- esegui questo processo solo quando c'è un evento di clock o di reset (sensitivity list, reset asincrono)
+    ff : process(clock, reset)
+
         begin   
+
         -- reset dello stato del componente 
             if ( reset = reset_level ) then 
                 q_temp <= init_value;
-            -- controlla il fronte di salita del clock e se il componente è abilitato 
+
+            -- controlla il fronte di salita del clock e se il componente è abilitato: in tal caso assegna d a q_temp
             elsif ( rising_edge(clock) and (enable = enable_level) ) then
                 q_temp <= d;
+
             end if;
+
         end process ff;
+
 end behavioural;
+
+--================================================================================================
+-- architecture behavioural end
+--================================================================================================
