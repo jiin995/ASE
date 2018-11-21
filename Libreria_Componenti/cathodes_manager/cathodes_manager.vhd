@@ -1,15 +1,46 @@
+---------------------------------------------------------------------------------------------------
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
+---------------------------------------------------------------------------------------------------
+-- project name : cathodes_manager
+--
+-- unit name: cathodes_manager.vhdl
+--     
+-- file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       15/10/2018
+--! @version    0.1
+--! @brief      cathodes_anager è l'implementazione di un gestore di catodi
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothing
+--!
+-- modified by: Simone Penna
+--
+---------------------------------------------------------------------------------------------------
+-- last changes: <11/11/2018> <15/10/2018> <log>
+--                Aggiunta doc doxygen
+---------------------------------------------------------------------------------------------------
 library IEEE;
     use IEEE.STD_LOGIC_1164.all;
     use IEEE.NUMERIC_STD.all;
 
+--Descrizione
+--! Permette di gestire i catodi associati ad ogni segmento omologo di ogni cifra(digit) di un display a 7 segmenti.\n Per accendere il giusto segmento è necessario che il catodo sia 0, poichè i catodi sono pilotati da segnali 0-attivi.
 entity cathodes_manager is 
-    port (  select_digit    : in    STD_LOGIC_VECTOR (1 downto 0);
-            values          : in    STD_LOGIC_VECTOR (15 downto 0);
-            dots            : in    STD_LOGIC_VECTOR (3 downto 0);
-            cathodes        : out   STD_LOGIC_VECTOR (7 downto 0)
+    port (  select_digit    : in    STD_LOGIC_VECTOR (1 downto 0);	--! cathodes_manager input: seleziona digit	
+            values          : in    STD_LOGIC_VECTOR (15 downto 0);	--! cathodes_manager input: valore da mostrare (codifica esadecimale)
+            dots            : in    STD_LOGIC_VECTOR (3 downto 0);	--! cathodes_manager input: punto da accendere per la parte decimale
+            cathodes        : out   STD_LOGIC_VECTOR (7 downto 0)	--! cathodes_manager output: catodo da accendere
     );
 end cathodes_manager;
 
+--================================================================================================
+-- architecture declaration
+--================================================================================================
 architecture behavioral of cathodes_manager is
 
 constant zero       : STD_LOGIC_VECTOR(6 downto 0) := "1000000"; 
@@ -37,6 +68,9 @@ alias digit_3 is values (15 downto 12);
 signal cathodes_for_digit : STD_LOGIC_VECTOR (6 downto 0) := (others => '0');
 signal nibble   : STD_LOGIC_VECTOR (3 downto 0 ) := (others => '0');
 
+--=============================================================================
+-- architecture behavioral of cathodes_manager begin
+--=============================================================================
 begin
 
     digit_switching: process (select_digit,values)
@@ -73,5 +107,9 @@ begin
             end case;
         end process;
 
+	--multiplexer generico
     cathodes <=  not dots(to_integer(unsigned(select_digit))) & cathodes_for_digit;
 end behavioral;
+--=============================================================================
+-- architecture behavioral of cathodes_manager end
+--=============================================================================
