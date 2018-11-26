@@ -32,7 +32,7 @@ use IEEE.STD_LOGIC_1164.all;
 --Descrizione
 --! Registro di dimensione "dimension" che prende in ingresso un dato D e lo memorizza.
 entity register_d_Re_Ar is 
-    generic(    dimension       :   NATURAL :=7;        --! definisce il parallelismo del registro
+    generic(    dimension       :   NATURAL :=8;        --! definisce il parallelismo del registro
                 reset_level     :   STD_LOGIC :='0';    --! definisce il livello reset
                 enable_level    :   STD_LOGIC := '1'    --! definisce il livello enable
     );
@@ -40,8 +40,8 @@ entity register_d_Re_Ar is
     port(   clock   :   in  STD_LOGIC;	--! register_d_Re_Ar input    : segnale di clock per sincronizzare
             enable  :   in  STD_LOGIC;	--! register_d_Re_Ar input    : segnale enable
             reset   :   in  STD_LOGIC;	--! register_d_Re_Ar input    : segnale reset
-            D       :   in  STD_LOGIC_VECTOR    (dimension downto 0);	--! register_d_Re_Ar input    : inpput data 
-            Q       :   out STD_LOGIC_VECTOR    (dimension downto 0)	--! register_d_Re_Ar input    : output data
+            D       :   in  STD_LOGIC_VECTOR    (dimension-1 downto 0);	--! register_d_Re_Ar input    : inpput data 
+            Q       :   out STD_LOGIC_VECTOR    (dimension-1 downto 0)	--! register_d_Re_Ar input    : output data
     );
 end register_d_Re_Ar;
 --================================================================================================
@@ -50,7 +50,7 @@ end register_d_Re_Ar;
 architecture behavioral of register_d_Re_Ar is 
 
 -- segnale per poter inizializzare l'uscita del mio registro
-signal Q_temp   :   STD_LOGIC_VECTOR    (dimension downto 0) := (others => '0');
+signal Q_temp   :   STD_LOGIC_VECTOR    (dimension-1 downto 0) := (others => '0');
 
 --================================================================================================
 -- architecture behavioral of register_d_Re_Ar begin
