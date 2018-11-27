@@ -36,13 +36,17 @@ entity display_onBoard is
            anodes : out  STD_LOGIC_VECTOR (3 downto 0));
 end display_onBoard;
 
-architecture architectural of display_onBoard is
+architecture structural of display_onBoard is
 
 signal enable_digit :STD_LOGIC_VECTOR (3 downto 0):= (others => '1');
 signal reset : STD_LOGIC := '0';
 signal dots : STD_LOGIC_VECTOR (3 downto 0) := (others => '0');
 
-component display_7_segmenti is
+component display_7_segmenti
+	GENERIC(
+				clock_frequency_in : integer := 50000000;
+				clock_frequency_out : integer := 5000000
+				);
 	port ( 	clock 			: in STD_LOGIC;
 				reset_n			: in STD_LOGIC;
 				values 			: in STD_LOGIC_VECTOR (15 downto 0);
@@ -55,7 +59,11 @@ end component;
 
 begin
 
-	display: display_7_segmenti port map (	clock => clock,
+	display: display_7_segmenti  GENERIC MAP(
+		clock_frequency_in => 50000000,
+		clock_frequency_out => 100
+	)
+	port map (	clock => clock,
 														reset_n => reset,
 														values => values,
 														dots => dots,
@@ -65,4 +73,4 @@ begin
 											);
 	
 
-end architectural;
+end structural;

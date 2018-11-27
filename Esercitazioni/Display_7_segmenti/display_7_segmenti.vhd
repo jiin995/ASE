@@ -56,20 +56,10 @@ architecture Structural of display_7_segmenti is
 	signal counter : std_logic_vector(1 downto 0);
 	signal clock_fx : std_logic := '0';	-- il clock diviso dal divisore
 
-	component clock_divisor is
-		 generic (   clock_frequency_in  : integer := 100000000;	--! frequenza del clock in ingresso
-						 clock_frequency_out : integer := 1000	--! frequenza del clock in uscita
-		 );
-		port (  enable      :   in STD_LOGIC;	--! clock_divisor input: segnale enable
-					reset_n     :   in STD_LOGIC;	--! clock_divisor input: segnale reset
-					clock_freq_in    :   in STD_LOGIC ;	--! clock_divisor input: segnale di clock in ingresso
-					clock_freq_out   :   out STD_LOGIC	--! clock_divisor output: segnale di clock in uscita
-		 );
-		 
-	end component;
 
-	component counter_mod2n is
-		 generic (   n               :   NATURAL := 1;	--! usato per definire il valore massimo (2**n)-1 di fine conteggio.
+
+	component counter_mod2n
+		 generic (   n               :   NATURAL := 2;	--! usato per definire il valore massimo (2**n)-1 di fine conteggio.
 						 enable_level    :   std_logic := '1'	--! definisce il livello enable
 		 );
 		 Port ( clock : in  STD_LOGIC;	--! segnale di clock
@@ -79,7 +69,7 @@ architecture Structural of display_7_segmenti is
 				);
 	end component;
 
-	component cathodes_manager is 
+	component cathodes_manager 
 		 port (  select_digit    : in    STD_LOGIC_VECTOR (1 downto 0);	--! cathodes_manager input: seleziona digit	
 					values          : in    STD_LOGIC_VECTOR (15 downto 0);	--! cathodes_manager input: valore da mostrare (codifica esadecimale)
 					dots            : in    STD_LOGIC_VECTOR (3 downto 0);	--! cathodes_manager input: punto da accendere per la parte decimale
@@ -87,31 +77,38 @@ architecture Structural of display_7_segmenti is
 		 );
 	end component;
 
-	component anodes_manager is 
+	component anodes_manager 
 		 port (  select_digit    :   in  STD_LOGIC_VECTOR (1 downto 0) ;	--! anodes_manager input: seleziona digit
 					enable_digit    :   in  STD_LOGIC_VECTOR (3 downto 0) ;	--! anodes_manager input: abilita digit
 					anodes          :   out STD_LOGIC_VECTOR (3 downto 0)	--! anodes_manager output: digit da accendere
 		 );
 	end component;
+	
+COMPONENT clock_filter
+	GENERIC(
+				clock_frequency_in : integer := 50000000;
+				clock_frequency_out : integer := 5000000
+				);
+	PORT(
+		clock_in : IN std_logic; 
+      reset_n : in  STD_LOGIC;		
+		clock_out : OUT std_logic
+		);
+END COMPONENT;
 
 begin
 
-		clock_divisor_instance: clock_divisor generic map(
-		clock_frequency_in => clock_frequency_in,
-		clock_frequency_out => clock_frequency_out
-		)
-		port map(
-			enable => clock,
-			reset_n => reset_n,
-			clock_freq_in => clock,
-			clock_freq_out => clock_fx
-		);
+clk_filter: clock_filter GENERIC MAP(	
+	clock_frequency_in => clock_frequency_in,
+	clock_frequency_out => clock_frequency_out
+	)
+	PORT MAP(
+		clock_in => clock,
+		reset_n => reset_n,
+		clock_out => clock_fx
+	);
 
-		counter_instance: counter_mod2n generic map(
-			n => natural(2),
-			enable_level => '1'
-		)
-		port map(
+		counter_instance: counter_mod2n port map(
 			clock => clock,
 			enable => clock_fx,
 			reset_n => reset_n,
