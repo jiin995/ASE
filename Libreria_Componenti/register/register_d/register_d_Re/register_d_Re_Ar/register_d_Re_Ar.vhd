@@ -12,7 +12,7 @@
 --! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
 --! @date       13/11/2018
 --! @version    0.1
---! @brief      register_d_Re_Ar implementa un flipflop di tipo che commuta sul fronte di salita.
+--! @brief      register_d_Re_Ar implementa un registro di flipflop di tipo d che commuta sul fronte di salita.
 --!             con segnale di enable e reset asincrono con clock
 --! @details
 --!
@@ -40,8 +40,8 @@ entity register_d_Re_Ar is
     port(   clock   :   in  STD_LOGIC;	--! register_d_Re_Ar input    : segnale di clock per sincronizzare
             enable  :   in  STD_LOGIC;	--! register_d_Re_Ar input    : segnale enable
             reset   :   in  STD_LOGIC;	--! register_d_Re_Ar input    : segnale reset
-            D       :   in  STD_LOGIC_VECTOR    (dimension-1 downto 0);	--! register_d_Re_Ar input    : inpput data 
-            Q       :   out STD_LOGIC_VECTOR    (dimension-1 downto 0)	--! register_d_Re_Ar input    : output data
+            d       :   in  STD_LOGIC_VECTOR    (dimension-1 downto 0);	--! register_d_Re_Ar input    : inpput data 
+            q       :   out STD_LOGIC_VECTOR    (dimension-1 downto 0)	--! register_d_Re_Ar input    : output data
     );
 end register_d_Re_Ar;
 --================================================================================================
@@ -56,18 +56,70 @@ signal Q_temp   :   STD_LOGIC_VECTOR    (dimension-1 downto 0) := (others => '0'
 -- architecture behavioral of register_d_Re_Ar begin
 --================================================================================================
 begin
-    Q <= Q_temp;
+
+    Q <= Q_temp;    -- aggiorno il valore del registro
 
     ff : process (clock,reset)
         begin
             -- se il reset è pari al livello di reset, allora il contenuto del registro viene posto a 0
             if( reset = reset_level) then
                 Q_temp <= ( others => '0');
-            elsif rising_edge(clock) and (enable = enable_level) then
+            elsif rising_edge(clock) and (enable = enable_level) then   -- altrimenti assegnamo a Q_temp il valore di D al rising edge del clock
                 Q_temp <= D;
             end if;
         end process ff;
+
 end behavioral;
 --================================================================================================
 -- architecture behavioral of register_d_Re_Ar end
+--================================================================================================
+
+--================================================================================================
+-- architecture declaration
+--================================================================================================
+architecture structural of register_d_Re_Ar is 
+
+    component flipflop_d_risingEdge_asyncReset is 
+
+        generic (   
+                    init_value      :   STD_LOGIC :='0';    --! definisce il livello iniziale del flipflop
+                    reset_level     :   STD_LOGIC :='0';    --! definisce il livello reset
+                    enable_level    :   STD_LOGIC := '1'    --! definisce il livello enable
+
+        );
+        
+        port (  clock   :   in  STD_LOGIC;  --! flipflop_d_risingEdge_asyncReset input    : segnale di clock per sincronizzare
+                enable  :   in  STD_LOGIC;  --! flipflop_d_risingEdge_asyncReset input    : segnale enable
+                reset   :   in  STD_LOGIC;  --! flipflop_d_risingEdge_asyncReset input    : segnale reset
+                d       :   in  STD_LOGIC;  --! flipflop_d_risingEdge_asyncReset input    : input data
+                q       :   out STD_LOGIC   --! flipflop_d_risingEdge_asyncReset output   : output data
+        );
+
+    end component;
+
+--================================================================================================
+-- architecture structural of register_d_Re_Ar begin
+--================================================================================================
+begin
+
+    gen_reg: for i in 0 to dimension-1 generate
+
+        cell_ff: flipflop_d_risingEdge_asyncReset generic map ( --generate di dimension flipflops
+            init_value => '0',
+            reset_level => '0',
+            enable_level => '1'
+        ) port map(
+            clock => clock,
+            enable => enable,
+            reset => reset,
+            d => d(i), -- assegno a d il corrispettivo valore nell'array
+            q => q(i)	-- assegno a q il corrispettivo valore nell'array
+        );
+
+    end generate gen_reg;
+
+end structural;
+
+--================================================================================================
+-- architecture structural of register_d_Re_Ar end
 --================================================================================================

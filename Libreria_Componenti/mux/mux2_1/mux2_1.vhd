@@ -5,14 +5,14 @@
 ---------------------------------------------------------------------------------------------------
 -- project name : mux2_1
 --
--- unit name: mux2_1.vhdl
+-- unit name: mux2_1.vhd
 --     
 -- file description:
 --! @file
 --! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
---! @date       15/10/2018
+--! @date       13/11/2018
 --! @version    0.1
---! @brief      mux2_1 descrive il comportamento di un multiplexer con 2 ingressi e una uscita
+--! @brief      mux2_1 descrive il comportamento di un multiplexer con 2 ingressi e 1 uscita
 --! @details
 --!
 --! <b>Dependencies:</b>\n
@@ -21,14 +21,12 @@
 -- modified by: Gabriele Previtera
 --
 ---------------------------------------------------------------------------------------------------
--- last changes: <11/11/2018> <15/10/2018> <log>
---                Aggiunta doc doxygen
+-- last changes: <14/11/2018> <13/11/2018> <log>
+--              create
 ---------------------------------------------------------------------------------------------------
-
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
-
 -- Descrizione
 --! Quando l'ingresso SEL è basso, l'uscita assume il valore del segnale A, altrimenti quando il 
 --! segnale SEL è alto l'uscita assume il valore del segnale B. 

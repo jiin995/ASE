@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:24:36 MDT 2013
+# Start of session at: Tue Nov 27 18:45:05 2018
+# Process ID: 27146
+# Log file: /home/mirko/Desktop/ASE/ASE/Test/Test7Segmenti/display_7_segmenti/planAhead_run_1/planAhead.log
+# Journal file: /home/mirko/Desktop/ASE/ASE/Test/Test7Segmenti/display_7_segmenti/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source /home/mirko/Desktop/ASE/ASE/Test/Test7Segmenti/display_7_segmenti/pa.fromNetlist.tcl

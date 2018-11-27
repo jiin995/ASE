@@ -31,18 +31,18 @@ USE ieee.std_logic_1164.ALL;
 -- arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
-ENTITY register_d_risingedge_asyncreset_testbench IS
+ENTITY register_d_Re_Ar_testbench IS
     generic (
             dimension_tb  : NATURAL   :=15
     );
-END register_d_risingedge_asyncreset_testbench;
+END register_d_Re_Ar_testbench;
  
-ARCHITECTURE behavior OF register_d_risingedge_asyncreset_testbench IS 
+ARCHITECTURE behavior OF register_d_Re_Ar_testbench IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
-    COMPONENT register_d
-     generic(    dimension   :   NATURAL :=dimension_tb;
+    COMPONENT register_d_Re_Ar
+     generic(    dimension   :   NATURAL := dimension_tb;
                 reset_level     :   STD_LOGIC :='0';    -- define reset level
                 enable_level    :   STD_LOGIC := '1'    -- define enable level
     );
@@ -50,8 +50,8 @@ ARCHITECTURE behavior OF register_d_risingedge_asyncreset_testbench IS
     port(   clock   :   in  STD_LOGIC;
             enable  :   in  STD_LOGIC;
             reset   :   in  STD_LOGIC;
-            D       :   in  STD_LOGIC_VECTOR    (dimension downto 0);
-            Q       :   out STD_LOGIC_VECTOR    (dimension downto 0)
+            D       :   in  STD_LOGIC_VECTOR    (dimension-1 downto 0);
+            Q       :   out STD_LOGIC_VECTOR    (dimension-1 downto 0)
     );
     END COMPONENT;
     
@@ -60,10 +60,10 @@ ARCHITECTURE behavior OF register_d_risingedge_asyncreset_testbench IS
    signal clock : std_logic := '0';
    signal enable : std_logic := '0';
    signal reset_n : std_logic := '1';
-   signal d : std_logic_vector (dimension_tb downto 0):= (others => '0');
+   signal d : std_logic_vector (dimension_tb-1 downto 0):= (others => '0');
 
    --Outputs
-   signal q : std_logic_vector (dimension_tb downto 0);
+   signal q : std_logic_vector (dimension_tb-1 downto 0);
 
    -- Clock period definitions
    constant clock_period : time := 10 ns;
@@ -71,12 +71,12 @@ ARCHITECTURE behavior OF register_d_risingedge_asyncreset_testbench IS
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: register_d PORT MAP (
+   uut: register_d_Re_Ar PORT MAP (
           clock => clock,
           enable => enable,
-          reset=> reset_n,
-          d => d,
-          q => q
+          reset => reset_n,
+          D => d,
+          Q => q
         );
 
    -- Clock process definitions
