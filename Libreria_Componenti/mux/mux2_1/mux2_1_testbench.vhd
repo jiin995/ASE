@@ -27,6 +27,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Definisco la entity che non ha interfaccia perchè non serve per il testbench
 entity mux2_1_testbench is
+generic ( width_uut : NATURAL :=2
+);
 end mux2_1_testbench;
 
 -- Il componente mux2_1_testbench usa il componente mux2_1.
@@ -40,19 +42,21 @@ end mux2_1_testbench;
 architecture behavioral of mux2_1_testbench is
 
     component mux2_1 is
+    generic( width : NATURAL :=width_uut
+    );
         port(   SEL : in  STD_LOGIC;      -- mux2_1 selezione input
-                A   : in  STD_LOGIC;      -- mux2_1 primo input
-                B   : in  STD_LOGIC;      -- mux2_1 secondo input
-                X   : out STD_LOGIC       -- mux2_1 output
+            A   : in  STD_LOGIC_VECTOR ((width-1) downto 0);        --! mux2_1 input: A
+            B   : in  STD_LOGIC_VECTOR ((width-1) downto 0);        --! mux2_1 input: B
+            X   : out STD_LOGIC_VECTOR ((width-1) downto 0)  
             );
     end component;
 
 -- definisco i segnali interni a mux2_1_testbench
     signal SEL  : STD_LOGIC :='0';          
-    signal A    : STD_LOGIC :='0';
-    signal B    : STD_LOGIC :='0';
+    signal A    : STD_LOGIC_VECTOR ((width_uut-1) downto 0) := (others => '0');
+    signal B    : STD_LOGIC_VECTOR ((width_uut-1) downto 0) := (others => '0');
 
-    signal X    : STD_LOGIC :='0';
+    signal X    : STD_LOGIC_VECTOR ((width_uut-1) downto 0) := (others => '0');
 
 --=================================================================================================
 -- architecture dataflow of mux2_1 begin
@@ -68,7 +72,7 @@ architecture behavioral of mux2_1_testbench is
         stim_proc: process
         begin
             wait for 10 ns;
-              A <= '1';
+              A <=  (others => '1');
             wait for 10 ns;
               SEL <= '1';
             wait for 10 ns;
@@ -77,13 +81,13 @@ architecture behavioral of mux2_1_testbench is
             --l'assert visualizza il msg solo quando la condizione booleana è false.
             -- nel nostro caso se scriviamo X /= '1' l'assert mostrerà il msg solo quando X=1!
             -- quindi lo avremo sempre ==> il modo corretto per scrivere l'assert è X='1'
-            assert (X = '1') report "X should be 1 " severity error;
+            assert (X = x"1") report "X should be 1 " severity error;
             wait for 10 ns;
-              B <= '1';
+              B <=  (others => '1');
             wait for 10 ns;
               SEL <= 'Z';
             wait for 10 ns;
-              A<= '1','0' after 10 ns;
+              A<=  (others => '1'), (others => '0') after 10 ns;
             wait;
         end process;
 end behavioral;
