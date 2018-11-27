@@ -60,20 +60,20 @@ constant d          : STD_LOGIC_VECTOR(6 downto 0) := "0100001";
 constant e          : STD_LOGIC_VECTOR(6 downto 0) := "0000110"; 
 constant f          : STD_LOGIC_VECTOR(6 downto 0) := "0001110";
 
-alias digit_0 is values (3 downto 0);
-alias digit_1 is values (7 downto 4);
-alias digit_2 is values (11 downto 8);
-alias digit_3 is values (15 downto 12);
+alias digit_0 is values (3 downto 0);	-- i bit da 3 a 0 di values
+alias digit_1 is values (7 downto 4);	-- i bit da 7 a 4 di values
+alias digit_2 is values (11 downto 8);	-- i bit da 11 a 8 di values
+alias digit_3 is values (15 downto 12);	-- i bit da 15 a 12 di values
 
-signal cathodes_for_digit : STD_LOGIC_VECTOR (6 downto 0) := (others => '0');
-signal nibble   : STD_LOGIC_VECTOR (3 downto 0 ) := (others => '0');
+signal cathodes_for_digit : STD_LOGIC_VECTOR (6 downto 0) := (others => '0');	-- 
+signal nibble   : STD_LOGIC_VECTOR (3 downto 0 ) := (others => '0');	-- nibble di 4 bit di values
 
 --=============================================================================
 -- architecture behavioral of cathodes_manager begin
 --=============================================================================
 begin
 
-    digit_switching: process (select_digit,values)
+    digit_switching: process (select_digit,values) -- in base al valore di select_digit (contatore), posiziona la giusta digit (4 bit di values) in nibble
         begin  
             case select_digit is 
                 when "00" => nibble <= digit_0;
@@ -84,7 +84,7 @@ begin
             end case;
         end process;
 
-    decoder : process (nibble)
+    decoder : process (nibble)	-- in base alla digit selezionata nel nibble, imposta cathodes_for_digit al valore da impostare per accendere i corrispondenti segmenti
         begin  
             case nibble is
                 when "0000" => cathodes_for_digit <= zero; 
@@ -108,7 +108,7 @@ begin
         end process;
 
 	--multiplexer generico
-    cathodes <=  not dots(to_integer(unsigned(select_digit))) & cathodes_for_digit;
+    cathodes <=  not dots(to_integer(unsigned(select_digit))) & cathodes_for_digit;	-- bit del dot (negato perché 0 attivo) + la stringa selezionata
 end behavioral;
 --=============================================================================
 -- architecture behavioral of cathodes_manager end

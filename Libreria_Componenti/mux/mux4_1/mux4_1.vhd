@@ -5,24 +5,24 @@
 ---------------------------------------------------------------------------------------------------
 -- project name : mux4_1
 --
--- unit name: mux4_1.vhdl
+-- unit name: mux4_1.vhd
 --     
 -- file description:
 --! @file
---! @author     Gabriele Previtera
---! @date       15/10/2018
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       13/11/2018
 --! @version    0.1
---! @brief      mux4_1 descrive il comportamento di un multiplexer con 4 ingressi e una uscita
+--! @brief      mux4_1 descrive il comportamento di un multiplexer con 4 ingressi e 1 uscita
 --! @details
 --!
 --! <b>Dependencies:</b>\n
---! <mux2_1>
+--!   Nothings
 --!
 -- modified by: Gabriele Previtera
 --
 ---------------------------------------------------------------------------------------------------
--- last changes: <11/11/2018> <15/10/2018> <log>
---                Aggiunta doc doxygen
+-- last changes: <14/11/2018> <13/11/2018> <log>
+--              create
 ---------------------------------------------------------------------------------------------------
 
 --! Uso la libreria standard di IEEE

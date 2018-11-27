@@ -47,31 +47,31 @@ end clock_divisor;
 --================================================================================================
 architecture behavioral of clock_divisor is
 
-signal clock_out_temp : STD_LOGIC :='0';
+signal clock_out_temp : STD_LOGIC :='0';	-- segnale temporaneo per l'uscita
 
-constant max_value : integer := (clock_frequency_in/clock_frequency_out)-1;
+constant max_value : integer := (clock_frequency_in/clock_frequency_out)-1;	-- il rapporto tra frequenza in e out è il valore a cui il counter deve arrivare prima di alzare l'output
 --=============================================================================
 -- architecture behavioral of clock_divisor begin
 --=============================================================================
 begin
-    clock_freq_out <= clock_out_temp;
+    clock_freq_out <= clock_out_temp;	-- aggiorna l'uscita
 
-    clock_division : process (clock_freq_in,reset_n,enable) 
-        variable counter : integer range 0 to max_value := 0;
-        begin   
-            if reset_n = '0' then 
+    clock_division : process (clock_freq_in,reset_n,enable)
+    variable counter : integer range 0 to max_value := 0;	-- variabile contatore
+		begin   
+            if reset_n = '0' then 	-- reset asincrono, 0-attivo
                 counter := 0;
                 clock_out_temp <= '0';
-            elsif (rising_edge (clock_freq_in) and (enable='1')) then 
-                if(counter = max_value) then
-                    counter := 0;
-                    clock_out_temp <= '1';
+            elsif (rising_edge (clock_freq_in) and (enable='1')) then -- attiva sul fronte di salita, se abilitato
+                if(counter = max_value) then	-- abbiamo raggiunto il valore massimo del contatore, possiamo mandare il segnale alto in uscita
+                    counter := 0;	-- resetto il counter
+                    clock_out_temp <= '1';	-- impulso clock uscita
                 else
-                    counter := counter +1;
-                    clock_out_temp <= '0';
+                    counter := counter +1;	-- incrementa il counter
+                    clock_out_temp <= '0';	-- clock_out resta a 0
                 end if;
             end if;
-        end process;
+       end process;
 end;
 
 --=============================================================================
