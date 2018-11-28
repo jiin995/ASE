@@ -56,8 +56,6 @@ architecture Structural of display_7_segmenti is
 	signal counter : std_logic_vector(1 downto 0);
 	signal clock_fx : std_logic := '0';	-- il clock diviso dal divisore
 
-
-
 	component counter_mod2n
 		 generic (   n               :   NATURAL := 2;	--! usato per definire il valore massimo (2**n)-1 di fine conteggio.
 						 enable_level    :   std_logic := '1'	--! definisce il livello enable
@@ -84,45 +82,45 @@ architecture Structural of display_7_segmenti is
 		 );
 	end component;
 	
-COMPONENT clock_filter
-	GENERIC(
-				clock_frequency_in : integer := 50000000;
-				clock_frequency_out : integer := 5000000
-				);
-	PORT(
-		clock_in : IN std_logic; 
-      reset_n : in  STD_LOGIC;		
-		clock_out : OUT std_logic
-		);
-END COMPONENT;
+	component clock_divisor
+		 generic (   clock_frequency_in  : integer := 100000000;	--! frequenza del clock in ingresso
+						 clock_frequency_out : integer := 1000	--! frequenza del clock in uscita
+		 );
+		 port (  enable      :   in STD_LOGIC;	--! clock_divisor input: segnale enable
+					reset_n     :   in STD_LOGIC;	--! clock_divisor input: segnale reset
+					clock_freq_in    :   in STD_LOGIC ;	--! clock_divisor input: segnale di clock in ingresso
+					clock_freq_out   :   out STD_LOGIC	--! clock_divisor output: segnale di clock in uscita
+		 );
+	end component;
 
 begin
 
-clk_filter: clock_filter GENERIC MAP(	
-	clock_frequency_in => clock_frequency_in,
-	clock_frequency_out => clock_frequency_out
-	)
-	PORT MAP(
-		clock_in => clock,
-		reset_n => reset_n,
-		clock_out => clock_fx
-	);
+	clk_filter: clock_divisor GENERIC MAP(	
+		clock_frequency_in => clock_frequency_in,
+		clock_frequency_out => clock_frequency_out
+		)
+		PORT MAP(
+			enable => '1',
+			clock_freq_in => clock,
+			reset_n => reset_n,
+			clock_freq_out => clock_fx
+		);
 
-		counter_instance: counter_mod2n port map(
+	counter_instance: counter_mod2n port map(
 			clock => clock,
 			enable => clock_fx,
 			reset_n => reset_n,
 			counter => counter
 		);
 
-		cathodes_instance: cathodes_manager port map(
+	cathodes_instance: cathodes_manager port map(
 			select_digit => counter,
 			values => values,
 			dots => dots,
 			cathodes => cathodes
 		);
 
-		anodes_instance: anodes_manager port map(
+	anodes_instance: anodes_manager port map(
 			select_digit => counter,
 			enable_digit => enable,
 			anodes => anodes

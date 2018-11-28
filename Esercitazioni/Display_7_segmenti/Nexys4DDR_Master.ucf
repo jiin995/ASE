@@ -9,7 +9,7 @@ NET "clock"   LOC = "E3"	| IOSTANDARD = "LVCMOS33";					#Banodesk = 35, Pin name
 #TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 100 MHz HIGH 50%; 
 
 
-## valuesitches
+## valueswitches
 NET "values<0>"          LOC=J15 | IOSTANDARD=LVCMOS33; #IO_L24N_T3_RS0_15
 NET "values<1>"          LOC=L16 | IOSTANDARD=LVCMOS33; #IO_L3N_T0_DQS_EMCCLK_14
 NET "values<2>"          LOC=M13 | IOSTANDARD=LVCMOS33; #IO_L6N_T0_D08_VREF_14

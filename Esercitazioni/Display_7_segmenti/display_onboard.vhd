@@ -64,13 +64,13 @@ begin
 		clock_frequency_out => 100
 	)
 	port map (	clock => clock,
-														reset_n => reset,
-														values => values,
-														dots => dots,
-														enable => enable_digit,
-														anodes => anodes,
-														cathodes => cathodes
-											);
+					reset_n => reset,
+					values => values,
+					dots => dots,
+					enable => enable_digit,
+					anodes => anodes,
+					cathodes => cathodes
+	);
 	
 
 end structural;

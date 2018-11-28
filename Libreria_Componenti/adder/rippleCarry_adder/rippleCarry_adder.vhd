@@ -72,10 +72,10 @@ architecture structural of rippleCarry_adder is
 -- architecture structural of rippleCarry_adder begin
 --================================================================================================
     begin
-        S <= S_temp;
+        S <= S_temp;    -- aggiorno S con il risultato effettivo
         
-        carries (0) <= c_in;
-        c_out <= carrys(width);
+        carries (0) <= c_in;    -- il primo carry è quello in ingresso
+        c_out <= carries(width); -- carrys(width) è l'ultimo carry delle somme, va in c_out
 
         rippleCarry_adder : for i in 0 to width-1 generate 
             f_adder: full_adder port map (
