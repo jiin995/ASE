@@ -34,10 +34,12 @@ use IEEE.STD_LOGIC_1164.all;
 -- definisco il componente e la sua interfaccia 
 
 entity mux2_1 is
-    port(   SEL : in  STD_LOGIC;        --! mux2_1 input: selezione 
-            A   : in  STD_LOGIC;        --! mux2_1 input: A
-            B   : in  STD_LOGIC;        --! mux2_1 input: B
-            X   : out STD_LOGIC         --! mux2_1 output: X
+    generic (   width : natural :=1                     --! parallelismo dell' I/O del multiplexer
+    );
+    port(   SEL : in  STD_LOGIC;                                    --! mux2_1 input: selezione 
+            A   : in  STD_LOGIC_VECTOR ((width-1) downto 0);        --! mux2_1 input: A
+            B   : in  STD_LOGIC_VECTOR ((width-1) downto 0);        --! mux2_1 input: B
+            X   : out STD_LOGIC_VECTOR ((width-1) downto 0)         --! mux2_1 output: X
         );
 end mux2_1;
 
@@ -53,7 +55,7 @@ architecture dataflow of mux2_1 is
     --X <= A when SEL='0' else B;
     --X <= (A and (not SEL) ) or (B and (SEL));
 	X <= A when SEL='0' else
-	     B when SEL='1' else 'X';
+	     B when SEL='1' else (others => 'X');
     end dataflow;
 --================================================================================================
 -- architecture dataflow of mux2_1 end

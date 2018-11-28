@@ -28,19 +28,25 @@ library IEEE;
     use IEEE.STD_LOGIC_1164.all;
 
 -- Descrizione
---! Somma le 3 stringhe di bit in ingresso (2 addendi e 1 carry in ingresso). Caratterizzato da una serie di full_adder in cascata che propagano il riporto.\n In uscita abbiamo il risultato della somma sul bit S e il riporto sul bit C.
+--! Somma le 3 stringhe di bit in ingresso (2 addendi e 1 carry in ingresso). Caratterizzato da una
+--! serie di full_adder in cascata che propagano il riporto.\n In uscita abbiamo il risultato della 
+--! somma sul bit S e il riporto sul bit C.
 
 entity rippleCarry_adder is 
-    generic (
-                width   : NATURAL := 8          --! usato per definire il parallelismo del rippleCarry_adder 
+    generic (   width   : NATURAL := 8      --! usato per definire il parallelismo del 
+                                            --! rippleCarry_adder 
     );
-
     port (
-            X       :   in  STD_LOGIC_VECTOR (width-1 downto 0);	--! rippleCarry_adder input: addendo   
-            Y       :   in  STD_LOGIC_VECTOR (width-1 downto 0);    	--! rippleCarry_adder input: addendo
-            c_in    :   in  STD_LOGIC;                              	--! rippleCarry_adder input: carry in ingresso
-            S       :   out STD_LOGIC_VECTOR  (width-1 downto 0);   	--! rippleCarry_adder output: somma
-            c_out   :   out STD_LOGIC                             	--! rippleCarry_adder output: carry
+            X       :   in  STD_LOGIC_VECTOR (width-1 downto 0);	    --! rippleCarry_adder 
+                                                                        --! input: addendo   
+            Y       :   in  STD_LOGIC_VECTOR (width-1 downto 0);    	--! rippleCarry_adder 
+                                                                        --! input: addendo
+            c_in    :   in  STD_LOGIC;                              	--! rippleCarry_adder input
+                                                                        --! : carry in ingresso
+            S       :   out STD_LOGIC_VECTOR  (width-1 downto 0);   	--! rippleCarry_adder 
+                                                                        --! output: somma
+            c_out   :   out STD_LOGIC                             	    --! rippleCarry_adder 
+                                                                        --! output: carry
     );
 end rippleCarry_adder;
 
