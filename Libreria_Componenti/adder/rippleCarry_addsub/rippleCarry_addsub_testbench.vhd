@@ -3,7 +3,7 @@
 -- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
 -- 
 ---------------------------------------------------------------------------------------------------
--- project name : rippleCarry_adder
+-- project name : rippleCarry_adder_testbench
 --
 -- unit name: rippleCarry_addsub_testbench.vhdl
 --     
@@ -18,7 +18,7 @@
 --! <b>Dependencies:</b>\n
 --!   full_adder
 --!
--- modified by: Gabriele Previtera
+-- modified by: Simone Penna
 --
 ---------------------------------------------------------------------------------------------------
 -- last changes: <11/11/2018> <15/10/2018> <log>
@@ -68,13 +68,20 @@ begin
     );
 
     stim_proc: process
-        begin
+        begin		
+      -- hold reset state for 100 ns.
+      wait for 100 ns;	
+      
             subtract <= '1';
             wait for 40 ns;
                 for i in 0 to width-1 loop 
-                    B(i)<= '1';
+                    b(i)<= '1';
                     wait for 10 ns;
-                    A(i) <= '1'; --std_logic_vector(to_unsigned(i, X'length));
+						subtract <= '0';
+                    wait for 10 ns;
+                    a(i) <= '1'; --std_logic_vector(to_unsigned(i, X'length));
+                    wait for 10 ns;
+						subtract <= '1';
                     wait for 10 ns;
                 end loop;
 

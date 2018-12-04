@@ -28,14 +28,20 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
 -- Descrizione
---! aaa
+--! La macchina controlla se vi è overflow nel risultato confrontando le cifre più significative
+--! (segno) dei due operandi e del risultato con subtract. Ho overflow in caso di:
+--! - somma di due positivi con risultato negativo
+--! - somma di due negativi con risultato positivo
+--! - differenza di positivo e negativo con risultato negativo
+--! - differenza di negativo e positivo con risultato positivo
 
 entity overflow_checker is 
 port (
-            s_a:   in  STD_LOGIC;
-            s_b:   in  STD_LOGIC;
-            s_s:   in  STD_LOGIC;
-            overflow: out STD_LOGIC
+            a:   in  STD_LOGIC; --! bit più significativo (segno) di A
+            b:   in  STD_LOGIC; --! bit più significativo (segno) di B
+            subtract: in STD_LOGIC; --! bit di operazione: 1 se sottrazione, 0 se addizione
+            s:   in  STD_LOGIC; --! bit più significativo (segno) di S
+            overflow: out STD_LOGIC --! bit alto se ho una condizione di overflow
     );
 end overflow_checker;
 
@@ -50,12 +56,10 @@ architecture dataflow of overflow_checker is
 --================================================================================================
     begin
 
-      --  overflow_check: process(s_a,s_b,s_s)
-
-      --  begin
-
-        overflow <= '1' when ((s_a = '0' AND s_b = '0' AND s_s='1') OR (s_a = '1' AND s_b = '1' AND s_s = '0' ) )
-                        else '0';
+        overflow <= ( (not a) AND (not b) AND (not subtract) AND s )
+			    OR ( a AND b AND (not subtract) AND (not s) )
+                OR ( (not a) AND b AND subtract AND s )
+                OR ( a AND (not b) AND subtract AND (not s) ) ;    -- ricavato tramite tabella di verità
         
     end dataflow;
 --================================================================================================

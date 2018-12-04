@@ -33,6 +33,11 @@ use IEEE.STD_LOGIC_1164.all;
 --! Il secondo operando del RCA (Y) è determinato dalla XOR tra SUBTRACT e B: se subtract = 1, ne farà il complemento.
 --! Il subtract è portato anche come c_in del RCA, in modo tale che, se 1, B diventerà !B + 1 = -B, e dunque il RCA farà (A - B).
 --! Se subtract è 0, Y sarà B e c_in sarà 0 (eseguirà A + B).
+--! L'overflow è alto se ho una somma di numeri positivi e risultato negativo, 
+--! somma di numeri negativi e risultato positivo, differenza positivo e negativo con
+--! risultato negativo o differenza negativo e positivo con risultato positivo.
+--! Usiamo una macchina overflow_checker che fa tale controllo usando i bit più
+--! significativi (segno) di A, B, S e il bit di subtract.
 
 entity rippleCarry_addsub is 
     generic (   width   : NATURAL := 8      --! usato per definire il parallelismo del sommatore
@@ -45,9 +50,9 @@ entity rippleCarry_addsub is
             subtract:   in  STD_LOGIC;                                  --! rippleCarry_addsub
                                                                         --! input: subtract sarà 0 per somma, 1 per differenza
             S       :   out STD_LOGIC_VECTOR  (width-1 downto 0);   	--! rippleCarry_addsub 
-                                                                        --! output: somma
-            overflow   :   out STD_LOGIC                             	    --! rippleCarry_addsub 
-                                                                        --! output: carry
+                                                                        --! output: risultato
+            overflow   :   out STD_LOGIC                             	--! rippleCarry_addsub 
+                                                                        --! output: condizione di overflow
     );
 end rippleCarry_addsub;
 
@@ -69,47 +74,58 @@ architecture structural of rippleCarry_addsub is
     );
     end component;
 
-    component overflow_checker 
+    component overflow_checker
     port (
-            s_a:   in  STD_LOGIC;
-            s_b:   in  STD_LOGIC;
-            s_s:   in  STD_LOGIC;
-            overflow: out STD_LOGIC
-    );
+                a:   in  STD_LOGIC;
+                b:   in  STD_LOGIC;
+                subtract: in STD_LOGIC;
+                s:   in  STD_LOGIC;
+                overflow: out STD_LOGIC
+        );
     end component;
 
-    signal subtract_vector: STD_LOGIC_VECTOR (width-1 downto 0) := (others => subtract); 
-    signal Y_rca: STD_LOGIC_VECTOR (width-1 downto 0) := (B XOR subtract_vector); 
+    signal S_ff: STD_LOGIC_VECTOR (width-1 downto 0) := (others => '0');   -- segnale temporaneo per l'uscita
 
-    signal c_out: STD_LOGIC := '0';
-    signal S_ff: STD_LOGIC_VECTOR (width-1 downto 0) := (others => subtract); 
+    signal subtract_vector: STD_LOGIC_VECTOR (width-1 downto 0) := (others => '0'); -- vettore per il complemento
+    signal B_complementato: STD_LOGIC_VECTOR (width-1 downto 0) := (others => '0');       -- vettore in cui verrà inserito B complementato (caso sottrazione)
 
 --================================================================================================
 -- architecture structural of rippleCarry_addsub begin
 --================================================================================================
     begin
-
-        subtract_vector <= (others => subtract);
-        Y_rca <=  (B XOR subtract_vector);
-
+    
         S <= S_ff;
+
+        subtract_vector <= (others => subtract);    -- il vettore viene riempito col valore di subtract
+        B_complementato <=  (B XOR subtract_vector);    -- se subtract è 1 (subtract vector tutti 1), 
+                                                    -- complemento B con la XOR, altrimenti se è 0
+                                                    -- avrò B_complementato = B (non complemento).
         
         rippleCarry: rippleCarry_adder generic map (
             width => width
         ) port map (
             X => A,
-            Y => Y_rca,
-            c_in => subtract,
+            Y => B_complementato,
+            c_in => subtract,   -- sarà 1 se ho sottrazione (poiché ho già complementato B in B_complementato,
+                                -- se sommo a 1 ottengo l'opposto e faccio una sottrazione), 0 se somma normale.
             S => S_ff,
-            c_out => c_out
+            c_out => open       -- il riporto in uscita non viene utilizzato
         );
 
-        overflow_checker_istance: overflow_checker port map (
-            s_a => A(width-1),
-            s_b => B(width-1), -- devo negarlo se subtract = 1 
-            s_s => S_ff(width-1),
+        -- l'overflow è alto se ho una somma di numeri positivi e risultato negativo, 
+        -- somma di numeri negativi e risultato positivo, differenza positivo e negativo con
+        -- risultato negativo o differenza negativo e positivo con risultato positivo.
+        -- Usiamo una macchina overflow_checker che fa tale controllo usando i bit più
+        -- significativi (segno) di A, B, S e il bit di subtract.
+
+        oc:  overflow_checker port map (
+            a => A(width-1),
+            b => B(width-1),
+            subtract => subtract,
+            s => S_ff(width-1),
             overflow => overflow
         );
+
 
     end structural;
 --================================================================================================
