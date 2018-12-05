@@ -1,3 +1,6 @@
+#ignore test folder
+Test/*
+
 # ignore ghdl files
 *.cf
 *.vcd
