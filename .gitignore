@@ -1,5 +1,5 @@
 #ignore test folder
-Test/*
+Test/
 
 # ignore ghdl files
 *.cf
