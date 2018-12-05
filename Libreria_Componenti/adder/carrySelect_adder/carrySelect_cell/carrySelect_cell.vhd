@@ -13,6 +13,12 @@ entity carrySelect_cell is
     );
 end carrySelect_cell;
 
+--================================================================================================
+-- architecture declaration
+--================================================================================================
+-- Componenti necessari :   
+--  - mux2_1 con parallelismo variabile
+--  - ripple carry adder
 architecture structural of carrySelect_cell is 
     component mux2_1 is 
             generic (   width : natural :=width                    --! parallelismo dell' I/O del multiplexer
@@ -43,8 +49,12 @@ architecture structural of carrySelect_cell is
 --array di segnali che mantengono la somma dei ripplecarry
     type arrays_of_VECTOR is array (0 to 1) of STD_LOGIC_VECTOR ((width-1) downto 0);
     signal internal_sum         : arrays_of_VECTOR; 
+--Segnale temporeneo per porre l'uscita a 0
+    signal S_TEMP : STD_LOGIC_VECTOR ((width - 1) downto 0) := ( others => '0');
 begin
 
+S <= S_TEMP;
+--adder che procedono alla somma degli width bits con i carry differenti 
     adders:
         for i in 0 to 1 generate 
             rippleCarry_adder_instance : rippleCarry_adder port map(    X       => A,
@@ -54,15 +64,19 @@ begin
                                                                         c_out   => internal_carry_out(i)
             );
     end generate adders;
-    mux2_1_carry_select : mux2_1 generic map (width =>1) 
+
+--multiplexer che seleziona il carry in uscita in base al carry in ingresso
+   mux2_1_carry_select : mux2_1 generic map (width => 1) 
                                     port map (  A(0)   => internal_carry_out(0),
                                                 B(0)   => internal_carry_out(1),
-                                                SEL => c_in,
-                                                X(0)  => c_out
+                                                SEL    => c_in,
+                                                X(0)   => c_out
                                             );
-    mux2_1_sum_select : mux2_1 port map ( A   => internal_sum(0),
+                                            
+--multiplexer che seleziona la somma in uscita in base al carry in ingresso 
+    mux2_1_sum_select : mux2_1 port map (   A   => internal_sum(0),
                                             B   => internal_sum(1),
                                             SEL =>  c_in,
-                                            X   => S
+                                            X   => S_TEMP
                                          );
 end structural;
