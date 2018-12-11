@@ -28,7 +28,7 @@ library IEEE;
     use IEEE.STD_LOGIC_1164.all;
 
 -- Descrizione
---! Somma le 3 stringhe di bit in ingresso (2 addendi e 1 carry in ingresso). Caratterizzato da una
+--! Somma le 2 stringe di bit in ingresso (2 addendi ) e 1 bit (carry in ingresso). Caratterizzato da una
 --! serie di full_adder in cascata che propagano il riporto.\n In uscita abbiamo il risultato della 
 --! somma sul bit S e il riporto sul bit C.
 
