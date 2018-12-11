@@ -43,6 +43,8 @@ begin
         begin  
             wait  for 10 ns;
             for i in 0 to 10 loop 
+                -- aggiungo 5 a X convertedo il vettore in intero senza segno e poi riconvertendolo
+                -- in std logic vector
                 X <= std_logic_vector(to_unsigned(to_integer(unsigned( X )) + 5, (M_test*P_test)));
                 wait for 10 ns;
             end loop;
