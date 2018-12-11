@@ -1,0 +1,86 @@
+[*]
+[*] GTKWave Analyzer v3.3.79 (w)1999-2017 BSI
+[*] Tue Dec 11 13:06:38 2018
+[*]
+[dumpfile] "/home/jiin995/ASE_WorkSpace/Libreria_Componenti/adder/carrySave_adder/carrySave_logic/carrySave_logic.vcd"
+[dumpfile_mtime] "Tue Dec 11 13:00:20 2018"
+[dumpfile_size] 2597
+[savefile] "/home/jiin995/ASE_WorkSpace/Libreria_Componenti/adder/carrySave_adder/carrySave_logic/SimulazioneColorata.gtkw"
+[timestart] 0
+[size] 1920 1052
+[pos] -1 -1
+*-25.658949 22500000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 223
+[signals_width] 117
+[sst_expanded] 1
+[sst_vpaned_height] 300
+@800022
+[color] 5
+x[3:0]
+@28
+(0)x[3:0]
+[color] 3
+(1)x[3:0]
+(2)x[3:0]
+[color] 1
+(3)x[3:0]
+@1001200
+-group_end
+@200
+-
+@800022
+[color] 5
+y[3:0]
+@28
+(0)y[3:0]
+[color] 3
+(1)y[3:0]
+(2)y[3:0]
+[color] 1
+(3)y[3:0]
+@1001200
+-group_end
+@200
+-
+@800022
+[color] 5
+z[3:0]
+@28
+(0)z[3:0]
+[color] 3
+(1)z[3:0]
+(2)z[3:0]
+[color] 1
+(3)z[3:0]
+@1001200
+-group_end
+@200
+-
+@800022
+[color] 5
+s[3:0]
+@28
+(0)s[3:0]
+[color] 3
+(1)s[3:0]
+(2)s[3:0]
+[color] 1
+(3)s[3:0]
+@1001200
+-group_end
+@201
+-
+@800022
+[color] 5
+cs[3:0]
+@28
+(0)cs[3:0]
+[color] 3
+(1)cs[3:0]
+(2)cs[3:0]
+[color] 1
+(3)cs[3:0]
+@1001200
+-group_end
+[pattern_trace] 1
+[pattern_trace] 0
