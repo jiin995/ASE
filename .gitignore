@@ -11,6 +11,10 @@ work-obj93.cf
 *.lyx#
 *.lyx~ 
 
+#ignore python cache and pythonc
+__pycache__/
+*.pyc
+
 # ignora i file in lattice generati da doxygen
 annotated.tex
 latex/
