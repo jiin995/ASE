@@ -16,27 +16,29 @@ from  my_utils import *
 if __name__ == "__main__":
 
     #Parsing dell'input
-    parser = argparse.ArgumentParser(description='Simple terminal .')
-    parser.add_argument('port', metavar='port',help='serial port ')
-    parser.add_argument('boundrate', metavar='boundrate', type=int,help='boundrate ')
+    parser = argparse.ArgumentParser(description='Simple terminal')
+    parser.add_argument('port', metavar='port',help='serial port')
+    parser.add_argument('baudrate', metavar='baudrate', type=int,help='baudrate')
 
     args = parser.parse_args()
 
     #Stampo gli input 
     terminal_print(args.port)
-    terminal_print(args.boundrate)
+    terminal_print(args.baudrate)
 
     #istanzazione dell'oggetto seriale
     #Timeout=0 render la read non bloccante
-    ser=serial.Serial(args.port,args.boundrate,timeout=0)
+    ser=serial.Serial(args.port, args.baudrate, timeout=0)
     try:
         while (True):
             #leggo la riga di input dalla serial
-            r_line=ser.readline()
-            if(len(r_line)>0):
+            r_line = ser.readline()
+            if(len(r_line) > 0):
                 #elimino eventuali caratteri speciali come line feed cr
-                clear_line=re.sub('[^A-Za-z0-9]+=', '',r_line)
-                clear_line.rstrip()
+                # \W == [^A-Za-z0-9_]
+                clear_line = re.sub('\W+', '', r_line)
+                clear_line = re.sub('_', '', clear_line)
+                #clear_line.rstrip()
                 #l1 = [] 
                 #l2 = []
                 #for c in clear_line:   # in Python, a string is just a sequence, so we can iterate over it!
@@ -44,14 +46,15 @@ if __name__ == "__main__":
                 #    l2.append(ord(c))
                 #print(l1)
                 #print(l2)
-                print(r_line)
+                print(clear_line)
 
             #Aspetto che in input al terminale ci sia una nuova stringa da leggere e inviare sulla seriale
             while sys.stdin in select.select([sys.stdin], [], [], 0)[0]:
                 line = sys.stdin.readline()
                 if line:
                     #elimino eventuali caratteri speciali come line feed cr
-                    clear_line=re.sub('[^A-Za-z0-9]+', '', line)
+                    clear_line = re.sub('\W+', '', line)
+                    clear_line = re.sub('_', '', clear_line)
                     ser.write(clear_line.encode())
             
     except(KeyboardInterrupt):
