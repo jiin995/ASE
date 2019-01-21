@@ -1,0 +1,68 @@
+(DELAYFILE
+  (SDFVERSION "3.0")
+  (DESIGN "latch_RS_NOR")
+  (DATE "Mon Jan 21 21:32:35 2019")
+  (VENDOR "Xilinx")
+  (PROGRAM "Xilinx SDF Writer")
+  (VERSION "P.20131013")
+  (DIVIDER /)
+  (VOLTAGE 0.95)
+  (TEMPERATURE 85)
+  (TIMESCALE 1 ps)
+  (CELL (CELLTYPE "X_OBUF")
+    (INSTANCE NQ_OBUF)
+      (DELAY
+        (ABSOLUTE
+          (PORT I ( 0 )( 0 ))
+          (IOPATH I O (1235:3534:3534)(1235:3534:3534))
+        )
+      )
+  )
+  (CELL (CELLTYPE "X_OBUF")
+    (INSTANCE Q_OBUF)
+      (DELAY
+        (ABSOLUTE
+          (PORT I ( 0 )( 0 ))
+          (IOPATH I O (1220:3519:3519)(1220:3519:3519))
+        )
+      )
+  )
+  (CELL (CELLTYPE "X_BUF")
+    (INSTANCE R_IBUF)
+      (DELAY
+        (ABSOLUTE
+          (IOPATH I O (245:1478:1478)(245:1478:1478))
+        )
+      )
+  )
+  (CELL (CELLTYPE "X_BUF")
+    (INSTANCE S_IBUF)
+      (DELAY
+        (ABSOLUTE
+          (IOPATH I O (247:1480:1480)(247:1480:1480))
+        )
+      )
+  )
+  (CELL (CELLTYPE "X_LUT6")
+    (INSTANCE XLXI_2)
+      (DELAY
+        (ABSOLUTE
+          (PORT ADR4 ( 0 )( 0 ))
+          (PORT ADR5 ( 0 )( 0 ))
+          (IOPATH ADR4 O (45:124:124)(45:124:124))
+          (IOPATH ADR5 O (45:124:124)(45:124:124))
+        )
+      )
+  )
+  (CELL (CELLTYPE "X_LUT6")
+    (INSTANCE XLXI_1)
+      (DELAY
+        (ABSOLUTE
+          (PORT ADR4 ( 0 )( 0 ))
+          (PORT ADR5 ( 0 )( 0 ))
+          (IOPATH ADR4 O (45:124:124)(45:124:124))
+          (IOPATH ADR5 O (45:124:124)(45:124:124))
+        )
+      )
+  )
+)
