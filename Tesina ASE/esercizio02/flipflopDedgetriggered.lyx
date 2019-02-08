@@ -164,23 +164,244 @@ Traccia
 \end_layout
 
 \begin_layout Standard
-Tatà
+Implementare e simulare un flip-flop D edge-triggered abilitato che commuta
+ sul fronte di salita con reset asincrono.
 \end_layout
 
 \begin_layout Subsection
 Soluzione
 \end_layout
 
+\begin_layout Subsubsection
+Implementazione
+\end_layout
+
 \begin_layout Standard
-Tatà
+Il flip-flop D edge-triggered è stato realizzato tramite implementazione
+ behavioural.
+ Si noti come il process, sensibile solo al cambiamento di CLK e reset,
+ porta il valore di D in Q solamente sul fronte di salita di CLK, descrivendo
+ proprio il comportamento atteso del flip-flop.
+ Nel caso in cui invece il reset venga portato al valore reset_level, il
+ valore di Q viene resettato a prescindere dal comportamento del clock (reset
+ asincrono).
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Implementazione behavioural di
+ un flip-flop D edge-triggered.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+architecture behavioural of flipflop_d_risingEdge_asyncReset is 
+\end_layout
+
+\begin_layout Plain Layout
+
+signal q_temp : STD_LOGIC :=init_value;
+\end_layout
+
+\begin_layout Plain Layout
+
+begin
+\end_layout
+
+\begin_layout Plain Layout
+
+	q <= q_temp;
+\end_layout
+
+\begin_layout Plain Layout
+
+	ff : process(clk, reset)
+\end_layout
+
+\begin_layout Plain Layout
+
+	begin   
+\end_layout
+
+\begin_layout Plain Layout
+
+		if ( reset = reset_level ) then 
+\end_layout
+
+\begin_layout Plain Layout
+
+			q_temp <= init_value;
+\end_layout
+
+\begin_layout Plain Layout
+
+		elsif ( rising_edge(clk) and (enable = enable_level) ) then
+\end_layout
+
+\begin_layout Plain Layout
+
+			q_temp <= d;
+\end_layout
+
+\begin_layout Plain Layout
+
+		end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+	end process ff;
+\end_layout
+
+\begin_layout Plain Layout
+
+end behavioural; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
-Schematici
+Simulazione
 \end_layout
 
 \begin_layout Standard
-tì
+I risultati della simulazione behavioural sono consultabili in figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:flipflop-d-edgetriggered-simulazione"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Si noti come i risultati ottenuti sono perfettamente coerenti con il comportame
+nto previsto: in particolare, al fronte di salita del clock, il valore di
+ Q si porta al valore di D solamente se enable è alto.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/flipflopdedgetriggered/flipflop-d-edgetriggered-simulazione.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:flipflop-d-edgetriggered-simulazione"
+
+\end_inset
+
+Simulazione behavioural del flip-flop RS master-slave.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si noti inoltre come, nella simulazione post-map (fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:flipflop-d-edgetriggered-simulazione-postmap"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), a causa del ritardo di propagazione, Q si porta al valore di D solamente
+ qualche istante dopo l'effettivo fronte di salita del clock.
+ Questo è osservabile perfettamente a 160 ns, mentre a 100 ms, poiché D
+ torna basso prima che Q possa commutare, il valore di Q resta indefinito
+ fino al successivo fronte di salita.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/flipflopdedgetriggered/flipflop-d-edgetriggered-simulazione-postmap.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:flipflop-d-edgetriggered-simulazione-postmap"
+
+\end_inset
+
+Simulazione post-map del flip-flop RS master-slave.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

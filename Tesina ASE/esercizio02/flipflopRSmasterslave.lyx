@@ -164,23 +164,198 @@ Traccia
 \end_layout
 
 \begin_layout Standard
-Tatà
+Implementare e simulare un flip-flop RS master-slave che commuta sul fronte
+ di discesa.
 \end_layout
 
 \begin_layout Subsection
 Soluzione
 \end_layout
 
+\begin_layout Subsubsection
+Implementazione
+\end_layout
+
 \begin_layout Standard
-Tatà
+Il flip-flop RS master-slave è stato realizzato tramite l'utilizzo di due
+ latch RS collegati in cascata, come riportato in (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:flipflop-rs-masterslave"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ In particolare, il primo viene abilitato quando CLK = 1, mentre il secondo
+ quando CLK = 0.
+ Le uscite dunque saranno calcolate sul fronte di salita di clock, ma i
+ risultati saranno visibili sul fronte di discesa.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/flipfloprsmasterslave/flipflop-rs-masterslave-schematico.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:flipflop-rs-masterslave"
+
+\end_inset
+
+Schematico del flip-flop RS master-slave.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
-Schematici
+Simulazione
 \end_layout
 
 \begin_layout Standard
-tì
+Per la simulazione behavioural di tale componente (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:flipflop-rs-masterslave-simulazione"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), si è proceduto analogamente al caso latch RS.
+ In particolare, si è prima posto R=0 e S=1, in modo tale che, al fronte
+ di discesa del CLK, Q si porta a 1.
+ Anche il caso opposto, con R=1 e S=0, porta come previsto Q a 0, mentre
+ per R=0 e S=0 la Q mantiene il proprio valore ad ogni fronte di discesa.
+ Per quanto concerne il caso particolare R=1 e S=1, si noti come al fronte
+ di discesa del clock si verifichino eventi oscillatori su Q dovuti all'utilizzo
+ dei latch RS, che il simulatore behavioural non è in grado di mostrare
+ a causa dell'elevatissimo numero di delta cycle.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/flipfloprsmasterslave/flipflop-rs-masterslave-simulazione.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:flipflop-rs-masterslave-simulazione"
+
+\end_inset
+
+Simulazione behavioural del flip-flop RS master-slave.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tali oscillazioni sono osservabili invece in simulazione post-map (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:flipflop-rs-masterslave-simulazione-postmap"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/flipfloprsmasterslave/flipflop-rs-masterslave-simulazione-postmap.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:flipflop-rs-masterslave-simulazione-postmap"
+
+\end_inset
+
+Simulazione post-map del flip-flop RS master-slave.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
