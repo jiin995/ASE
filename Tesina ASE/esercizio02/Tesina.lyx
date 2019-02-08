@@ -6,23 +6,6 @@
 \origin unavailable
 \textclass book
 \begin_preamble
-% LOGO
-\usepackage{eso-pic,graphicx}
-\makeatletter
-\newcommand\BackgroundPicture[2]{
-\setlength{\unitlength}{1pt}
-\put(0,\strip@pt\paperheight){
-\parbox[t][\paperheight]{\paperwidth}{
-\vfill
-\centering\includegraphics[angle=#2]{#1}
-\vfill
-}
-}
-}
-\makeatother
-%Per i marigini
-\sloppy
-
 \usepackage{listings,xcolor,courier,bookmark}
 \usepackage{listingsutf8}
 \definecolor{darkblue}{named}{blue}
@@ -56,23 +39,39 @@ morecomment=[s]{--}
 
 \renewcommand*{\lstlistingname}{Codice Componente}
 
+
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 
-\fancyhead{} % cancella tutti i campi
-\fancyfoot{} % cancella tutti i campi
+\fancyhead{} 
+\fancyfoot{} 
 
 \fancyhead[RO,LE]{\bfseries \leftmark}
 \fancyfoot[LE,RO]{\thepage}
-\fancyfoot[LO,CE]{Elaborato di ASE: Architettura dei Sistemi di Elaborazione}
+\fancyfoot[LO,CE]{Tesina in ASE: Architetture dei Sistemi di Elaborazione}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
+
+\date{}
 \cfoot{}
+\usepackage{eso-pic,graphicx}
+\makeatletter
+\newcommand\BackgroundPicture[2]{
+\setlength{\unitlength}{1pt}
+\put(0,\strip@pt\paperheight){
+\parbox[t][\paperheight]{\paperwidth}{
+\vfill
+\centering\includegraphics[angle=#2]{#1}
+\vfill
+}
+}
+}
+\makeatother
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language italian
-\language_package auto
+\language_package default
 \inputencoding auto
 \fontencoding global
 \font_roman "default" "default"
@@ -155,191 +154,13 @@ morecomment=[s]{--}
 \begin_body
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Utilizzare questo file per generare il pdf dell'intera tesina
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{frontmatter}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-pagenumbering{Roman}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Modificare il numero del gruppo nel tag title
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-title{Tesina di Architettura dei Sistemi di Elaborazione 
-\backslash
-
-\backslash
-Gruppo 14} 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Modificare il nome dei componenti del gruppo
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-author{Gabriele Previtera - Mat.
- M63/000834
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-and Mirko Pennone - Mat.
- M63/000876
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-and Simone Penna - Mat.
- M63/000858
-\end_layout
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-maketitle
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-setcounter{page}{1}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset toc
-LatexCommand tableofcontents
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 
 \lang american
-\begin_inset ERT
+\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-end{frontmatter}
+Utilizzare questo file per generare il pdf completo
 \end_layout
 
 \end_inset
@@ -357,7 +178,9 @@ status open
 
 
 \backslash
-begin{mainmatter}
+AddToShipoutPicture{
+\backslash
+BackgroundPicture{logo.png}{0}}
 \end_layout
 
 \end_inset
@@ -366,80 +189,11 @@ begin{mainmatter}
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
 
-\begin_layout Plain Layout
-Copiare l'input per ogni esercizio svolto in modo da includerlo nel PDF
- della tesina.
- Modificare il path come di seguito:
-\end_layout
-
-\begin_layout Plain Layout
-esercizio01/Tesina.lyx ->esercizio02/Tesina.lyx e così via.
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Chapter
-Sintesi di macchine combinatorie
-\end_layout
-
-\begin_layout Standard
+\lang american
 \begin_inset CommandInset include
 LatexCommand input
-filename "esercizio01/Tesina.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Chapter
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-Latch e Flip-Flop
-\end_layout
-
-\begin_layout Standard
-Sviluppare i circuiti illustrati nel documento sui flip-flop.
- Eseguire per ciascun esercizio una simulazione comportamentale e post-sintesi,
- illustrando i passaggi salienti.
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "esercizio02/Tesina.lyx"
+filename "latchRS.lyx"
 
 \end_inset
 
@@ -449,15 +203,45 @@ filename "esercizio02/Tesina.lyx"
 \begin_layout Standard
 
 \lang american
-\begin_inset ERT
-status open
+\begin_inset CommandInset include
+LatexCommand input
+filename "latchT.lyx"
 
-\begin_layout Plain Layout
+\end_inset
 
 
-\backslash
-end{mainmatter}
 \end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset CommandInset include
+LatexCommand input
+filename "latchJK.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset CommandInset include
+LatexCommand input
+filename "flipflopDedgetriggered.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset CommandInset include
+LatexCommand input
+filename "flipflopRSmasterslave.lyx"
 
 \end_inset
 

@@ -399,6 +399,26 @@ filename "esercizio01/Tesina.lyx"
 
 \end_layout
 
+\begin_layout Chapter
+Latch e Flip-Flop
+\end_layout
+
+\begin_layout Standard
+Sviluppare i circuiti illustrati nel documento sui flip-flop.
+ Eseguire per ciascun esercizio una simulazione comportamentale e post-sintesi,
+ illustrando i passaggi salienti.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "esercizio02/Tesina.lyx"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 
 \lang american

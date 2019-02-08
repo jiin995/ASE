@@ -1,0 +1,441 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\master Tesina.lyx
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Latch RS
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Descrivere la soluzione relizzata per mezzo di schematici e riportare il
+ codice dei soli componenti significativi.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Traccia
+\end_layout
+
+\begin_layout Standard
+Implementare e simulare un latch RS 1-attivo abilitato.
+\end_layout
+
+\begin_layout Subsection
+Soluzione
+\end_layout
+
+\begin_layout Subsubsection
+Implementazione
+\end_layout
+
+\begin_layout Standard
+Il latch RS abilitato è stato realizzato tramite l'utilizzo di porte NOR
+ e AND per l'abilitazione, come riportato in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:latch-rs-schematico"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/latchrs/latch-rs-schematico.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:latch-rs-schematico"
+
+\end_inset
+
+Schematico del latch RS abilitato.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tale soluzione porterà il nostro componente latch RS a funzionare secondo
+ una logica 1-attiva: in particolare, quando S=1 e R=0 il valore di Q si
+ porta a 1, mentre per portare Q a 0 bisognerà portare R a 1 e S a 0.
+ Si noti come, in tale componente, la combinazione S=1 e R=1 non è ammessa,
+ in quanto porterebbe a cambiamenti di stato non definiti.
+\end_layout
+
+\begin_layout Subsubsection
+Simulazione
+\end_layout
+
+\begin_layout Standard
+Per la simulazione behavioural di tale componente, dapprima si è testato
+ il comportamento a fronte delle due tipologie di ingresso ammesse.
+ In particolare si è posto prima S=1 e R=0 e, come atteso, il valore di
+ Q risulta 1.
+ Dopodiché, ponendo R=1 e S=0, il valore di Q risulta 0.
+ Anche la situazione neutra S=0 e R=0, come previsto, fa in modo che Q non
+ cambi il suo valore.
+ Per quanto concerne la combinazione non ammessa S=1 e R=1, si noti come
+ tale coppia di ingressi porti il latch ad assumere un comportamento non
+ deterministico, poiché la condizione Q XOR NQ = 1 è violata (Q = NQ).
+ Un caso di particolare interesse da osservare è la transizione da R=1,
+ S=1 a R=0, S=0.
+ Tale transizione porta idealmente a dei fenomeni oscillatori per le uscite,
+ dovute all'assenza di ritardi di propagazione.
+ Infatti nella simulazione behavioral si verifica che c'è l'oscillazione
+ ma non è visibile, in quanto per tale simulazione si assumono ritardi di
+ propagazione nulli, infatti il simulatore raggiunge il limite massimo di
+ delta cycle a causa di queste oscillazione che si accumulano nello stesso
+ istante di commutazione.Tale simulazione è visibile in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:latch-rs-schematico"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/latchrs/latch-rs-simulazione.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:latch-rs-simulazione"
+
+\end_inset
+
+Simulazione behavioural del latch RS.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tali oscillazioni sono visibili chiaramente nella simulazione post-map riportata
+ in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:latch-rs-schematico"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, dove ad ogni componente logico è associato il relativo ritardo di porta,
+ secondo la libreria di ISE, ma non sono considerati i ritardi di propagazione.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/latchrs/latch-rs-simulazione-postmap.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:latch-rs-simulazione-postmap"
+
+\end_inset
+
+Simulazione post-map del latch RS.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per quanto riguarda la simulazione post-route, le connessioni tra i componenti
+ non sono più considerate ideali, senza ritardi, ma vengono considerati
+ i ritardi di propagazione sulle linee di connessione.
+ In questo caso, il simulatore, tenendo conto del posizionamento dei componenti,
+ si ha che i ritardi di propagazione sono diversi per le due retroazione,
+ i percorsi sono asimmetrici, ciò dovrebbe potare a non avere più delle
+ oscillazioni.
+ Nel caso in cui la simulazione venga effettuata su board Nexys 4 DDR (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:latch-rs-schematico"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), le oscillazioni restano poiché i ritardi di propagazione sono identici
+ sulle due linee non sono tali da forzare il nostro latch ad assumere un
+ valore stabile dopo un certo intervallo di tempo.
+ Infatti come si nota in figura, da aggiungere la foto di gab, si dovrebbe
+ notare che i due percorsi delle retroazioni sono simmetrici.
+ Ciò porterebbe all'identificazione di una probabile PUF (Physical Unclonable
+ Function) ma quando tale componente viene sintetizzato e provato sulla
+ Board, si ha che l'uscita va a 0 molto velocemente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/latchrs/latch-rs-simulazione-postroute-nexys.png
+	scale 35
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:latch-rs-simulazione-postroute"
+
+\end_inset
+
+Simulazione post-route del latch RS su board Nexys 4 DDR.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nel caso di simulazione su board Basys 2 (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:latch-rs-schematico"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), invece, i ritardi di propagazione sono diversi e le oscillazioni non
+ sono più presenti, tale risultato ci mostra quello che accade nel caso
+ reale.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/latchrs/latch-rs-simulazione-postroute-basys.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:latch-rs-simulazione-postroute-1"
+
+\end_inset
+
+Simulazione post-route del latch RS su board Basys 2.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
