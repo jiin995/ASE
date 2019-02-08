@@ -7,7 +7,7 @@
 -- \   \   \/     Version: P.20131013
 --  \   \         Application: netgen
 --  /   /         Filename: latch_RS_NOR_map.vhd
--- /___/   /\     Timestamp: Mon Jan 21 21:46:13 2019
+-- /___/   /\     Timestamp: Tue Jan 22 15:56:02 2019
 -- \   \  /  \ 
 --  \___\/\___\
 --             

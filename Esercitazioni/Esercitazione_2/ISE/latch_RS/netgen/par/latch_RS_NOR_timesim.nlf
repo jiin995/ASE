@@ -28,4 +28,4 @@ INFO:NetListWriters - Xilinx recommends running separate simulations to check fo
 INFO:NetListWriters:665 - For more information on how to pass the SDF switches to the simulator, see your Simulator tool documentation.
 Number of warnings: 0
 Number of info messages: 3
-Total memory usage is 822544 kilobytes
+Total memory usage is 814288 kilobytes
