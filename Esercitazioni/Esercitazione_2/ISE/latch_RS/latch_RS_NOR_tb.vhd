@@ -46,8 +46,8 @@ BEGIN
    tb : PROCESS
    BEGIN
 	
-		S <= '0' , '1' after 30 ns, '0' after 50 ns,'1' after 70 ns;
-		R <= '0' , '1' after 40 ns, '0' after 50 ns;
+		S <= '0' , '1' after 30 ns, '0' after 70 ns,'1' after 90 ns,'0' after 110 ns;
+		R <= '0' , '0' after 30 ns, '1' after 90 ns,'0' after 110 ns;
       WAIT; -- will wait forever
    END PROCESS; 
 -- *** End Test Bench - User Defined Section ***
