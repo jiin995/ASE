@@ -358,9 +358,6 @@ noprefix "false"
 
 ), a causa del ritardo di propagazione, Q si porta al valore di D solamente
  qualche istante dopo l'effettivo fronte di salita del clock.
- Questo è osservabile perfettamente a 160 ns, mentre a 100 ms, poiché D
- torna basso prima che Q possa commutare, il valore di Q resta indefinito
- fino al successivo fronte di salita.
 \end_layout
 
 \begin_layout Standard
