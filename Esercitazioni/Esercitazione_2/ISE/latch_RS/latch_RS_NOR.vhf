@@ -7,13 +7,13 @@
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : latch_RS_NOR.vhf
--- /___/   /\     Timestamp : 02/08/2019 12:41:00
+-- /___/   /\     Timestamp : 02/08/2019 15:19:03
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
---Command: sch2hdl -intstyle ise -family artix7 -flat -suppress -vhdl /home/jiin995/ASE_WorkSpace/Esercitazioni/Esercitazione_2/ISE/latch_RS/latch_RS_NOR.vhf -w /home/jiin995/ASE_WorkSpace/Esercitazioni/Esercitazione_2/ISE/latch_RS/latch_RS_NOR.sch
+--Command: sch2hdl -intstyle ise -family spartan3e -flat -suppress -vhdl /home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_2/ISE/latch_RS/latch_RS_NOR.vhf -w /home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_2/ISE/latch_RS/latch_RS_NOR.sch
 --Design Name: latch_RS_NOR
---Device: artix7
+--Device: spartan3e
 --Purpose:
 --    This vhdl netlist is translated from an ECS schematic. It can be 
 --    synthesized and simulated, but it should not be modified. 
@@ -26,11 +26,11 @@ library UNISIM;
 use UNISIM.Vcomponents.ALL;
 
 entity latch_RS_NOR is
-   port ( R      : in    std_logic; 
-          S      : in    std_logic; 
-          XLXN_2 : in    std_logic; 
-          NQ     : out   std_logic; 
-          Q      : out   std_logic);
+   port ( E  : in    std_logic; 
+          R  : in    std_logic; 
+          S  : in    std_logic; 
+          NQ : out   std_logic; 
+          Q  : out   std_logic);
 end latch_RS_NOR;
 
 architecture BEHAVIORAL of latch_RS_NOR is
@@ -67,13 +67,13 @@ begin
                 O=>Q_DUMMY);
    
    XLXI_4 : AND2
-      port map (I0=>XLXN_2,
+      port map (I0=>E,
                 I1=>S,
                 O=>XLXN_1);
    
    XLXI_5 : AND2
       port map (I0=>R,
-                I1=>XLXN_2,
+                I1=>E,
                 O=>in_R);
    
 end BEHAVIORAL;

@@ -31,7 +31,6 @@
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
     <file xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd">
-      <branch xil_pn:name="PostTranslateSimulation"/>
       <branch xil_pn:name="PostMapSimulation"/>
       <branch xil_pn:name="PostRouteSimulation"/>
     </file>
@@ -61,24 +60,20 @@
     <file xil_pn:fileType="FILE_XPI" xil_pn:name="latch_RS_NOR.xpi"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="latch_RS_NOR.xst"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="latch_RS_NOR_envsettings.html"/>
-    <file xil_pn:fileType="FILE_LOG" xil_pn:name="latch_RS_NOR_fpga_editor.log"/>
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="latch_RS_NOR_guide.ncd" xil_pn:origination="imported"/>
     <file xil_pn:branch="PostMapSimulation" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_isim_map.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_isim_map.wdb"/>
     <file xil_pn:branch="PostRouteSimulation" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_isim_par.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_isim_par.wdb"/>
-    <file xil_pn:branch="PostTranslateSimulation" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_isim_translate.exe"/>
-    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_isim_translate.wdb"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_map.prj"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_par.prj"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_stx_translate.prj"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_translate.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_stx_map.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_stx_par.prj"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="latch_RS_NOR_map.map" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="latch_RS_NOR_map.mrp" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="latch_RS_NOR_map.ncd" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="latch_RS_NOR_map.ngm" xil_pn:subbranch="Map"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="latch_RS_NOR_map.xrpt"/>
-    <file xil_pn:fileType="FILE_LOG" xil_pn:name="latch_RS_NOR_map_fpga_editor.log"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="latch_RS_NOR_ngdbuild.xrpt"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="latch_RS_NOR_pad.csv" xil_pn:subbranch="Par"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="latch_RS_NOR_pad.txt" xil_pn:subbranch="Par"/>
@@ -94,11 +89,8 @@
     <file xil_pn:branch="PostRouteSimulation" xil_pn:fileType="FILE_NETGEN_REPORT" xil_pn:name="netgen/par/latch_RS_NOR_timesim.nlf"/>
     <file xil_pn:branch="PostRouteSimulation" xil_pn:fileType="FILE_SDF" xil_pn:name="netgen/par/latch_RS_NOR_timesim.sdf"/>
     <file xil_pn:branch="PostRouteSimulation" xil_pn:fileType="FILE_VHDL" xil_pn:name="netgen/par/latch_RS_NOR_timesim.vhd"/>
-    <file xil_pn:branch="PostTranslateSimulation" xil_pn:fileType="FILE_NETGEN_REPORT" xil_pn:name="netgen/translate/latch_RS_NOR_translate.nlf"/>
-    <file xil_pn:branch="PostTranslateSimulation" xil_pn:fileType="FILE_VHDL" xil_pn:name="netgen/translate/latch_RS_NOR_translate.vhd"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
     <file xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini">
-      <branch xil_pn:name="PostTranslateSimulation"/>
       <branch xil_pn:name="PostMapSimulation"/>
       <branch xil_pn:name="PostRouteSimulation"/>
     </file>
@@ -107,36 +99,35 @@
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1548103400" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1548103400">
+    <transform xil_pn:end_ts="1549638756" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1549638756">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1548168326" xil_pn:in_ck="6830824804282712682" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-285117282026448734" xil_pn:start_ts="1548168325">
+    <transform xil_pn:end_ts="1549638757" xil_pn:in_ck="6830824804282712682" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-285117282026448734" xil_pn:start_ts="1549638756">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="latch_RS_NOR.vhf"/>
     </transform>
-    <transform xil_pn:end_ts="1548103401" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="1877481662812686063" xil_pn:start_ts="1548103401">
+    <transform xil_pn:end_ts="1549638757" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="4421089163623101617" xil_pn:start_ts="1549638757">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1548103401" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1548103401">
+    <transform xil_pn:end_ts="1549638757" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1549638757">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1548103401" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="5625172536727170180" xil_pn:start_ts="1548103401">
+    <transform xil_pn:end_ts="1549638757" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="5625172536727170180" xil_pn:start_ts="1549638757">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1548103401" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="3206529612922900429" xil_pn:start_ts="1548103401">
+    <transform xil_pn:end_ts="1549638757" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="3206529612922900429" xil_pn:start_ts="1549638757">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1548103401" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="-7566501098944451911" xil_pn:start_ts="1548103401">
+    <transform xil_pn:end_ts="1549638757" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="-5022893598134036357" xil_pn:start_ts="1549638757">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1548168336" xil_pn:in_ck="6830824804282716112" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="5173785707893376143" xil_pn:start_ts="1548168326">
+    <transform xil_pn:end_ts="1549638766" xil_pn:in_ck="6830824804282716112" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="7965733472324538705" xil_pn:start_ts="1549638757">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -153,17 +144,17 @@
       <outfile xil_pn:name="latch_RS_NOR.xst"/>
       <outfile xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_map.prj"/>
       <outfile xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_par.prj"/>
-      <outfile xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_stx_translate.prj"/>
-      <outfile xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_translate.prj"/>
+      <outfile xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_stx_map.prj"/>
+      <outfile xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_stx_par.prj"/>
       <outfile xil_pn:name="latch_RS_NOR_xst.xrpt"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1548103522" xil_pn:in_ck="8727754723594036668" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-7497628594552914400" xil_pn:start_ts="1548103522">
+    <transform xil_pn:end_ts="1549638766" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-7497628594552914400" xil_pn:start_ts="1549638766">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1548168343" xil_pn:in_ck="1238963283938904928" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-8102892841170824438" xil_pn:start_ts="1548168336">
+    <transform xil_pn:end_ts="1549638772" xil_pn:in_ck="6830824804282707364" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="2978351348976881676" xil_pn:start_ts="1549638766">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_ngo"/>
@@ -172,8 +163,9 @@
       <outfile xil_pn:name="latch_RS_NOR.ngd"/>
       <outfile xil_pn:name="latch_RS_NOR_ngdbuild.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1548168367" xil_pn:in_ck="1238963283938904929" xil_pn:name="TRANEXT_map_virtex7" xil_pn:prop_ck="-7188367874928765557" xil_pn:start_ts="1548168343">
+    <transform xil_pn:end_ts="1549638796" xil_pn:in_ck="6830824804282707365" xil_pn:name="TRANEXT_map_virtex7" xil_pn:prop_ck="2100985583056581773" xil_pn:start_ts="1549638772">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
       <outfile xil_pn:name="latch_RS_NOR.pcf"/>
@@ -185,7 +177,7 @@
       <outfile xil_pn:name="latch_RS_NOR_summary.xml"/>
       <outfile xil_pn:name="latch_RS_NOR_usage.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1548168401" xil_pn:in_ck="-7482304916339580166" xil_pn:name="TRANEXT_par_virtex5" xil_pn:prop_ck="2516432636991085863" xil_pn:start_ts="1548168367">
+    <transform xil_pn:end_ts="1549639042" xil_pn:in_ck="4709728584640481086" xil_pn:name="TRANEXT_par_virtex5" xil_pn:prop_ck="2516432636991085863" xil_pn:start_ts="1549639010">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
@@ -199,7 +191,7 @@
       <outfile xil_pn:name="latch_RS_NOR_pad.txt"/>
       <outfile xil_pn:name="latch_RS_NOR_par.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1548168806" xil_pn:in_ck="6830824804282707233" xil_pn:name="TRAN_postParSimModel" xil_pn:prop_ck="-3369167482940123276" xil_pn:start_ts="1548168789">
+    <transform xil_pn:end_ts="1549639056" xil_pn:in_ck="6830824804282707233" xil_pn:name="TRAN_postParSimModel" xil_pn:prop_ck="-2678221162018938762" xil_pn:start_ts="1549639042">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="netgen"/>
@@ -207,14 +199,14 @@
       <outfile xil_pn:name="netgen/par/latch_RS_NOR_timesim.sdf"/>
       <outfile xil_pn:name="netgen/par/latch_RS_NOR_timesim.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1548168878" xil_pn:in_ck="-8474335640151431220" xil_pn:name="TRAN_copyPost-ParAbstractToPreSimulation" xil_pn:start_ts="1548168878">
+    <transform xil_pn:end_ts="1549639056" xil_pn:in_ck="-8474335640151431220" xil_pn:name="TRAN_copyPost-ParAbstractToPreSimulation" xil_pn:start_ts="1549639056">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="latch_RS_NOR_tb.vhd"/>
       <outfile xil_pn:name="netgen/par/latch_RS_NOR_timesim.sdf"/>
       <outfile xil_pn:name="netgen/par/latch_RS_NOR_timesim.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1548168881" xil_pn:in_ck="6108286879784500394" xil_pn:name="TRAN_ISimulatePostPlace&amp;RouteModelRunFuse" xil_pn:prop_ck="8052179810412419996" xil_pn:start_ts="1548168878">
+    <transform xil_pn:end_ts="1549639058" xil_pn:in_ck="6108286879784500394" xil_pn:name="TRAN_ISimulatePostPlace&amp;RouteModelRunFuse" xil_pn:prop_ck="8052179810412419996" xil_pn:start_ts="1549639056">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
@@ -226,7 +218,7 @@
       <outfile xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_par.prj"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1548169739" xil_pn:in_ck="5277733812788259184" xil_pn:name="TRAN_ISimulatePostPlace&amp;RouteModel" xil_pn:prop_ck="663336593337257928" xil_pn:start_ts="1548169739">
+    <transform xil_pn:end_ts="1549639058" xil_pn:in_ck="5277733812788259184" xil_pn:name="TRAN_ISimulatePostPlace&amp;RouteModel" xil_pn:prop_ck="663336593337257928" xil_pn:start_ts="1549639058">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
@@ -235,14 +227,14 @@
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_isim_par.wdb"/>
     </transform>
-    <transform xil_pn:end_ts="1548168401" xil_pn:in_ck="1238963283938904797" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416183" xil_pn:start_ts="1548168387">
+    <transform xil_pn:end_ts="1549639042" xil_pn:in_ck="6830824804282707233" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1549639029">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
       <outfile xil_pn:name="latch_RS_NOR.twr"/>
       <outfile xil_pn:name="latch_RS_NOR.twx"/>
     </transform>
-    <transform xil_pn:end_ts="1548168962" xil_pn:in_ck="4709728584640481086" xil_pn:name="TRAN_postMapSimModel" xil_pn:prop_ck="-7690190417176315814" xil_pn:start_ts="1548168946">
+    <transform xil_pn:end_ts="1549638808" xil_pn:in_ck="4709728584640481086" xil_pn:name="TRAN_postMapSimModel" xil_pn:prop_ck="-6541967121989591204" xil_pn:start_ts="1549638796">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -251,14 +243,14 @@
       <outfile xil_pn:name="netgen/map/latch_RS_NOR_map.sdf"/>
       <outfile xil_pn:name="netgen/map/latch_RS_NOR_map.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1548168962" xil_pn:in_ck="-1267714352470144914" xil_pn:name="TRAN_copyPost-MapAbstractToPreSimulation" xil_pn:start_ts="1548168962">
+    <transform xil_pn:end_ts="1549638808" xil_pn:in_ck="-1267714352470144914" xil_pn:name="TRAN_copyPost-MapAbstractToPreSimulation" xil_pn:start_ts="1549638808">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="latch_RS_NOR_tb.vhd"/>
       <outfile xil_pn:name="netgen/map/latch_RS_NOR_map.sdf"/>
       <outfile xil_pn:name="netgen/map/latch_RS_NOR_map.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1548168965" xil_pn:in_ck="-8637064768596060277" xil_pn:name="TRAN_ISimulatePostMapModelRunFuse" xil_pn:prop_ck="8052179810412419996" xil_pn:start_ts="1548168962">
+    <transform xil_pn:end_ts="1549638811" xil_pn:in_ck="-8637064768596060277" xil_pn:name="TRAN_ISimulatePostMapModelRunFuse" xil_pn:prop_ck="8052179810412419996" xil_pn:start_ts="1549638808">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
@@ -270,7 +262,7 @@
       <outfile xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_map.prj"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1548169091" xil_pn:in_ck="5277733808911483435" xil_pn:name="TRAN_ISimulatePostMapModel" xil_pn:prop_ck="-5877680133138994504" xil_pn:start_ts="1548169091">
+    <transform xil_pn:end_ts="1549639202" xil_pn:in_ck="5277733808911483435" xil_pn:name="TRAN_ISimulatePostMapModel" xil_pn:prop_ck="-5877680133138994504" xil_pn:start_ts="1549639202">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
@@ -278,52 +270,6 @@
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_isim_map.wdb"/>
-    </transform>
-    <transform xil_pn:end_ts="1548103421" xil_pn:in_ck="6830824804282707365" xil_pn:name="TRAN_postXlateSimModel" xil_pn:prop_ck="-6309002044088733044" xil_pn:start_ts="1548103418">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="netgen"/>
-      <outfile xil_pn:name="netgen/translate/latch_RS_NOR_translate.nlf"/>
-      <outfile xil_pn:name="netgen/translate/latch_RS_NOR_translate.vhd"/>
-    </transform>
-    <transform xil_pn:end_ts="1548103421" xil_pn:in_ck="-5305785570667452437" xil_pn:name="TRAN_copyPost-TranslateAbstractToPreSimulation" xil_pn:start_ts="1548103421">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="latch_RS_NOR_tb.vhd"/>
-      <outfile xil_pn:name="netgen/translate/latch_RS_NOR_translate.vhd"/>
-    </transform>
-    <transform xil_pn:end_ts="1548103426" xil_pn:in_ck="-5305785570667452437" xil_pn:name="TRAN_ISimulatePostTranslateModelRunFuse" xil_pn:prop_ck="8052179810412419996" xil_pn:start_ts="1548103421">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="fuse.log"/>
-      <outfile xil_pn:name="isim"/>
-      <outfile xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_isim_translate.exe"/>
-      <outfile xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_translate.prj"/>
-      <outfile xil_pn:name="xilinxsim.ini"/>
-    </transform>
-    <transform xil_pn:end_ts="1548103426" xil_pn:in_ck="-983266632084545253" xil_pn:name="TRAN_ISimulatePostTranslateModel" xil_pn:prop_ck="-4569944602259833496" xil_pn:start_ts="1548103426">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="isim.cmd"/>
-      <outfile xil_pn:name="latch_RS_NOR_latch_RS_NOR_sch_tb_isim_translate.wdb"/>
     </transform>
   </transforms>
 

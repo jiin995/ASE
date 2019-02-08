@@ -8,15 +8,14 @@
     <netlist>
         <signal name="Q" />
         <signal name="NQ" />
-        <signal name="in_R">
-        </signal>
+        <signal name="in_R" />
         <signal name="XLXN_1" />
-        <signal name="XLXN_2" />
+        <signal name="E" />
         <signal name="S" />
         <signal name="R" />
         <port polarity="Output" name="Q" />
         <port polarity="Output" name="NQ" />
-        <port polarity="Input" name="XLXN_2" />
+        <port polarity="Input" name="E" />
         <port polarity="Input" name="S" />
         <port polarity="Input" name="R" />
         <blockdef name="nor2">
@@ -53,11 +52,11 @@
         </block>
         <block symbolname="and2" name="XLXI_5">
             <blockpin signalname="R" name="I0" />
-            <blockpin signalname="XLXN_2" name="I1" />
+            <blockpin signalname="E" name="I1" />
             <blockpin signalname="in_R" name="O" />
         </block>
         <block symbolname="and2" name="XLXI_4">
-            <blockpin signalname="XLXN_2" name="I0" />
+            <blockpin signalname="E" name="I0" />
             <blockpin signalname="S" name="I1" />
             <blockpin signalname="XLXN_1" name="O" />
         </block>
@@ -93,7 +92,7 @@
         </branch>
         <instance x="624" y="816" name="XLXI_4" orien="R0" />
         <instance x="624" y="1152" name="XLXI_5" orien="R0" />
-        <branch name="XLXN_2">
+        <branch name="E">
             <wire x2="608" y1="880" y2="880" x1="400" />
             <wire x2="608" y1="880" y2="896" x1="608" />
             <wire x2="608" y1="896" y2="1024" x1="608" />
@@ -109,6 +108,6 @@
             <wire x2="624" y1="1088" y2="1088" x1="592" />
         </branch>
         <iomarker fontsize="28" x="592" y="1088" name="R" orien="R180" />
-        <iomarker fontsize="28" x="400" y="880" name="XLXN_2" orien="R180" />
+        <iomarker fontsize="28" x="400" y="880" name="E" orien="R180" />
     </sheet>
 </drawing>
