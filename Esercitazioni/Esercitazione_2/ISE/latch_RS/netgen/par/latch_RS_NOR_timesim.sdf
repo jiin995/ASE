@@ -1,7 +1,7 @@
 (DELAYFILE
   (SDFVERSION "3.0")
   (DESIGN "latch_RS_NOR")
-  (DATE "Mon Jan 21 21:50:11 2019")
+  (DATE "Tue Jan 22 15:53:25 2019")
   (VENDOR "Xilinx")
   (PROGRAM "Xilinx SDF Writer")
   (VERSION "P.20131013")
