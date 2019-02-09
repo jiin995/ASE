@@ -23,9 +23,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity latch_jk is
 port ( J		:	in STD_LOGIC;
-		K		:	in STD_LOGIC;
+		 K		:	in STD_LOGIC;
        Q		:	out STD_LOGIC;
-		Qnot	:	out STD_LOGIC
+		 Qnot	:	out STD_LOGIC
 		);
 		 
 end latch_jk;

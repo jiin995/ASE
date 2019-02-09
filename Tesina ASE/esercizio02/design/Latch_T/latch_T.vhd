@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    11:53:49 02/08/2019 
+-- Create Date:    18:03:57 02/09/2019 
 -- Design Name: 
--- Module Name:    Latch_T - Behavioral 
+-- Module Name:    latch_T - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -29,14 +29,14 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity Latch_T is
-	Port ( T		:	in STD_LOGIC;
-			 en	:	in STD_LOGIC;
-			 Q		:	out STD_LOGIC;
-			 QN	:	out STD_LOGIC);
-end Latch_T;
+entity latch_T is
+    Port ( en : in  STD_LOGIC;
+           T : in  STD_LOGIC;
+           Q : out  STD_LOGIC;
+           QN : out  STD_LOGIC);
+end latch_T;
 
-architecture Behavioral of Latch_T is
+architecture Behavioral of latch_T is
 
 signal Qtemp : std_logic := '0';
 

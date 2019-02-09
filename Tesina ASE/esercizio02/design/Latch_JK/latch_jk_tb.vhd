@@ -72,11 +72,11 @@ BEGIN
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
-      wait for 40 ns;	
+      wait for 50 ns;	
 
       -- insert stimulus here 
-		J<='1' after 60 ns, '0' after 80 ns, '1' after 100 ns;
-		K<='1' after 80 ns;
+		J<='1' after 120 ns, '0' after 200 ns, '1' after 270 ns;
+		K<='1' after 80 ns, '0' after 250 ns;
 		
       wait;
    end process;

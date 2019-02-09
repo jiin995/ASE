@@ -2,15 +2,15 @@
 -- Company: 
 -- Engineer:
 --
--- Create Date:   13:15:30 02/08/2019
+-- Create Date:   18:07:12 02/09/2019
 -- Design Name:   
--- Module Name:   /home/gianluigi/ASE/Test/Latch_T/latch_t_tb.vhd
--- Project Name:  Latch_T
+-- Module Name:   /home/simone/Scrivania/latch_T/latch_T_TB.vhd
+-- Project Name:  latch_T
 -- Target Device:  
 -- Tool versions:  
 -- Description:   
 -- 
--- VHDL Test Bench Created by ISE for module: Latch_T
+-- VHDL Test Bench Created by ISE for module: latch_T
 -- 
 -- Dependencies:
 -- 
@@ -32,17 +32,17 @@ USE ieee.std_logic_1164.ALL;
 -- arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
-ENTITY latch_t_tb IS
-END latch_t_tb;
+ENTITY latch_T_TB IS
+END latch_T_TB;
  
-ARCHITECTURE behavior OF latch_t_tb IS 
+ARCHITECTURE behavior OF latch_T_TB IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
-    COMPONENT Latch_T
+    COMPONENT latch_T
     PORT(
-         T : IN  std_logic;
          en : IN  std_logic;
+         T : IN  std_logic;
          Q : OUT  std_logic;
          QN : OUT  std_logic
         );
@@ -50,35 +50,26 @@ ARCHITECTURE behavior OF latch_t_tb IS
     
 
    --Inputs
-   signal T : std_logic := '0';
    signal en : std_logic := '0';
-	--signal clock : std_logic := '0';
+   signal T : std_logic := '0';
+
  	--Outputs
    signal Q : std_logic;
    signal QN : std_logic;
    -- No clocks detected in port list. Replace <clock> below with 
    -- appropriate port name 
  
-   constant clock_period : time := 10 ns;
+   --constant <clock>_period : time := 10 ns;
  
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: Latch_T PORT MAP (
-          T => T,
+   uut: latch_T PORT MAP (
           en => en,
+          T => T,
           Q => Q,
           QN => QN
         );
-
-   -- Clock process definitions
-   --clock_process :process
-   --begin
-	--	clock <= '0';
-	--	wait for clock_period/2;
-	--	clock <= '1';
-	--	wait for clock_period/2;
-   --end process;
  
 
    -- Stimulus process
@@ -88,10 +79,8 @@ BEGIN
       wait for 100 ns;	
 
       -- insert stimulus here 
-		
-		T <= '1' after 120 ns, '0' after 140 ns, '1' after 160 ns, '0' after 180 ns;
-		en <= '1' after 150 ns;
-
+		en <= '1' after 100 ns, '0' after 300 ns, '1' after 500 ns, '0' after 700 ns;
+		T <= '1' after 120 ns, '0' after 200 ns, '1' after 280 ns, '0' after 360 ns, '1' after 400 ns;
       wait;
    end process;
 
