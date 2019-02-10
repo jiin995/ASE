@@ -41,13 +41,11 @@ architecture Behavioral of latch_T is
 signal Qtemp : std_logic := '0';
 
 begin
+
 process(en,T) is
 begin
-	if (T='0' and en='1') then
-		Qtemp <= Qtemp;
-	else if (T='1' and en='1') then
+	if (T='1' and en='1') then
 		Qtemp <= not(Qtemp);
-		end if;
 	end if;
 end process;
 

@@ -164,7 +164,7 @@ Traccia
 \end_layout
 
 \begin_layout Standard
-Implementare e simulare un latch JK 1-attivo abilitato.
+Implementare e simulare un latch JK.
 \end_layout
 
 \begin_layout Subsection
@@ -175,8 +175,260 @@ Soluzione
 Implementazione
 \end_layout
 
+\begin_layout Standard
+Il latch JK è stato realizzato mediante descrizione behavioural.
+ Le condizioni if-else utilizzate controllano i valori di J e K in ingresso:
+ per J alto e K basso, Q vien eportato a 1; nel caso contrario, Q è portato
+ a 0.
+ Se entrambi sono alti, invece, il comportamento del latch JK è assimilabile
+ a quello del latch T, e dunque il valore di Q viene invertito.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Implementazione behavioural di
+ un latch T abilitato.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+architecture behavioral of latch_jk is
+\end_layout
+
+\begin_layout Plain Layout
+
+	signal Qtemp: std_logic := '0'; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	begin
+\end_layout
+
+\begin_layout Plain Layout
+
+		p: process(J,K) is
+\end_layout
+
+\begin_layout Plain Layout
+
+		begin
+\end_layout
+
+\begin_layout Plain Layout
+
+			if(J='1' and K='0') then
+\end_layout
+
+\begin_layout Plain Layout
+
+				Qtemp<='1';
+\end_layout
+
+\begin_layout Plain Layout
+
+			else
+\end_layout
+
+\begin_layout Plain Layout
+
+				if(J='0' and K='1') then
+\end_layout
+
+\begin_layout Plain Layout
+
+					Qtemp<='0';
+\end_layout
+
+\begin_layout Plain Layout
+
+				else
+\end_layout
+
+\begin_layout Plain Layout
+
+					if(J='1' and K ='1') then
+\end_layout
+
+\begin_layout Plain Layout
+
+						Qtemp<= not Qtemp;
+\end_layout
+
+\begin_layout Plain Layout
+
+					end if; 
+\end_layout
+
+\begin_layout Plain Layout
+
+				end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+			end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+	end process;
+\end_layout
+
+\begin_layout Plain Layout
+
+	Q <= Qtemp;
+\end_layout
+
+\begin_layout Plain Layout
+
+	Qnot <= not Qtemp;
+\end_layout
+
+\begin_layout Plain Layout
+
+end behavioral;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Simulazione
+\end_layout
+
+\begin_layout Standard
+Durante la simulazione behavioural (fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:latch-jk-simulazione"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), il valore di Q segue perfettamente il comportamento descritto precedentemente.
+ In particolare si noti come, in corrispondenza di J=1 e K=1, il valore
+ di Q venga invertito come nel latch T.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/latchjk/latch-jk-simulazione.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:latch-jk-simulazione"
+
+\end_inset
+
+Simulazione behavioural del latch JK.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si noti invece il comportamento del latch in simulazione post-map (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:latch-jk-simulazione-postmap"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+): in corrispondenza di J=1 e K=1 si ripresentano gli stessi eventi oscillatori
+ tipici del latch T, proprio perché il comportamento del latch JK è assimilabile
+ a quello del latch T per questi due ingressi.
+ Una volta posto J=0, invece, il comportamento ritorna ad essere quello
+ descritto precedentemente e Q viene abbassato.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/latchjk/latch-jk-simulazione-postmap.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:latch-jk-simulazione-postmap"
+
+\end_inset
+
+Simulazione post-map del latch JK.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

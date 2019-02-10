@@ -102,7 +102,7 @@ Traccia
 \end_layout
 
 \begin_layout Standard
-Implementare e simulare un latch T 1-attivo abilitato.
+Implementare e simulare un latch T abilitato.
 \end_layout
 
 \begin_layout Subsection
@@ -113,8 +113,271 @@ Soluzione
 Implementazione
 \end_layout
 
+\begin_layout Standard
+Si è implementato il latch T abilitato tramite descrizione behavioural.
+ Come da comportamento previsto, il valore di Q verrà invertito solo in
+ caso di abilitazione (en=1) e di valore in ingresso T=1, condizione espressa
+ tramite struttura if then.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Implementazione behavioural di
+ un latch T abilitato.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+architecture behavioural of latch_T is
+\end_layout
+
+\begin_layout Plain Layout
+
+signal Qtemp : std_logic := '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+begin
+\end_layout
+
+\begin_layout Plain Layout
+
+	process(en,T) is
+\end_layout
+
+\begin_layout Plain Layout
+
+	begin
+\end_layout
+
+\begin_layout Plain Layout
+
+		if (T='1' and en='1') then
+\end_layout
+
+\begin_layout Plain Layout
+
+			Qtemp <= not(Qtemp);
+\end_layout
+
+\begin_layout Plain Layout
+
+		end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+	end process;
+\end_layout
+
+\begin_layout Plain Layout
+
+	Q <= Qtemp;
+\end_layout
+
+\begin_layout Plain Layout
+
+	QN <= not Qtemp;
+\end_layout
+
+\begin_layout Plain Layout
+
+end behavioural;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Simulazione
+\end_layout
+
+\begin_layout Standard
+Dalla simulazione behavioural (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:latch-t-simulazione"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), si può osservare come il valore Q (e dunque notQ) cambi solamente in
+ corrispondenza di T=1 ed en=1, invertendo il valore precedente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/latcht/latch-T-simulazione.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:latch-t-simulazione"
+
+\end_inset
+
+Simulazione behavioural del latch T abilitato.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+E' interessante notare cosa succede nel caso di simulazione post-map (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:flipflop-rs-masterslave-simulazione-postmap"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+): dopo aver effettuato il mapping tecnologico, in corrispondenza di T=1
+ ed en=1 si verificano eventi oscillatori sull'uscita.
+ Una volta che tale coppia di ingressi viene cambiata, infine, il segnale
+ mantenuto resta indeterminato a seguito degli eventi oscillatori.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/latcht/latch-T-simulazione-postmap.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:latch-t-simulazione-postmap"
+
+\end_inset
+
+Simulazione post-map del latch T abilitato.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tale fenomeno non si verifica nella simulazione post-route (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:latch-t-simulazione-postroute"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), dove l'introduzione dei ritardi di propagazione fa sì che l'uscita Q
+ torni al valore corretto dopo le oscillazioni.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/latcht/latch-T-simulazione-postroute.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:latch-t-simulazione-postroute"
+
+\end_inset
+
+Simulazione post-route del latch T abilitato.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
