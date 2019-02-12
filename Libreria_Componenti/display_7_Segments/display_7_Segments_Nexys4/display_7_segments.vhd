@@ -26,13 +26,13 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity display_7_segments is
 	PORT ( 	enable			: in STD_LOGIC;								--! enable del componente
-				clock 			: in STD_LOGIC;								--! clock
-				reset				: in STD_LOGIC;								--! reset 1-attivo
-				values 			: in STD_LOGIC_VECTOR (31 downto 0);	--! Stringa di bit del valore da mostrare
-				dots 				: in STD_LOGIC_VECTOR (7 downto 0) ;	--! Segnali che permette di pilotare i punti
-				enable_digit	: in STD_LOGIC_VECTOR (7 downto 0);		--! Segnali che attiva le digit
-				anodes 			: out STD_LOGIC_VECTOR (7 downto 0);	--! Uscita che pilota gli anodi
-				cathodes			: out STD_LOGIC_VECTOR (7 downto 0)		--! Uscita che pilota i catodi
+			clock 			: in STD_LOGIC;								--! clock
+			reset			: in STD_LOGIC;								--! reset 1-attivo
+			values 			: in STD_LOGIC_VECTOR (31 downto 0);	--! Stringa di bit del valore da mostrare
+			dots 			: in STD_LOGIC_VECTOR (7 downto 0) ;	--! Segnali che permette di pilotare i punti
+			enable_digit	: in STD_LOGIC_VECTOR (7 downto 0);		--! Segnali che attiva le digit
+			anodes 			: out STD_LOGIC_VECTOR (7 downto 0);	--! Uscita che pilota gli anodi
+			cathodes		: out STD_LOGIC_VECTOR (7 downto 0)		--! Uscita che pilota i catodi
 	);
 end display_7_segments;
 
@@ -64,8 +64,8 @@ end component;
 
 component anodes_manager is
     PORT ( 	select_digit 	: in  STD_LOGIC_VECTOR (2 downto 0);
-				enable_digit 	: in  STD_LOGIC_VECTOR (7 downto 0);
-				anodes 			: out  STD_LOGIC_VECTOR (7 downto 0)
+			enable_digit 	: in  STD_LOGIC_VECTOR (7 downto 0);
+			anodes 			: out  STD_LOGIC_VECTOR (7 downto 0)
 	);
 end component;
 
@@ -79,14 +79,14 @@ end component;
 
 
 signal select_digit 		: STD_LOGIC_VECTOR (2 downto 0) := ( others =>'0');
-signal clockfx 			: STD_LOGIC :='0';
-signal reset_internal 	: STD_LOGIC :='0';
-signal enable_internal 	: STD_LOGIC :='1';
+signal clockfx 				: STD_LOGIC :='0';
+signal reset_internal 		: STD_LOGIC :='0';
+signal enable_internal	 	: STD_LOGIC :='1';
 signal count_hit			: STD_LOGIC :='0';
 
 begin
 
-	reset_internal 	<= not reset ;
+	reset_internal 		<= not reset ;
 	enable_internal 	<= enable;
 	
 	cathodes_instance : 

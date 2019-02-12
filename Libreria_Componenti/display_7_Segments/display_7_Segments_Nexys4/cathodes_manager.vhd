@@ -87,7 +87,7 @@ begin
                 when "001" => nibble <= digit_1;
                 when "010" => nibble <= digit_2;
                 when "011" => nibble <= digit_3;
-					 when "100" => nibble <= digit_4;
+				when "100" => nibble <= digit_4;
                 when "101" => nibble <= digit_5;
                 when "110" => nibble <= digit_6;
                 when "111" => nibble <= digit_7;
