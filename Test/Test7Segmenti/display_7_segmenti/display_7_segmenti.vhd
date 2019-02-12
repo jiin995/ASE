@@ -102,7 +102,7 @@ begin
 											anodes => anodes
 										);
 									
-	clock_divisor_istance : 
+	clock_divisor_instance : 
 		clock_divisor port map (	enable      =>  enable_internal,
 											reset_n     =>  reset_internal,
 											clock_freq_in    =>  clock ,
