@@ -116,6 +116,10 @@ display_onBoard
 values 
 \shape default
 vengono determinati tramite l'utilizzo degli switch presenti sulla board.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
