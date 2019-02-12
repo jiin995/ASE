@@ -1,0 +1,285 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\master Tesina.lyx
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Cathodes manager
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Descrivere la soluzione relizzata per mezzo di schematici e riportare il
+ codice dei soli componenti significativi.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il cathodes manager permette di gestire i catodi associati ad ogni segmento
+ omologo di ogni cifra del display a 7 segmenti.
+ Per accendere il giusto segmento è necessario che il catodo corrispondente
+ sia 0, poichè i catodi sono pilotati da segnali 0-attivi.
+ Il componente prende in ingresso:
+\end_layout
+
+\begin_layout Itemize
+il valore 
+\shape italic
+counter
+\shape default
+ fornito dal contatore (come l'anodes manager);
+\end_layout
+
+\begin_layout Itemize
+il segnale 
+\shape italic
+values 
+\shape default
+(16 bit) per determinare il valore di ogni cifra e dunque i segmenti da
+ accendere;
+\end_layout
+
+\begin_layout Itemize
+il segnale 
+\shape italic
+dots 
+\shape default
+(4 bit) per determinare quali dei 4 punti decimali accendere.
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In uscita abbiamo un segnale ad 8 bit 
+\shape italic
+cathodes
+\shape default
+ che indica la configurazione dei catodi relativi alla cifra attiva in quel
+ momento e all’eventuale punto da accendere.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per realizzare tale componente, si è utilizzata un'implementazione di tipo
+ behavioural.
+ In particolare, abbiamo due 
+\shape italic
+process
+\shape default
+:
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+digit_switching
+\shape default
+ - in base al valore di 
+\shape italic
+select_digit
+\shape default
+ (contatore), si occupa di settare i bit della variabile 
+\shape italic
+nibble
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Un nibble è una stringa di 4 bit.
+\end_layout
+
+\end_inset
+
+
+\shape default
+ corrispondenti alla giusta 
+\shape italic
+digit
+\shape default
+, ossia 4 bit di values corrispondenti alla cifra selezionata;
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+decoder
+\shape default
+ - in base alla 
+\shape italic
+digit
+\shape default
+ presente nel 
+\shape italic
+nibble
+\shape default
+, imposta 
+\shape italic
+cathodes_for_digit
+\shape default
+ al valore necessario per accendere i segmenti corretti.
+ Tali valori sono espressi come costanti e ricavabili dal reference manual.
+\end_layout
+
+\begin_layout Standard
+Infine, per determinare l'accensione dei dots, si utilizza un 
+\shape italic
+multiplexer 4-1 
+\shape default
+generico.
+ Il valore di cathodes è dunque determinato come segue: si calcola dapprima
+ la parte dei dots, selezionando solo quelli relativi alle cifre selezionate
+ e poi negandoli (per logica 0-attiva), e infine si aggiunge 
+\shape italic
+cathodes_for_digit
+\shape default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Determinazione del valore di cathods..}]
+\end_layout
+
+\begin_layout Plain Layout
+
+cathodes <= not dots(to_integer(unsigned(select_digit))) & cathodes_for_digit;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'implementazione completa è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio03/design/cathodes_manager.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+cathodes
+\backslash
+_manager.vhd}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
