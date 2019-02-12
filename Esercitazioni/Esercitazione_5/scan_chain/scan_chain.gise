@@ -70,7 +70,9 @@
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="shift_register_pilotato_summary.xml"/>
     <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="shift_register_pilotato_usage.xml"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="shift_register_pilotato_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="tb_shifter_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="tb_shifter_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="tb_shifter_isim_beh.wdb"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="tb_shifter_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
@@ -81,25 +83,28 @@
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
     <transform xil_pn:end_ts="1549989043" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1549989043">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
     </transform>
     <transform xil_pn:end_ts="1549991480" xil_pn:in_ck="3436403101287839785" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1549991480">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="flipflopd.vhd"/>
       <outfile xil_pn:name="flipflopmux.vhd"/>
       <outfile xil_pn:name="mux2.vhd"/>
       <outfile xil_pn:name="shift_register_pilotato.vhd"/>
       <outfile xil_pn:name="tb_shifter.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1549991482" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="7596618824642197407" xil_pn:start_ts="1549991482">
+    <transform xil_pn:end_ts="1549991948" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="6239095604713260736" xil_pn:start_ts="1549991948">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
     </transform>
-    <transform xil_pn:end_ts="1549991482" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="3273342401084419069" xil_pn:start_ts="1549991482">
+    <transform xil_pn:end_ts="1549991948" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-9189682058317417314" xil_pn:start_ts="1549991948">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
     </transform>
     <transform xil_pn:end_ts="1549989078" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-4894139780914173722" xil_pn:start_ts="1549989078">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -108,40 +113,45 @@
     <transform xil_pn:end_ts="1549991482" xil_pn:in_ck="3436403101287839785" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1549991482">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="flipflopd.vhd"/>
       <outfile xil_pn:name="flipflopmux.vhd"/>
       <outfile xil_pn:name="mux2.vhd"/>
       <outfile xil_pn:name="shift_register_pilotato.vhd"/>
       <outfile xil_pn:name="tb_shifter.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1549991483" xil_pn:in_ck="3436403101287839785" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-4460798031561909652" xil_pn:start_ts="1549991482">
+    <transform xil_pn:end_ts="1549991950" xil_pn:in_ck="3436403101287839785" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="7093017512792467184" xil_pn:start_ts="1549991948">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
       <outfile xil_pn:name="isim.log"/>
-      <outfile xil_pn:name="scan_chain_beh.prj"/>
-      <outfile xil_pn:name="scan_chain_isim_beh.exe"/>
+      <outfile xil_pn:name="tb_shifter_beh.prj"/>
+      <outfile xil_pn:name="tb_shifter_isim_beh.exe"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1549991483" xil_pn:in_ck="-8539648780582020241" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="5923583617078234137" xil_pn:start_ts="1549991483">
+    <transform xil_pn:end_ts="1549991950" xil_pn:in_ck="-8539648780582020241" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-2071115430922999811" xil_pn:start_ts="1549991950">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
-      <outfile xil_pn:name="scan_chain_isim_beh.wdb"/>
+      <outfile xil_pn:name="tb_shifter_isim_beh.wdb"/>
     </transform>
     <transform xil_pn:end_ts="1549988709" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1549988709">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
     </transform>
     <transform xil_pn:end_ts="1549988709" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-5804808493122389298" xil_pn:start_ts="1549988709">
       <status xil_pn:value="SuccessfullyRun"/>
