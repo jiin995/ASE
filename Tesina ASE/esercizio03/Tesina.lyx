@@ -241,6 +241,18 @@ filename "anode_manager.lyx"
 \lang american
 \begin_inset CommandInset include
 LatexCommand input
+filename "display_Nexys4.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset CommandInset include
+LatexCommand input
 filename "display_onboard.lyx"
 
 \end_inset
