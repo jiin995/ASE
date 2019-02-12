@@ -102,7 +102,7 @@ BEGIN
 
       -- insert stimulus here 
 		
-		d_reg <= x"78";
+		d_reg <= x"07";
 		scan_en <= '0';
 		en <= '1';
 		scan_in <= '0';

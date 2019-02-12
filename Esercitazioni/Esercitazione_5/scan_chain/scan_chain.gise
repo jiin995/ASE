@@ -142,12 +142,12 @@
     <transform xil_pn:end_ts="1549991950" xil_pn:in_ck="-8539648780582020241" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-2071115430922999811" xil_pn:start_ts="1549991950">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="isim.cmd"/>
-      <outfile xil_pn:name="isim.log"/>
-      <outfile xil_pn:name="tb_shifter_isim_beh.wdb"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1549988709" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1549988709">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -193,17 +193,7 @@
       <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
-      <outfile xil_pn:name="shift_register_pilotato.lso"/>
-      <outfile xil_pn:name="shift_register_pilotato.ngc"/>
-      <outfile xil_pn:name="shift_register_pilotato.ngr"/>
-      <outfile xil_pn:name="shift_register_pilotato.prj"/>
-      <outfile xil_pn:name="shift_register_pilotato.stx"/>
-      <outfile xil_pn:name="shift_register_pilotato.syr"/>
-      <outfile xil_pn:name="shift_register_pilotato.xst"/>
-      <outfile xil_pn:name="shift_register_pilotato_xst.xrpt"/>
-      <outfile xil_pn:name="webtalk_pn.xml"/>
-      <outfile xil_pn:name="xst"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1549988717" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-1123624846057795995" xil_pn:start_ts="1549988717">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -213,52 +203,41 @@
     </transform>
     <transform xil_pn:end_ts="1549988917" xil_pn:in_ck="5593122909435754451" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-3356637986729109775" xil_pn:start_ts="1549988912">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
-      <outfile xil_pn:name="_ngo"/>
-      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
-      <outfile xil_pn:name="shift_register_pilotato.bld"/>
-      <outfile xil_pn:name="shift_register_pilotato.ngd"/>
-      <outfile xil_pn:name="shift_register_pilotato_ngdbuild.xrpt"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1549988942" xil_pn:in_ck="5593122909435754452" xil_pn:name="TRANEXT_map_virtex7" xil_pn:prop_ck="2100985583056581773" xil_pn:start_ts="1549988917">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
-      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
-      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
-      <outfile xil_pn:name="shift_register_pilotato.pcf"/>
-      <outfile xil_pn:name="shift_register_pilotato_map.map"/>
-      <outfile xil_pn:name="shift_register_pilotato_map.mrp"/>
-      <outfile xil_pn:name="shift_register_pilotato_map.ncd"/>
-      <outfile xil_pn:name="shift_register_pilotato_map.ngm"/>
-      <outfile xil_pn:name="shift_register_pilotato_map.xrpt"/>
-      <outfile xil_pn:name="shift_register_pilotato_summary.xml"/>
-      <outfile xil_pn:name="shift_register_pilotato_usage.xml"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1549988972" xil_pn:in_ck="-4533165139582971667" xil_pn:name="TRANEXT_par_virtex5" xil_pn:prop_ck="-2283627392121029586" xil_pn:start_ts="1549988942">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
-      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
-      <outfile xil_pn:name="shift_register_pilotato.ncd"/>
-      <outfile xil_pn:name="shift_register_pilotato.pad"/>
-      <outfile xil_pn:name="shift_register_pilotato.par"/>
-      <outfile xil_pn:name="shift_register_pilotato.ptwx"/>
-      <outfile xil_pn:name="shift_register_pilotato.unroutes"/>
-      <outfile xil_pn:name="shift_register_pilotato.xpi"/>
-      <outfile xil_pn:name="shift_register_pilotato_pad.csv"/>
-      <outfile xil_pn:name="shift_register_pilotato_pad.txt"/>
-      <outfile xil_pn:name="shift_register_pilotato_par.xrpt"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1549988972" xil_pn:in_ck="5593122909435754320" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1549988960">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
-      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
-      <outfile xil_pn:name="shift_register_pilotato.twr"/>
-      <outfile xil_pn:name="shift_register_pilotato.twx"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
   </transforms>
 
