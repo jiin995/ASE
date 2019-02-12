@@ -36,7 +36,7 @@ entity display_onBoard is
            anodes : out  STD_LOGIC_VECTOR (7 downto 0));
 end display_onBoard;
 
-architecture architectural of display_onBoard is
+architecture structural of display_onBoard is
 
 signal enable_digit :STD_LOGIC_VECTOR (3 downto 0):= "0011";--(others => '1');
 signal reset : STD_LOGIC := '0';
@@ -53,21 +53,21 @@ component display_7_segmenti is
 	);
 end component;
 
-alias anades_0_3 is anodes (3 downto 0);	-- i bit da 3 a 0 di values
-alias anades_4_7 is anodes (7 downto 4);	-- i bit da 3 a 0 di values
+alias anodes_0_3 is anodes (3 downto 0);	-- i bit da 3 a 0 di values
+alias anodes_4_7 is anodes (7 downto 4);	-- i bit da 7 a 4 di values
 
 
 begin
 
-	dispay: display_7_segmenti port map (	clock => clock,
+	display: display_7_segmenti port map (	clock => clock,
 														reset => reset,
 														values => values,
 														dots => dots,
 														enable_digit => enable_digit,
-														anodes => anades_0_3,
+														anodes => anodes_0_3,
 														cathodes => cathodes
 											);
-	anades_4_7 <= (others => '1');
+	anodes_4_7 <= (others => '1');
 	
-end architectural;
+end structural;
 
