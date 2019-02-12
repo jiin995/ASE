@@ -12,7 +12,7 @@
 --! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
 --! @date       15/10/2018
 --! @version    0.1
---! @brief      cathodes_anager è l'implementazione di un gestore di catodi
+--! @brief      cathodes_manager è l'implementazione di un gestore di catodi
 --! @details
 --!
 --! <b>Dependencies:</b>\n
@@ -32,9 +32,9 @@ library IEEE;
 --! Permette di gestire l'abilitazione dei catodi associati ad ogni segmento omologo di ogni cifra(digit) di un display a 7 segmenti.\n 
 --! Per accendere il giusto segmento è necessario che il catodo sia 0, poichè i catodi sono pilotati da segnali 0-attivi.
 entity cathodes_manager is 
-    port (  select_digit    : in    STD_LOGIC_VECTOR (1 downto 0);	--! cathodes_manager input: seleziona digit su cui mostrare la cifra
-            values          : in    STD_LOGIC_VECTOR (15 downto 0);	--! cathodes_manager input: valore da mostrare (codifica esadecimale)
-            dots            : in    STD_LOGIC_VECTOR (3 downto 0);	--! cathodes_manager input: punto da accendere per la parte decimale
+    port (  select_digit    : in    STD_LOGIC_VECTOR (2 downto 0);	--! cathodes_manager input: seleziona digit su cui mostrare la cifra
+            values          : in    STD_LOGIC_VECTOR (31 downto 0);	--! cathodes_manager input: valore da mostrare (codifica esadecimale)
+            dots            : in    STD_LOGIC_VECTOR (7 downto 0);	--! cathodes_manager input: punto da accendere per la parte decimale
             cathodes        : out   STD_LOGIC_VECTOR (7 downto 0)	--! cathodes_manager output: catodo da accendere
     );
 end cathodes_manager;
@@ -54,7 +54,7 @@ constant six        : STD_LOGIC_VECTOR(6 downto 0) := "0000010";
 constant seven      : STD_LOGIC_VECTOR(6 downto 0) := "1111000"; 
 constant eight      : STD_LOGIC_VECTOR(6 downto 0) := "0000000"; 
 constant nine       : STD_LOGIC_VECTOR(6 downto 0) := "0010000"; 
-constant a   	    : STD_LOGIC_VECTOR(6 downto 0) := "0001000"; 
+constant a   	     : STD_LOGIC_VECTOR(6 downto 0) := "0001000"; 
 constant b          : STD_LOGIC_VECTOR(6 downto 0) := "0000011"; 
 constant c          : STD_LOGIC_VECTOR(6 downto 0) := "1000110"; 
 constant d          : STD_LOGIC_VECTOR(6 downto 0) := "0100001"; 
@@ -65,6 +65,11 @@ alias digit_0 is values (3 downto 0);	-- i bit da 3 a 0 di values
 alias digit_1 is values (7 downto 4);	-- i bit da 7 a 4 di values
 alias digit_2 is values (11 downto 8);	-- i bit da 11 a 8 di values
 alias digit_3 is values (15 downto 12);	-- i bit da 15 a 12 di values
+alias digit_4 is values (19 downto 16);	-- i bit da 15 a 12 di values
+alias digit_5 is values (23 downto 20);	-- i bit da 15 a 12 di values
+alias digit_6 is values (27 downto 24);	-- i bit da 15 a 12 di values
+alias digit_7 is values (31 downto 28);	-- i bit da 15 a 12 di values
+
 
 signal cathodes_for_digit : STD_LOGIC_VECTOR (6 downto 0) := (others => '0');	-- 
 signal nibble   : STD_LOGIC_VECTOR (3 downto 0 ) := (others => '0');	-- nibble di 4 bit di values
@@ -78,10 +83,14 @@ begin
     digit_switching: process (select_digit,values)
         begin  
             case select_digit is 
-                when "00" => nibble <= digit_0;
-                when "01" => nibble <= digit_1;
-                when "10" => nibble <= digit_2;
-                when "11" => nibble <= digit_3;
+                when "000" => nibble <= digit_0;
+                when "001" => nibble <= digit_1;
+                when "010" => nibble <= digit_2;
+                when "011" => nibble <= digit_3;
+					 when "100" => nibble <= digit_4;
+                when "101" => nibble <= digit_5;
+                when "110" => nibble <= digit_6;
+                when "111" => nibble <= digit_7;
                 when others => nibble <= (others => '0');
             end case;
         end process;
