@@ -114,8 +114,9 @@ Implementazione
 \end_layout
 
 \begin_layout Standard
-Il latch RS abilitato è stato realizzato tramite l'utilizzo di porte NOR
- e AND per l'abilitazione, come riportato in fig.
+Il latch RS abilitato è stato realizzato collegano opportunamente le porte
+ NOR e AND, queste ultime necessarie per l'abilitazione.
+ Lo schema di collegamento è riportato in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:latch-rs-schematico"
@@ -172,9 +173,11 @@ Schematico del latch RS abilitato.
 \begin_layout Standard
 Tale soluzione porterà il nostro componente latch RS a funzionare secondo
  una logica 1-attiva: in particolare, quando S=1 e R=0 il valore di Q si
- porta a 1, mentre per portare Q a 0 bisognerà portare R a 1 e S a 0.
+ porta a 1 (Set), mentre per portare Q a 0 (Reset) bisognerà portare R a
+ 1 e S a 0.
  Si noti come, in tale componente, la combinazione S=1 e R=1 non è ammessa,
  in quanto porterebbe a cambiamenti di stato non definiti.
+ 
 \end_layout
 
 \begin_layout Subsubsection
@@ -187,20 +190,46 @@ Per la simulazione behavioural di tale componente, dapprima si è testato
  In particolare si è posto prima S=1 e R=0 e, come atteso, il valore di
  Q risulta 1.
  Dopodiché, ponendo R=1 e S=0, il valore di Q risulta 0.
- Anche la situazione neutra S=0 e R=0, come previsto, fa in modo che Q non
- cambi il suo valore.
+ Anche il caso neutro, rispetto alle variazioni di Q , S=0 e R=0, come previsto,
+ fa in modo che Q non cambi il suo valore.
  Per quanto concerne la combinazione non ammessa S=1 e R=1, si noti come
  tale coppia di ingressi porti il latch ad assumere un comportamento non
- deterministico, poiché la condizione Q XOR NQ = 1 è violata (Q = NQ).
+ deterministico, in quanto sia la rete di set che quella di reset lavorano
+ per cambiare i valori delle uscite.
+ In simulazione osseviamo come, da 80 ns, sia Q che NQ siano entrambi a
+ 0, ovviamente ciò indica che il nostro componente non sta lavorando correttamet
+e in quanto per come è definito NQ deve valere che 
+\begin_inset Quotes eld
+\end_inset
+
+Q XOR NQ = 1
+\begin_inset Quotes erd
+\end_inset
+
+ .
  Un caso di particolare interesse da osservare è la transizione da R=1,
- S=1 a R=0, S=0.
- Tale transizione porta idealmente a dei fenomeni oscillatori per le uscite,
- dovute all'assenza di ritardi di propagazione.
- Infatti nella simulazione behavioral si verifica che c'è l'oscillazione
- ma non è visibile, in quanto per tale simulazione si assumono ritardi di
- propagazione nulli, infatti il simulatore raggiunge il limite massimo di
- delta cycle a causa di queste oscillazione che si accumulano nello stesso
- istante di commutazione.Tale simulazione è visibile in fig.
+ S=1 a R=0, S=0, in cui dallo stato non ammesso si passa allo stato neutro.
+ Tale transizione porta nelle ipotesi di idealità del circuito a dei fenomeni
+ oscillatori per le uscite, dovute alla simmetria del circuito 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+ritardi delle porte e delle linee identici per le due porte NOR e le due
+ retroazioni
+\end_layout
+
+\end_inset
+
+ e alla retroazione positiva.
+ Infatti nella simulazione behavioral si verifica che ci sono le oscillazioni
+ ma non sono visibili, in quanto tale simulazione assume ritardi di propagazione
+ nulli, e ciò comporta ad avere oscilalzioni con un periodo infinitesimamente
+ piccolo.
+ Infatti il simulatore raggiunge il limite massimo di delta cycle a causa
+ di queste oscillazione che si accumulano nello stesso istante di commutazione
+ e la simulazione termina con un errore.
+ Tale simulazione è visibile in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:latch-rs-schematico"
@@ -266,8 +295,9 @@ noprefix "false"
 
 \end_inset
 
-, dove ad ogni componente logico è associato il relativo ritardo di porta,
- secondo la libreria di ISE, ma non sono considerati i ritardi di propagazione.
+, dove ad ogni porta logico è associato il relativo ritardo di porta, secondo
+ la libreria di ISE, ma non sono considerati i ritardi di propagazione sulle
+ linee di collegamento.
 \end_layout
 
 \begin_layout Standard
@@ -313,12 +343,13 @@ Simulazione post-map del latch RS.
 
 \begin_layout Standard
 Per quanto riguarda la simulazione post-route, le connessioni tra i componenti
- non sono più considerate ideali, senza ritardi, ma vengono considerati
- i ritardi di propagazione sulle linee di connessione.
- In questo caso, il simulatore, tenendo conto del posizionamento dei componenti,
- si ha che i ritardi di propagazione sono diversi per le due retroazione,
- i percorsi sono asimmetrici, ciò dovrebbe potare a non avere più delle
- oscillazioni.
+ non sono più considerate ideali, cioè prive di ritardi, ma i ritardi sono
+ modellati secondo le librerie di ISE e secondo la scelte effettuare durante
+ il processo di sintesi da ISE.
+ In questo caso, il simulatore, tenendo conto che i ritardi di propagazione
+ sono diversi per le due retroazioni, dovuto alla reale asimmetria del circuito
+ non dovrebbe generare più oscillazioni persistenti quando si passa dal
+ caso non ammesso a quello neutro.
  Nel caso in cui la simulazione venga effettuata su board Nexys 4 DDR (fig.
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -329,14 +360,20 @@ noprefix "false"
 
 \end_inset
 
-), le oscillazioni restano poiché i ritardi di propagazione sono identici
- sulle due linee non sono tali da forzare il nostro latch ad assumere un
- valore stabile dopo un certo intervallo di tempo.
- Infatti come si nota in figura, da aggiungere la foto di gab, si dovrebbe
- notare che i due percorsi delle retroazioni sono simmetrici.
+), le oscillazioni restano poiché i ritardi di propagazione sono praticamente
+ identici, e si riesce ad osservare anche dalla simulazione, i periodi di
+ occilazione di Q e NQ sono praticamente uguli.
+ Non c'è una linea nettamente più veloce dell'altra e tale da forzare il
+ nostro latch ad assumere un valore stabile dopo un certo intervallo di
+ tempo.
+ Infatti utillazando lo strumento fpga editor di ISE in figura , da aggiungere
+ la foto di gab, si dovrebbe notare che i due percorsi delle retroazioni
+ sono simmetrici o che differiscano di poco.
  Ciò porterebbe all'identificazione di una probabile PUF (Physical Unclonable
- Function) ma quando tale componente viene sintetizzato e provato sulla
- Board, si ha che l'uscita va a 0 molto velocemente.
+ Function), che si può generare utilizzando una cascata di latch RS, ma
+ quando tale componente viene sintetizzato e provato sulla Board, si ha
+ che l'uscita va a 0 molto velocemente per tutti i latch della batteria,
+ si ha che il comportamento viene viziato a 0.
 \end_layout
 
 \begin_layout Standard
@@ -392,8 +429,7 @@ noprefix "false"
 \end_inset
 
 ), invece, i ritardi di propagazione sono diversi e le oscillazioni non
- sono più presenti, tale risultato ci mostra quello che accade nel caso
- reale.
+ sono più presenti, tale risultato ci mosta quello che accade nel caso reale.
 \end_layout
 
 \begin_layout Standard
