@@ -38,12 +38,14 @@ end display_onBoard;
 
 architecture structural of display_onBoard is
 
+signal enable_int : STD_LOGIC := '1';
 signal enable_digit :STD_LOGIC_VECTOR (3 downto 0):= "0011";--(others => '1');
 signal reset : STD_LOGIC := '0';
 signal dots : STD_LOGIC_VECTOR (3 downto 0) := (others => '0');
 
 component display_7_segmenti is
-	port ( 	clock 			: in STD_LOGIC;
+	port ( 	enable			: in STD_LOGIC;
+				clock 			: in STD_LOGIC;
 				reset				: in STD_LOGIC;
 				values 			: in STD_LOGIC_VECTOR (15 downto 0);
 				dots 				: in STD_LOGIC_VECTOR (3 downto 0) ;
@@ -59,7 +61,8 @@ alias anodes_4_7 is anodes (7 downto 4);	-- i bit da 7 a 4 di values
 
 begin
 
-	display: display_7_segmenti port map (	clock => clock,
+	display: display_7_segmenti port map (	enable => enable_int,
+														clock => clock,
 														reset => reset,
 														values => values,
 														dots => dots,

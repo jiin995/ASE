@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=/home/jiin995/ASE_WorkSpace/Test/Test7Segmenti/display_7_segmenti/display_onBoard.ncd
-OUTFILE=/home/jiin995/ASE_WorkSpace/Test/Test7Segmenti/display_7_segmenti/display_onBoard.bit
+INFILE=/home/simone/Scrivania/ASE/Test/Test7Segmenti/display_7_segmenti/display_onBoard.ncd
+OUTFILE=/home/simone/Scrivania/ASE/Test/Test7Segmenti/display_7_segmenti/display_onBoard.bit
 FAMILY=Artix7
 PART=xc7a100t-1csg324
-WORKINGDIR=/home/jiin995/ASE_WorkSpace/Test/Test7Segmenti/display_7_segmenti
+WORKINGDIR=/home/simone/Scrivania/ASE/Test/Test7Segmenti/display_7_segmenti
 LICENSE=WebPack
-USER_INFO=211602214_0_0_275
+USER_INFO=211608202_0_0_277
