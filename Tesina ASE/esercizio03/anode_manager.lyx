@@ -221,6 +221,10 @@ generico.
 cathodes_for_digit
 \shape default
 .
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
