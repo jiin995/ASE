@@ -48,8 +48,8 @@ signal anodes_switching : STD_LOGIC_VECTOR (3 downto 0) := (others => '0');
 --=============================================================================
 begin
 	-- tutti i bit sono alti all'inizio, poichè essendo gli anodi pilotati da un segnale 0-attivo così sono spente
-	-- and negata di anodes_switching e enable_digit, solo se entrambi sono alti attivo l'anodo (negato perché 0-attivo
-    anodes <= not anodes_switching OR not enable_digit; 
+    anodes <= not anodes_switching OR not enable_digit; -- and negata di anodes_switching e enable_digit, solo se entrambi sono alti attivo l'anodo (negato perché 0-attivo)
+    
     -- non è altro che una lookuptable!
     with select_digit select anodes_switching <= 	-- imposta anodes_switching in base alla digit selezionata
         x"1"    when "00",
@@ -61,4 +61,42 @@ begin
 end dataflow;
 --=============================================================================
 -- architecture dataflow of anodes_manager end
+--=============================================================================
+
+--================================================================================================
+-- architecture declaration
+--================================================================================================
+architecture behavioural of anodes_manager is
+
+signal anodes_switching : std_logic_vector(3 downto 0) := (others => '0');
+
+--=============================================================================
+-- architecture behavioural of anodes_manager begin
+--=============================================================================
+begin
+
+anodes <= not anodes_switching OR not enable_digit;
+
+anodes_process: process(select_digit, enable_digit)
+begin
+
+	case select_digit is
+		when "00" =>
+			anodes_switching <= x"1";
+		when "01" =>
+			anodes_switching <= x"2";
+		when "10" =>
+			anodes_switching <= x"4";
+		when "11" =>
+			anodes_switching <= x"8";
+		when others =>
+			anodes_switching <= (others => '0');
+	end case;
+
+end process;
+
+
+end behavioural;
+--=============================================================================
+-- architecture behavioural of anodes_manager end
 --=============================================================================

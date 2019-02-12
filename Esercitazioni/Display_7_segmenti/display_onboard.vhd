@@ -39,7 +39,7 @@ end display_onBoard;
 architecture structural of display_onBoard is
 
 signal enable_digit :STD_LOGIC_VECTOR (3 downto 0):= (others => '1');
-signal reset : STD_LOGIC := '0';
+signal reset : STD_LOGIC := '1';
 signal dots : STD_LOGIC_VECTOR (3 downto 0) := (others => '0');
 
 component display_7_segmenti

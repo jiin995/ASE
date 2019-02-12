@@ -38,6 +38,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity display_7_segmenti is
+--se io uso il dasplay non mi interessa del clock è una cosa interna al componente!
     Generic(
 				clock_frequency_in : integer := 50000000;
 				clock_frequency_out : integer := 5000000
@@ -60,10 +61,10 @@ architecture Structural of display_7_segmenti is
 		 generic (   n               :   NATURAL := 2;	--! usato per definire il valore massimo (2**n)-1 di fine conteggio.
 						 enable_level    :   std_logic := '1'	--! definisce il livello enable
 		 );
-		 Port ( clock : in  STD_LOGIC;	--! segnale di clock
-				  reset_n : in  STD_LOGIC;	--! se portato a 0, il contatore è resettato
-				enable : in STD_LOGIC;	--! abilita il contatore se è pari a enable_level
-				  counter : out  STD_LOGIC_VECTOR (n-1 downto 0)	--! n bit del contatore
+		 Port ( 	clock : in  STD_LOGIC;	--! segnale di clock
+					reset_n : in  STD_LOGIC;	--! se portato a 0, il contatore è resettato
+					enable : in STD_LOGIC;	--! abilita il contatore se è pari a enable_level
+					counter : out  STD_LOGIC_VECTOR (n-1 downto 0)	--! n bit del contatore
 				);
 	end component;
 
@@ -83,6 +84,7 @@ architecture Structural of display_7_segmenti is
 	end component;
 	
 	component clock_divisor
+	-- prima mettete i generic e poi non li usate??
 		 generic (   clock_frequency_in  : integer := 100000000;	--! frequenza del clock in ingresso
 						 clock_frequency_out : integer := 1000	--! frequenza del clock in uscita
 		 );
@@ -92,25 +94,28 @@ architecture Structural of display_7_segmenti is
 					clock_freq_out   :   out STD_LOGIC	--! clock_divisor output: segnale di clock in uscita
 		 );
 	end component;
+	
+signal internal_enable : std_LOGIC :='1';
 
 begin
+
+	counter_instance: counter_mod2n port map(
+			clock => clock_fx, -- il clock esterno entra solo al clock filter
+			enable => internal_enable,
+			reset_n => reset_n,
+			counter => counter
+		);
+
 
 	clk_filter: clock_divisor GENERIC MAP(	
 		clock_frequency_in => clock_frequency_in,
 		clock_frequency_out => clock_frequency_out
 		)
 		PORT MAP(
-			enable => '1',
+			enable => internal_enable,
 			clock_freq_in => clock,
 			reset_n => reset_n,
 			clock_freq_out => clock_fx
-		);
-
-	counter_instance: counter_mod2n port map(
-			clock => clock,
-			enable => clock_fx,
-			reset_n => reset_n,
-			counter => counter
 		);
 
 	cathodes_instance: cathodes_manager port map(
