@@ -238,6 +238,43 @@ componente per la selezione dei segmenti da attivare per ogni cifra, formato
 \end_layout
 
 \begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'implementazione completa è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio03/design/display_7_segmenti.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+display
+\backslash
+_7
+\backslash
+_segmenti.vhd}
+\end_layout
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement ph
 wide false
@@ -247,8 +284,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename images/display_7segmenti.png
-	scale 35
+	filename images/display_7_segmenti.png
+	scale 22
 
 \end_inset
 

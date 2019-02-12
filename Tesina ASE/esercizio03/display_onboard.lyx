@@ -97,5 +97,154 @@ Descrivere la soluzione relizzata per mezzo di schematici e riportare il
 
 \end_layout
 
+\begin_layout Standard
+Osserviamo il funzionamento del display a 7 segmenti su board.
+ Per poter caricare l'architettura descritta sulla board Nexys 4, si è realizzat
+a un'entità di più alto di livello denominata 
+\shape italic
+display_onBoard
+\shape default
+.
+ Inoltre, è stato necessario l'utilizzo del file Nexys4DDR_master.ucf per
+ effettuare il mapping tra i componenti fisici della board e i segnali di
+ ingresso/uscita.
+ In particolare, i valori di cathodes e anodes corrispondono alle prime
+ 4 digit del display presente sulla board, mentre le digit rimanenti sono
+ state disattivate manualmente.
+ Per quanto concerne gli ingressi, invece, i valori del segnale 
+\shape italic
+values 
+\shape default
+vengono determinati tramite l'utilizzo degli switch presenti sulla board.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Determinazione del valore di cathods..}]
+\end_layout
+
+\begin_layout Plain Layout
+
+architecture structural of display_onBoard is
+\end_layout
+
+\begin_layout Plain Layout
+
+	[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+	alias anodes_0_3 is anodes (3 downto 0); -- i bit da 3 a 0 di values
+\end_layout
+
+\begin_layout Plain Layout
+
+	alias anodes_4_7 is anodes (7 downto 4); -- i bit da 4 a 7 di values
+\end_layout
+
+\begin_layout Plain Layout
+
+	begin
+\end_layout
+
+\begin_layout Plain Layout
+
+		display: display_7_segmenti port map (
+\end_layout
+
+\begin_layout Plain Layout
+
+			clock => clock, 
+\end_layout
+
+\begin_layout Plain Layout
+
+			reset => reset, 
+\end_layout
+
+\begin_layout Plain Layout
+
+			values => values, 
+\end_layout
+
+\begin_layout Plain Layout
+
+			dots => dots, 
+\end_layout
+
+\begin_layout Plain Layout
+
+			enable_digit => enable_digit, 
+\end_layout
+
+\begin_layout Plain Layout
+
+			anodes => anodes_0_3, 
+\end_layout
+
+\begin_layout Plain Layout
+
+			cathodes => cathodes ); 
+\end_layout
+
+\begin_layout Plain Layout
+
+		anodes_4_7 <= (others => '1'); 
+\end_layout
+
+\begin_layout Plain Layout
+
+end architectural;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'implementazione completa è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio03/design/display_onBoard.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+display
+\backslash
+_onBoard.vhd}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
 \end_body
 \end_document
