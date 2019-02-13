@@ -210,7 +210,14 @@ clock_frequency_in
 clock_frequency_out
 \shape default
  - 1).
- L'implementazione, effettuata tramite descrizione behavioural, è consultabile
+ Ovviamente sappiamo che il clock generato con questo metodo non è esente
+ da problemi di sincronizzazione e di scue, ma per i nostri scopi e per
+ il fatto che avevamo bisogno di frequenze minori di 5 Mhz, tale scelta
+ risulta più adatta .
+\end_layout
+
+\begin_layout Standard
+L'implementazione, effettuata tramite descrizione behavioural, è consultabile
  qui: 
 \begin_inset ERT
 status open

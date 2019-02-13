@@ -98,6 +98,45 @@ Descrivere la soluzione relizzata per mezzo di schematici e riportare il
 \end_layout
 
 \begin_layout Standard
+Sulla board che abbiamo in dotazione per risparmiare sul numero di segnali
+ necessari per pilotare 8 digit, la Digiland ha provveduto a collegare i
+ catodi in comune a tutte le digit tra di loro e collegare gli anodi di
+ ogni led della digit tutti ad un anodo comune per ognidigit, come riportato
+ in fig 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:display_7segmenti_Nexys"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Pertanto per abilitare una digit si bisognerà innanzitutto alimentare opportunam
+ente l'anodo e poi pilotando i catodi opportunamente verrà mostrato sul
+ display il valore.
+ Tale soluzione così fatta presenta però un problema di fondo, alimentando
+ tutte le digit si mostrerà su di esse la stessa cifra.
+ Pertanto si deve provvedere a realizzare una soluzione più ingegnosa, in
+ particolare, sfruttando la persistenza dell immagini sulla retina e la
+ velocità a cui può funzionare la board si riesce a mostrare valori diversi
+ su ogni digit.
+ In particolare ci saranno due componenti che molto velocemente attivano
+ una sola digit alla volta e pilotano i catodi per mostrare il valore che
+ si vuole mostrare su quella digit.
+\end_layout
+
+\begin_layout Standard
+La seguente descrizione si riferisce all'architettura in grado di pilotare
+ soltanto 4 digit, le modifiche necessarie per poterne pilotare 8 sono descritte
+ nell'apposito paragrafo.
+\end_layout
+
+\begin_layout Standard
 L'architettura del componente è mostrata in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -126,7 +165,7 @@ segnale di clock per la tempificazione;
 reset 
 \shape default
 - segnale di reset, per resettare il valore del display quando è alto (tramite
- pressione pulsante);
+ eventuale pressione di un pulsante);
 \end_layout
 
 \begin_layout Itemize
@@ -142,8 +181,7 @@ segnale di 16 bit per detereminare il valore da visualizzare sul display;
 \shape italic
 dots 
 \shape default
-- segnale di abilitazione su 4 bit per l'abilitazione dei punti decimali
- sul display;
+- segnale di 4 bit per l'abilitazione dei punti decimali sul display;
 \end_layout
 
 \begin_layout Itemize
@@ -151,8 +189,8 @@ dots
 \shape italic
 enable_digit 
 \shape default
-- segnale di abilitazione su 4 bit per l'abilitazione degli 4 anodi corrisponden
-ti alle 4 cifre sul display (logica 1-attivo);
+- segnale di 4 bit per l'abilitazione degli 4 anodi corrispondenti alle
+ 4 cifre sul display (logica 1-attivo);
 \end_layout
 
 \begin_layout Standard
@@ -171,7 +209,7 @@ I segnali in uscita saranno invece:
 \shape italic
 anodes - 
 \shape default
-segnale per l'abilitazione delle 4 cifre del display (0-attivo);
+bus per l'abilitazione delle 4 digit della batteria di display (0-attivo);
 \end_layout
 
 \begin_layout Itemize
@@ -179,7 +217,7 @@ segnale per l'abilitazione delle 4 cifre del display (0-attivo);
 \shape italic
 cathodes - 
 \shape default
-segnale per l'abilitazione dei segmenti di ogni cifra (0-attivo);
+bus per pilotare i dei segmenti di ogni cifra (0-attivo);
 \end_layout
 
 \begin_layout Standard
@@ -190,8 +228,8 @@ segnale per l'abilitazione dei segmenti di ogni cifra (0-attivo);
 \end_layout
 
 \begin_layout Standard
-Il componente è stato realizzato tramite descrizione schematica: in particolare,
- i componenti realizzati ed utilizzati sono:
+Il componente è stato realizzato tramite la composizione dei seguenti componenti
+: 
 \end_layout
 
 \begin_layout Itemize
@@ -199,7 +237,8 @@ Il componente è stato realizzato tramite descrizione schematica: in particolare
 \shape italic
 clock_divisor - 
 \shape default
-divisore di frequenza per il clock;
+divisore di frequenza per il clock, necessario perchè se utilizzaimo una
+ frequenza elevata vedremmo lo stesso valore per ogni digit;
 \end_layout
 
 \begin_layout Itemize
@@ -216,7 +255,8 @@ n
 
 \end_inset
 
-, con n=2, per la selezione della cifra da attivare;
+, con n=2, per la selezione della cifra da attivare in base al valore di
+ conteggio;
 \end_layout
 
 \begin_layout Itemize
@@ -275,6 +315,44 @@ _segmenti.vhd}
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/display_7_segmenti_Nexys.png
+	scale 22
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:display_7segmenti_Nexys"
+
+\end_inset
+
+Schematico del latch RS abilitato.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \begin_inset Float figure
 placement ph
 wide false

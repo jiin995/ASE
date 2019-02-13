@@ -101,20 +101,21 @@ Descrivere la soluzione relizzata per mezzo di schematici e riportare il
 Il cathodes manager permette di gestire i catodi associati ad ogni segmento
  omologo di ogni cifra del display a 7 segmenti.
  Per accendere il giusto segmento è necessario che il catodo corrispondente
- sia 0, poichè i catodi sono pilotati da segnali 0-attivi.
+ sia posto a 0, poichè i catodi sono pilotati da segnali 0-attivi.
  Il componente prende in ingresso:
 \end_layout
 
 \begin_layout Itemize
-il valore 
+il bus 
 \shape italic
 counter
 \shape default
- fornito dal contatore (come l'anodes manager);
+, uscita del contatore (come l'anodes manager), che serve per segliere quale
+ nibble mostrare sulla digit;
 \end_layout
 
 \begin_layout Itemize
-il segnale 
+il bus 
 \shape italic
 values 
 \shape default
@@ -123,7 +124,7 @@ values
 \end_layout
 
 \begin_layout Itemize
-il segnale 
+il bus 
 \shape italic
 dots 
 \shape default
@@ -135,7 +136,7 @@ dots
 \end_layout
 
 \begin_layout Standard
-In uscita abbiamo un segnale ad 8 bit 
+In uscita abbiamo un bus ad 8 bit 
 \shape italic
 cathodes
 \shape default
@@ -166,7 +167,7 @@ digit_switching
 \shape italic
 select_digit
 \shape default
- (contatore), si occupa di settare i bit della variabile 
+ (contatore), si occupa di settare i bit del bus interno 
 \shape italic
 nibble
 \begin_inset Foot
@@ -180,11 +181,8 @@ Un nibble è una stringa di 4 bit.
 
 
 \shape default
- corrispondenti alla giusta 
-\shape italic
-digit
-\shape default
-, ossia 4 bit di values corrispondenti alla cifra selezionata;
+ corrispondenti alla rappresentazione del valore che si vuole mostrare su
+ quella digit ;
 \end_layout
 
 \begin_layout Itemize
@@ -204,7 +202,8 @@ nibble
 \shape italic
 cathodes_for_digit
 \shape default
- al valore necessario per accendere i segmenti corretti.
+ al valore necessario per accendere i segmenti nel modo corretto per rappresenta
+re il valore richiesto.
  Tali valori sono espressi come costanti e ricavabili dal reference manual.
 \end_layout
 
@@ -216,7 +215,7 @@ multiplexer 4-1
 generico.
  Il valore di cathodes è dunque determinato come segue: si calcola dapprima
  la parte dei dots, selezionando solo quelli relativi alle cifre selezionate
- e poi negandoli (per logica 0-attiva), e infine si aggiunge 
+ e poi negandoli (per logica 0-attiva), e infine concatena aggiunge 
 \shape italic
 cathodes_for_digit
 \shape default
@@ -240,7 +239,110 @@ begin{lstlisting}[language=VHDL,caption={Determinazione del valore di cathods..}
 
 \begin_layout Plain Layout
 
+    digit_switching: process (select_digit,values) 
+\end_layout
+
+\begin_layout Plain Layout
+
+		begin               
+\end_layout
+
+\begin_layout Plain Layout
+
+			case select_digit is                  
+\end_layout
+
+\begin_layout Plain Layout
+
+				when "00" => nibble <= digit_0;                 
+\end_layout
+
+\begin_layout Plain Layout
+
+				when "01" => nibble <= digit_1;                 
+\end_layout
+
+\begin_layout Plain Layout
+
+				when "10" => nibble <= digit_2;                 
+\end_layout
+
+\begin_layout Plain Layout
+
+				when "11" => nibble <= digit_3;                
+\end_layout
+
+\begin_layout Plain Layout
+
+				when others => nibble <= (others => '0');             
+\end_layout
+
+\begin_layout Plain Layout
+
+			end case;         
+\end_layout
+
+\begin_layout Plain Layout
+
+		end process;
+\end_layout
+
+\begin_layout Plain Layout
+
+    decoder : process (nibble)
+\end_layout
+
+\begin_layout Plain Layout
+
+		begin               
+\end_layout
+
+\begin_layout Plain Layout
+
+			case nibble is                 
+\end_layout
+
+\begin_layout Plain Layout
+
+				when "0000" => cathodes_for_digit <= zero;                  
+\end_layout
+
+\begin_layout Plain Layout
+
+				when "0001" => cathodes_for_digit <= one;                  
+\end_layout
+
+\begin_layout Plain Layout
+
+				when "0010" => cathodes_for_digit <= two;  
+\end_layout
+
+\begin_layout Plain Layout
+
+				[...]               
+\end_layout
+
+\begin_layout Plain Layout
+
+	         end case;         
+\end_layout
+
+\begin_layout Plain Layout
+
+	end process;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 cathodes <= not dots(to_integer(unsigned(select_digit))) & cathodes_for_digit;
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout

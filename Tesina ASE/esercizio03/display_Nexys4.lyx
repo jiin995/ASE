@@ -115,7 +115,7 @@ status open
 
 
 \backslash
-begin{lstlisting}[language=VHDL,caption={Determinazione del valore di cathods..}]
+begin{lstlisting}[language=VHDL,caption={display_7_segments}]
 \end_layout
 
 \begin_layout Plain Layout
@@ -170,7 +170,15 @@ end display_7_segments;
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 ...
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -262,7 +270,7 @@ status open
 
 
 \backslash
-begin{lstlisting}[language=VHDL,caption={Determinazione del valore di cathods..}]
+begin{lstlisting}[language=VHDL,caption={Abilitazione degli anodi}]
 \end_layout
 
 \begin_layout Plain Layout
@@ -312,7 +320,12 @@ begin{lstlisting}[language=VHDL,caption={Determinazione del valore di cathods..}
 
 \begin_layout Plain Layout
 
-	(others => '0')    when others;
+		(others => '0')    when others;
+\end_layout
+
+\begin_layout Plain Layout
+
+	end case;
 \end_layout
 
 \begin_layout Plain Layout
@@ -352,7 +365,7 @@ status open
 
 
 \backslash
-begin{lstlisting}[language=VHDL,caption={Determinazione del valore di cathods..}]
+begin{lstlisting}[language=VHDL,caption={cathodes_manager.vhd ..}]
 \end_layout
 
 \begin_layout Plain Layout

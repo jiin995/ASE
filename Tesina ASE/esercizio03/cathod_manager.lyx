@@ -101,9 +101,11 @@ Descrivere la soluzione relizzata per mezzo di schematici e riportare il
 L'obiettivo di tale componente è la gestione degli anodi relativi alle cifre
  del display.
  Dal momento che i singoli anodi relativi a ciascuna delle 4 cifre del display
- sono 0-attivi (a partire dal modello Nexys 4), l'anodes manager dovrà attivare
- uno solo dei 4 diverso anodi mantenendo basso uno solo dei 4 bit relativi
- agli anodi, utilizzando in ingresso il valore fornito dal contatore.
+ sono 0-attivi (la Nexys4 DDR utilizza i transistor per pilotare abbastanza
+ corrente nel punto di anodo comune, le abilitazioni dell'anodo sono invertite),
+ l'anodes manager dovrà attivare uno solo dei 4 diverso anodi mantenendo
+ basso uno solo dei 4 bit relativi agli anodi, utilizzando in ingresso il
+ valore fornito dal contatore.
  Il componente dovrà inoltre tenere conto del segnale enable in ingresso,
  che permette di attivare e disattivare manualmente i singoli anodi.
  
@@ -117,8 +119,8 @@ L'obiettivo di tale componente è la gestione degli anodi relativi alle cifre
 Per realizzare l'anodes manager si è utilizzato un decoder 2-4: ricevuto
  in ingresso il valore del contatore, il decoder alza solo uno dei 4 bit
  relativi agli anodi.
- Tali uscite sono poi messe in AND con il segnale di enable per mantenere
- attivi solo gli anodi abilitati.
+ Tali uscite sono poi messe in AND con il segnale di enable per pilotare
+ soltanto le digit che si è degiso di abilitare.
  Infine, i bit vengono invertiti per rispettare la logica 0-attiva.
  L'implementazione completa, effettuata tramite descrizione data-flow, è
  consultabile qui: 
@@ -159,9 +161,30 @@ others
 \end_inset
 
 , che genera in uscita tutti bit alti (che verranno poi negati successivamente).
- Tale tecnica serve ad evitare il fault masking, poiché avendo tutti 0 in
- uscita (caso non previsto dal normale funzionamento degli anodi) posso
- riconoscere subito la presenza di comportamenti imprevisti nel componente.
+ Tale tecnica serve ad evitare il fault masking, poiché avendo tutti 1 in
+ uscita (caso non previsto dal normale funzionamento di un decoder) posso
+ riconoscere subito la presenza di comportamenti imprevisti nel componente,
+ che verrano poi manifestati all'esterno mostrando su tutte le digit lo
+ stesso valore anche quando i valori dovrebbero essere diversi, perchè tutti
+ gli anodi sono abilitati nello stesso istante.
+ Una soluzione duale consisterebbe nello spegnere tutte le digit, basta
+ sostituire x
+\begin_inset Quotes erd
+\end_inset
+
+F
+\begin_inset Quotes erd
+\end_inset
+
+ con x
+\begin_inset Quotes erd
+\end_inset
+
+0
+\begin_inset Quotes erd
+\end_inset
+
+.
 \begin_inset Newline newline
 \end_inset
 
