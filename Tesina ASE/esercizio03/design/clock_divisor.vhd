@@ -34,8 +34,8 @@ entity clock_divisor is
                 clock_frequency_out : integer := 1000	--! frequenza del clock in uscita
     );
 
-    port (  enable      :   in STD_LOGIC;	--! clock_divisor input: segnale enable
-            reset_n     :   in STD_LOGIC;	--! clock_divisor input: segnale reset
+    port (  enable           :   in STD_LOGIC;	--! clock_divisor input: segnale enable
+            reset_n          :   in STD_LOGIC;	--! clock_divisor input: segnale reset
             clock_freq_in    :   in STD_LOGIC ;	--! clock_divisor input: segnale di clock in ingresso
             clock_freq_out   :   out STD_LOGIC	--! clock_divisor output: segnale di clock in uscita
     );
