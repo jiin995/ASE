@@ -29,7 +29,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity scan_chain is
     generic(
 			  width : integer := 8;						-- dimensione del registro
-			  shift_direction : std_logic := '1'	-- shift a destra
+			  shift_direction : std_logic := '1'	-- shift a sinistra
 	 );
     Port ( 
            clock : in  STD_LOGIC;	-- segnale clock di tempificazione

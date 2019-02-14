@@ -36,6 +36,7 @@
     <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="scan_chain.sym" xil_pn:origination="imported"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="scan_chain.syr"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="scan_chain.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="scan_chain_envsettings.html"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="scan_chain_summary.html"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="scan_chain_xst.xrpt"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="tb_shifter.cmd_log"/>
@@ -89,6 +90,7 @@
     <transform xil_pn:end_ts="1549994432" xil_pn:in_ck="3436403101287839785" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="7093017512792467184" xil_pn:start_ts="1549994430">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
@@ -135,7 +137,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1550069420" xil_pn:in_ck="3436403101287839785" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="6500220420643465100" xil_pn:start_ts="1550069408">
+    <transform xil_pn:end_ts="1550139845" xil_pn:in_ck="3436403101287839785" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="6500220420643465100" xil_pn:start_ts="1550139836">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
