@@ -5,6 +5,9 @@
 \save_transient_properties true
 \origin unavailable
 \textclass book
+\begin_preamble
+\usepackage{tikzpicture}
+\end_preamble
 \use_default_options true
 \master Tesina.lyx
 \maintain_unincluded_children false
@@ -83,15 +86,227 @@
 Implementazione
 \end_layout
 
+\begin_layout Subsection
+Implementazione con descrizione a doppio processo (Moore)
+\end_layout
+
 \begin_layout Standard
-\begin_inset Note Note
+Si è deciso di realizzare una macchina di Moore per il riconoscimento della
+ sequenza '1011001'.
+ L'automa a stati finiti realizzato è rappresentato in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:automa-moore"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/automa-moore.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:automa-moore"
+
+\end_inset
+
+Automa a stati finiti della macchina (Moore).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per l'implementazione di questo automa in VHDL, si è deciso di utilizzare
+ una descrizione di tipo behavioural.
+ In particolare, si è utilizzata la tecnica con due processi:
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+update_state
+\shape default
+, che si occupa di aggiornare lo stato corrente ad ogni colpo di clock;
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+choose_next_state
+\shape default
+, che rappresenta la parte combinatoria della macchina, atta a determinare
+ lo stato prossimo e l'uscita usando un costrutto 
+\shape italic
+case
+\shape default
+;
+\end_layout
+
+\begin_layout Standard
+Tale scelta, sebbene renda il codice meno compatto, risulta più facilmente
+ leggibile nella parte di determinazione dello stato prossimo.
+ Si noti come, essendo questa una macchina di Moore, la determinazione dell'usci
+ta dipende solamente dallo stato in cui si trova la macchina: in particolare,
+ come osservabile anche nel codice, l'uscita sarà alta solamente quando
+ la macchina avrà rilevato l'intera stringa.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-Descrivere la soluzione relizzata per mezzo di schematici e riportare il
- codice dei soli componenti significativi.
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Determinazione dell'uscita in VHDL
+ (Moore).}]
 \end_layout
 
+\begin_layout Plain Layout
+
+WHEN s => s1011001
+\end_layout
+
+\begin_layout Plain Layout
+
+	z <= '1';
+\end_layout
+
+\begin_layout Plain Layout
+
+	IF x = '1' THEN next_state <= init;
+\end_layout
+
+\begin_layout Plain Layout
+
+	ELSE next_state <= s1;
+\end_layout
+
+\begin_layout Plain Layout
+
+	END IF;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Implementazione con guardie (Mealy)
+\end_layout
+
+\begin_layout Standard
+Si è deciso di realizzare tale macchina anche come Mealy: in particolare,
+ dal momento che in questa implementazione l'uscita dipende direttamente
+ dall'ingresso, il valore in uscita sarà 1 quando, trovandoci nello stato
+ s101100, si riceve in ingresso il valore 1.
+ Fatto ciò, è stato dunque possibile rimuovere lo stato s1011001 ed aggiungere
+ due transizioni da s101100 a init e s1 a fronte degli ingressi 0 e 1.
+ L'automa a stati finiti realizzato è rappresentato in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:automa-mealy"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/automa-mealy.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:automa-mealy"
+
+\end_inset
+
+Automa a stati finiti della macchina (Mealy).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per l'implementazione di questo automa in VHDL, si è ricorso all'utilizzo
+ di costrutti di assegnazione con guardia e funzione di risoluzione.
+\begin_inset Newline newline
 \end_inset
 
 

@@ -499,33 +499,28 @@ filename "esercizio05/Tesina.lyx"
 \end_layout
 
 \begin_layout Chapter
-Finite state machine
-\end_layout
-
-\begin_layout Standard
-Progettare una rete composta da una serie di N Flip Flop D abilitati ad
- operare nei seguenti due modi:
+Finite State Machine
 \end_layout
 
 \begin_layout Enumerate
-Modalita normale: l'array si comporta come un registro di N posizioni;
+Realizzare un riconoscitore di una generica sequenza a N bit (e.g.
+ 1011001) in VHDL utilizzando dapprima la descrizione behavioral a singolo
+ o doppio processo (opzionale: poi i costrutti con guardia e simulare con
+ GHDL).
 \end_layout
 
 \begin_layout Enumerate
-Modalita controllo: i flip-flop possono essere scritti e letti individualmente
- congurandoli in cascata come uno shift register.
-\end_layout
-
-\begin_layout Standard
-Utilizzare una rete di controllo in grado di alimentare il primo stadio
- con un valore e generare tanti colpi di clock quanto e la distanza del
- primo stadio dalla cella da raggiungere.
+A partire dal riconoscitore di sequenza realizzato al punto 1 con i costrutti
+ behavioral a singolo o doppio processo del VHDL, sintetizzare la macchina
+ 1 specicando al tool di sintesi Xilinx ISE diverse codiche per gli stati.
+ Per quelle rilevanti estrapolare la codica assegnata dal sintetizzatore,
+ area occupata e frequenza massima di lavoro, apportando eventuali commenti.
 \end_layout
 
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
-filename "esercizio05/Tesina.lyx"
+filename "esercizio06/Tesina.lyx"
 
 \end_inset
 
