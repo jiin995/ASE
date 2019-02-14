@@ -116,8 +116,10 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename images/automa-moore.png
+	filename images/automa_moore.svg
 	scale 35
+	BoundingBox 0bp 150bp 800bp 550bp
+	clip
 
 \end_inset
 
@@ -238,6 +240,30 @@ selectlanguage{italian}%
 
 \end_layout
 
+\begin_layout Standard
+L'implementazione completa è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio06/design/fsm_moore.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+fsm
+\backslash
+_moore.vhd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Implementazione con guardie (Mealy)
 \end_layout
@@ -272,8 +298,10 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename images/automa-mealy.png
+	filename images/automa_mealy.svg
 	scale 35
+	BoundingBox 0bp 150bp 800bp 550bp
+	clip
 
 \end_inset
 
@@ -306,7 +334,24 @@ Automa a stati finiti della macchina (Mealy).
 \begin_layout Standard
 Per l'implementazione di questo automa in VHDL, si è ricorso all'utilizzo
  di costrutti di assegnazione con guardia e funzione di risoluzione.
-\begin_inset Newline newline
+ L'implementazione completa è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio06/design/fsm_mealy.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+fsm
+\backslash
+_mealy.vhd}
+\end_layout
+
 \end_inset
 
 
