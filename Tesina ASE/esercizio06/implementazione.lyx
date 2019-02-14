@@ -111,7 +111,7 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -201,27 +201,32 @@ begin{lstlisting}[language=VHDL,caption={Determinazione dell'uscita in VHDL
 
 \begin_layout Plain Layout
 
-WHEN s => s1011001
+when s1011001 => 		
 \end_layout
 
 \begin_layout Plain Layout
 
-	z <= '1';
+	value_out <= '1';	
 \end_layout
 
 \begin_layout Plain Layout
 
-	IF x = '1' THEN next_state <= init;
+	if value_in = '0' then
 \end_layout
 
 \begin_layout Plain Layout
 
-	ELSE next_state <= s1;
+		next_state <= init;
 \end_layout
 
 \begin_layout Plain Layout
 
-	END IF;
+	else next_state <= s1; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+end if;
 \end_layout
 
 \begin_layout Plain Layout
@@ -291,7 +296,7 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -330,7 +335,8 @@ Automa a stati finiti della macchina (Mealy).
 \begin_layout Standard
 Per l'implementazione di questo automa in VHDL, si è ricorso all'utilizzo
  di costrutti di assegnazione con guardia e funzione di risoluzione.
- L'implementazione completa è consultabile qui: 
+ In particolare, sono stati utilizzati due guardie innestate: la prima per
+  L'implementazione completa è consultabile qui: 
 \begin_inset ERT
 status open
 
