@@ -139,15 +139,10 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputRemoved"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
-      <outfile xil_pn:name="scan_chain.lso"/>
-      <outfile xil_pn:name="scan_chain.ngc"/>
-      <outfile xil_pn:name="scan_chain.ngr"/>
-      <outfile xil_pn:name="scan_chain.prj"/>
-      <outfile xil_pn:name="scan_chain.stx"/>
-      <outfile xil_pn:name="scan_chain.syr"/>
-      <outfile xil_pn:name="scan_chain.xst"/>
-      <outfile xil_pn:name="scan_chain_xst.xrpt"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
