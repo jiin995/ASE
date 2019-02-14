@@ -105,7 +105,7 @@ Sulla board che abbiamo in dotazione per risparmiare sul numero di segnali
  in fig 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:display_7segmenti_Nexys"
+reference "fig:display_7segmenti_nexys"
 plural "false"
 caps "false"
 noprefix "false"
@@ -338,11 +338,11 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:display_7segmenti_Nexys"
+name "fig:display_7segmenti_nexys"
 
 \end_inset
 
-Schematico del latch RS abilitato.
+Display 7 segmente sulla Nexys 4
 \end_layout
 
 \end_inset
