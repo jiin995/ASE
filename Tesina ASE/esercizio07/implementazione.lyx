@@ -1,0 +1,322 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\master Tesina.lyx
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Implementazione
+\end_layout
+
+\begin_layout Subsection
+Full Adder
+\end_layout
+
+\begin_layout Standard
+Per la realizzazione del RCA, si è dapprima proceduto alla realizzazione
+ di un full adder.
+ Per tale implementazione, si è utilizzata una descrizione di tipo data-flow:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Implementazione data-flow di un
+ full adder.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+architecture dataflow of full_adder is
+\end_layout
+
+\begin_layout Plain Layout
+
+begin
+\end_layout
+
+\begin_layout Plain Layout
+
+	S <= (X xor Y xor CIN);
+\end_layout
+
+\begin_layout Plain Layout
+
+	C <= ((X and Y) or ((X xor Y) and CIN));
+\end_layout
+
+\begin_layout Plain Layout
+
+end dataflow;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'implementazione completa è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio07/design/full_adder.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+full
+\backslash
+_adder.vhd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Ripple Carry Adder
+\end_layout
+
+\begin_layout Standard
+Per implementare il RCA, invece, si è utilizzata una descrizione di tipo
+ structural.
+ Tramite un 
+\shape italic
+generate 
+\shape default
+si generano 
+\shape italic
+width
+\shape default
+ full adder, collegati secondo lo schema visto nel paragrafo precedente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Implementazione structural di un
+ RCA.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+architecture structural of rippleCarry_adder is
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+begin
+\end_layout
+
+\begin_layout Plain Layout
+
+	S <= S_temp;
+\end_layout
+
+\begin_layout Plain Layout
+
+	carries (0) <= c_in;
+\end_layout
+
+\begin_layout Plain Layout
+
+	c_out <= carries(width);
+\end_layout
+
+\begin_layout Plain Layout
+
+	rippleCarry_adder : for i in 0 to width-1 generate
+\end_layout
+
+\begin_layout Plain Layout
+
+		f_adder: full_adder port map (
+\end_layout
+
+\begin_layout Plain Layout
+
+			x => X(i),
+\end_layout
+
+\begin_layout Plain Layout
+
+			y => Y(i),
+\end_layout
+
+\begin_layout Plain Layout
+
+			c_in => carries(i),
+\end_layout
+
+\begin_layout Plain Layout
+
+			s => S_temp(i),
+\end_layout
+
+\begin_layout Plain Layout
+
+			c_out => carries(i+1)
+\end_layout
+
+\begin_layout Plain Layout
+
+		);
+\end_layout
+
+\begin_layout Plain Layout
+
+		end generate rippleCarry_adder;
+\end_layout
+
+\begin_layout Plain Layout
+
+end structural;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'implementazione completa è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio07/design/rippleCarry_adder.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+ripple
+\backslash
+_carry
+\backslash
+_adder.vhd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,367 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\master Tesina.lyx
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Ripple Carry Adder Add-Sub
+\end_layout
+
+\begin_layout Subsection
+Architettura e implementazione
+\end_layout
+
+\begin_layout Standard
+Si è deciso inoltre di implementare un Ripple Carry Adder in grado di effettuare
+ sia addizioni che sottrazioni su operandi rappresentati in complemento
+ a 2.
+ Tale componente è stato realizzato nel seguente modo: prima di portare
+ il secondo operando in ingresso al RCA, viene effettuata la XOR di tale
+ operando con 
+\shape italic
+subtract
+\shape default
+: se 
+\shape italic
+subtract
+\shape default
+=0 (modalità addizione), il segnale entrerà inalterato nell'RCA, altrimenti
+ se 
+\shape italic
+subtract
+\shape default
+=1 (modalità sottrazione) la XOR ne effettuerà il complemento.
+ All'interno dell'RCA il carry in ingresso sarà proprio 
+\shape italic
+subtract
+\shape default
+: se questo è 0, verrà effettuata una normale addizione A+B; se invece 
+\shape italic
+subtract
+\shape default
+=1 verrà effettuata l'addizione A+(-B), in quanto B è stato prima complementato
+ e poi incrementato di 1 e dunque invertito grazie al carry in ingresso
+ al RCA.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si noti come tale addizionatore può presentare una condizione di overflow/underf
+low, dal momento che gli operandi rappresentati in complemento a 2 perdono
+ un bit utile alla rappresentazione del valore per utilizzarlo come segno.
+ In particolare, si verificherà una condizione di overflow/underflow in
+ questi casi:
+\end_layout
+
+\begin_layout Itemize
+somma di due positivi con risultato negativo;
+\end_layout
+
+\begin_layout Itemize
+somma di due negativi con risultato positivo;
+\end_layout
+
+\begin_layout Itemize
+differenza di positivo e negativo con risultato negativo;
+\end_layout
+
+\begin_layout Itemize
+differenza di negativo e positivo con risultato positivo.
+\end_layout
+
+\begin_layout Standard
+Per identificare tale condizione, è stata utilizzata una macchina denominata
+ overflow_checker, progettata utilizzando la mappa di Karnaugh in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:mappa-karnaugh-overflow-checker"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/mappa-karnaugh-overflow.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:mappa-karnaugh-overflow-checker"
+
+\end_inset
+
+Mappa di Karnaugh dell'overflow checker.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'architettura di questa macchina è riportata in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:architettura-rca-addsub"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/architettura-rca-addsub.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:architettura-rca-addsub"
+
+\end_inset
+
+Architettura del Ripple Carry Adder Add-Sub.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tale macchina è stata implementata tramite descrizione structural.
+ L'implementazione completa è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio07/design/rippleCarry_addsub.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+rippleCarry
+\backslash
+_addsub.vhd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Simulazione
+\end_layout
+
+\begin_layout Standard
+Per tale componente è stata effettuata una simulazione behavioural, durante
+ la quale sono stati cambiati sia gli operandi in ingresso che il valore
+ 
+\shape italic
+subtract
+\shape default
+ per effettuare sia addizioni che sottrazioni.
+ I risultati ottenuti sono osservabili in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:simulazione-rca-addsub"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Si noti come il bit di overflow in uscita viene impostato correttamente
+ ad 1 a fronte delle combinazioni che generano overflow.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/simulazione-rca-addsub.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:simulazione-rca-addsub"
+
+\end_inset
+
+Simulazione behavioural del Ripple Carry Adder.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
