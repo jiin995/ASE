@@ -97,5 +97,141 @@ Descrivere la soluzione relizzata per mezzo di schematici e riportare il
 
 \end_layout
 
+\begin_layout Standard
+Per testing, si è effettuata una simulazione behavioural del componente:
+ durante tale simulazione, si è utilizzato il componente in entrambe le
+ sue modalità di funzionamento con la stringa '00000111'.
+ In particolare, dapprima si è utilizzata la modalità normale (
+\shape italic
+scan_en
+\shape default
+=0) per caricare i valore nel registro.
+ Dopodiché, quando 
+\shape italic
+scan_en
+\shape default
+=1, il registro si comporta correttamente come uno shift register, shiftando
+ i bit a sinistra ad ogni fronte di salita del clock.
+ Una volta posto di nuovo 
+\shape italic
+scan_en
+\shape default
+=0, il registro smette di shiftare le cifre e, al successivo fronte di salita
+ del clock, carica di nuovo il valore in ingresso nel registro.
+ I risultati sono consultabili in fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:scan-chain-sinistra"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/scan_chain_simulazione_shift_sinistra.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:scan-chain-sinistra"
+
+\end_inset
+
+Simulazione del componente scan chain (shift a sinistra).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per completezza, in fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:scan-chain-destra"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ è stato riportato il risultato della simulazione con shift a destra (
+\shape italic
+shift_direction
+\shape default
+=1), perfettamente coerente con il comportamento atteso.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/scan_chain_simulazione_shift_destra.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:scan-chain-destra"
+
+\end_inset
+
+Simulazione del componente scan chain (shift a sinistra).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document

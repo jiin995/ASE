@@ -193,7 +193,7 @@ BackgroundPicture{logo.png}{0}}
 \lang american
 \begin_inset CommandInset include
 LatexCommand input
-filename "architettura.lyx"
+filename "implementazione.lyx"
 
 \end_inset
 
@@ -205,55 +205,7 @@ filename "architettura.lyx"
 \lang american
 \begin_inset CommandInset include
 LatexCommand input
-filename "counter_clk.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\lang american
-\begin_inset CommandInset include
-LatexCommand input
-filename "cathod_manager.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\lang american
-\begin_inset CommandInset include
-LatexCommand input
-filename "anode_manager.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\lang american
-\begin_inset CommandInset include
-LatexCommand input
-filename "display_nexys4.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\lang american
-\begin_inset CommandInset include
-LatexCommand input
-filename "display_onboard.lyx"
+filename "simulazione.lyx"
 
 \end_inset
 
