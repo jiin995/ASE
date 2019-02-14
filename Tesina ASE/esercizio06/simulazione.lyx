@@ -93,10 +93,6 @@ Si è proceduto alla sintesi e alla simulazione della macchina tramite il
  Per quanto riguarda la codifica degli stati, sono state utilizzate le codifiche
  One hot, Compact, Sequential, Gray, Johnson e Speed1.
  Le codifiche per ciascuno stato sono riportate nella tabella seguente:
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -705,6 +701,10 @@ s1011001
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -712,10 +712,6 @@ Una volta sintetizzata la macchina, si sono osservati i risultati ottenuti:
  in particolare, la frequenza massima di lavoro e l’area occupata in termini
  di numero di slice (registri e LUT) e di flip-flop sono rappresentati nella
  seguente tabella:
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -800,7 +796,8 @@ Speed1
 \begin_inset Text
 
 \begin_layout Plain Layout
-Frequenza massima
+Freq.
+ massima (MHz)
 \end_layout
 
 \end_inset
@@ -809,7 +806,7 @@ Frequenza massima
 \begin_inset Text
 
 \begin_layout Plain Layout
-968.898 MHz
+968.898
 \end_layout
 
 \end_inset
@@ -818,7 +815,7 @@ Frequenza massima
 \begin_inset Text
 
 \begin_layout Plain Layout
-1008.776 MHz
+1008.776
 \end_layout
 
 \end_inset
@@ -827,7 +824,7 @@ Frequenza massima
 \begin_inset Text
 
 \begin_layout Plain Layout
-1008.770 MHz
+1008.770
 \end_layout
 
 \end_inset
@@ -836,7 +833,7 @@ Frequenza massima
 \begin_inset Text
 
 \begin_layout Plain Layout
-1008.776 MHz
+1008.776
 \end_layout
 
 \end_inset
@@ -845,7 +842,7 @@ Frequenza massima
 \begin_inset Text
 
 \begin_layout Plain Layout
-964.971 MHz
+964.971
 \end_layout
 
 \end_inset
@@ -1001,6 +998,10 @@ n.
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1009,6 +1010,65 @@ Dato il numero esiguo di stati, le diverse tipologie di codifica non presentano
  In generale, possiamo dire che la Speed1, come previsto, ottimizia la frequenza
  massima di lavoro, mentre per ottenere migliori prestazioni in termini
  di area si preferiscono le codifiche Compact, Sequential e Gray.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I risultati della simulazione sono riportati in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:automa-moore"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/simulazione_moore.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:simulazione_moore"
+
+\end_inset
+
+Risultati della simulazione della macchina (Moore).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection

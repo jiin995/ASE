@@ -111,15 +111,13 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename images/automa_moore.svg
-	scale 35
-	BoundingBox 0bp 150bp 800bp 550bp
-	clip
+	filename images/automa_moore.png
+	scale 75
 
 \end_inset
 
@@ -278,7 +276,7 @@ Si è deciso di realizzare tale macchina anche come Mealy: in particolare,
  L'automa a stati finiti realizzato è rappresentato in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:automa-mealy"
+reference "fig:automa-moore"
 plural "false"
 caps "false"
 noprefix "false"
@@ -293,15 +291,13 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename images/automa_mealy.svg
-	scale 35
-	BoundingBox 0bp 150bp 800bp 550bp
-	clip
+	filename images/automa_mealy.png
+	scale 75
 
 \end_inset
 
