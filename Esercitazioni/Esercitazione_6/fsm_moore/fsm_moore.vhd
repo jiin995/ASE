@@ -36,7 +36,7 @@ entity fsm_moore is
 end fsm_moore;
 
 architecture Behavioral of fsm_moore is
-	type state_type is (init, got1,got10, got101, got1011, got10110, got101100, got1011001);
+	type state_type is (init, s1,s10, s101, s1011, s10110, s101100, s1011001);
 
 	signal current_state, next_state: state_type;
 begin
@@ -49,7 +49,7 @@ begin
 			end if;
 	end process;
 	
-	value_out <= '1' when current_state = got1011001 else '0';
+	value_out <= '1' when current_state = s1011001 else '0';
 	
 	--process 2: parte combinatoria della fsm (Mealy)
 	
@@ -57,28 +57,28 @@ begin
 		begin
 		case current_state is
 		when init => 
-			if value_in = '0' then next_state <= init; else next_state <= got1;
+			if value_in = '0' then next_state <= init; else next_state <= s1;
 			end if;
-		when got1 =>
-			if value_in = '0' then next_state <= got10; else next_state <= got1;
+		when s1 =>
+			if value_in = '0' then next_state <= s10; else next_state <= s1;
 			end if;
-		when got10 =>
-			if value_in = '0' then next_state <= init; else next_state <= got101;
+		when s10 =>
+			if value_in = '0' then next_state <= init; else next_state <= s101;
 			end if;
-		when got101 =>
-			if value_in = '0' then next_state <= got10; else next_state <= got1011;
+		when s101 =>
+			if value_in = '0' then next_state <= s10; else next_state <= s1011;
 			end if;
-		when got1011 =>
-			if value_in = '0' then next_state <= got10110; else next_state <= got1;
+		when s1011 =>
+			if value_in = '0' then next_state <= s10110; else next_state <= s1;
 			end if;
-		when got10110 =>
-			if value_in = '0' then next_state <= got101100; else next_state <= got101;
+		when s10110 =>
+			if value_in = '0' then next_state <= s101100; else next_state <= s101;
 			end if;
-		when got101100 =>
-			if value_in = '0' then next_state <= init; else next_state <= got1011001;
+		when s101100 =>
+			if value_in = '0' then next_state <= init; else next_state <= s1011001;
 			end if;
-		when got1011001 =>
-			if value_in = '0' then next_state <= init; else next_state <= got1;
+		when s1011001 =>
+			if value_in = '0' then next_state <= init; else next_state <= s1;
 			end if;
 		when others => 
 			next_state <= init;
