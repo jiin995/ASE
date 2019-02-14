@@ -335,8 +335,16 @@ Automa a stati finiti della macchina (Mealy).
 \begin_layout Standard
 Per l'implementazione di questo automa in VHDL, si è ricorso all'utilizzo
  di costrutti di assegnazione con guardia e funzione di risoluzione.
- In particolare, sono stati utilizzati due guardie innestate: la prima per
-  L'implementazione completa è consultabile qui: 
+ In particolare, sono stati utilizzati due guardie innestate: quella esterna
+ per far commutare lo stato solo sul fronte di salita del clock e quelle
+ interne per determinare stato corrente e uscita in funzione degli ingressi.
+ La funzione di risoluzione, invece, permette di determinare lo stato 
+\shape italic
+current_state 
+\shape default
+in caso di assegnazioni concorrenti (si sceglie lo stato più a sinistra
+ nel vettore degli stati concorrenti).
+ L'implementazione completa è consultabile qui: 
 \begin_inset ERT
 status open
 
