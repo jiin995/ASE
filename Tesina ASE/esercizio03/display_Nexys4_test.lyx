@@ -1,0 +1,510 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Descrive le modifiche effettuate per poter utilizzare tutte e 8 le digit
+ della nexys 4
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La board Nexys 4 DDR ha installato a bordo due batterie di 4 digit ciascuna,
+ per un totale di 8 digit.
+ La soluzione che abbiamo visto precedentemente però permette di controllare
+ una sola batteria di 4 digit, e non potendo instanziare due componenti
+ che controllano ciascuno 4 digit, è necessario apportare alcune modifiche
+ agli elementi che costituiscono il componente che pilota i display a 7
+ segmenti.
+\end_layout
+
+\begin_layout Standard
+In particolare, di seguito, vediamo alcune modifiche che abbiamo apportato
+ ai componenti per poter pilotare tutte le digit che mette a disposizione
+ la Nexys 4 DDR.
+\end_layout
+
+\begin_layout Standard
+
+\lang italian
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={display_7_segments}]
+\end_layout
+
+\begin_layout Plain Layout
+
+entity display_7_segments is PORT ( enable			: in STD_LOGIC;									
+\end_layout
+
+\begin_layout Plain Layout
+
+									clock 			: in STD_LOGIC;											
+\end_layout
+
+\begin_layout Plain Layout
+
+									reset			 : in STD_LOGIC;								  			
+\end_layout
+
+\begin_layout Plain Layout
+
+									values 		   : in STD_LOGIC_VECTOR  (31 downto 0);	 			
+\end_layout
+
+\begin_layout Plain Layout
+
+									dots 			 : in STD_LOGIC_VECTOR  (7 downto 0) ;     
+\end_layout
+
+\begin_layout Plain Layout
+
+									enable_digit	  : in STD_LOGIC_VECTOR  (7 downto 0);		 			
+\end_layout
+
+\begin_layout Plain Layout
+
+									anodes		    : out STD_LOGIC_VECTOR (7 downto 0);	
+\end_layout
+
+\begin_layout Plain Layout
+
+									cathodes		  : out STD_LOGIC_VECTOR (7 downto 0)		 	
+\end_layout
+
+\begin_layout Plain Layout
+
+								); 
+\end_layout
+
+\begin_layout Plain Layout
+
+end display_7_segments;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+component counter_UpMod2n_Re_Sr is      
+\end_layout
+
+\begin_layout Plain Layout
+
+				GENERIC (   n 	: NATURAL :=3     ); 	 
+\end_layout
+
+\begin_layout Plain Layout
+
+			    PORT (  enable      : in STD_LOGIC ;                            
+                
+\end_layout
+
+\begin_layout Plain Layout
+
+						reset_n     : in STD_LOGIC;                                      
+        
+\end_layout
+
+\begin_layout Plain Layout
+
+						clock       : in STD_LOGIC;                                      
+        
+\end_layout
+
+\begin_layout Plain Layout
+
+						count_hit   : out STD_LOGIC;                                     
+        
+\end_layout
+
+\begin_layout Plain Layout
+
+						COUNTS      : out STD_LOGIC_VECTOR ((n-1) downto 0)         ); 
+\end_layout
+
+\begin_layout Plain Layout
+
+end component;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang italian
+Nella top level entity del componente che permette di mostrare i valori
+ sui display, il numero di segnali che indicano il la cifra da mostrare
+ passano da 16 a 32, in quanto per ogni digit servono 4 bit per poter codificare
+ i valori, in esadecimale, che possiamo mostrare su di essi.
+ Poichè il numero di display da pilotare passa da 4 a 8, anche il numero
+ di segnali che pilotano i punti , le digit e gli anodi aumentano.
+ Inoltre il contatore non è più un contatore modulo 4 ma è un contatore
+ modulo 8, in quanto deveno essere abilitate 8 digit.
+\end_layout
+
+\begin_layout Standard
+
+\lang italian
+Tali modifiche riguradano anche l'anodes_manager che deve pilotare 8 digit
+ e non più 4, pertanto il decoder da un decoder 2:4 diventa un decoder 3:8
+ come si nota di seguito.
+\end_layout
+
+\begin_layout Standard
+
+\lang italian
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Abilitazione degli anodi}]
+\end_layout
+
+\begin_layout Plain Layout
+
+   with select_digit select anodes_switching <=     
+\end_layout
+
+\begin_layout Plain Layout
+
+		x"01"     when "000",         
+\end_layout
+
+\begin_layout Plain Layout
+
+		x"02"     when "001",         
+\end_layout
+
+\begin_layout Plain Layout
+
+		x"04"     when "010",         
+\end_layout
+
+\begin_layout Plain Layout
+
+		x"08"     when "011", 	    
+\end_layout
+
+\begin_layout Plain Layout
+
+		x"10"	 when "100", 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		x"20"	 when "101", 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		x"40"	 when "110", 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		x"80"	 when "111",     
+\end_layout
+
+\begin_layout Plain Layout
+
+		(others => '0')    when others;
+\end_layout
+
+\begin_layout Plain Layout
+
+	end case;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang italian
+Per il cathodes_manager cambia il numero di nibble che dobbiamo gestire,
+ infatti anche essi passano da 4 a 8, ognuna di esse è costituita da 4 bit
+ di values, stringa del valore da mostrare sul display codificato in codifica
+ binaria classica.
+ In particolare partendo dal LSB ogni 4 bit di values codifica il valore
+ da mostrare su una delle digit.
+ Anche il process che si accupa di assegnare ai catodi la corretta codifica
+ del valore viene estesa per poter gestire 8 digit e non più 4.
+\end_layout
+
+\begin_layout Standard
+
+\lang italian
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={cathodes_manager.vhd ..}]
+\end_layout
+
+\begin_layout Plain Layout
+
+    alias digit_0 is values (3 downto 0); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	alias digit_1 is values (7 downto 4); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	alias digit_2 is values (11 downto 8); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	alias digit_3 is values (15 downto 12); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	alias digit_4 is values (19 downto 16); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	alias digit_5 is values (23 downto 20); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	alias digit_6 is values (27 downto 24); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	alias digit_7 is values (31 downto 28);
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+...
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    digit_switching: process (select_digit,values)         
+\end_layout
+
+\begin_layout Plain Layout
+
+		begin               
+\end_layout
+
+\begin_layout Plain Layout
+
+			case select_digit is                  
+\end_layout
+
+\begin_layout Plain Layout
+
+				when "000" => nibble <= digit_0;                 
+\end_layout
+
+\begin_layout Plain Layout
+
+				when "001" => nibble <= digit_1;                 
+\end_layout
+
+\begin_layout Plain Layout
+
+				when "010" => nibble <= digit_2;                 
+\end_layout
+
+\begin_layout Plain Layout
+
+				when "011" => nibble <= digit_3; 				
+\end_layout
+
+\begin_layout Plain Layout
+
+				when "100" => nibble <= digit_4;                 
+\end_layout
+
+\begin_layout Plain Layout
+
+				when "101" => nibble <= digit_5;                 
+\end_layout
+
+\begin_layout Plain Layout
+
+				when "110" => nibble <= digit_6;                 
+\end_layout
+
+\begin_layout Plain Layout
+
+				when "111" => nibble <= digit_7;                 
+\end_layout
+
+\begin_layout Plain Layout
+
+				when others => nibble <= (others => '0');             
+\end_layout
+
+\begin_layout Plain Layout
+
+			end case;         
+\end_layout
+
+\begin_layout Plain Layout
+
+		end process;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

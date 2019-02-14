@@ -98,7 +98,283 @@ Descrivere la soluzione relizzata per mezzo di schematici e riportare il
 \end_layout
 
 \begin_layout Standard
-La scan chain è stata realizzata mediante 
+L'interfaccia del componente è la seguente:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Implementazione data-flow dell'anodes
+ manager.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+entity scan_chain is
+\end_layout
+
+\begin_layout Plain Layout
+
+	generic(
+\end_layout
+
+\begin_layout Plain Layout
+
+		width : integer := 8;
+\end_layout
+
+\begin_layout Plain Layout
+
+		shift_direction : std_logic := '1'
+\end_layout
+
+\begin_layout Plain Layout
+
+	);  Port (
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+		en : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset_n : in STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+		scan_en : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+		d_reg : in  STD_LOGIC_VECTOR (width-1 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+		scan_in : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+		q_reg : out  STD_LOGIC_VECTOR (width-1 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+		scan_out : out  STD_LOGIC
+\end_layout
+
+\begin_layout Plain Layout
+
+	);
+\end_layout
+
+\begin_layout Plain Layout
+
+end scan_chain;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In ingresso, oltre ai segnali di 
+\shape italic
+clock
+\shape default
+, 
+\shape italic
+enable
+\shape default
+ e
+\shape italic
+ reset
+\shape default
+, il componente avrà i seguenti segnali:
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+scan_en
+\shape default
+: bit di selezione della modalità di funzionamento (1 per modalità normale,
+ 1 per modalità controllo);
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+d_reg
+\shape default
+: valori in ingresso dei flip-flop nel registro;
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+scan_in
+\shape default
+: valore in ingresso da inserire nel registro in caso di shift;
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In uscita, invece, 
+\shape italic
+q_reg
+\shape default
+ sarà l'uscita del registro, mentre 
+\shape italic
+scan_out
+\shape default
+ sarà il bit tirato fuori dal registro in caso di shift.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per quanto riguarda l'implementazione, è stata utilizzata una descrizione
+ di tipo 
+\shape italic
+structural
+\shape default
+.
+ In particolare, è stato generato un numero di flip-flop multiplexati pari
+ al valore generico 
+\shape italic
+width
+\shape default
+, che rappresenta il parallelismo del registro.
+ Tale componente è un tipo particolare di flip-flop D il cui ingresso viene
+ prima selezionato tramite multiplexer.
+ Per generare un registro che effettui shift a destra, si fissa come 
+\shape italic
+scan_in
+\shape default
+ di ogni flip-flop il valore in uscita del flip-flop precedente (alla sua
+ sinistra), dopodiché si utilizza il multiplexer per decidere quale ingresso
+ portare nel flip-flop.
+ In particolare,
+\shape italic
+ scan_en
+\shape default
+ sarà il segnale di selezione: se 0 (modalità normale), in ingresso avremo
+ il corrispettivo valore in ingresso di 
+\shape italic
+d_reg
+\shape default
+, se 1 (modalità controllo) l'ingresso del flip-flop sarà 
+\shape italic
+scan_in
+\shape default
+, e dunque l'uscita di quello precedente.
+ Il discorso è analogo nel caso di shift a sinistra: in base al valore generico
+ 
+\shape italic
+shift_direction 
+\shape default
+si stabilisce quale tipologia di shift register si vuole generare e dunque
+ come collegare tra loro i flip-flop.
+ L'implementazione completa è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio05/design/scan_chain.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+scan
+\backslash
+_chain.vhd}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/scanchain.PNG
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:display_7segmenti-1"
+
+\end_inset
+
+Architettura del componente scan_chain.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

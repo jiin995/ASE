@@ -319,7 +319,7 @@ _segmenti.vhd}
 placement ph
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -353,11 +353,14 @@ Schematico del latch RS abilitato.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement ph
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
