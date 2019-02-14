@@ -29,7 +29,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity scan_chain is
     generic(
 			  width : integer := 8;						-- dimensione del registro
-			  shift_direction : std_logic := '1'	-- shift a destra
+			  shift_direction : std_logic := '1'	-- shift a sinistra
 	 );
     Port ( 
            clock : in  STD_LOGIC;	-- segnale clock di tempificazione
@@ -64,7 +64,7 @@ begin
 shift_reg: for i in 0 to width-1 generate		-- genero due registri: uno per shift a destra, uno a sinistra
 
 	shift_reg_left: if shift_direction = '1' generate	-- shift a sinistra
-		flipflopmux: flipflopmux port map(		-- genero i flip flop multiplexati
+		flipflopmux1: flipflopmux port map(		-- genero i flip flop multiplexati
 			d => d_reg(i),		-- d del flipflop i è il bit i del registro
 			clock => clock,
 			en => en,
@@ -79,7 +79,7 @@ shift_reg: for i in 0 to width-1 generate		-- genero due registri: uno per shift
 	end generate;
 	
 	shift_reg_right: if shift_direction = '0' generate	-- shift a destra
-		flipflopmux: flipflopmux port map(
+		flipflopmux2: flipflopmux port map(
 			d => d_reg(i),
 			clock => clock,
 			en => en,

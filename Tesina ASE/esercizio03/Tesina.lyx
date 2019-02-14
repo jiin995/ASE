@@ -241,7 +241,7 @@ filename "anode_manager.lyx"
 \lang american
 \begin_inset CommandInset include
 LatexCommand input
-filename "display_Nexys4.lyx"
+filename "display_nexys4.lyx"
 
 \end_inset
 
