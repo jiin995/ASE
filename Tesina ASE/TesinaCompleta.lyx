@@ -527,6 +527,29 @@ filename "esercizio06/Tesina.lyx"
 
 \end_layout
 
+\begin_layout Chapter
+Ripple Carry Adder
+\end_layout
+
+\begin_layout Standard
+Realizzare un'architettura di tipo Ripple Carry per un sommatore ad N bit
+ generico.
+ Il circuito deve essere realizzato a partire da blocchi di Full Adder,
+ espresso mediante porte logiche XOR/AND/OR.
+ Riportare considerazioni sul- l'area occupata e tempo di calcolo al variare
+ di N e commentare il risultato con le formule teoriche.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "esercizio07/Tesina.lyx"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 
 \lang american
