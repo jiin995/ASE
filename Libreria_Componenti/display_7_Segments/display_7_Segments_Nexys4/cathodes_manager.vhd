@@ -115,7 +115,7 @@ begin
                 when "1101" => cathodes_for_digit <= d; 
                 when "1110" => cathodes_for_digit <= e; 
                 when "1111" => cathodes_for_digit <= f;
-            when others => cathodes_for_digit <= (others => '0');
+                when others => cathodes_for_digit <= (others => '0');
             end case;
         end process;
 
