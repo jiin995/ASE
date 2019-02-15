@@ -1,0 +1,374 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\master Tesina.lyx
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+On Board
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Scan chain sulla board
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Oltre alla classica simulazione, per testare il corretto funzionamento della
+ scan chain abbiamo deciso di provare tale componente sulla board.
+\end_layout
+
+\begin_layout Standard
+In particolare si è realizzata una top level entity che utilizza la scan
+ chain per sostenere il valore in ingresso alla batteria di display a 7
+ segmenti presenti sulla board.
+\end_layout
+
+\begin_layout Standard
+L'interfaccia della top level entity è la seguente :
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Interfaccia top level entity .}]
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+entity scan_chain_on_board is  
+\end_layout
+
+\begin_layout Plain Layout
+
+			Port (  clock 	  : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+		            scan_in 	: in  STD_LOGIC;           
+\end_layout
+
+\begin_layout Plain Layout
+
+					scan_clk	: in  STD_LOGIC; 			  
+\end_layout
+
+\begin_layout Plain Layout
+
+					scan_en 	: in  STD_LOGIC; 			  
+\end_layout
+
+\begin_layout Plain Layout
+
+					scan_out    : out STD_LOGIC;            
+\end_layout
+
+\begin_layout Plain Layout
+
+					anodes 	 : out STD_LOGIC_VECTOR (7 downto 0);            
+\end_layout
+
+\begin_layout Plain Layout
+
+					cathodes	: out STD_LOGIC_VECTOR (7 downto 0) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+); 
+\end_layout
+
+\begin_layout Plain Layout
+
+end scan_chain_on_board;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In ingresso, oltre ai segnali di 
+\shape italic
+clock, scan_in e scan_en abbiamo anche scan_clk.
+ Quest'ultimo segnale è il clock per la scan chain, ma essendo quello della
+ board un segnale a frequenza troppo elevata, che ci avrebbe impedito di
+ apprezzare il funzionamento della scan chain 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+anche con un clock negli ordini dei khz premendo il pulsante associato a
+ scan_en venivano eseguite troppe operazioni di shif
+\end_layout
+
+\end_inset
+
+.
+ Pertanto abbiamo deciso, anche se sbagliato, di dare manualmente un impulso
+ 
+\begin_inset Quotes eld
+\end_inset
+
+per simulare un clock personalizzato
+\begin_inset Quotes erd
+\end_inset
+
+ premendo un pulsante presente sulla board.
+ Quest'ultima scelta errata ci è stata segnalata anche dal tool di sintesi,
+ infatti mappando scan_clk su un pulsante viene generato un errore, ma lo
+ stesso tool suggerisce l'opportuna modifica da effettuare al file ucf per
+ poter bypassare tale errore
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\shape italic
+Aggiungere al file ucf 
+\shape default
+
+\begin_inset Quotes eld
+\end_inset
+
+CLOCK_DEDICATED_ROUTE = FALSE
+\begin_inset Quotes erd
+\end_inset
+
+ alla riga dove si effettua il mapping del bottone.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Di seguito il mapping di scan_en e di scan_clk sull'ucf: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Interfaccia top level entity .}]
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+#bottone centrale 
+\end_layout
+
+\begin_layout Plain Layout
+
+	NET "scan_en"           LOC=N17 | IOSTANDARD=LVCMOS33; #IO_L9P_T1_DQS_14
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+#bottone inferiore 
+\end_layout
+
+\begin_layout Plain Layout
+
+	NET "scan_clk"          CLOCK_DEDICATED_ROUTE = FALSE | LOC=P18 | IOSTANDARD=LV
+CMOS33; #IO_L9N_T1_DQS_D13_14 
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per testare il funzionamento del componente, bisogna settare il bit in ingresso
+ alla scan chain spostando il primo switch e poi premere il pulsante centrale
+ per abilitare l'operazione di shift e simulare i colpi di clock premedo
+ il pulsante in basso.
+ Se il bit in uscita alla scan chain è alto allora il primo led della batteria
+ si illuminerà.
+\end_layout
+
+\begin_layout Standard
+L'implementazione completa della top level_entity è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio05/design/scan_chain_on_board.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+scan
+\backslash
+_chain
+\backslash
+_on
+\backslash
+_board.vhd}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
