@@ -36,9 +36,9 @@ architecture dataflow of mux2 is
 begin
 
 with sel select
-	o <= in0 when '0',
-		  in1 when '1',
-		  sel when others;
+	o   <=  in0 when '0',
+		    in1 when '1',
+		    sel when others;
 
 end dataflow;
 
