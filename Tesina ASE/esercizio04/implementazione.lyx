@@ -97,5 +97,494 @@ Descrivere la soluzione relizzata per mezzo di schematici e riportare il
 
 \end_layout
 
+\begin_layout Standard
+Sulle fpga Artix7 il DCM
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+DCM : Digital Clock Manager 
+\end_layout
+
+\end_inset
+
+ è stato sostiuito dal CMT 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Clock Management Tile
+\end_layout
+
+\end_inset
+
+, tale componente include all'interno un MMCM 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+mixed-mode clock manager
+\end_layout
+
+\end_inset
+
+ e un PLL 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+phase-locked loop
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Per poter sintetizzare un generatore di clock con una frequenza minore o
+ multipla di 100 Mhz limitando lo scew, possiamo utilizzare il CMT.
+ Per utilizzare tale componente, Xilinx fornisce un IP-core che deve essere
+ opportunamente personalizzato,mediante il clocking-wizard , al fine di
+ poter generare un modulo vhdl che utilizza/ configura correttamente il
+ CMT sulla board al fine di fornire un clokc alla frequenza.
+\end_layout
+
+\begin_layout Standard
+Durante la personalizzazione del componente il clocking wizard ci permette
+ di scegliere se avere o meno un segnale, LOCKED, che ci indica quando CMT
+ è riuscito ad agganciare la fase del clock principale e di conseguenza
+ possiamo iniziare a utilizzare correttamente tutti i dispositivi che usano
+ il clock in uscita al CMT.
+\end_layout
+
+\begin_layout Standard
+Nella figura .
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:clocking_wizard"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ si vede come abbiamo configurato il nostro componente che utilizza il CMT,
+ in particolare abbiamo deciso di utilizzare tre uscite di tale componente
+ configurate in modo tale da fornire segnali di clock con frequenza pari
+ alla metà, un quarto e un decimo della frequenza in ingresso 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+La board Nexys4 è dotata di un oscillatore con frequenza pari a 100 Mhz
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/clocking_wizard.png
+	scale 22
+
+\end_inset
+
+￼
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:clocking_wizard"
+
+\end_inset
+
+DClocking_wizard
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una volta conclusa la procedura il Wizard genera un file vhd.
+ Per poter simulare e verificare che il componente funzionasse correttamente,
+ abbiamo deciso di realizzare un piccolo componente che utilizza il componente
+ generato e un left shifter register che esegue un operazione di shift ad
+ ogni colpo di clock.
+ La top level entity presenta la seguente interfaccia: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={clock_tester.vhd}]
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+entity clk_tester is 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	GENERIC( N 	: integer := 8 			);     
+\end_layout
+
+\begin_layout Plain Layout
+
+	Port (  clock_in 		  : in  STD_LOGIC; 			  
+\end_layout
+
+\begin_layout Plain Layout
+
+			enable 			: in  STD_LOGIC; 			  
+\end_layout
+
+\begin_layout Plain Layout
+
+			reset_n 		   : in  STD_LOGIC; 			  
+\end_layout
+
+\begin_layout Plain Layout
+
+			d_in			   : in  STD_LOGIC; 			 
+\end_layout
+
+\begin_layout Plain Layout
+
+			q_out			  : out STD_LOGIC;           
+\end_layout
+
+\begin_layout Plain Layout
+
+			Q 				 : out STD_LOGIC_VECTOR (N-1 downto 0); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+			half_clock 		: out STD_LOGIC; 			  	
+\end_layout
+
+\begin_layout Plain Layout
+
+			quarter_clock      : out STD_LOGIC; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+			tenth_clock		: out STD_LOGIC;    		
+\end_layout
+
+\begin_layout Plain Layout
+
+			locked 			: out STD_LOGIC 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	); 
+\end_layout
+
+\begin_layout Plain Layout
+
+end clk_tester;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]												
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+C'è da precisare, che tale interfaccia ha come uscita i segnali di clock
+ soltanto per rendere più agevole la fase di analisi della simulazione !
+\end_layout
+
+\begin_layout Standard
+Mentre il collegamento tra i componenti è stato realizzato come di seguito
+ :
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={clock_tester.vhd}]
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+signal enable_int 		: STD_LOGIC	:='1';	
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+begin
+\end_layout
+
+\begin_layout Plain Layout
+
+	half_clock		 <= half_clock_int; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	quarter_clock      <= quarter_clock_int; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	tenth_clock 	   <= tenth_clock_int;
+\end_layout
+
+\begin_layout Plain Layout
+
+	locked 			<= enable_int;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+clock_Ints: my_clock port map(	CLK_IN1	=> clock_in, 		
+\end_layout
+
+\begin_layout Plain Layout
+
+								  CLK_OUT1	=> half_clock_int,
+\end_layout
+
+\begin_layout Plain Layout
+
+								  CLK_OUT2 => quarter_clock_int,
+\end_layout
+
+\begin_layout Plain Layout
+
+								  CLK_OUT3 => tenth_clock_int,
+\end_layout
+
+\begin_layout Plain Layout
+
+		  						LOCKED 	=> enable_int 
+\end_layout
+
+\begin_layout Plain Layout
+
+						);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+shifter_register_inst: shifterRegister generic map ( N => N) 				
+\end_layout
+
+\begin_layout Plain Layout
+
+									   port map (   clock 	=> half_clock_int, 														
+\end_layout
+
+\begin_layout Plain Layout
+
+													enable    => enable_int, 																
+\end_layout
+
+\begin_layout Plain Layout
+
+													reset_n   => reset_n, 			
+\end_layout
+
+\begin_layout Plain Layout
+
+													left 	 => left, 									
+\end_layout
+
+\begin_layout Plain Layout
+
+													d_in	  => d_in, 																
+\end_layout
+
+\begin_layout Plain Layout
+
+													q_out	 => q_out,
+\end_layout
+
+\begin_layout Plain Layout
+
+													Q 		=> Q 								
+\end_layout
+
+\begin_layout Plain Layout
+
+							); 
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]												
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In particolare lo shifter registrer è abilato dal segnale di locked del
+ generatore di clock, pertanto appena il componente ci segnalerà che ha
+ aggangiato correttamente la fase del segnale in ingresso lo shifter register
+ inizierà a funzionare, e funzionerà ad una frequenza pari alla metà di
+ quella del segnale in ingresso al componente che usa il CMT.
+\end_layout
+
+\begin_layout Standard
+Di seguito analizziamo i risultati della simulazione, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Simulazione"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, di tale componente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/simulazione_clock_tester.png
+	scale 22
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Simulazione"
+
+\end_inset
+
+Risultati simulazione
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dopo circa 40 cicli di clock, il segnale locked va alto,marker blu, e il
+ lo shifter register inizia a lavorare, e non appena riceve un valore in
+ ingresso alto, osserviamo che ad ogni qualvolta il segnale half_clock va
+ alto il bit viene shiftato verso sinistra.
+ Inoltre osserviamo che poichè d_in resta alto per circa un periodo e mezzo,
+ il valore in ogni cella dello shifter register viene mantunuto alto per
+ due periodi di half_clock, dopo il terzo periodo il valore ritorna basso
+ perchè si inizia a propagare il valore zero da d_in in tutte le celle a
+ partire dall'instante segnalato dal marker giallo.
+ 
+\end_layout
+
 \end_body
 \end_document
