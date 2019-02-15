@@ -586,5 +586,73 @@ Dopo circa 40 cicli di clock, il segnale locked va alto,marker blu, e il
  
 \end_layout
 
+\begin_layout Standard
+L'implementazione completa è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio04/design/clock_tester.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+clock
+\backslash
+_tester.vhd}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio04/design/left_right_shift_register.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+left
+\backslash
+_right
+\backslash
+_shift
+\backslash
+_register.vhd}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio04/design/my_clock.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+my
+\backslash
+_clock.vhd}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
 \end_body
 \end_document

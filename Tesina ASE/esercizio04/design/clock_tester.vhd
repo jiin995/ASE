@@ -58,7 +58,7 @@ architecture Behavioral of clk_tester is
 	 );
 	end component;
 
-	component shifterRegister is
+	component left_right_shift_register is
 		 GENERIC (N			: integer := 8);
 		 Port ( clock 		: in  STD_LOGIC;
 				  enable 	: in  STD_LOGIC;
@@ -94,7 +94,7 @@ clock_Ints: my_clock port map(	CLK_IN1	=> clock_in,
 											LOCKED 	=> enable_int
 									);
 
-shifter_register_inst: shifterRegister generic map ( N => N)
+shifter_register_inst: left_right_shift_register generic map ( N => N)
 													port map (	clock 	=> half_clock_int,
 																	enable 	=> enable_int,
 																	reset_n 	=> reset_n,

@@ -4,13 +4,13 @@
 --
 -- Create Date:   16:16:19 02/14/2019
 -- Design Name:   
--- Module Name:   /home/jiin995/ASE_WorkSpace/Test/TestClock/shifterRegister_testbench.vhd
+-- Module Name:   /home/jiin995/ASE_WorkSpace/Test/TestClock/left_right_shift_register_testbench.vhd
 -- Project Name:  TestClock
 -- Target Device:  
 -- Tool versions:  
 -- Description:   
 -- 
--- VHDL Test Bench Created by ISE for module: shifterRegister
+-- VHDL Test Bench Created by ISE for module: left_right_shift_register
 -- 
 -- Dependencies:
 -- 
@@ -32,14 +32,14 @@ USE ieee.std_logic_1164.ALL;
 -- arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
-ENTITY shifterRegister_testbench IS
-END shifterRegister_testbench;
+ENTITY left_right_shift_register_testbench IS
+END left_right_shift_register_testbench;
  
-ARCHITECTURE behavior OF shifterRegister_testbench IS 
+ARCHITECTURE behavior OF left_right_shift_register_testbench IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
-    COMPONENT shifterRegister
+    COMPONENT left_right_shift_register
     PORT(
          clock : IN  std_logic;
          enable : IN  std_logic;
@@ -69,7 +69,7 @@ ARCHITECTURE behavior OF shifterRegister_testbench IS
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: shifterRegister PORT MAP (
+   uut: left_right_shift_register PORT MAP (
           clock => clock,
           enable => enable,
           reset_n => reset_n,

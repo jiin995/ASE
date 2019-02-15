@@ -4,12 +4,14 @@
 -- 
 -- Create Date:    16:01:23 02/14/2019 
 -- Design Name: 
--- Module Name:    shifterRegister - Behavioral 
+-- Module Name:    left_right_shift_register - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
 -- Description: 
 --		Registro a scorrimento con ingresso seriale e uscita seriale e parallela. 
+--		se left 	= '1' shifta a sinistra
+-- 	se left  = '0' shifta a destra 
 -- Dependencies: 
 --
 -- Revision: 
@@ -20,7 +22,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity shifterRegister is
+entity left_right_shift_register is
 	 GENERIC( N 	: integer := 8
 			);
     Port ( clock 		: in  STD_LOGIC;
@@ -33,7 +35,7 @@ entity shifterRegister is
 			 );
 end shifterRegister;
 
-architecture Behavioral of shifterRegister is
+architecture Behavioral of left_right_shift_register is
 
 -- segnali interni al componente
 signal q_temp 		: STD_LOGIC_VECTOR (N-1 downto 0) := (others => '0');
