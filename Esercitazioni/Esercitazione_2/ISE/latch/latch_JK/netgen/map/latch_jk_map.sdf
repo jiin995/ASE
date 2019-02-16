@@ -1,0 +1,117 @@
+(DELAYFILE
+  (SDFVERSION "3.0")
+  (DESIGN "latch_jk")
+  (DATE "Sat Feb  9 15:52:21 2019")
+  (VENDOR "Xilinx")
+  (PROGRAM "Xilinx SDF Writer")
+  (VERSION "P.20131013")
+  (DIVIDER /)
+  (VOLTAGE 0.95)
+  (TEMPERATURE 85)
+  (TIMESCALE 1 ps)
+  (CELL (CELLTYPE "X_OBUF")
+    (INSTANCE Qnot_OBUF)
+      (DELAY
+        (ABSOLUTE
+          (PORT I ( 0 )( 0 ))
+          (IOPATH I O ( 2245 )( 2245 ))
+        )
+      )
+  )
+  (CELL (CELLTYPE "X_IBUF_INTERMDISABLE_TPWRGT")
+    (INSTANCE J_IBUF)
+      (DELAY
+        (ABSOLUTE
+          (PORT I ( 0 )( 0 ))
+          (IOPATH I O ( 817 )( 817 ))
+        )
+      )
+  )
+  (CELL (CELLTYPE "X_IBUF_INTERMDISABLE_TPWRGT")
+    (INSTANCE K_IBUF)
+      (DELAY
+        (ABSOLUTE
+          (PORT I ( 0 )( 0 ))
+          (IOPATH I O ( 837 )( 837 ))
+        )
+      )
+  )
+  (CELL (CELLTYPE "X_OBUF")
+    (INSTANCE Q_OBUF)
+      (DELAY
+        (ABSOLUTE
+          (PORT I ( 0 )( 0 ))
+          (IOPATH I O ( 2257 )( 2257 ))
+        )
+      )
+  )
+  (CELL (CELLTYPE "X_BUF")
+    (INSTANCE Qnot_OBUF_Qnot_OBUF_OQ_Delay)
+      (DELAY
+        (ABSOLUTE
+          (IOPATH I O ( 823 )( 823 ))
+        )
+      )
+  )
+  (CELL (CELLTYPE "X_INV")
+    (INSTANCE Qnot1_INV_0)
+      (DELAY
+        (ABSOLUTE
+          (IOPATH I O ( 0 )( 0 ))
+        )
+      )
+  )
+  (CELL (CELLTYPE "X_BUF")
+    (INSTANCE Qtemp_Qtemp_AMUX_Delay)
+      (DELAY
+        (ABSOLUTE
+          (IOPATH I O ( 142 )( 142 ))
+        )
+      )
+  )
+  (CELL (CELLTYPE "X_LATCHE")
+    (INSTANCE Qtemp)
+      (DELAY
+        (ABSOLUTE
+          (PORT CLK ( 88 )( 88 ))
+          (PORT I ( 80 )( 80 ))
+          (IOPATH CLK O ( 335 )( 335 ))
+          (IOPATH I O ( 197 )( 197 ))
+        )
+      )
+      (TIMINGCHECK
+        (WIDTH (posedge CLK) (500))
+        (SETUPHOLD(posedge I) (negedge CLK) (-72)(177))
+        (SETUPHOLD(negedge I) (negedge CLK) (-72)(177))
+        (SETUPHOLD(posedge GE) (negedge CLK) (78)(-10))
+        (SETUPHOLD(negedge GE) (negedge CLK) (78)(-10))
+        (RECREM(negedge RST) (negedge CLK) (290)(-199))
+      )
+  )
+  (CELL (CELLTYPE "X_LUT6")
+    (INSTANCE Qtemp_D)
+      (DELAY
+        (ABSOLUTE
+          (PORT ADR2 ( 0 )( 0 ))
+          (PORT ADR3 ( 0 )( 0 ))
+          (PORT ADR4 ( 0 )( 0 ))
+          (PORT ADR5 ( 0 )( 0 ))
+          (IOPATH ADR2 O ( 97 )( 97 ))
+          (IOPATH ADR3 O ( 97 )( 97 ))
+          (IOPATH ADR4 O ( 97 )( 97 ))
+          (IOPATH ADR5 O ( 97 )( 97 ))
+        )
+      )
+  )
+  (CELL (CELLTYPE "X_LUT5")
+    (INSTANCE Qtemp_G)
+      (DELAY
+        (ABSOLUTE
+          (PORT ADR2 ( 0 )( 0 ))
+          (PORT ADR4 ( 0 )( 0 ))
+          (IOPATH ADR2 O ( 111 )( 111 ))
+          (IOPATH ADR4 O ( 105 )( 105 ))
+        )
+      )
+  )
+)
