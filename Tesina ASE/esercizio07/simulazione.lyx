@@ -80,7 +80,7 @@
 \begin_body
 
 \begin_layout Section
-Simulazione
+Simulazione e sintesi
 \end_layout
 
 \begin_layout Standard
@@ -147,6 +147,102 @@ Simulazione behavioural del Ripple Carry Adder.
 \end_layout
 
 \begin_layout Standard
+Si è proceduto poi alla sintesi del componente utilizzando diversi valori
+ di lunghezza in bit delle stringhe, ottenuti cambiando il parametro generico
+ 
+\shape italic
+width
+\shape default
+: a fronte di ogni valore n scelto, attraverso l'utilizzo del report di
+ sintesi, sono stati ricavati i seguenti termini:
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+numero di slices
+\shape default
+, relativo dunque all'area occupata;
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+minimum period
+\shape default
+ (inteso come reciproco della massima frequenza di funzionamento), relativo
+ dunque al ritardo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si sono inoltre utilizzati due registri per i valori in ingresso ed in uscita,
+ in modo tale da evitare eventuali ritardi dovuti all'utilizzo di blocchi
+ I/O dell'FPGA che avrebbero potuto alterare i risultati dell'esperimento.
+ I risultati, in funzione del numero di bit, sono riportati in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:grafici-sintesi.png"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Si noti come, nel caso dell'area, i risultati siano perfettamente coerenti
+ con l'andamento lineare teorico già descritto precedentemente.
+ Nel caso del minimum period, invece, l'andamento risulta migliore nel caso
+ pratico che in quello teorico: ciò è dovuto al fatto che, in fase di sintesi,
+ il tool effettua un'ottimizzazione dell'architettura del componente, sfruttando
+ a pieno le matrici di interconnessione tra i CLB presenti nell'FPGA per
+ ridurre i ritardi del circuito.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/grafici-sintesi.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:grafici-sintesi.png"
+
+\end_inset
+
+Grafici dei risultati ottenuti post-sintesi in funzione del numero di bit.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
