@@ -1,0 +1,249 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{tikzpicture}
+\end_preamble
+\use_default_options true
+\master Tesina.lyx
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Architettura
+\end_layout
+
+\begin_layout Standard
+Il Carry Save è un addizionatore in grado di effettuare la somma tra 3 stringhe
+ di bit di lunghezza n.
+ In particolare, tale macchina è formata da:
+\end_layout
+
+\begin_layout Enumerate
+blocchi 
+\shape italic
+carry save
+\shape default
+, ossia dei full adder che si occupano di sommare 3 bit dello stesso peso
+ delle tre stringhe;
+\end_layout
+
+\begin_layout Enumerate
+blocchi 
+\shape italic
+full adder 
+\shape default
+che sommano al risultato del CSL
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+ il riporto uscente dal blocco CSL
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i-1
+\end_layout
+
+\end_inset
+
+ e dal full adder precedente.
+\end_layout
+
+\begin_layout Standard
+L'architettura della macchina è osservabile in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:architettura-cs"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ In particolare, si noti come la seconda catena di full adder vada a formare
+ un 
+\shape italic
+ripple carry adder
+\shape default
+.
+ Per semplificarne l'implementazione possiamo dunque sostituire a tale schema
+ quello in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:architettura-cs-rca"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, formato da un 
+\shape italic
+carry save logic
+\shape default
+ (serie di carry save block) e un RCA.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/architettura-cs.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:architettura-cs"
+
+\end_inset
+
+Architettura del Carry Save.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/architettura-cs-rca.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:architettura-cs-rca"
+
+\end_inset
+
+Architettura del Carry Save con CSB e RCA.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

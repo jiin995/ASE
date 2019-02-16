@@ -602,6 +602,24 @@ filename "esercizio08/Tesina.lyx"
 
 \end_layout
 
+\begin_layout Chapter
+Carry Save
+\end_layout
+
+\begin_layout Standard
+Realizzare un esempio di addizionatore basato sulla modalità Carry Save.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "esercizio08/Tesina.lyx"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 
 \lang american
