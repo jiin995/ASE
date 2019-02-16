@@ -1,0 +1,344 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\master Tesina.lyx
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Implementazione
+\end_layout
+
+\begin_layout Subsection
+Carry Save Logic
+\end_layout
+
+\begin_layout Standard
+Per l'implementazione della Carry Save Logic, ossia della catena di Carry
+ Save Block, si è utilizzata una descrizione di tipo structural.
+ La generazione dei singoli blocchi full adder è stata realizzata come segue:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Generazione dei Carry Save Block.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+T <= T_temp;
+\end_layout
+
+\begin_layout Plain Layout
+
+CS <= CS_temp;
+\end_layout
+
+\begin_layout Plain Layout
+
+carry_save_blocks: for i in 0 to (width-1) generate
+\end_layout
+
+\begin_layout Plain Layout
+
+	carry_save_block: full_adder port map (
+\end_layout
+
+\begin_layout Plain Layout
+
+		x => X(i),
+\end_layout
+
+\begin_layout Plain Layout
+
+		y => Y(i),
+\end_layout
+
+\begin_layout Plain Layout
+
+		c_in => Z(i),
+\end_layout
+
+\begin_layout Plain Layout
+
+		s => T_temp(i),
+\end_layout
+
+\begin_layout Plain Layout
+
+		c_out => CS_temp(i)
+\end_layout
+
+\begin_layout Plain Layout
+
+	);        
+\end_layout
+
+\begin_layout Plain Layout
+
+end generate carry_saves;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'implementazione completa è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio09/design/carry_save_logic.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+carry
+\backslash
+_save
+\backslash
+_logic.vhd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Carry Save
+\end_layout
+
+\begin_layout Standard
+Per realizzare il Carry Save, è stata una descrizione di tipo structural
+ con un parametro generico 
+\shape italic
+width
+\shape default
+ per definire la il numero di bit dei tre operandi.
+ Data 
+\shape italic
+width
+\shape default
+, la somma sarà espressa su 
+\shape italic
+width
+\shape default
++2 bit.
+ Oltre al componente Carry Save Logic già descritto, si è fatto uso di un
+ Ripple Carry Adder per sommare CS con i valori di T (shiftati a destra)
+ e ottenere le cifre più significative del risultato S:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Utilizzo del Ripple Carry Adder
+ nel Carry Save.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+S(0) <= T(0);
+\end_layout
+
+\begin_layout Plain Layout
+
+A <= '0' & T(width-1 downto 1);
+\end_layout
+
+\begin_layout Plain Layout
+
+RCA: ripple_carry_adder GENERIC MAP (
+\end_layout
+
+\begin_layout Plain Layout
+
+	width => width )
+\end_layout
+
+\begin_layout Plain Layout
+
+	X => A,
+\end_layout
+
+\begin_layout Plain Layout
+
+	Y => CS,
+\end_layout
+
+\begin_layout Plain Layout
+
+	c_in => '0',
+\end_layout
+
+\begin_layout Plain Layout
+
+	S => S(width downto 1),
+\end_layout
+
+\begin_layout Plain Layout
+
+	c_out => S(width+1) 	
+\end_layout
+
+\begin_layout Plain Layout
+
+);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'implementazione completa del Carry Save è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio09/design/carry_save.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+carry
+\backslash
+_save.vhd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
