@@ -32,7 +32,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --entity top level per calcolare il timing
 
 entity rca_timing is
-	generic (width : natural := 16);
+	generic (width : natural := 32);
     Port ( clock : in  STD_LOGIC;
            X : in  STD_LOGIC_VECTOR (width-1 downto 0);
            Y : in  STD_LOGIC_VECTOR (width-1 downto 0);

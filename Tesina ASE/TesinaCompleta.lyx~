@@ -559,6 +559,49 @@ filename "esercizio07/Tesina.lyx"
 
 \end_layout
 
+\begin_layout Chapter
+Carry Look Ahead
+\end_layout
+
+\begin_layout Standard
+Realizzare un'architettura di tipo Carry Look Ahead per un sommatore ad
+ 8 bit.
+ Il circuito deve essere realizzato a partire dai blocchi:
+\end_layout
+
+\begin_layout Enumerate
+Propagation/Generation calculator
+\end_layout
+
+\begin_layout Enumerate
+Carry Look Ahead
+\end_layout
+
+\begin_layout Enumerate
+Full Adder
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(opzionale: rendere il CLA generico.)
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "esercizio08/Tesina.lyx"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 
 \lang american
