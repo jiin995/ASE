@@ -200,7 +200,7 @@ status open
 
 \end_inset
 
-￼
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -346,7 +346,7 @@ selectlanguage{italian}%
 
 \begin_layout Standard
 C'è da precisare, che tale interfaccia ha come uscita i segnali di clock
- soltanto per rendere più agevole la fase di analisi della simulazione !
+ soltanto per rendere più agevole la fase di analisi della simulazione.
 \end_layout
 
 \begin_layout Standard

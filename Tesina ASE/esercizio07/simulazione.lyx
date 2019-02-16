@@ -206,39 +206,126 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement ph
-wide false
-sideways false
+\align center
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename images/grafici-sintesi.png
-	scale 35
-
-\end_inset
 
 
+\backslash
+begin{figure}  
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption Standard
 
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:grafici-sintesi.png"
 
-\end_inset
-
-Grafici dei risultati ottenuti post-sintesi in funzione del numero di bit.
+\backslash
+centering
 \end_layout
 
-\end_inset
+\begin_layout Plain Layout
 
 
+\backslash
+begin{tikzpicture}  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{groupplot}[group style={group size=2 by 1,horizontal sep=2cm}, yticklabel
+ style={font=
+\backslash
+footnotesize}, xticklabel style={font=
+\backslash
+footnotesize}]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+nextgroupplot[legend style={font=
+\backslash
+fontsize{4}{5}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+selectfont, anchor=north, at={(0.70,0.16)}}, xmin=0,xmax=128, ymin = 0, ymax
+ = 900, grid=major, width=0.45
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth, height=
+\backslash
+axisdefaultheight,xlabel= Numero di bit, ylabel=Numero di slice] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addplot coordinates{     (0,0) (4, 19) (8, 42) (16, 96) (32, 227) (64,411)
+ (128, 844)     }; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+nextgroupplot[legend style={anchor=north, at={(0.50,0.95)}}, xmin=0,xmax=128,
+ ymin = 0, ymax = 5, grid=major, width=0.45
+\backslash
+textwidth, height=
+\backslash
+axisdefaultheight, xlabel= Numero di bit, ylabel=Minimum period (ns)] 
+\backslash
+addplot coordinates{     (0,0) (4, 1.429) (8, 2.054) (16, 2.351) (32, 2.848)
+ (64, 3.690) (128, 4.130)     };
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{groupplot}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{Grafici dei risultati ottenuti post-sintesi in funzione del numero
+ di bit.} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{fig:grafici-sintesi.png}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
 \end_layout
 
 \end_inset
