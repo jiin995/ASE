@@ -83,6 +83,10 @@
 Simulazione e sintesi
 \end_layout
 
+\begin_layout Subsection
+Simulazione
+\end_layout
+
 \begin_layout Standard
 Per tale componente è stata effettuata una simulazione behavioural, durante
  la quale sono stati cambiati sia gli operandi in ingresso che il carry
@@ -140,10 +144,10 @@ Simulazione behavioural del Ripple Carry Adder.
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
-
+\begin_layout Subsection
+Sintesi
 \end_layout
 
 \begin_layout Standard
