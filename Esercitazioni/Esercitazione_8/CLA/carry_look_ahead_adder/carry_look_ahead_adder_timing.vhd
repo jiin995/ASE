@@ -30,7 +30,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity carry_look_ahead_adder_timing is
-	generic (width : natural := 128);
+	generic (width : natural := 16);
     Port ( clock : in  STD_LOGIC;
            X : in  STD_LOGIC_VECTOR (width-1 downto 0);
            Y : in  STD_LOGIC_VECTOR (width-1 downto 0);
