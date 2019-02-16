@@ -89,12 +89,11 @@ Simulazione
 
 \begin_layout Standard
 Per tale componente è stata effettuata una simulazione behavioural, durante
- la quale sono stati cambiati sia gli operandi in ingresso che il carry
- in ingresso.
+ la quale sono stati fatti variare i due operandi e il riporto in ingresso.
  I risultati ottenuti sono osservabili in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:simulazione-rca-1"
+reference "fig:simulazione-cla"
 plural "false"
 caps "false"
 noprefix "false"
@@ -110,12 +109,12 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../esercizio07/images/simulazione-rca.png
+	filename images/simulazione-cla.png
 	scale 35
 
 \end_inset
@@ -129,11 +128,11 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:simulazione-rca-1"
+name "fig:simulazione-cla"
 
 \end_inset
 
-Simulazione behavioural del Ripple Carry Adder.
+Simulazione behavioural del Carry Look Ahead.
 \end_layout
 
 \end_inset
@@ -148,6 +147,183 @@ Simulazione behavioural del Ripple Carry Adder.
 
 \begin_layout Subsection
 Sintesi
+\end_layout
+
+\begin_layout Standard
+Si è proceduto infine alla sintesi del componente utilizzando diversi valori
+ di lunghezza delle stringhe tramite manipolazione del parametro generico
+ 
+\shape italic
+width
+\shape default
+.
+ Come nel caso del Ripple Carry Adder, sono stati ottenuti il 
+\shape italic
+numero di slices 
+\shape default
+e 
+\shape italic
+minimum period
+\shape default
+ (reciproco della massima frequenza di funzionamento) in funzione del numero
+ n di bit per valutare le prestazioni di tale macchina.
+ I risultati sono riportati in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:grafici-sintesi-cla"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{groupplot}[group style={group size=2 by 1,horizontal sep=2cm}, yticklabel
+ style={font=
+\backslash
+footnotesize}, xticklabel style={font=
+\backslash
+footnotesize}]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+nextgroupplot[legend style={font=
+\backslash
+fontsize{4}{5}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+selectfont, anchor=north, at={(0.70,0.16)}}, xmin=0,xmax=128, ymin = 0, ymax
+ = 900, grid=major, width=0.45
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth, height=
+\backslash
+axisdefaultheight,xlabel= Numero di bit, ylabel=Numero di slice] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addplot coordinates{     (0,0) (4, 19) (8, 42) (16, 97) (32, 230) (64,432)
+ (128, 849)     }; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+nextgroupplot[legend style={anchor=north, at={(0.50,0.95)}}, xmin=0,xmax=128,
+ ymin = 0, ymax = 5, grid=major, width=0.45
+\backslash
+textwidth, height=
+\backslash
+axisdefaultheight, xlabel= Numero di bit, ylabel=Minimum period (ns)] 
+\backslash
+addplot coordinates{     (0,0) (4, 1.429) (8, 2.054) (16, 2.480) (32, 2.935)
+ (64, 3.621) (128, 4.134)     };
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{groupplot}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{Grafici dei risultati ottenuti post-sintesi in funzione del numero
+ di bit.} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{fig:grafici-sintesi-cla}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si osservi come, rispetto ai risultati ottenuti con il Ripple Carry Adder,
+ il circuito occupi un numero di slices (e dunque area) sensibilmente maggiore.
+ Ciò è dovuto al fatto che, introducendo il calcolo dei riporti in parallelo,
+ il numero di componenti è aumentato: tuttavia, tale differenza è apprezzabile
+ solo con numero più elevato di bit (dai 32 in poi).
+ Per quanto riguarda i ritardi, invece, non si registrano particolari differenze
+ rispetto al caso RCA: i periodi minimi risultano pressoché identici.
+ Possiamo dunque concludere che, con l'utilizzo del tool di sintesi per
+ board Nexys 4, non sono particolarmente apprezzabili le differenze tra
+ l'utilizzo di un RCA e di un CLA grazie alle capacità di ottimizzazione
+ del suddetto tool.
 \end_layout
 
 \end_body
