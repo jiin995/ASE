@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    12:07:17 02/16/2019 
+-- Create Date:    14:00:52 02/16/2019 
 -- Design Name: 
--- Module Name:    rca_timing - Behavioral 
+-- Module Name:    carry_look_ahead_adder_timing - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -25,44 +25,42 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
--- any XilinX primitives in this code.
+-- any Xilinx primitives in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
---entity top level per calcolare il timing
-
-entity rca_timing is
-	generic (width : natural := 16);
+entity carry_look_ahead_adder_timing is
+	generic (width : natural := 128);
     Port ( clock : in  STD_LOGIC;
            X : in  STD_LOGIC_VECTOR (width-1 downto 0);
            Y : in  STD_LOGIC_VECTOR (width-1 downto 0);
            c_in : in  STD_LOGIC;
            S : out  STD_LOGIC_VECTOR (width-1 downto 0);
            c_out : out  STD_LOGIC);
-end rca_timing;
+end carry_look_ahead_adder_timing;
 
-architecture Behavioral of rca_timing is
+architecture Behavioral of carry_look_ahead_adder_timing is
 
-	component rippleCarry_adder is 
-    generic (   width   : NATURAL :=  width     
+	component carry_look_ahead_adder is 
+    generic (   width     :   NATURAL := width
     );
-    port (
-            X       :   in  STD_LOGIC_VECTOR (width-1 downto 0);	    
-            Y       :   in  STD_LOGIC_VECTOR (width-1 downto 0);    	
-            c_in    :   in  STD_LOGIC;                              	
-            S       :   out STD_LOGIC_VECTOR  (width-1 downto 0);   
-            c_out   :   out STD_LOGIC                             	    
+    port (  
+            c_in   :   in STD_LOGIC;  
+            X       :   in  STD_LOGIC_VECTOR (width-1 downto 0);    
+            Y       :   in  STD_LOGIC_VECTOR (width-1 downto 0); 
+            c_out   :   out STD_LOGIC ;
+            S       :   out STD_LOGIC_VECTOR  (width-1 downto 0)
     );
-end component;
+	end component;
 
 	component d_edge is
 		generic(width : natural := width);
 		port(
-			clock: in STD_LOGIC;
-			D:	in STD_LOGIC_VECTOR(width-1 downto 0);
-			Q:	out STD_LOGIC_VECTOR(width-1 downto 0));
+				clock: in STD_LOGIC;
+				D:	in STD_LOGIC_VECTOR(width-1 downto 0);
+				Q:	out STD_LOGIC_VECTOR(width-1 downto 0));
 	end component;
-
+	
 	signal my_a : std_logic_vector(width-1 downto 0);
 	signal my_b : std_logic_vector(width-1 downto 0);
 	signal my_sum : std_logic_vector(width-1 downto 0);
@@ -89,7 +87,7 @@ begin
 		Q => my_b
 	);
 	
-	Inst_ripple_carry_adder: rippleCarry_adder PORT MAP(
+	Inst_carry_look_ahead: carry_look_ahead_adder PORT MAP(
 		X => my_a,
 		Y => my_b,
 		c_in => c_in,
