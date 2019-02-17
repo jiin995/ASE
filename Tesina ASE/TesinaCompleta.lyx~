@@ -635,7 +635,7 @@ Realizzare un sommatore Carry Select generico ad N bit.
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
-filename "esercizio09/Tesina.lyx"
+filename "esercizio10/Tesina.lyx"
 
 \end_inset
 

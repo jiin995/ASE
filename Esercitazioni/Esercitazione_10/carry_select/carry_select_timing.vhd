@@ -32,7 +32,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --entity top level per calcolare il timing
 
 entity carry_select_timing is
-	generic (M : NATURAL := 1;    -- parallelismo dei ripplecarry adder nei blocchi
+	generic (M : NATURAL := 8;    -- parallelismo dei ripplecarry adder nei blocchi
             P : NATURAL := 8);
     Port ( clock : in  STD_LOGIC;
            A : in  STD_LOGIC_VECTOR ((M*P)-1 downto 0);

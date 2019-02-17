@@ -244,8 +244,6 @@ end component;
 
 \backslash
 end{lstlisting}
-\backslash
-selectlanguage{italian}%
 \end_layout
 
 \end_inset

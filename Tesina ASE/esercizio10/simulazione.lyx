@@ -149,10 +149,407 @@ Simulazione behavioural del Carry Save.
 Sintesi
 \end_layout
 
+\begin_layout Subsubsection
+Scelta di P ed M
+\end_layout
+
 \begin_layout Standard
 Si è proceduto infine alla sintesi del componente.
- Per la scelta di P ed M, sono state fatte le seguenti considerazioni: dato
+ Per la scelta di P ed M, sono state fatte le seguenti considerazioni: data
+ la formula e 
+\begin_inset Formula $T_{CSEL}=M*T_{FA}+(P-1)*T_{MUX}$
+\end_inset
+
+, è possibile ottimizzare tale quantità scegliendo 
+\begin_inset Formula $M=\sqrt{N*\frac{T_{FA}}{T_{MUX}}}$
+\end_inset
+
+ e 
+\begin_inset Formula $P=\frac{N}{M}$
+\end_inset
+
+.
  
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si è deciso quindi di fissare 
+\begin_inset Formula $N=M*P=32$
+\end_inset
+
+ e di sintetizzare il componente per valutare le prestazioni temporali del
+ circuito.
+ Per ottenere il risultato ottimale, dati 
+\begin_inset Formula $T_{FA}=0.893$
+\end_inset
+
+ ns e 
+\begin_inset Formula $T_{MUX}=0.889$
+\end_inset
+
+ ns, possiamo trovare 
+\begin_inset Formula $M\simeq\sqrt{N}=8$
+\end_inset
+
+ e 
+\begin_inset Formula $P=8$
+\end_inset
+
+.
+ Per effettuare una dimostrazione dell'efficacia di tale formula, sono riportati
+ in tabella i 
+\shape italic
+minimum period 
+\shape default
+di funzionamento del Carry Select ottenuti al variare di M e P (con N fissato
+ pari a 32):
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+P=1, M=64
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.690 ns
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+P=2, M=32
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.760 ns
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+P=4, M=16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.753 ns
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+P=8, M=8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.618 ns
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+P=16, M=4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.685 ns
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+P=32, M=2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.690 ns
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+P=64, M=1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.690 ns
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+E' possibile osservare come la scelta dei valori 
+\begin_inset Formula $M=8$
+\end_inset
+
+ e 
+\begin_inset Formula $P=8$
+\end_inset
+
+ ci restituisca i risultati ottimali in termini di tempi del circuito.
+\end_layout
+
+\begin_layout Subsubsection
+Prestazioni all'aumentare del numero di bit
+\end_layout
+
+\begin_layout Standard
+Si è proceduto infine alla sintesi del componente utilizzando diversi valori
+ N e scegliendo M e P tramite la formula vista precedentemente.
+ Sono stati quindi ottenuti il 
+\shape italic
+numero di slices 
+\shape default
+e 
+\shape italic
+minimum period
+\shape default
+ in funzione del numero di bit per valutare le prestazioni di tale macchina.
+ I risultati sono riportati in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:grafici-sintesi-csel"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{groupplot}[group style={group size=2 by 1,horizontal sep=2cm}, yticklabel
+ style={font=
+\backslash
+footnotesize}, xticklabel style={font=
+\backslash
+footnotesize}]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+nextgroupplot[legend style={font=
+\backslash
+fontsize{4}{5}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+selectfont, anchor=north, at={(0.70,0.16)}}, xmin=0,xmax=128, ymin = 0, ymax
+ = 1250, grid=major, width=0.45
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth, height=
+\backslash
+axisdefaultheight,xlabel= Numero di bit, ylabel=Numero di slice] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addplot coordinates{     (0,0) (4, 19) (9, 58) (16, 99) (36, 228) (64,387)
+ (121, 827)     }; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+nextgroupplot[legend style={anchor=north, at={(0.50,0.95)}}, xmin=0,xmax=128,
+ ymin = 0, ymax = 5, grid=major, width=0.45
+\backslash
+textwidth, height=
+\backslash
+axisdefaultheight, xlabel= Numero di bit, ylabel=Minimum period (ns)]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addplot coordinates{     (0,0) (4, 1.429) (9, 2.057) (16, 2.475) (36, 2.977)
+ (64, 3.618) (121, 4.194)     };
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{groupplot}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{Grafici dei risultati ottenuti post-sintesi in funzione del numero
+ di bit.} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{fig:grafici-sintesi-csel}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si noti come non sono risultate particolari differenze rispetto all'utilizzo
+ di un normale RCA: ciò è probabilmente dovuto al fatto che il tool di sintesi
+ ottimizza il circuito e fa pieno utilizzo della matrice di interconnessione
+ tra gli slices per migliorare le prestazioni del circuito.
 \end_layout
 
 \end_body
