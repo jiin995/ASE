@@ -224,17 +224,5 @@ filename "simulazione.lyx"
 
 \end_layout
 
-\begin_layout Standard
-
-\lang american
-\begin_inset CommandInset include
-LatexCommand input
-filename "rca_tre_operandi.lyx"
-
-\end_inset
-
-
-\end_layout
-
 \end_body
 \end_document

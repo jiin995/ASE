@@ -329,6 +329,23 @@ Si osservi come, rispetto ai risultati ottenuti con il Ripple Carry Adder,
  board Nexys 4, non sono particolarmente apprezzabili le differenze tra
  l'utilizzo di un RCA e di un CLA grazie alle capacità di ottimizzazione
  del suddetto tool.
+ Si noti infine che, a fronte di sintesi del componente con un numero di
+ bit maggiore di 32, il tool riporta il seguente warning: 
+\begin_inset Quotes eld
+\end_inset
+
+
+\shape italic
+WARNING:Xst:1336 - (*) More than 100% of Device resources are used
+\shape default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Questo è dovuto al fatto che le risorse necessarie per sintetizzare il
+ componente sulla board non sono sufficienti, e dunque tali risultati sono
+ da considerarsi solo in teoria.
 \end_layout
 
 \end_body

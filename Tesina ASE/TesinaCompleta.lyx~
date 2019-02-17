@@ -613,7 +613,29 @@ Realizzare un esempio di addizionatore basato sulla modalità Carry Save.
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
-filename "esercizio08/Tesina.lyx"
+filename "esercizio09/Tesina.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Carry Select
+\end_layout
+
+\begin_layout Standard
+Realizzare un sommatore Carry Select generico ad N bit.
+ Il circuito deve essere realizzato a partire da blocchi di Full Adder,
+ espresso mediante porte logiche XOR/AND/OR.
+ Riportare considerazioni sull'area occupata e tempo di calcolo al variare
+ di N e commentare il risultato con le formule teoriche.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "esercizio09/Tesina.lyx"
 
 \end_inset
 

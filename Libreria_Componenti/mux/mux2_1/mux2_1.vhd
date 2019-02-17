@@ -34,7 +34,7 @@ use IEEE.STD_LOGIC_1164.all;
 -- definisco il componente e la sua interfaccia 
 
 entity mux2_1 is
-    generic (   width : natural :=1                     --! parallelismo dell' I/O del multiplexer
+    generic (   width : natural := 1                     --! parallelismo dell' I/O del multiplexer
     );
     port(   SEL : in  STD_LOGIC;                                    --! mux2_1 input: selezione 
             A   : in  STD_LOGIC_VECTOR ((width-1) downto 0);        --! mux2_1 input: A
