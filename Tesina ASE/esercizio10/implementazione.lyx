@@ -1,0 +1,391 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\master Tesina.lyx
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Implementazione
+\end_layout
+
+\begin_layout Subsection
+Carry Select Block
+\end_layout
+
+\begin_layout Standard
+Per la realizzazione del componente Carry Select, si è dapprima proceduto
+ alla realizzazione di un 
+\shape italic
+Carry Select Block
+\shape default
+, ossia dei blocchi che andranno a formare il Carry Select.
+ L'interfaccia di questo componente è la seguente:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Interfaccia di un Carry Select
+ Block.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+entity carry_elect_block is     
+\end_layout
+
+\begin_layout Plain Layout
+
+	generic (
+\end_layout
+
+\begin_layout Plain Layout
+
+		width : NATURAL := 4    
+\end_layout
+
+\begin_layout Plain Layout
+
+	);  port (            
+\end_layout
+
+\begin_layout Plain Layout
+
+		A : in STD_LOGIC_VECTOR ((width-1) downto 0);            
+\end_layout
+
+\begin_layout Plain Layout
+
+		B : in STD_LOGIC_VECTOR ((width-1) downto 0);         
+\end_layout
+
+\begin_layout Plain Layout
+
+		c_in : in STD_LOGIC;             
+\end_layout
+
+\begin_layout Plain Layout
+
+		S : out STD_LOGIC_VECTOR ((width-1) downto 0);             
+\end_layout
+
+\begin_layout Plain Layout
+
+		c_out : out STD_LOGIC); 
+\end_layout
+
+\begin_layout Plain Layout
+
+end carry_select_cell;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tale componente, come visto prima, è formato da due RCA e due multiplexer
+ 2-1.
+ I due addizionatori si occuperanno di sommare le due stringhe in ingresso
+ A e B (di lunghezza generica 
+\shape italic
+width
+\shape default
+) con 
+\shape italic
+c_in 
+\shape default
+pari, rispettivamente, a 0 e 1.
+ In base al valore 
+\shape italic
+c_in 
+\shape default
+effettivo in ingresso al blocco, i due multiplexer sceglieranno quali dei
+ due valori 
+\shape italic
+S
+\shape default
+ e 
+\shape italic
+c_out, 
+\shape default
+calcolati dai due RCA, riportare in uscita.
+ L'implementazione completa, realizzata tramite descrizione structural,
+ è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio10/design/carry_select_block.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+carry
+\backslash
+_select
+\backslash
+_block.vhd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Carry Select
+\end_layout
+
+\begin_layout Standard
+Anche per realizzare il Carry Select è stata utilizzata una descrizione
+ di tipo structural.
+ Prima di tutto, si sono utilizzati due parametri generici: P, ossia il
+ numero di blocchi della catena, ed M, ossia il numero di bit sommato da
+ ciascun blocco.
+ Dopodiché, per quanto concerne l'architettura, sono stati generati l'RCA
+ iniziale e P-1 blocchi restanti per formare la carry chain del sommatore:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Generazione dei blocchi del Carry
+ Select.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+rca: rippleCarry_adder port map(    
+\end_layout
+
+\begin_layout Plain Layout
+
+	X => A((M-1) downto 0),                                           
+\end_layout
+
+\begin_layout Plain Layout
+
+	Y => B((M-1) downto 0),                                           
+\end_layout
+
+\begin_layout Plain Layout
+
+	c_in => internal_carry(0),                                           
+\end_layout
+
+\begin_layout Plain Layout
+
+	S => S_TEMP((M-1) downto 0),                                          
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	c_out => internal_carry(1)             
+\end_layout
+
+\begin_layout Plain Layout
+
+);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+blocks: for i in 1 to P-1 generate              
+\end_layout
+
+\begin_layout Plain Layout
+
+	csel_block: carry_select_block port map (    
+\end_layout
+
+\begin_layout Plain Layout
+
+		A => A ((((i+1)*M)-1) downto(i*M)),
+\end_layout
+
+\begin_layout Plain Layout
+
+		B => B ((((i+1)*M)-1) downto (i*M)),
+\end_layout
+
+\begin_layout Plain Layout
+
+		c_in  => internal_carry(i),
+\end_layout
+
+\begin_layout Plain Layout
+
+		S => S_TEMP((((i+1)*M)-1) downto (i*M)),
+\end_layout
+
+\begin_layout Plain Layout
+
+		c_ou => internal_carry(i+1)                                          
+\end_layout
+
+\begin_layout Plain Layout
+
+	);
+\end_layout
+
+\begin_layout Plain Layout
+
+end generate blocks;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ L'implementazione completa è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio10/design/carry_select.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+carry
+\backslash
+_select.vhd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

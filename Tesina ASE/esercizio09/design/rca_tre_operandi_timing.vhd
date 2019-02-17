@@ -4,7 +4,7 @@
 -- 
 -- Create Date:    14:00:52 02/16/2019 
 -- Design Name: 
--- Module Name:    carry_save_timing - Behavioral 
+-- Module Name:    rca_tre_operandi_timing - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -29,19 +29,19 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity carry_save_timing is
-	generic (width : natural := 32);
+entity rca_tre_operandi_timing is
+	generic (width : natural := 4);
     Port ( clock : in  STD_LOGIC;
            X : in  STD_LOGIC_VECTOR (width-1 downto 0);
            Y : in  STD_LOGIC_VECTOR (width-1 downto 0);
 			  Z : in  STD_LOGIC_VECTOR (width-1 downto 0);
            S : out  STD_LOGIC_VECTOR (width+1 downto 0)
 			  );
-end carry_save_timing;
+end rca_tre_operandi_timing;
 
-architecture Behavioral of carry_save_timing is
+architecture Behavioral of rca_tre_operandi_timing is
 
-	component carry_save is 
+	component rca_tre_operandi is 
     generic (   width     :   NATURAL := width
     );
     port (  
@@ -101,7 +101,7 @@ begin
 		Q => S
 	);
 
-	Inst_carry_save: carry_save PORT MAP(
+	Inst_rca_tre_operandi: rca_tre_operandi PORT MAP(
 		X => my_a,
 		Y => my_b,
 		Z => my_c,
