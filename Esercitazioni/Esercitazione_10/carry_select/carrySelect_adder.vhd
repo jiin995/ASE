@@ -4,8 +4,8 @@ use IEEE.STD_LOGIC_1164.all;
 entity carry_select_adder is 
 
     generic (   
-                M : NATURAL := 2;    -- parallelismo dei ripplecarry adder nei blocchi
-                P : NATURAL := 2    -- numero di blocchi del carry select
+                M : NATURAL := 8;    -- parallelismo dei ripplecarry adder nei blocchi
+                P : NATURAL := 8    -- numero di blocchi del carry select
     ); port (
 					 A       : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  -- input addendo
 					 B       : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  -- input addendo
