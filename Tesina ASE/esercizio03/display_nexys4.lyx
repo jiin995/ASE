@@ -98,8 +98,6 @@ Descrivere la soluzione relizzata per mezzo di schematici e riportare il
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 La board Nexys 4 DDR ha installato a bordo due batterie di 4 digit ciascuna,
  per un totale di 8 digit.
  La soluzione che abbiamo visto precedentemente però permette di controllare
@@ -110,8 +108,6 @@ La board Nexys 4 DDR ha installato a bordo due batterie di 4 digit ciascuna,
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 In particolare, di seguito, vediamo alcune modifiche che abbiamo apportato
  ai componenti per poter pilotare tutte le digit che mette a disposizione
  la Nexys 4 DDR.
