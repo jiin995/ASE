@@ -76,5 +76,5 @@ begin
 	end generate;
 
 
-end Structural;
+end structural;
 

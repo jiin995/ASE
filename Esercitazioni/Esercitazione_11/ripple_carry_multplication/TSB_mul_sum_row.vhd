@@ -1,89 +1,62 @@
---------------------------------------------------------------------------------
--- Company: 
--- Engineer:
---
--- Create Date:   17:01:59 01/30/2018
--- Design Name:   
--- Module Name:   C:/Documents and Settings/ASE_ise/Mul_somma_per_righe/TSB_mul_sum_row.vhd
--- Project Name:  Mul_somma_per_righe
--- Target Device:  
--- Tool versions:  
--- Description:   
--- 
--- VHDL Test Bench Created by ISE for module: ripple_carry_multiplier
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
---
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
---------------------------------------------------------------------------------
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
- 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---USE ieee.numeric_std.ALL;
- 
-ENTITY TSB_mul_sum_row IS
-END TSB_mul_sum_row;
- 
-ARCHITECTURE behavior OF TSB_mul_sum_row IS 
- 
-    -- Component Declaration for the Unit Under Test (UUT)
- 
-    COMPONENT ripple_carry_multiplier
-    PORT(
-         A : IN  std_logic_vector(2 downto 0);
-         B : IN  std_logic_vector(2 downto 0);
-         P : OUT  std_logic_vector(5 downto 0)
-        );
-    END COMPONENT;
-    
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
-   --Inputs
-   signal A : std_logic_vector(2 downto 0) := (others => '0');
-   signal B : std_logic_vector(2 downto 0) := (others => '0');
+entity ripple_carry_multiplier_testbench is
+    generic (   N : NATURAL := 8;  -- parallelismo primo operando
+                M : NATURAL := 8  -- parllelismo secondo operando
+    );
+end ripple_carry_multiplier_testbench;
 
- 	--Outputs
-   signal P : std_logic_vector(5 downto 0);
-   -- No clocks detected in port list. Replace <clock> below with 
-   -- appropriate port name 
- 
- 
-BEGIN
- 
-	-- Instantiate the Unit Under Test (UUT)
-   uut: ripple_carry_multiplier PORT MAP (
-          A => A,
-          B => B,
-          P => P
-        );
+architecture behavioral of ripple_carry_multiplier_testbench is
+component ripple_carry_multiplier is
+    generic (   N : NATURAL := N;  -- parallelismo primo operando
+                M : NATURAL := M  -- parllelismo secondo operando
+    );
+    port    (   A   :   in  STD_LOGIC_VECTOR (N-1 downto 0);
+                B   :   in  STD_LOGIC_VECTOR (M-1 downto 0);
+                P   :   out STD_LOGIC_VECTOR ((N+M)-1 downto 0)
+    );
+end component;
 
- 
 
-   -- Stimulus process
-   stim_proc: process
+signal A : std_logic_vector(N-1 downto 0) := (others => '0');
+signal B : std_logic_vector(M-1 downto 0) := (others => '0');
+signal P : std_logic_vector(M+N-1 downto 0) := (others => '0');
+
+begin
+	uut : ripple_carry_multiplier
+		generic map(
+			M,N
+		)
+		port map(
+		    A => A,
+			B => B,
+			P => P
+		);
+	stimulus : process
    begin		
-      a<="010";
-		b<="110";
-		wait for 20 ns;
-		a<="110";
-		b<="001";
-		wait for 20 ns;
-		b<="100";
-		wait for 20 ns;
-		a<="111";
-		b<="111";
+      -- hold reset state for 100 ns.
+      wait for 100 ns;	
+		
+		A <= x"11";
+		B <= x"A6";
+		
+		wait for 30 ns;
+		
+		A <= x"2E";
+		B <= x"89";
+		
+		wait for 30 ns;
+		
+		B <= x"29";
+		
+		wait for 30 ns;
+		
+		A <= x"18";
+
+      -- insert stimulus here 
 
       wait;
    end process;
-
-END;
+end behavioral;
