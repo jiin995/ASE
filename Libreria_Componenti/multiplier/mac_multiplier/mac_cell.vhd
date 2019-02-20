@@ -17,7 +17,7 @@ entity mac_cell is
     );
 end mac_cell;
 
-architecture dataflow of mac_cell is
+architecture architectural of mac_cell is
 
 component full_adder is
   PORT (  X   :   in  STD_LOGIC;	--! full_adder input : addendo
@@ -42,4 +42,4 @@ begin
                                             C   => C_out  -- carry in uscita
                                 );
 
-end dataflow;
+end architectural;
