@@ -27,7 +27,7 @@ end robertson_control_unit;
 
 architecture behavioral of robertson_control_unit is 
 
-type state is (idle, init, choice, add, right_shift,check_sign,sub,end_state);
+type state is (idle, init, choice, add_sub, right_shift);
 
 signal current, nxt : state := idle;
 
@@ -72,6 +72,7 @@ begin
 
                 -- inizializzazione 
                 when init       =>
+				    -- resetto i regestri e il contatore
                     en_q        <= '1';
                     en_m        <= '1'; 
                     reset_count <= '0';
@@ -82,67 +83,43 @@ begin
                 when choice     =>
 						  if counter_hit = '0' then 
 							  if current_multiplicand = '0' then
-									nxt     <= right_shift;
+									nxt     	<= right_shift;
 							  else
-									nxt     <= add;
+									nxt     	<= add_sub;
 							  end if;
 							else
-								nxt 		  <= check_sign;
+								if x_sign = '0' then
+									nxt     	<= idle;
+								else
+									nxt     	<= add_sub;
+								end if;
 							end if;
-							
-                when add    => 
---						  if counter_hit = '1' then
---								en_a        <= '1';
---								subtract    <= '1';
---								nxt 			<= right_shift;
---							else
-								en_a    <= '1';             -- abilito a così carica il risultato dell'adder che lavora sempre!
-								nxt     <= right_shift;
---							end if;
+
+                when add_sub   => 
+							-- controllo se devo effettuare la somma o la sottrazione
+							if counter_hit = '0' then
+							   -- abilito a così carica il risultato dell'adder che lavora sempre!
+								en_a    		<= '1';             
+								nxt     		<= right_shift;
+							else 
+								-- faccio la correzzione
+								en_a        <= '1';
+								subtract    <= '1'; 
+								nxt	  		<= idle;
+							end if;
                     
                 when right_shift =>             -- esegue lo shift
 							en_a    <= '1';
 							en_q    <= '1';
 							sel     <= '1';
 							shift   <= '1';
+							-- tiene traccia del segno di x che dopo n schift si perde!!! e quindi non riesco a capire se 
+							-- se devo fare la somma o la sottrazione
 							x_sign  <= current_multiplicand;
-
-						-- solo ora posso controllare/aggiornare il counter e controllare se sono nello stato finale
-
-                   -- if counter_hit = '0' then
-                      count_up    <= '1';
-                      nxt         <= choice;
---                    else if (current_multiplicand = '1' ) then 
---									en_a        <= '1';
---									subtract    <= '1';  
---									nxt <= idle;
---							else 
---									nxt <= idle;                  
-						  
-                       -- nxt         <= check_sign;
---							end if;
---							end if;
-
-                when check_sign =>
-                    -- controllo se il segno di X è negativo
-                    -- il caso del segno di Y negativo lo risolvo con la and all'ingresso della scan chain
---  						en_a    <= '1';
---							en_q    <= '1';
---							sel     <= '1';
---							shift   <= '1';
-                    if (x_sign = '1' ) then  
-								nxt 	<= sub;
-								--nxt <= right_shift;
-						  else 
-								nxt 	<= idle;
-						  end if;
-
-					 when sub =>
-							en_a        <= '1';
-                     subtract    <= '1'; 
-							nxt			<= end_state;
-					 when end_state =>
-							nxt <= idle;
+	
+							-- solo ora posso aggiornare il counter e controllare se sono nello stato finale
+                     count_up    <= '1';
+                     nxt         <= choice;
             end case;
         end process;
 end behavioral;

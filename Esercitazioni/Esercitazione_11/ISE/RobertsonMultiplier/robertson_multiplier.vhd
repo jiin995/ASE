@@ -110,7 +110,7 @@ component rippleCarry_addsub is
 end component;
 
 component  counter_UpN_Re_Sr is 
-    generic (   n               : NATURAL :=2
+    generic (   n       : NATURAL :=2
 		);
     port(   enable      : in STD_LOGIC ;                                --! enable input
             reset_n     : in STD_LOGIC;                                 --! reset input
@@ -122,7 +122,7 @@ end component ;
 
 signal internal_a,internal_m,internal_a_m,internal_q,internal_m_mux	:	STD_LOGIC_VECTOR (N-1 downto 0) := (others => '0');
 signal en_a,en_q,en_m,subtract,sel,shift,scan_in_q,F_in,F_out,
-			current_multiplicand,count_up,counter_hit,reset_a,reset_count,overflow	: STD_LOGIC :='0';
+			current_multiplicand,count_up,counter_hit,reset_a,reset_count	: STD_LOGIC :='0';
 
 begin
 
@@ -187,7 +187,7 @@ begin
 								B       	=>	internal_m_mux, 				
 								subtract	=>	subtract,                                  
 								S       	=> internal_a_m,   	 
-								overflow => overflow                              																						
+								overflow => open
 		 );
 		
 	counter_inst :  counter_UpN_Re_Sr 
