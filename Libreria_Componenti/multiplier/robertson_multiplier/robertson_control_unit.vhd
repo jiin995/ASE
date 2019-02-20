@@ -1,9 +1,11 @@
 library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
+	use IEEE.STD_LOGIC_1164.ALL;
+	use IEEE.numeric_std.all;
+   use IEEE.math_real.all;
+    
 
 entity robertson_control_unit is 
-    generic (   N   :   NATURAL :=8;    --  parallelismo di X
+    generic (   N   :   NATURAL :=8    --  parallelismo di X
     );
     port    (   clock                   :   in      STD_LOGIC;
                 start                   :   in      STD_LOGIC;
@@ -19,16 +21,18 @@ entity robertson_control_unit is
                 count_up                :   out     STD_LOGIC;
                 sel                     :   out     STD_LOGIC;          -- sel pilota il secondo input dell'adder 0 in input è Y 1 sono tutti 0
                 reset_a                 :   out     STD_LOGIC;
-                reset_count             :   out     STD_LOGIC;          -- reset il conteggio
+                reset_count             :   out     STD_LOGIC          	-- reset il conteggio
     );
 end robertson_control_unit;
 
 architecture behavioral of robertson_control_unit is 
-begin
 
-type state is (idle, init, choice, add, right_shift,check_sign,end_state);
+type state is (idle, init, choice, add, right_shift,check_sign,sub,end_state);
 
 signal current, nxt : state := idle;
+
+signal x_sign : STD_LOGIC := '0';
+
 
 begin
 
@@ -53,8 +57,8 @@ begin
             subtract    <= '0';     -- non effettuo sottrazione
             count_up    <= '0';
             sel         <= '0';     -- in uscita dal mux va sempre M
-            reset_a     <= '0';
-            reset_count <= '0';
+            reset_a     <= '1';
+            reset_count <= '1';
 
             case current is 
                 -- fase di attesa prima di iniziare
@@ -70,43 +74,75 @@ begin
                 when init       =>
                     en_q        <= '1';
                     en_m        <= '1'; 
-                    reset_count <= '1';
-                    reset_a     <= '1';
+                    reset_count <= '0';
+                    reset_a     <= '0';
                     nxt         <= choice;
                 
                 -- fase di scelta dell'operazione da fare
                 when choice     =>
-                    if current_multiplicand = '0' =>
-                        nxt     <= right_shift;
-                    else
-                        nxt     <= add;
-                    end fi;
-                
+						  if counter_hit = '0' then 
+							  if current_multiplicand = '0' then
+									nxt     <= right_shift;
+							  else
+									nxt     <= add;
+							  end if;
+							else
+								nxt 		  <= check_sign;
+							end if;
+							
                 when add    => 
-                    en_a    <= '1';             -- abilito a così carica il risultato dell'adder che lavora sempre!
-                    nxt     <= right_shift;
+--						  if counter_hit = '1' then
+--								en_a        <= '1';
+--								subtract    <= '1';
+--								nxt 			<= right_shift;
+--							else
+								en_a    <= '1';             -- abilito a così carica il risultato dell'adder che lavora sempre!
+								nxt     <= right_shift;
+--							end if;
                     
                 when right_shift =>             -- esegue lo shift
-                    en_a    <= '1';
-                    en_q    <= '1';
-                    sel     <= '1';
-                    shift   <= '1';
-                    -- solo ora posso aggiornare il counter e controllare se sono nello stato finale
-                    if counter_hit = '0' then
-                        count_up    <= '1';
-                        nxt         <= choice;
-                    else                    
-                        nxt         <= check_sign;
-                    end if;
+							en_a    <= '1';
+							en_q    <= '1';
+							sel     <= '1';
+							shift   <= '1';
+							x_sign  <= current_multiplicand;
+
+						-- solo ora posso controllare/aggiornare il counter e controllare se sono nello stato finale
+
+                   -- if counter_hit = '0' then
+                      count_up    <= '1';
+                      nxt         <= choice;
+--                    else if (current_multiplicand = '1' ) then 
+--									en_a        <= '1';
+--									subtract    <= '1';  
+--									nxt <= idle;
+--							else 
+--									nxt <= idle;                  
+						  
+                       -- nxt         <= check_sign;
+--							end if;
+--							end if;
 
                 when check_sign =>
                     -- controllo se il segno di X è negativo
                     -- il caso del segno di Y negativo lo risolvo con la and all'ingresso della scan chain
-                    if (current_multiplicand = '1' ) then 
-                        en_a        <= '1';
-                        subtract    <= '1';                        
-                    end if;
-                    nxt <= idle;
+--  						en_a    <= '1';
+--							en_q    <= '1';
+--							sel     <= '1';
+--							shift   <= '1';
+                    if (x_sign = '1' ) then  
+								nxt 	<= sub;
+								--nxt <= right_shift;
+						  else 
+								nxt 	<= idle;
+						  end if;
+
+					 when sub =>
+							en_a        <= '1';
+                     subtract    <= '1'; 
+							nxt			<= end_state;
+					 when end_state =>
+							nxt <= idle;
             end case;
         end process;
 end behavioral;
