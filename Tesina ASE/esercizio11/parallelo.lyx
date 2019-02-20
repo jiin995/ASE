@@ -1,0 +1,422 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\master Tesina.lyx
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Ripple carry multiplier (somma di righe)
+\end_layout
+
+\begin_layout Subsection
+Architettura
+\end_layout
+
+\begin_layout Standard
+Il ripple carry multiplier è un componente che effettua il prodotto tra
+ due stringhe di N e M bit rispettivamente tramite somma delle righe della
+ matrice dei prodotti parziali.
+ L'architettura del componente è visibile in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:architettura-rcm"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/architettura_rcm.png
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:architettura-rcm"
+
+\end_inset
+
+Architettura del Ripple Carry Multiplier.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si noti come tale architettura può essere realizzata mediante l'utilizzo
+ di M ripple carry adder in cascata, che andranno a sommare le N righe della
+ matrice dei prodotti parziali con le somme parziali calcolate riga per
+ riga.
+ Tale schema può essere ulteriormente raffinato eliminando il primo (fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:architettura-rcm-rca"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ Si noti come sia possibile rimuovere dallo schema il primo RCA, che dovrebbe
+ in teoria sommare la prima riga della matrice dei prodotti parziali con
+ le somme parziali iniziali (pari a zero), semplicemente sommando direttamente
+ le prime due righe della matrice.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/architettura_rcm_rca.png
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:architettura-rcm-rca"
+
+\end_inset
+
+Ripple Carry Multiplier realizzato tramite RCA.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Implementazione
+\end_layout
+
+\begin_layout Standard
+L'implementazione del moltiplicatore è stata realizzata mediante descrizione
+ structural: dapprima si è generata la matrice dei prodotti parziali, e
+ poi si sono generati i RCA nel seguente modo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Implementazione del Ripple Carry
+ Multiplier.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+gen_rcmultiplier: for i in 0 to N-1 generate 
+\end_layout
+
+\begin_layout Plain Layout
+
+		gen_first_sum: if i=0 generate
+\end_layout
+
+\begin_layout Plain Layout
+
+			partial_sum(i+1)(M-1 downto 0) <= partial_prod(i)(M-1 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+		end generate; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+		gen_rca: if i>0 generate 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			rca: rippleCarry_adder PORT MAP( 			
+\end_layout
+
+\begin_layout Plain Layout
+
+				X => partial_prod(i)(M-1 downto 0),
+\end_layout
+
+\begin_layout Plain Layout
+
+				Y => partial_sum(i)(M downto 1),
+\end_layout
+
+\begin_layout Plain Layout
+
+				c_in =>'0',
+\end_layout
+
+\begin_layout Plain Layout
+
+				s => partial_sum(i+1)(M-1 downto 0),
+\end_layout
+
+\begin_layout Plain Layout
+
+				c_out => partial_sum(i+1)(M)
+\end_layout
+
+\begin_layout Plain Layout
+
+				); 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		end generate;
+\end_layout
+
+\begin_layout Plain Layout
+
+end generate
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ Si noti come si è evitato di generare il primo RCA portando direttamente
+ la prima riga della matrice dei prodotti parziali nella matrice delle somme
+ parziali.
+ Infine, si è prelevato il risultato come specificato nel grafico: i primi
+ M bit sono ricavati dalla prima colonna della matrice delle somme parziali,
+ mentre i restanti N bit sono ricavati dall'ultima riga della matrice.
+ L'implementazione completa del moltiplicatore è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio11/design/ripple_carry_multiplier.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+ripple
+\backslash
+_carry
+\backslash
+_multiplier.vhd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Simulazione e sintesi
+\end_layout
+
+\begin_layout Standard
+Per tale componente è stata effettuata una simulazione behavioural, durante
+ la quale sono stati fatti variare i due operandi da moltiplicare.
+ I risultati ottenuti sono osservabili in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:simulazione-rcm"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/simulazione_rcm.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:simulazione-rcm"
+
+\end_inset
+
+Simulazione behavioural del moltiplicatore RCM.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

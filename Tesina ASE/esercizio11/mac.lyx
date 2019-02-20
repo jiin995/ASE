@@ -1,0 +1,615 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{tikzpicture}
+\end_preamble
+\use_default_options true
+\master Tesina.lyx
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Moltiplicatore a celle MAC
+\end_layout
+
+\begin_layout Subsection
+Architettura
+\end_layout
+
+\begin_layout Standard
+Il moltiplicatore a celle MAC è un componente in grado di moltiplicare due
+ stringhe di bit tra loro.
+ Data la sua architettura (mostrata in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:architettura-mac"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), tale componente è definito moltiplicatore parallelo, in quanto le somme
+ parziali vengono calcolate contemporaneamente ad ogni passo.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/architettura_mac.png
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:architettura-mac"
+
+\end_inset
+
+Architettura del moltiplicatore MAC.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il moltiplicatore è stato realizzato mediante interconnessione di celle
+ elementari dette celle MAC: tale componente si occupa di calcolare le somme
+ parziali ad ogni stadio del moltiplicatore mediante l'utilizzo di:
+\end_layout
+
+\begin_layout Itemize
+una porta 
+\shape italic
+AND
+\shape default
+, per effettuare il prodotto parziale x
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+j
+\end_layout
+
+\end_inset
+
+y
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Itemize
+un 
+\shape italic
+full adder
+\shape default
+, per sommare tale prodotto con la somma parziale e il carry calcolati agli
+ stadi precedenti.
+\end_layout
+
+\begin_layout Standard
+L'architettura della cella è visibile in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:architettura-mac"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/architettura_cella_mac.png
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:architettura-cella-mac"
+
+\end_inset
+
+Architettura della cella MAC.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Implementazione
+\end_layout
+
+\begin_layout Subsubsection
+Cella MAC
+\end_layout
+
+\begin_layout Standard
+La singola cella MAC è stata realizzata mediante descrizione dataflow:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Implementazione di una cella MAC.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+architecture dataflow of mac_cell is
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+begin
+\end_layout
+
+\begin_layout Plain Layout
+
+	prodotto_xy <= X and Y;
+\end_layout
+
+\begin_layout Plain Layout
+
+	full_adder_inst : full_adder port map ( 
+\end_layout
+
+\begin_layout Plain Layout
+
+		X => prodotto_xy,
+\end_layout
+
+\begin_layout Plain Layout
+
+		Y => S_in,
+\end_layout
+
+\begin_layout Plain Layout
+
+		CIN => C_in,
+\end_layout
+
+\begin_layout Plain Layout
+
+		S => S_out,
+\end_layout
+
+\begin_layout Plain Layout
+
+		C => C_out
+\end_layout
+
+\begin_layout Plain Layout
+
+	);
+\end_layout
+
+\begin_layout Plain Layout
+
+end dataflow;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ L'implementazione completa è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio11/design/mac_cell.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+mac
+\backslash
+_cell.vhd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Moltiplicatore
+\end_layout
+
+\begin_layout Standard
+L'implementazione del moltiplicatore è stata realizzata mediante descrizione
+ structural: sono state generate dapprima generate le celle MAC, collegate
+ secondo il grafico visto precedentemente, e poi dalla matrice delle somme
+ parziali sono stati ricavati i valori corrispondenti al risultato della
+ moltiplicazione P.
+ In particolare, i primi M bit sono ricavabili dalla prima colonna della
+ matrice delle somme parziali, mentre i restanti N bit sono ricavabili dall'ulti
+ma riga della matrice, come mostrato qui:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Implementazione del moltiplicatore
+ a celle MAC.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+architecture structural of mac_multiplier is
+\end_layout
+
+\begin_layout Plain Layout
+
+begin
+\end_layout
+
+\begin_layout Plain Layout
+
+	mac_rows : for i in 0 to M-1 generate
+\end_layout
+
+\begin_layout Plain Layout
+
+		mac_columns : for j in 0 to N-1 generate
+\end_layout
+
+\begin_layout Plain Layout
+
+			mac_cell_inst : mac_cell port map (
+\end_layout
+
+\begin_layout Plain Layout
+
+				X => X(j),
+\end_layout
+
+\begin_layout Plain Layout
+
+				Y => Y(i),
+\end_layout
+
+\begin_layout Plain Layout
+
+				C_in => carry_int (i,j),
+\end_layout
+
+\begin_layout Plain Layout
+
+				S_in => partial_sum(i,j+1),
+\end_layout
+
+\begin_layout Plain Layout
+
+				C_out   => carry_int(i,j+1),
+\end_layout
+
+\begin_layout Plain Layout
+
+				S_out   => partial_sum(i+1,j)
+\end_layout
+
+\begin_layout Plain Layout
+
+			);         
+\end_layout
+
+\begin_layout Plain Layout
+
+		end generate;
+\end_layout
+
+\begin_layout Plain Layout
+
+		partial_sum (i+1,N) <= carry_int(i,N); 
+\end_layout
+
+\begin_layout Plain Layout
+
+		end generate;
+\end_layout
+
+\begin_layout Plain Layout
+
+	result_M : for i in 0 to M-1 generate
+\end_layout
+
+\begin_layout Plain Layout
+
+    	P(i) <= partial_sum(i+1,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+	end generate;
+\end_layout
+
+\begin_layout Plain Layout
+
+	result_N : for i in 1 to N generate
+\end_layout
+
+\begin_layout Plain Layout
+
+		P(i+M-1) <= partial_sum(M,i);
+\end_layout
+
+\begin_layout Plain Layout
+
+	end generate;
+\end_layout
+
+\begin_layout Plain Layout
+
+end structural;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ L'implementazione completa è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio11/design/mac_multiplier.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+mac
+\backslash
+_multiplier.vhd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Simulazione e sintesi
+\end_layout
+
+\begin_layout Standard
+Per tale componente è stata effettuata una simulazione behavioural, durante
+ la quale sono stati fatti variare i due operandi da moltiplicare.
+ I risultati ottenuti sono osservabili in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:simulazione-mac"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/simulazione_mac.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:simulazione-mac"
+
+\end_inset
+
+Simulazione behavioural del moltiplicatore MAC.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -17,14 +17,14 @@ entity mac_cell is
     );
 end mac_cell;
 
-architecture architectural of mac_cell is
+architecture dataflow of mac_cell is
 
 component full_adder is
   PORT (  X   :   in  STD_LOGIC;	--! full_adder input : addendo
           Y   :   in  STD_LOGIC;	--! full_adder input : addendo
-          CIN :   in  STD_LOGIC;	--! full_adder input : carry in ingresso
+          C_in :   in  STD_LOGIC;	--! full_adder input : carry in ingresso
           S   :   out STD_LOGIC;	--! full_adder output : somma
-          C   :   out STD_LOGIC		--! full_adder output : carry
+          C_out   :   out STD_LOGIC		--! full_adder output : carry
 
   );
 end component;
@@ -37,9 +37,9 @@ begin
 
     full_adder_inst : full_adder port map ( X   => prodotto_xy, 
                                             Y   => S_in,
-                                            CIN => C_in,
+                                            C_in => C_in,
                                             S   => S_out, -- somma parziale
-                                            C   => C_out  -- carry in uscita
+                                            C_out   => C_out  -- carry in uscita
                                 );
 
-end architectural;
+end dataflow;

@@ -629,13 +629,60 @@ Realizzare un sommatore Carry Select generico ad N bit.
  Il circuito deve essere realizzato a partire da blocchi di Full Adder,
  espresso mediante porte logiche XOR/AND/OR.
  Riportare considerazioni sull'area occupata e tempo di calcolo al variare
- di N e commentare il risultato con le formule teoriche.
+ di N e commentare il ris ultato con le formule teoriche.
 \end_layout
 
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
 filename "esercizio10/Tesina.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Moltiplicatori
+\end_layout
+
+\begin_layout Enumerate
+Realizzare in VHDL un circuito di moltiplicazione a celle MAC di N bit.
+ La cella MAC deve contenere un Full Adder (descritto gia in esercizi precedenti
+) ed una porta AND per la moltiplicazione parziale.
+ Tale cella deve essere replicata in una struttura ordinata (per righe e
+ colonne) per comporre il circuito intero di moltiplicazione.
+ Effettuare considerazioni di occupazione di area e di tempi di propagazione
+ dei segnali al variare di N per valori signicativi, apportando eventuali
+ commenti salienti.
+\end_layout
+
+\begin_layout Enumerate
+(ozionale se si fa il 3) Realizzare in hardware l'algoritmo della moltiplicazion
+e secondo Robertson per operandi ad 8 bit.
+ L'architettura deve essere realizzata sulla base dello schema di progettazione
+ PO/PC (Parte Operativa e Parte di Controllo).
+\end_layout
+
+\begin_layout Enumerate
+(opzionale se si fa il 2) Realizzare in hardware l'algoritmo della moltiplicazio
+ne secondo Booth per operandi ad 8 bit.
+ L'architettura deve essere realizzata sulla base dello schema di progettazione
+ PO/PC (Parte Operativa e Parte di Controllo).
+\end_layout
+
+\begin_layout Enumerate
+(opzionale) Realizzare in VHDL un circuito per la moltiplicazione con la
+ struttura di somma per righe, oppure somma per colonne oppure somma per
+ diagonale.
+ Discutere l'architettura al variare di N.
+\end_layout
+
+\begin_layout Standard
+/home/mirko/Desktop/ASE/ASE/Tesina ASE/esercizio10
+\begin_inset CommandInset include
+LatexCommand input
+filename "esercizio11/Tesina.lyx"
 
 \end_inset
 
