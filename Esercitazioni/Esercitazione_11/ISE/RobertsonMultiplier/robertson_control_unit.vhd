@@ -81,17 +81,17 @@ begin
                 
                 -- fase di scelta dell'operazione da fare
                 when choice     =>
-						  if counter_hit = '0' then 
-							  if current_multiplicand = '0' then
-									nxt     	<= right_shift;
-							  else
-									nxt     	<= add_sub;
+						  if counter_hit = '0' then     -- se operazione non terminata
+							  if current_multiplicand = '0' then    -- se q0=0
+									nxt     	<= right_shift;     -- solo shift
+							  else                                  -- se q0=1
+									nxt     	<= add_sub;         -- addizione
 							  end if;
-							else
-								if x_sign = '0' then
-									nxt     	<= idle;
-								else
-									nxt     	<= add_sub;
+							else                        -- se operazione terminata
+								if x_sign = '0' then                -- se moltiplicando positivo
+									nxt     	<= idle;            -- finito, torno in idle
+								else                                -- se moltiplicando negativo
+									nxt     	<= add_sub;         -- operazione di correzione
 								end if;
 							end if;
 
