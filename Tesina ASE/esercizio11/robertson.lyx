@@ -83,5 +83,209 @@
 Moltiplicatore di Robertson
 \end_layout
 
+\begin_layout Subsection
+Architettura
+\end_layout
+
+\begin_layout Standard
+Per poter realizzare un moltiplicatore di Robertson in grado di implementare
+ l'algoritmo di Robertson si è fatto riferimento al modello PO/PC utilizzando
+ i seguenti componenti:
+\end_layout
+
+\begin_layout Itemize
+Unità di controllo
+\end_layout
+
+\begin_layout Itemize
+Contatore
+\end_layout
+
+\begin_layout Itemize
+Registro M (per contenere il moltiplicando X)
+\end_layout
+
+\begin_layout Itemize
+Registri A e Q (per contenere rispettivamente i risultati parziali e il
+ moltiplicatore Y)
+\end_layout
+
+\begin_layout Itemize
+Un flip flop F
+\end_layout
+
+\begin_layout Itemize
+Un addizionatore parallelo: Carry Select add/sub
+\end_layout
+
+\begin_layout Itemize
+Porte XOR
+\end_layout
+
+\begin_layout Itemize
+Un multiplexer
+\end_layout
+
+\begin_layout Standard
+Lo schema strutturale è riportato in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:architettura-robertson"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/architettura_robertson.png
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:architettura-robertson"
+
+\end_inset
+
+Architettura del moltiplicatore di Robertson.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Essendo il moltiplicatore di Robertson una macchina sequenziale, sono stati
+ dapprima definiti gli stati della macchina.
+ L'automa a stati finiti è raffigurato in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:architettura-robertson-fsm"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+e prevede i seguenti stati:
+\end_layout
+
+\begin_layout Itemize
+Idle: la macchina permane in questo stato finchè non giunge un segnale di
+ 
+\shape italic
+start;
+\end_layout
+
+\begin_layout Itemize
+Init: in questo stato vengono inizializzati i registri e si resetta il contatore
+;
+\end_layout
+
+\begin_layout Itemize
+Choice: in questo stato si sceglie l'operazione da fare in base al valore
+ di 
+\shape italic
+counter_hit, x_sign
+\shape default
+ e 
+\shape italic
+q0
+\shape default
+;
+\end_layout
+
+\begin_layout Itemize
+Right_Shift: in questo stato viene effettuato lo shift dei registri A e
+ Q e viene salvato il valore di 
+\shape italic
+x_sign
+\shape default
+;
+\end_layout
+
+\begin_layout Itemize
+Add_Sub: in questo stato si effettua un'operazione di somma tra A (registro
+ di accumulazione) ed M; nel caso in cui il moltiplicando X sia negativo
+ e 
+\shape italic
+counter_hit 
+\shape default
+sia alto (fine dell'operazione di moltiplicazione) si effettuerà una sottrazione
+ A-M (operazione di correzione).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/architettura_robertson_fsm.png
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:architettura-robertson-fsm"
+
+\end_inset
+
+Automa a stati finiti (moltiplicatore di Robertson).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
