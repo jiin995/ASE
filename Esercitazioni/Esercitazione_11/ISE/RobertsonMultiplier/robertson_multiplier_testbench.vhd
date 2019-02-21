@@ -39,7 +39,7 @@ END robertson_multiplier_testbench;
 ARCHITECTURE behavior OF robertson_multiplier_testbench IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
-	constant N :NATURAL := 4;
+	constant N :NATURAL := 8;
     COMPONENT robertson_multiplier
 	 generic (N : natural :=N); 
     PORT(
@@ -95,8 +95,8 @@ BEGIN
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
-		X <= x"F";
-		Y <= x"4";
+		X <= x"F7";
+		Y <= x"46";
       wait for 10 ns;	
 		start <= '1', '0' after 15 ns ;
 	

@@ -113,7 +113,7 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -213,7 +213,7 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -575,7 +575,7 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -609,6 +609,184 @@ Simulazione behavioural del moltiplicatore MAC.
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si è proceduto infine alla sintesi del componente utilizzando diversi valori
+ di lunghezza delle stringhe di bit, e sono stati ottenuti il 
+\shape italic
+numero di slices 
+\shape default
+e 
+\shape italic
+maximum combinational path delay
+\shape default
+ in funzione del numero di bit per valutare le prestazioni di tale macchina.
+ I risultati sono riportati in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:grafici-sintesi-mac"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{groupplot}[group style={group size=2 by 1,horizontal sep=2cm}, yticklabel
+ style={font=
+\backslash
+footnotesize}, xticklabel style={font=
+\backslash
+footnotesize}]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+nextgroupplot[legend style={font=
+\backslash
+fontsize{4}{5}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+selectfont, anchor=north, at={(0.70,0.16)}}, xmin=0,xmax=128, ymin = 0, ymax
+ = 40000, grid=major, width=0.45
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth, height=
+\backslash
+axisdefaultheight,xlabel= Numero di bit, ylabel=Numero di slice] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addplot coordinates{     (0,0) (4, 24) (8, 100) (16, 409) (32, 1589) (64,
+ 6257) (128, 39662)     }; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+nextgroupplot[legend style={anchor=north, at={(0.50,0.95)}}, xmin=0,xmax=128,
+ ymin = 0, ymax = 290, grid=major, width=0.45
+\backslash
+textwidth, height=
+\backslash
+axisdefaultheight, xlabel= Numero di bit, ylabel=Maximum combinational path
+ delay (ns)] 
+\backslash
+addplot coordinates{     (0,0) (4, 3.350) (8, 12.268) (16, 27.655) (32, 57.259)
+ (64, 116.493) (128, 288.765)     };
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{groupplot}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{Grafici dei risultati ottenuti post-sintesi in funzione del numero
+ di bit.} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{fig:grafici-sintesi-mac}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dai risultati ottenuti si può notare come il 
+\shape italic
+maximum combinational path delay 
+\shape default
+diventi pressoché doppio al raddoppiare del parallelismo degli operandi
+ X e Y.
+ Per quanto concerne l'area, questa aumenta invece in maniera quadratica
+ in funzione del numero dei bit a causa dell'aumento esponenziale di celle
+ MAC necessarie (pari a 
+\begin_inset Formula $N^{2}$
+\end_inset
+
+).
+ 
 \end_layout
 
 \end_body

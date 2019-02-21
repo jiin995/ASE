@@ -4,7 +4,7 @@ library IEEE;
     use IEEE.math_real.all;
     
 entity robertson_multiplier is
-    GENERIC ( N :   INTEGER :=  8			 
+    GENERIC ( N :   INTEGER :=  128			 
         );
     PORT    (   X       :   in  STD_LOGIC_VECTOR (N-1 downto 0);
                 Y       :   in  STD_LOGIC_VECTOR (N-1 downto 0);
@@ -172,7 +172,7 @@ begin
 			);
 
 
-	F: F_in <= ((internal_m(N-1) and internal_q(0)) or F_out);
+	F: F_in <= ((internal_m(N-1) and internal_q(0)) or F_out);	-- determinazione di F : F sarà alto se e solo se sono entrambi alti M[N-1] e Q[0] (moltiplicatore negativo con operazione di somma), e resterà alto per tutta la durata dell'operazione
 	register_F	:	flipflop_d_risingEdge_asyncReset      
 		port		map	(  clock   		=> clock,
 								enable  		=> '1',
@@ -219,5 +219,5 @@ begin
 								reset_count          => reset_count
 			);
 	
-	Z	<= internal_a & internal_q;
+	Z	<= internal_a & internal_q;	-- uscita = concatenazione di a e q
 end Structural;

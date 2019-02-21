@@ -177,7 +177,7 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -416,6 +416,178 @@ Simulazione behavioural del moltiplicatore RCM.
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si è proceduto infine alla sintesi del componente utilizzando diversi valori
+ di lunghezza delle stringhe di bit, e sono stati ottenuti il 
+\shape italic
+numero di slices 
+\shape default
+e 
+\shape italic
+maximum combinational path delay
+\shape default
+ in funzione del numero di bit per valutare le prestazioni di tale macchina.
+ I risultati sono riportati in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:grafici-sintesi-rcm"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{groupplot}[group style={group size=2 by 1,horizontal sep=2cm}, yticklabel
+ style={font=
+\backslash
+footnotesize}, xticklabel style={font=
+\backslash
+footnotesize}]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+nextgroupplot[legend style={font=
+\backslash
+fontsize{4}{5}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+selectfont, anchor=north, at={(0.70,0.16)}}, xmin=0,xmax=128, ymin = 0, ymax
+ = 40000, grid=major, width=0.45
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth, height=
+\backslash
+axisdefaultheight,xlabel= Numero di bit, ylabel=Numero di slice] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addplot coordinates{     (0,0) (4, 26) (8, 91) (16, 363) (32, 1491) (64,
+ 6051) (128, 24387)     }; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+nextgroupplot[legend style={anchor=north, at={(0.50,0.95)}}, xmin=0,xmax=128,
+ ymin = 0, ymax = 290, grid=major, width=0.45
+\backslash
+textwidth, height=
+\backslash
+axisdefaultheight, xlabel= Numero di bit, ylabel=Maximum combinational path
+ delay (ns)] 
+\backslash
+addplot coordinates{     (0,0) (4, 4.257) (8, 9.773) (16, 23.184) (32, 48.206)
+ (64, 98.034) (128, 198.123)     };
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{groupplot}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{Grafici dei risultati ottenuti post-sintesi in funzione del numero
+ di bit.} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{fig:grafici-sintesi-rcm}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I risultati ottenuti variano in maniera molto simile a quelli del moltiplicatore
+ a celle MAC al variare del numero di bit: tuttavia, questo componente ha
+ prestazioni migliori sia in termini di area che di tempi.
+ Questo è probabilmente dovuto al fatto che, in tale implementazione, la
+ matrice dei prodotti parziali e le somme parziali sono calcolate separatamente,
+ permettendo alla board di ottimizzare ulteriormente il componente in fase
+ di sintesi utilizzando a pieno la matrice di interconnessione tra i CLB
+ presenti nell'FPGA.
 \end_layout
 
 \end_body

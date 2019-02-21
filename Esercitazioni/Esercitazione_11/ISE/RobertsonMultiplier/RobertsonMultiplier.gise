@@ -21,8 +21,109 @@
 
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="RobertsonMultiplier.xise"/>
 
-  <files xmlns="http://www.xilinx.com/XMLSchema"/>
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="robertson_multiplier_testbench_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="robertson_multiplier_testbench_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="robertson_multiplier_testbench_isim_beh.wdb"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="robertson_multiplier_testbench_stx_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
+  </files>
 
-  <transforms xmlns="http://www.xilinx.com/XMLSchema"/>
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1550744956" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1550744956">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1550745200" xil_pn:in_ck="5443132792690424225" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1550745200">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="counter_UpN_Re_Sr.vhd"/>
+      <outfile xil_pn:name="flipflop_d_risingEdge_asyncReset.vhd"/>
+      <outfile xil_pn:name="flipflopd.vhd"/>
+      <outfile xil_pn:name="flipflopmux.vhd"/>
+      <outfile xil_pn:name="full_adder.vhd"/>
+      <outfile xil_pn:name="mux2.vhd"/>
+      <outfile xil_pn:name="mux2_1.vhd"/>
+      <outfile xil_pn:name="overflow_checker.vhd"/>
+      <outfile xil_pn:name="register_d_Re_Ar.vhd"/>
+      <outfile xil_pn:name="rippleCarry_adder.vhd"/>
+      <outfile xil_pn:name="rippleCarry_addsub.vhd"/>
+      <outfile xil_pn:name="robertson_control_2.vhd"/>
+      <outfile xil_pn:name="robertson_multiplier.vhd"/>
+      <outfile xil_pn:name="robertson_multiplier_testbench.vhd"/>
+      <outfile xil_pn:name="scan_chain.vhd"/>
+      <outfile xil_pn:name="scan_chain_testbench.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1550744958" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="7019366119918127737" xil_pn:start_ts="1550744958">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1550744958" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="3622489002627519959" xil_pn:start_ts="1550744958">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1550744958" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-6505289617256304761" xil_pn:start_ts="1550744958">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1550745202" xil_pn:in_ck="5443132792690424225" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1550745202">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="counter_UpN_Re_Sr.vhd"/>
+      <outfile xil_pn:name="flipflop_d_risingEdge_asyncReset.vhd"/>
+      <outfile xil_pn:name="flipflopd.vhd"/>
+      <outfile xil_pn:name="flipflopmux.vhd"/>
+      <outfile xil_pn:name="full_adder.vhd"/>
+      <outfile xil_pn:name="mux2.vhd"/>
+      <outfile xil_pn:name="mux2_1.vhd"/>
+      <outfile xil_pn:name="overflow_checker.vhd"/>
+      <outfile xil_pn:name="register_d_Re_Ar.vhd"/>
+      <outfile xil_pn:name="rippleCarry_adder.vhd"/>
+      <outfile xil_pn:name="rippleCarry_addsub.vhd"/>
+      <outfile xil_pn:name="robertson_control_2.vhd"/>
+      <outfile xil_pn:name="robertson_multiplier.vhd"/>
+      <outfile xil_pn:name="robertson_multiplier_testbench.vhd"/>
+      <outfile xil_pn:name="scan_chain.vhd"/>
+      <outfile xil_pn:name="scan_chain_testbench.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1550745204" xil_pn:in_ck="5443132792690424225" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="801530784006739682" xil_pn:start_ts="1550745202">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="fuse.log"/>
+      <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="isim.log"/>
+      <outfile xil_pn:name="robertson_multiplier_testbench_beh.prj"/>
+      <outfile xil_pn:name="robertson_multiplier_testbench_isim_beh.exe"/>
+      <outfile xil_pn:name="xilinxsim.ini"/>
+    </transform>
+    <transform xil_pn:end_ts="1550745204" xil_pn:in_ck="3269438600388952146" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-8900546360027159601" xil_pn:start_ts="1550745204">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="isim.cmd"/>
+      <outfile xil_pn:name="isim.log"/>
+      <outfile xil_pn:name="robertson_multiplier_testbench_isim_beh.wdb"/>
+    </transform>
+  </transforms>
 
 </generated_project>

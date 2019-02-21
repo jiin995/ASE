@@ -163,10 +163,9 @@ numero di slices
 \shape default
 e 
 \shape italic
-minimum period
+maximum combinational path delay
 \shape default
- (reciproco della massima frequenza di funzionamento) in funzione del numero
- n di bit per valutare le prestazioni di tale macchina.
+ in funzione del numero n di bit per valutare le prestazioni di tale macchina.
  I risultati sono riportati in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -232,7 +231,7 @@ fontsize{4}{5}
 
 \backslash
 selectfont, anchor=north, at={(0.70,0.16)}}, xmin=0,xmax=128, ymin = 0, ymax
- = 900, grid=major, width=0.45
+ = 200, grid=major, width=0.45
 \end_layout
 
 \begin_layout Plain Layout
@@ -248,8 +247,8 @@ axisdefaultheight,xlabel= Numero di bit, ylabel=Numero di slice]
 
 
 \backslash
-addplot coordinates{     (0,0) (4, 19) (8, 42) (16, 97) (32, 230) (64,432)
- (128, 849)	};
+addplot coordinates{     (0,0) (4, 6) (8, 12) (16, 25) (32, 49) (64,97)
+ (128, 193)	};
 \end_layout
 
 \begin_layout Plain Layout
@@ -257,19 +256,20 @@ addplot coordinates{     (0,0) (4, 19) (8, 42) (16, 97) (32, 230) (64,432)
 
 \backslash
 nextgroupplot[legend style={anchor=north, at={(0.50,0.95)}}, xmin=0,xmax=128,
- ymin = 0, ymax = 5, grid=major, width=0.45
+ ymin = 0, ymax = 28, grid=major, width=0.45
 \backslash
 textwidth, height=
 \backslash
-axisdefaultheight, xlabel= Numero di bit, ylabel=Minimum period (ns)] 
+axisdefaultheight, xlabel= Numero di bit, ylabel=Maximum combinational path
+ delay (ns)] 
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-addplot coordinates{     (0,0) (4, 1.429) (8, 2.054) (16, 2.480) (32, 2.935)
- (64, 3.621) (128, 4.134)     };
+addplot coordinates{     (0,0) (4, 1.551) (8, 2.523) (16, 4.486) (32, 7.703)
+ (64, 14.137) (128, 27.004)     };
 \end_layout
 
 \begin_layout Plain Layout
@@ -319,33 +319,12 @@ end{figure}
 
 \begin_layout Standard
 Si osservi come, rispetto ai risultati ottenuti con il Ripple Carry Adder,
- il circuito occupi un numero di slices (e dunque area) sensibilmente maggiore.
- Ciò è dovuto al fatto che, introducendo il calcolo dei riporti in parallelo,
- il numero di componenti è aumentato: tuttavia, tale differenza è apprezzabile
- solo con numero più elevato di bit (dai 32 in poi).
- Per quanto riguarda i ritardi, invece, non si registrano particolari differenze
- rispetto al caso RCA: i periodi minimi risultano pressoché identici.
+ il circuito occupi un numero di slices (e dunque area) e possieda un maximum
+ combinational path delay pressoché identico.
  Possiamo dunque concludere che, con l'utilizzo del tool di sintesi per
  board Nexys 4, non sono particolarmente apprezzabili le differenze tra
  l'utilizzo di un RCA e di un CLA grazie alle capacità di ottimizzazione
  del suddetto tool.
- Si noti infine che, a fronte di sintesi del componente con un numero di
- bit maggiore di 32, il tool riporta il seguente warning: 
-\begin_inset Quotes eld
-\end_inset
-
-
-\shape italic
-WARNING:Xst:1336 - (*) More than 100% of Device resources are used
-\shape default
-
-\begin_inset Quotes erd
-\end_inset
-
-.
- Questo è dovuto al fatto che le risorse necessarie per sintetizzare il
- componente sulla board non sono sufficienti, e dunque tali risultati sono
- da considerarsi solo in teoria.
 \end_layout
 
 \end_body

@@ -2,7 +2,7 @@ library IEEE;
     use IEEE.STD_LOGIC_1164.all;
 
 entity carry_look_ahead_adder is 
-    generic (   width     :   NATURAL :=2
+    generic (   width     :   NATURAL := 8
     );
     port (  --! carry_look_ahead_adder input   : carry ingresso
             c_in   :   in STD_LOGIC;  
