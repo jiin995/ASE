@@ -39,7 +39,6 @@ entity overflow_checker is
 port (
             a:   in  STD_LOGIC; --! bit più significativo (segno) di A
             b:   in  STD_LOGIC; --! bit più significativo (segno) di B
-				c_out : in STD_LOGIC;
             subtract: in STD_LOGIC; --! bit di operazione: 1 se sottrazione, 0 se addizione
             s:   in  STD_LOGIC; --! bit più significativo (segno) di S
             overflow: out STD_LOGIC --! bit alto se ho una condizione di overflow
