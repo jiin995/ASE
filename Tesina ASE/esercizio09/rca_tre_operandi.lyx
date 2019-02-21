@@ -221,17 +221,27 @@ nextgroupplot[legend style={font=
 fontsize{4}{5} 
 \backslash
 selectfont, anchor=south, at={(0.77,0.01)}}, xmin=0,xmax=128, ymin = 0, ymax
- = 1600, grid=major, width=0.45 
+ = 450, grid=major, width=0.45 
 \backslash
 textwidth, height=
 \backslash
 axisdefaultheight,xlabel= Numero di bit, ylabel=Numero di slice]   
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
-addplot coordinates{     (0,0) (4, 29) (8, 68) (16, 143) (32, 305) (64,605)
- (128, 1228)     };   
+addplot coordinates{     (0,0) (4, 11) (8, 27) (16, 55) (32, 111) (64,223)
+ (128, 447)     }; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
-addplot coordinates{     (0,0) (4, 32) (8, 69) (16, 143) (32, 343) (64,777)
- (128, 1521)     };  
+addplot coordinates{    (0,0) (4, 11) (8, 23) (16, 47) (32, 95) (64,191)
+ (128, 383)     };  
 \backslash
 addlegendentry{CS}  
 \backslash
@@ -242,18 +252,28 @@ nextgroupplot[legend style={font=
 fontsize{4}{5} 
 \backslash
 selectfont, anchor=south, at={(0.77,0.01)}}, xmin=0,xmax=128, ymin = 0, ymax
- = 7.5, grid=major, width=0.45
+ = 28.5, grid=major, width=0.45
 \backslash
 textwidth, height=
 \backslash
-axisdefaultheight, xlabel= Numero di bit, ylabel=Minimum period (ns)]  
- 
+axisdefaultheight, xlabel= Numero di bit, ylabel=Maximum combinational path
+ delay (ns)]   
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
-addplot coordinates{     (0,0) (4, 1.870) (8, 2.404) (16, 2.974) (32, 3.501)
- (64, 4.307) (128, 4.747)     };  
+addplot coordinates{     (0,0) (4, 2.477) (8, 2.884) (16, 4.753) (32, 7.709)
+ (64, 14.143) (128, 27.010)     };  
+\end_layout
+
+\begin_layout Plain Layout
+
+
 \backslash
-addplot coordinates{     (0,0) (4, 1.782) (8, 2.804) (16, 4.040) (32, 4.871)
- (64, 5.715) (128, 7.117)     };  
+addplot coordinates{     (0,0) (4, 2.477) (8, 3.244) (16, 5.303) (32, 8.554)
+ (64, 15.054) (128, 28.056)     };  
 \backslash
 addlegendentry{CS}  
 \backslash
@@ -281,13 +301,13 @@ end{figure}
 \end_layout
 
 \begin_layout Standard
-Come previsto, le prestazioni del Carry Save sono molto migliori, specialmente
+Come previsto, le prestazioni del Carry Save sono migliori, specialmente
  all'aumentare del numero di bit.
  Grazie all'utilizzo dei blocchi carry save, infatti, i riporti vengono
  calcolati contemporaneamente in tutti gli stadi, ottimizzando i tempi del
  circuito rispetto al caso con gli RCA.
- Anche in termini di area il Carry Save è migliore, in quanto utilizza un
- full adder in meno per il bit più significativo del risultato.
+ In termini di slice occupati, però, il Carry Save risulta peggiore per
+ l'utilizzo di un full adder in più.
 \end_layout
 
 \end_body

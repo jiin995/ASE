@@ -172,7 +172,7 @@ numero di slices
 \begin_layout Itemize
 
 \shape italic
-minimum period
+maximum combinational path delay
 \shape default
  (inteso come reciproco della massima frequenza di funzionamento), relativo
  dunque al ritardo.
@@ -186,10 +186,7 @@ minimum period
 \end_layout
 
 \begin_layout Standard
-Si sono inoltre utilizzati due registri per i valori in ingresso ed in uscita,
- in modo tale da evitare eventuali ritardi dovuti all'utilizzo di blocchi
- I/O dell'FPGA che avrebbero potuto alterare i risultati dell'esperimento.
- I risultati, in funzione del numero di bit, sono riportati in fig.
+I risultati, in funzione del numero di bit, sono riportati in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:grafici-sintesi.png"
@@ -200,13 +197,6 @@ noprefix "false"
 \end_inset
 
 .
- Si noti come, nel caso dell'area, i risultati siano perfettamente coerenti
- con l'andamento lineare teorico già descritto precedentemente.
- Nel caso del minimum period, invece, l'andamento risulta migliore nel caso
- pratico che in quello teorico: ciò è dovuto al fatto che, in fase di sintesi,
- il tool effettua un'ottimizzazione dell'architettura del componente, sfruttando
- a pieno le matrici di interconnessione tra i CLB presenti nell'FPGA per
- ridurre i ritardi del circuito.
 \end_layout
 
 \begin_layout Standard
@@ -261,7 +251,7 @@ fontsize{4}{5}
 
 \backslash
 selectfont, anchor=north, at={(0.70,0.16)}}, xmin=0,xmax=128, ymin = 0, ymax
- = 900, grid=major, width=0.45
+ = 195, grid=major, width=0.45
 \end_layout
 
 \begin_layout Plain Layout
@@ -277,8 +267,8 @@ axisdefaultheight,xlabel= Numero di bit, ylabel=Numero di slice]
 
 
 \backslash
-addplot coordinates{     (0,0) (4, 19) (8, 42) (16, 96) (32, 227) (64,411)
- (128, 844)     }; 
+addplot coordinates{     (0,0) (4, 6) (8, 12) (16, 24) (32, 48) (64,96)
+ (128, 192)     }; 
 \end_layout
 
 \begin_layout Plain Layout
@@ -286,14 +276,15 @@ addplot coordinates{     (0,0) (4, 19) (8, 42) (16, 96) (32, 227) (64,411)
 
 \backslash
 nextgroupplot[legend style={anchor=north, at={(0.50,0.95)}}, xmin=0,xmax=128,
- ymin = 0, ymax = 5, grid=major, width=0.45
+ ymin = 0, ymax = 28, grid=major, width=0.45
 \backslash
 textwidth, height=
 \backslash
-axisdefaultheight, xlabel= Numero di bit, ylabel=Minimum period (ns)] 
+axisdefaultheight, xlabel= Numero di bit, ylabel=Maximum combinational path
+ delay (ns)] 
 \backslash
-addplot coordinates{     (0,0) (4, 1.429) (8, 2.054) (16, 2.351) (32, 2.848)
- (64, 3.690) (128, 4.130)     };
+addplot coordinates{     (0,0) (4, 1.551) (8, 2.523) (16, 4.095) (32, 7.312)
+ (64, 13.746) (128, 26.613)     };
 \end_layout
 
 \begin_layout Plain Layout
@@ -335,6 +326,44 @@ end{figure}
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si noti come, sia nel caso dell'area che con il ritardo, i risultati siano
+ perfettamente coerenti con l'andamento lineare teorico già descritto precedente
+mente.
+ L'andamento risulta tuttavia migliore nel caso pratico che in quello teorico:
+ ciò è dovuto al fatto che, in fase di sintesi, il tool effettua un'ottimizzazio
+ne dell'architettura del componente, sfruttando a pieno le matrici di interconne
+ssione tra i CLB presenti nell'FPGA per ridurre i ritardi del circuito.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si noti infine che, a fronte di sintesi del componente con un numero di
+ bit maggiore di 64, il tool riporta il seguente warning: 
+\begin_inset Quotes eld
+\end_inset
+
+
+\shape italic
+WARNING:Xst:1336 - (*) More than 100% of Device resources are used
+\shape default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Questo è dovuto al fatto che le risorse necessarie per sintetizzare il
+ componente sulla board non sono sufficienti, e dunque tali risultati sono
+ da considerarsi solo in teoria.
 \end_layout
 
 \end_body

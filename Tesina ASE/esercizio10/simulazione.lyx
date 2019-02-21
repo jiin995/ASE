@@ -203,7 +203,7 @@ Si è deciso quindi di fissare
  Per effettuare una dimostrazione dell'efficacia di tale formula, sono riportati
  in tabella i 
 \shape italic
-minimum period 
+maximum combinational path delay 
 \shape default
 di funzionamento del Carry Select ottenuti al variare di M e P (con N fissato
  pari a 32):
@@ -230,7 +230,7 @@ P=1, M=64
 \begin_inset Text
 
 \begin_layout Plain Layout
-3.690 ns
+13.746 ns
 \end_layout
 
 \end_inset
@@ -250,7 +250,7 @@ P=2, M=32
 \begin_inset Text
 
 \begin_layout Plain Layout
-3.760 ns
+9.602 ns
 \end_layout
 
 \end_inset
@@ -270,7 +270,7 @@ P=4, M=16
 \begin_inset Text
 
 \begin_layout Plain Layout
-3.753 ns
+8.598 ns
 \end_layout
 
 \end_inset
@@ -290,7 +290,7 @@ P=8, M=8
 \begin_inset Text
 
 \begin_layout Plain Layout
-3.618 ns
+7.896 ns
 \end_layout
 
 \end_inset
@@ -310,7 +310,7 @@ P=16, M=4
 \begin_inset Text
 
 \begin_layout Plain Layout
-3.685 ns
+18.505 ns
 \end_layout
 
 \end_inset
@@ -330,7 +330,7 @@ P=32, M=2
 \begin_inset Text
 
 \begin_layout Plain Layout
-3.690 ns
+16.134 ns
 \end_layout
 
 \end_inset
@@ -350,7 +350,7 @@ P=64, M=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-3.690 ns
+16.442 ns
 \end_layout
 
 \end_inset
@@ -392,7 +392,7 @@ numero di slices
 \shape default
 e 
 \shape italic
-minimum period
+maximum combinational path delay
 \shape default
  in funzione del numero di bit per valutare le prestazioni di tale macchina.
  I risultati sono riportati in fig.
@@ -417,121 +417,90 @@ status open
 
 
 \backslash
-begin{figure}  
-\end_layout
-
-\begin_layout Plain Layout
-
-
+begin{figure} 
 \backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-
+centering  
 \backslash
-begin{tikzpicture}  
-\end_layout
-
-\begin_layout Plain Layout
-
-
+begin{tikzpicture}    
 \backslash
 begin{groupplot}[group style={group size=2 by 1,horizontal sep=2cm}, yticklabel
  style={font=
 \backslash
 footnotesize}, xticklabel style={font=
 \backslash
-footnotesize}]
-\end_layout
-
-\begin_layout Plain Layout
-
-
+footnotesize}]  
 \backslash
 nextgroupplot[legend style={font=
 \backslash
-fontsize{4}{5}
-\end_layout
-
-\begin_layout Plain Layout
-
-
+fontsize{4}{5} 
 \backslash
-selectfont, anchor=north, at={(0.70,0.16)}}, xmin=0,xmax=128, ymin = 0, ymax
- = 1250, grid=major, width=0.45
-\end_layout
-
-\begin_layout Plain Layout
-
-
+selectfont, anchor=south, at={(0.77,0.01)}}, xmin=0,xmax=128, ymin = 0, ymax
+ = 280, grid=major, width=0.45 
 \backslash
 textwidth, height=
 \backslash
-axisdefaultheight,xlabel= Numero di bit, ylabel=Numero di slice] 
+axisdefaultheight,xlabel= Numero di bit, ylabel=Numero di slice]   
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-addplot coordinates{     (0,0) (4, 19) (9, 58) (16, 99) (36, 228) (64,387)
- (121, 827)     }; 
+addplot coordinates{     (0,0) (4, 6) (9, 14) (16, 24) (36, 64) (64,134)
+ (121, 275)     }; 
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-nextgroupplot[legend style={anchor=north, at={(0.50,0.95)}}, xmin=0,xmax=128,
- ymin = 0, ymax = 5, grid=major, width=0.45
+addplot coordinates{     (0,0) (4, 6) (8, 12) (16, 24) (32, 48) (64,96)
+ (128, 192)     };   
+\backslash
+addlegendentry{CSEL}  
+\backslash
+addlegendentry{RCA}  
+\backslash
+nextgroupplot[legend style={font=
+\backslash
+fontsize{4}{5} 
+\backslash
+selectfont, anchor=south, at={(0.77,0.01)}}, xmin=0,xmax=128, ymin = 0, ymax
+ = 27, grid=major, width=0.45
 \backslash
 textwidth, height=
 \backslash
-axisdefaultheight, xlabel= Numero di bit, ylabel=Minimum period (ns)]
+axisdefaultheight, xlabel= Numero di bit, ylabel=Maximum combinational path
+ delay (ns)]   
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-addplot coordinates{     (0,0) (4, 1.429) (9, 2.057) (16, 2.475) (36, 2.977)
- (64, 3.618) (121, 4.194)     };
+addplot coordinates{     (0,0) (4, 1.551) (9, 3.004) (16, 4.995) (36, 7.829)
+ (64, 10.695) (121, 15.326)     };
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-end{groupplot}
-\end_layout
-
-\begin_layout Plain Layout
-
-
+addplot coordinates{     (0,0) (4, 1.551) (8, 2.523) (16, 4.095) (32, 7.312)
+ (64, 13.746) (128, 26.613)     }; 
 \backslash
-end{tikzpicture} 
-\end_layout
-
-\begin_layout Plain Layout
-
-
+addlegendentry{CSEL}  
+\backslash
+addlegendentry{RCA}  
+\backslash
+end{groupplot}  
+\backslash
+end{tikzpicture}   
 \backslash
 caption{Grafici dei risultati ottenuti post-sintesi in funzione del numero
- di bit.} 
-\end_layout
-
-\begin_layout Plain Layout
-
-
+ di bit.}  
 \backslash
-label{fig:grafici-sintesi-csel}
-\end_layout
-
-\begin_layout Plain Layout
-
-
+label{fig:grafici-sintesi-csel}  
 \backslash
 end{figure}
 \end_layout
@@ -546,10 +515,9 @@ end{figure}
 \end_layout
 
 \begin_layout Standard
-Si noti come non sono risultate particolari differenze rispetto all'utilizzo
- di un normale RCA: ciò è probabilmente dovuto al fatto che il tool di sintesi
- ottimizza il circuito e fa pieno utilizzo della matrice di interconnessione
- tra gli slices per migliorare le prestazioni del circuito.
+Si noti come i risultati ottenuti sono coerenti con la teoria: l'area occupata
+ dal circuito è maggiore rispetto a quella di un RCA, ma i tempi sono migliorati
+ specialmente in corrispondenza di un numero alto di bit.
 \end_layout
 
 \end_body

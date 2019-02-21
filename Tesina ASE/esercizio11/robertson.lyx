@@ -106,8 +106,8 @@ Registro M (per contenere il moltiplicando X)
 \end_layout
 
 \begin_layout Itemize
-Registri A e Q (per contenere rispettivamente i risultati parziali e il
- moltiplicatore Y)
+Registri A e Q scan chain (per contenere rispettivamente i risultati parziali
+ e il moltiplicatore Y)
 \end_layout
 
 \begin_layout Itemize
@@ -416,6 +416,10 @@ _multiplier.vhd}
 
 \end_layout
 
+\begin_layout Subsubsection
+Parte di controllo
+\end_layout
+
 \begin_layout Standard
 In particolare, per quanto riguarda la parte di controllo, questa è stata
  realizzata mediante una control_unit implementata come FSM in descrizione
@@ -553,6 +557,160 @@ _unit.vhd}
 
 
 \begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Parte operativa
+\end_layout
+
+\begin_layout Standard
+Il funzionamento della parte operativa è il seguente: inizialmente, il moltiplic
+ando X e il moltiplicatore Y vengono caricati rispettivamente nei registri
+ Q e M.
+ In testa al registro M, invece, viene posto il flip flop F che determina
+ il valore da inserire in M in caso di shift a destra: F sarà alto se e
+ solo se sono entrambi alti M[N-1] e Q[0] (moltiplicatore negativo con operazion
+e di somma), e resterà alto per tutta la durata dell'operazione:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Determinazione di F.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+F: F_in <= ((internal_m(N-1) and internal_q(0)) or F_out);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Le operazioni di somma vengono effettuate utilizzando il Carry Select Add/Sub,
+ che si occuperà di sommare il contenuto del registro A (somma parziale)
+ con M, il complemento di M o un vettore di zeri a seconda della modalità
+ di funzionamento determinata dalla control unit.
+ Per effettuare il complemento, si utilizza una porta XOR in uscita ad un
+ multiplexer il cui segnale di selezione è pilotato dalla control unit.
+ Per quanto concerne l'uscita, questa sarà determinata dalla concatenazione
+ di A e Q (N+M bit):
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Determinazione di Z.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+Z <= internal_a & internal_q; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Simulazione e sintesi
+\end_layout
+
+\begin_layout Standard
+Per tale componente è stata effettuata una simulazione behavioural: i valori
+ di X e Y sono stati posti, rispettivamente, a -9 e 70.
+ Una volta dato lo start, la macchina inizia ad effettuare le dovute operazioni
+ fino a quando stop non diventa alto e in Z viene riportato il risultato
+ corretto.
+ I risultati ottenuti sono osservabili in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:simulazione-mac-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/simulazione_robertson.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:simulazione-mac-1"
+
+\end_inset
+
+Simulazione behavioural del moltiplicatore di Robertson.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
