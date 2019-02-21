@@ -72,6 +72,7 @@ begin
 
                 -- inizializzazione 
                 when init       =>
+				    -- resetto i regestri e il contatore
                     en_q        <= '1';
                     en_m        <= '1'; 
                     reset_count <= '0';
@@ -97,9 +98,11 @@ begin
                 when add_sub   => 
 							-- controllo se devo effettuare la somma o la sottrazione
 							if counter_hit = '0' then
-								en_a    		<= '1';             -- abilito a così carica il risultato dell'adder che lavora sempre!
+							   -- abilito a così carica il risultato dell'adder che lavora sempre!
+								en_a    		<= '1';             
 								nxt     		<= right_shift;
 							else 
+								-- faccio la correzzione
 								en_a        <= '1';
 								subtract    <= '1'; 
 								nxt	  		<= idle;
