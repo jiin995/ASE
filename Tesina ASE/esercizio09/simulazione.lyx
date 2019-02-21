@@ -163,7 +163,7 @@ numero di slices
 \shape default
 e 
 \shape italic
-minimum period
+maximum combinational path delay
 \shape default
  in funzione del numero di bit per valutare le prestazioni di tale macchina.
  I risultati sono riportati in fig.
@@ -231,7 +231,7 @@ fontsize{4}{5}
 
 \backslash
 selectfont, anchor=north, at={(0.70,0.16)}}, xmin=0,xmax=128, ymin = 0, ymax
- = 1250, grid=major, width=0.45
+ = 450, grid=major, width=0.45
 \end_layout
 
 \begin_layout Plain Layout
@@ -247,8 +247,8 @@ axisdefaultheight,xlabel= Numero di bit, ylabel=Numero di slice]
 
 
 \backslash
-addplot coordinates{     (0,0) (4, 29) (8, 68) (16, 143) (32, 305) (64,605)
- (128, 1228)     }; 
+addplot coordinates{     (0,0) (4, 11) (8, 27) (16, 55) (32, 111) (64,223)
+ (128, 447)     }; 
 \end_layout
 
 \begin_layout Plain Layout
@@ -256,14 +256,15 @@ addplot coordinates{     (0,0) (4, 29) (8, 68) (16, 143) (32, 305) (64,605)
 
 \backslash
 nextgroupplot[legend style={anchor=north, at={(0.50,0.95)}}, xmin=0,xmax=128,
- ymin = 0, ymax = 5, grid=major, width=0.45
+ ymin = 0, ymax = 28, grid=major, width=0.45
 \backslash
 textwidth, height=
 \backslash
-axisdefaultheight, xlabel= Numero di bit, ylabel=Minimum period (ns)] 
+axisdefaultheight, xlabel= Numero di bit, ylabel=Maximum combinational path
+ delay (ns)] 
 \backslash
-addplot coordinates{     (0,0) (4, 1.870) (8, 2.404) (16, 2.974) (32, 3.501)
- (64, 4.307) (128, 4.747)     };
+addplot coordinates{     (0,0) (4, 2.477) (8, 2.884) (16, 4.753) (32, 7.709)
+ (64, 14.143) (128, 27.010)     };
 \end_layout
 
 \begin_layout Plain Layout
@@ -313,9 +314,11 @@ end{figure}
 
 \begin_layout Standard
 Come ci si aspettava, il circuito occupa molta più area rispetto alle sue
- controparti con solo due operandi.
- Tuttavia, i tempi di elaborazione risultano molto simili, grazie alle capacità
- di ottimizzazione del tool di sintesi.
+ controparti con solo due operandi, ma il
+\shape italic
+ maximum combinational path delay 
+\shape default
+risulta notevolmente ridotto.
 \end_layout
 
 \end_body

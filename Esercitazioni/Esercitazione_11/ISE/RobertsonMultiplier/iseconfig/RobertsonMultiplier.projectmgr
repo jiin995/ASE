@@ -7,6 +7,7 @@
    <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
+<<<<<<< HEAD
          <ClosedNode>/robertson_multiplier - Structural |home|simone|Scrivania|ASE|Esercitazioni|Esercitazione_11|ISE|RobertsonMultiplier|robertson_multiplier.vhd</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
@@ -17,6 +18,20 @@
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001d1000000020000000000000000000000000200000064ffffffff000000810000000300000002000001d10000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>robertson_multiplier - Structural (/home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_11/ISE/RobertsonMultiplier/robertson_multiplier.vhd)</CurrentItem>
+=======
+         <ClosedNode>/robertson_multiplier - Structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_11|ISE|RobertsonMultiplier|robertson_multiplier.vhd/register_a - scan_chain - behavioural</ClosedNode>
+         <ClosedNode>/robertson_multiplier - Structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_11|ISE|RobertsonMultiplier|robertson_multiplier.vhd/register_q - scan_chain - behavioural</ClosedNode>
+         <ClosedNode>/robertson_multiplier - Structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_11|ISE|RobertsonMultiplier|robertson_multiplier.vhd/rippleCarry_inst - rippleCarry_addsub - structural</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>robertson_multiplier - Structural (/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_11/ISE/RobertsonMultiplier/robertson_multiplier.vhd)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000505000000020000000000000000000000000200000064ffffffff000000810000000300000002000005050000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>robertson_multiplier - Structural (/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_11/ISE/RobertsonMultiplier/robertson_multiplier.vhd)</CurrentItem>
+>>>>>>> 931cf161edf4151ee7461fc67b03872ffcdaf2d3
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
       <ClosedNodes>
@@ -28,6 +43,7 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
+<<<<<<< HEAD
          <SelectedItem>Synthesize - XST</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
@@ -35,6 +51,15 @@
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000016e000000010000000100000000000000000000000064ffffffff0000008100000000000000010000016e0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>Synthesize - XST</CurrentItem>
+=======
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000014b000000010000000100000000000000000000000064ffffffff0000008100000000000000010000014b0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+>>>>>>> 931cf161edf4151ee7461fc67b03872ffcdaf2d3
    </ItemView>
    <ItemView guiview="File" >
       <ClosedNodes>
@@ -43,9 +68,15 @@
       <SelectedItems/>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+<<<<<<< HEAD
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000261000000040101000100000000000000000000000064ffffffff0000008100000000000000040000010f00000001000000000000005d0000000100000000000000840000000100000000000000710000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>counter_UpN_Re_Sr.vhd</CurrentItem>
+=======
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000048f000000040101000100000000000000000000000064ffffffff0000008100000000000000040000033d00000001000000000000005d0000000100000000000000840000000100000000000000710000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_11/ISE/RobertsonMultiplier/counter_UpN_Re_Sr.vhd</CurrentItem>
+>>>>>>> 931cf161edf4151ee7461fc67b03872ffcdaf2d3
    </ItemView>
    <ItemView guiview="Library" >
       <ClosedNodes>
@@ -55,11 +86,34 @@
       <SelectedItems/>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+<<<<<<< HEAD
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000017d000000010001000100000000000000000000000064ffffffff0000008100000000000000010000017d0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>work</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
+=======
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000128000000010001000100000000000000000000000064ffffffff000000810000000000000001000001280000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>work</CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/robertson_multiplier_testbench - behavior |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_11|ISE|RobertsonMultiplier|robertson_multiplier_testbench.vhd/uut - robertson_multiplier - Structural</ClosedNode>
+         <ClosedNode>/tb_shifter - behavior |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_11|ISE|RobertsonMultiplier|scan_chain_testbench.vhd</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>robertson_multiplier_testbench - behavior (/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_11/ISE/RobertsonMultiplier/robertson_multiplier_testbench.vhd)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000478000000020000000000000000000000000200000064ffffffff000000810000000300000002000004780000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>robertson_multiplier_testbench - behavior (/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_11/ISE/RobertsonMultiplier/robertson_multiplier_testbench.vhd)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
+>>>>>>> 931cf161edf4151ee7461fc67b03872ffcdaf2d3
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
          <ClosedNode>Design Utilities</ClosedNode>
@@ -69,10 +123,30 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+<<<<<<< HEAD
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000017d000000010000000100000000000000000000000064ffffffff0000008100000000000000010000017d0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem></CurrentItem>
    </ItemView>
+=======
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000014b000000010000000100000000000000000000000064ffffffff0000008100000000000000010000014b0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Simulate Behavioral Model</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000014b000000010000000100000000000000000000000064ffffffff0000008100000000000000010000014b0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Simulate Behavioral Model</CurrentItem>
+   </ItemView>
+>>>>>>> 931cf161edf4151ee7461fc67b03872ffcdaf2d3
    <SourceProcessView>000000ff00000000000000020000014c0000011d01000000060100000002</SourceProcessView>
    <CurrentView>Implementation</CurrentView>
 </Project>
