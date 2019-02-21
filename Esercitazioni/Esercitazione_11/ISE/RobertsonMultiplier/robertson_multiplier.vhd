@@ -4,7 +4,7 @@ library IEEE;
     use IEEE.math_real.all;
     
 entity robertson_multiplier is
-    GENERIC ( N :   INTEGER :=  8			 
+    GENERIC ( N :   INTEGER :=  128			 
         );
     PORT    (   X       :   in  STD_LOGIC_VECTOR (N-1 downto 0);
                 Y       :   in  STD_LOGIC_VECTOR (N-1 downto 0);

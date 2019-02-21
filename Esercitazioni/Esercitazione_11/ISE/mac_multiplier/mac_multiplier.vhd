@@ -2,8 +2,8 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
 entity mac_multiplier is 
-    generic (   N : NATURAL := 16;  -- parallelismo primo operando
-                M : NATURAL := 16   -- parllelismo secondo operando
+    generic (   N : NATURAL := 128;  -- parallelismo primo operando
+                M : NATURAL := 128   -- parllelismo secondo operando
     );
     port    (   X   :   in  STD_LOGIC_VECTOR (N-1 downto 0);    -- moltiplicando
                 Y   :   in  STD_LOGIC_VECTOR (M-1 downto 0);    -- moltiplicatore

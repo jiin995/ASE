@@ -6,8 +6,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 -- utilizzando più RCA in cascata per sommare ogni riga della matrice dei prodotti parziali
 
 entity ripple_carry_multiplier is
-	Generic ( 	N : integer := 4;	-- parallelismo moltiplicando
-					M : integer := 3	-- parallelismo moltiplicatore
+	Generic ( 	N : integer := 128;	-- parallelismo moltiplicando
+					M : integer := 128	-- parallelismo moltiplicatore
 					);	
     Port ( 	
 				A : in  STD_LOGIC_VECTOR (N-1 downto 0);

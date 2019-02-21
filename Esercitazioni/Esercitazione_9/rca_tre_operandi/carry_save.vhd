@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity rca_tre_operandi is
-	 Generic ( width : natural := 4 );
+	 Generic ( width : natural := 128 );
     Port ( X : in  STD_LOGIC_VECTOR (width-1 downto 0);
            Y : in  STD_LOGIC_VECTOR (width-1 downto 0);
            Z : in  STD_LOGIC_VECTOR (width-1 downto 0);
