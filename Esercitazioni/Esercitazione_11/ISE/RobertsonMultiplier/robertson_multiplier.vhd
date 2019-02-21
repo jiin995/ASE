@@ -4,7 +4,7 @@ library IEEE;
     use IEEE.math_real.all;
     
 entity robertson_multiplier is
-    GENERIC ( N :   INTEGER :=  128			 
+    GENERIC ( N :   INTEGER :=  8			 
         );
     PORT    (   X       :   in  STD_LOGIC_VECTOR (N-1 downto 0);
                 Y       :   in  STD_LOGIC_VECTOR (N-1 downto 0);
@@ -96,16 +96,17 @@ component mux2_1
        );
 end component;
 
-component rippleCarry_addsub is 
-    generic (   width   : NATURAL := 8     
+component carrySelect_addSub is 
+    generic (	 M       : NATURAL :=  4;
+                P       : NATURAL :=  4
     );
     port (
-            A       	:   in  STD_LOGIC_VECTOR (width-1 downto 0);	
-				B       	:   in  STD_LOGIC_VECTOR (width-1 downto 0); 				
-            subtract	:   in  STD_LOGIC;                                  
-            S       	:   out STD_LOGIC_VECTOR  (width-1 downto 0);   	 
-            overflow :   out STD_LOGIC                             	
-                                                                        
+            A           : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  -- input addendo
+            B           : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  -- input addendo
+            subtract    : in    STD_LOGIC ;
+            S           : out   STD_LOGIC_VECTOR (((M*P)-1) downto 0);  -- output somma
+            overflow    : out   STD_LOGIC ;
+            c_out       : out   STD_LOGIC                               -- output carry in uscita
     );
 end component;
 
@@ -172,7 +173,7 @@ begin
 			);
 
 
-	F: F_in <= ((internal_m(N-1) and internal_q(0)) or F_out);	-- determinazione di F : F sarà alto se e solo se sono entrambi alti M[N-1] e Q[0] (moltiplicatore negativo con operazione di somma), e resterà alto per tutta la durata dell'operazione
+	F: F_in <= ((internal_m(N-1) and internal_q(0)) or F_out);
 	register_F	:	flipflop_d_risingEdge_asyncReset      
 		port		map	(  clock   		=> clock,
 								enable  		=> '1',
@@ -181,12 +182,15 @@ begin
 								q       		=> F_out
 			);
 			
-	rippleCarry_inst : rippleCarry_addsub  
-		generic 	map 	( 	width   	=> N    )
+	carrySelect_addSub_inst : carrySelect_addSub  
+		generic 	map 	( 	M   	=> N/2,
+								P		=> 2
+							)
 		port 	  	map 	(	A			=>	internal_a,
 								B       	=>	internal_m_mux, 				
 								subtract	=>	subtract,                                  
-								S       	=> internal_a_m,   	 
+								S       	=> internal_a_m,
+								c_out 	=> open,
 								overflow => open
 		 );
 		
@@ -199,7 +203,7 @@ begin
 								count_hit   => counter_hit,
 								COUNTS     	=> open
 			);
-	
+
 	control_unit : robertson_control_unit
 		generic 	map	(  N   						=> N )
 		port  	map  	(  clock    			  	=> clock,
@@ -219,5 +223,5 @@ begin
 								reset_count          => reset_count
 			);
 	
-	Z	<= internal_a & internal_q;	-- uscita = concatenazione di a e q
+	Z	<= internal_a & internal_q;
 end Structural;

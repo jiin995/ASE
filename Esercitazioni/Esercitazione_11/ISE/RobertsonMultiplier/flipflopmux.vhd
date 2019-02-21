@@ -40,7 +40,7 @@ architecture structural of flipflopmux is
 
 signal ff_input : std_logic;
 
-COMPONENT flipflopd	-- flipflop D 
+COMPONENT flipflop_d_risingEdge_asyncReset	-- flipflop D 
 	PORT(	d : IN std_logic;
 			enable : IN std_logic;
 			reset : in STD_LOGIC;
@@ -49,29 +49,31 @@ COMPONENT flipflopd	-- flipflop D
 	);
 END COMPONENT;
 
-COMPONENT mux2			-- multiplexer
-	PORT(	in0 : IN std_logic;
-			in1 : IN std_logic;
-			sel : IN std_logic;          
-			o : OUT std_logic
-	);
+COMPONENT mux2_1			-- multiplexer
+    generic (   width : natural := 1                     --! parallelismo dell' I/O del multiplexer
+    );
+    port(   SEL : in  STD_LOGIC;                                    --! mux2_1 input: selezione 
+            A   : in  STD_LOGIC_VECTOR ((width-1) downto 0);        --! mux2_1 input: A
+            B   : in  STD_LOGIC_VECTOR ((width-1) downto 0);        --! mux2_1 input: B
+            X   : out STD_LOGIC_VECTOR ((width-1) downto 0)         --! mux2_1 output: X
+        );
 END COMPONENT;
 
 begin
 
-mux: mux2 port map(	in0 => d,				-- primo ingresso: d
-					in1 => scan_in,			-- secondo ingresso: scan_in
-					sel => scan_en,			-- segnale di selezione: scan_en
-					o => ff_input			-- l'uscita del multiplexer sarà l'input del ff
-		);
+mux: mux2_1 port map(	A(0) => d,				-- primo ingresso: d
+								B(0) => scan_in,			-- secXndX ingresso: scan_in
+								sel => scan_en,			-- segnale di selezione: scan_en
+								X(0) => ff_input			-- l'uscita del multiplexer sarà l'input del ff
+					);
 
 flipflop_d: 
-	flipflopd port map( d => ff_input,			-- ingresso del ff, sarà d o scan_in a seconda di scan_en
-						enable => en,			-- enable
-						reset => reset_n,		-- reset	
-						clock => clock,			-- clock
-						q => q					-- uscita del flip flop
-				);
+	flipflop_d_risingEdge_asyncReset port map( 	d => ff_input,			-- ingresso del ff, sarà d o scan_in a seconda di scan_en
+																enable => en,			-- enable
+																reset => reset_n,		-- reset	
+																clock => clock,			-- clock
+																q => q					-- uscita del flip flop
+														);
 
 end Structural;
 
