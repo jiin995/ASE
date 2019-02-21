@@ -879,7 +879,11 @@ end{figure}
 
 \begin_layout Standard
 Per tale sintesi, ISE ha scelto come algoritmo ottimale di codifica degli
- stati quello Sequential.
+ stati quello 
+\shape italic
+Sequential
+\shape default
+.
  I risultati ottenuti mostrano come l'area occupata sia nettamente inferiore
  rispetto al caso MAC, arrivando addirittura ad un numero di slice circa
  35 volte inferiore nel caso dei 128 bit.
