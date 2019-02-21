@@ -189,7 +189,7 @@ maximum combinational path delay
 I risultati, in funzione del numero di bit, sono riportati in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:grafici-sintesi.png"
+reference "fig:grafici-sintesi-rca.png"
 plural "false"
 caps "false"
 noprefix "false"
@@ -313,7 +313,7 @@ caption{Grafici dei risultati ottenuti post-sintesi in funzione del numero
 
 
 \backslash
-label{fig:grafici-sintesi.png}
+label{fig:grafici-sintesi-rca.png}
 \end_layout
 
 \begin_layout Plain Layout

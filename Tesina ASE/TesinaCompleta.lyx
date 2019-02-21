@@ -629,7 +629,7 @@ Realizzare un sommatore Carry Select generico ad N bit.
  Il circuito deve essere realizzato a partire da blocchi di Full Adder,
  espresso mediante porte logiche XOR/AND/OR.
  Riportare considerazioni sull'area occupata e tempo di calcolo al variare
- di N e commentare il ris ultato con le formule teoriche.
+ di N e commentare il risultato con le formule teoriche.
 \end_layout
 
 \begin_layout Standard
