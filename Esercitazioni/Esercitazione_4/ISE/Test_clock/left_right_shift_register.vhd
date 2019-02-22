@@ -33,7 +33,7 @@ entity left_right_shift_register is
 			  q_out		: out STD_LOGIC;
            Q 			: out  STD_LOGIC_VECTOR (N-1 downto 0)
 			 );
-end shifterRegister;
+end left_right_shift_register;
 
 architecture Behavioral of left_right_shift_register is
 
