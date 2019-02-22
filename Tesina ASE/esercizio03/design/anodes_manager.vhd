@@ -56,7 +56,7 @@ begin
         x"2"    when "01",
         x"4"    when "10",
         x"8"    when "11",
-        (others => '0')    when others;
+        x"F"    when others;
 
 end dataflow;
 --=============================================================================
