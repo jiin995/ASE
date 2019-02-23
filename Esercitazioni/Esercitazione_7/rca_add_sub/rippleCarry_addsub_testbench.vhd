@@ -44,7 +44,7 @@ signal  overflow   : STD_LOGIC := '0';
 
 component rippleCarry_addsub is 
     generic (
-                width   : NATURAL := 8          
+                width   : NATURAL := width          
     );
 
     port (  A       :   in  STD_LOGIC_VECTOR (width-1 downto 0);    
@@ -84,6 +84,10 @@ begin
 						subtract <= '1';
                     wait for 10 ns;
                 end loop;
+					 wait for 10 ns;
+					 subtract <= '1';
+					 A <= "0111";
+					 B <= "1101";
 
             wait;
         end process;
