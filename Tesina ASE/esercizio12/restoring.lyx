@@ -90,12 +90,711 @@ Restoring division
 Architettura
 \end_layout
 
+\begin_layout Standard
+Per poter realizzare un divisore con tecnica 
+\shape italic
+restoring
+\shape default
+ si è fatto riferimento al modello PO/PC utilizzando i seguenti componenti:
+\end_layout
+
+\begin_layout Itemize
+Unità di controllo
+\end_layout
+
+\begin_layout Itemize
+Contatore
+\end_layout
+
+\begin_layout Itemize
+Registro M (per contenere il dividendo X)
+\end_layout
+
+\begin_layout Itemize
+Registri A e Q scan chain (per contenere rispettivamente il resto parziale
+ e il divisore Y)
+\end_layout
+
+\begin_layout Itemize
+Un flip flop Q0
+\end_layout
+
+\begin_layout Itemize
+Un addizionatore Ripple Carry Adder AddSub
+\end_layout
+
+\begin_layout Itemize
+Porte XOR
+\end_layout
+
+\begin_layout Itemize
+Un multiplexer
+\end_layout
+
+\begin_layout Standard
+Lo schema strutturale è riportato in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:architettura-restoring"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/architettura_restoring.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:architettura-restoring"
+
+\end_inset
+
+Architettura del divisore con tecnica restoring.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Essendo tale divisore una macchina sequenziale, sono stati dapprima definiti
+ gli stati della macchina per la realizzazione della parte di controllo.
+ L'automa a stati finiti è raffigurato in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:architettura-fsm_restoring"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ e prevede i seguenti stati:
+\end_layout
+
+\begin_layout Itemize
+Idle: la macchina permane in questo stato finchè non giunge un segnale di
+ 
+\shape italic
+start;
+\end_layout
+
+\begin_layout Itemize
+Init: in questo stato vengono inizializzati i registri e si resetta il contatore
+;
+\end_layout
+
+\begin_layout Itemize
+Test: in questo stato si determina se è necessario effettuare l'operazione
+ di 
+\shape italic
+restoring
+\shape default
+ (caso resto parziale negativo);
+\end_layout
+
+\begin_layout Itemize
+set_q0: in tale stato si determina il valore del flip flop q0 in base all'uscita
+ del multiplexer: posto 
+\shape italic
+sel_q0
+\shape default
+ alto, l'uscita diventa pari all'inverso del segno del resto parziale;
+\end_layout
+
+\begin_layout Itemize
+L-shift: in questo stato viene effettuato lo shift a sinistra dei registri
+ A e Q, usando come scan_in il valore q0;
+\end_layout
+
+\begin_layout Itemize
+Sub: in questo stato si effettua un'operazione di sottrazione tra A e il
+ moltiplicando;
+\end_layout
+
+\begin_layout Itemize
+Sum: in questo stato si effettua l'operazione di somma 
+\shape italic
+restoring;
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/architettura_fsm_restoring.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:architettura-fsm_restoring"
+
+\end_inset
+
+Automa a stati finiti (Restoring divider).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Implementazione
 \end_layout
 
+\begin_layout Standard
+Per l'implementazione di tale componente si è utilizzata una descrizione
+ di tipo structural, collegando opportunamene i componenti descritti precedentem
+ente.
+ In particolare si riporta l'interfaccia del componente divisore:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Implementazione del Restoring divider.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+entity restoring_divider is 	 
+\end_layout
+
+\begin_layout Plain Layout
+
+	generic ( n : integer := 8);     
+\end_layout
+
+\begin_layout Plain Layout
+
+	Port ( X : in  STD_LOGIC_VECTOR (n-1 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+			Y: in  STD_LOGIC_VECTOR (n-1 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+			Q : out  STD_LOGIC_VECTOR (n downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+			R : out  STD_LOGIC_VECTOR (n-1 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+			Reset_n : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+			clock : in	std_logic;
+\end_layout
+
+\begin_layout Plain Layout
+
+			start : in  STD_LOGIC;
+\end_layout
+
+\begin_layout Plain Layout
+
+			stop : out  STD_LOGIC
+\end_layout
+
+\begin_layout Plain Layout
+
+		); 
+\end_layout
+
+\begin_layout Plain Layout
+
+end restoring_divider;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'implementazione completa del moltiplicatore è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio12/design/restoring_divider.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+restoring
+\backslash
+_divider.vhd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Parte di controllo
+\end_layout
+
+\begin_layout Standard
+In particolare, per quanto riguarda la parte di controllo, questa è stata
+ realizzata mediante una control_unit implementata come FSM in descrizione
+ behavioural, seguendo l'automa a stati finiti visto precedentemente.
+ Di seguito è riportato il comportamento della macchina nello stato di test:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Implementazione dello stato di
+ test del Restoring divider.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+when test=>
+\end_layout
+
+\begin_layout Plain Layout
+
+	if S='1' then
+\end_layout
+
+\begin_layout Plain Layout
+
+		current_state<=sum;
+\end_layout
+
+\begin_layout Plain Layout
+
+	else
+\end_layout
+
+\begin_layout Plain Layout
+
+		count_in<='1';
+\end_layout
+
+\begin_layout Plain Layout
+
+		if counter_hit='1' then
+\end_layout
+
+\begin_layout Plain Layout
+
+			current_state<=idle;
+\end_layout
+
+\begin_layout Plain Layout
+
+		else
+\end_layout
+
+\begin_layout Plain Layout
+
+			current_state<=lshift;
+\end_layout
+
+\begin_layout Plain Layout
+
+		end if; 				
+\end_layout
+
+\begin_layout Plain Layout
+
+	end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'intera implementazione dell'unità di controllo del restoring divider è
+ consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio12/design/restoring_divider_control_unit.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+restoring
+\backslash
+_divider
+\backslash
+_control
+\backslash
+_unit.vhd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Parte operativa
+\end_layout
+
+\begin_layout Standard
+Il funzionamento della parte operativa è il seguente: inizialmente, il dividendo
+ X e il divisore Y vengono caricati rispettivamente nei registri A e Q.
+ In coda al registro Q, invece, viene posto il flip flop Q0 che determina
+ il valore da inserire in Q in caso di shift a sinistra: Q0 sarà pari all'oppost
+o del valore del segno del resto parziale in A.
+ Le operazioni di somma vengono effettuate utilizzando il Ripple Carry Adder
+ AddSub, che si occuperà di effettuare la differenza tra il contenuto del
+ registro A (resto parziale) e il moltiplicatore.
+ Per quanto concerne l'uscita, il quoziente sarà presente nel registro Q,
+ mentre il resto in A.
+\end_layout
+
 \begin_layout Subsection
 Simulazione e sintesi
+\end_layout
+
+\begin_layout Standard
+Per tale componente è stata effettuata una simulazione behavioural: i valori
+ di X e Y sono stati posti, rispettivamente, a 200 e 18.
+ Una volta dato lo start, la macchina inizia ad effettuare le dovute operazioni
+ fino a quando stop non diventa alto: in Q viene riportato il quoziente
+ 11, e in A il resto 2.
+ I risultati ottenuti sono osservabili in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:simulazione-restoring"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/simulazione_restoring.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:simulazione-restoring"
+
+\end_inset
+
+Simulazione behavioural del Restoring divider.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si è proceduto infine alla sintesi del componente utilizzando diversi valori
+ di lunghezza delle stringhe di bit.
+ Essendo tale macchina sequenzale e dunque clockata, piuttosto che il
+\shape italic
+ maximum combinational path delay
+\shape default
+ è stato valutato il 
+\shape italic
+minimum period
+\shape default
+ di funzionamento (ossia l'inverso della frequenza massima).
+ I risultati sono riportati in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:grafici-sintesi-robertson"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure}  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{groupplot}[group style={group size=2 by 1,horizontal sep=2cm}, yticklabel
+ style={font=
+\backslash
+footnotesize}, xticklabel style={font=
+\backslash
+footnotesize}]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+nextgroupplot[legend style={font=
+\backslash
+fontsize{4}{5}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+selectfont, anchor=north, at={(0.70,0.16)}}, xmin=0,xmax=128, ymin = 0, ymax
+ = 40000, grid=major, width=0.45
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textwidth, height=
+\backslash
+axisdefaultheight,xlabel= Numero di bit, ylabel=Numero di slice] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addplot coordinates{     (0,0) (4, 52) (8, 87) (16, 206) (32, 382) (64,
+ 719) (128, 1435)     }; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+nextgroupplot[legend style={anchor=north, at={(0.50,0.95)}}, xmin=0,xmax=128,
+ ymin = 0, ymax = 290, grid=major, width=0.45
+\backslash
+textwidth, height=
+\backslash
+axisdefaultheight, xlabel= Numero di bit, ylabel=Minimum period (ns)] 
+\backslash
+addplot coordinates{     (0,0) (4, 1.696) (8, 2.479) (16, 3.223) (32, 3.864)
+ (64, 4.142) (128, 5.016)     };
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{groupplot}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{Grafici dei risultati ottenuti post-sintesi in funzione del numero
+ di bit.} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{fig:grafici-sintesi-robertson}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{figure}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per tale sintesi, ISE ha scelto come algoritmo ottimale di codifica degli
+ stati quello 
+\shape italic
+Sequential
+\shape default
+.
+ I risultati ottenuti mostrano come l'area occupata sia nettamente inferiore
+ rispetto al caso MAC, arrivando addirittura ad un numero di slice circa
+ 30 volte inferiore nel caso dei 128 bit.
 \end_layout
 
 \end_body

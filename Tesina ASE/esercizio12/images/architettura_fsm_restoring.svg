@@ -1,0 +1,48 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="269.5" cy="104.5" rx="30" ry="30"/>
+	<text x="256.5" y="110.5" font-family="Times New Roman" font-size="20">init</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="104.5" cy="215.5" rx="30" ry="30"/>
+	<text x="89.5" y="221.5" font-family="Times New Roman" font-size="20">idle</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="433.5" cy="125.5" rx="30" ry="30"/>
+	<text x="409.5" y="131.5" font-family="Times New Roman" font-size="20">Lshift</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="643.5" cy="136.5" rx="30" ry="30"/>
+	<text x="629.5" y="142.5" font-family="Times New Roman" font-size="20">sub</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="651.5" cy="343.5" rx="30" ry="30"/>
+	<text x="625.5" y="349.5" font-family="Times New Roman" font-size="20">set_q0</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="456.5" cy="392.5" rx="30" ry="30"/>
+	<text x="442.5" y="398.5" font-family="Times New Roman" font-size="20">test</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="326.5" cy="241.5" rx="30" ry="30"/>
+	<text x="309.5" y="247.5" font-family="Times New Roman" font-size="20">sum</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 125.907,194.489 A 463.417,463.417 0 0 1 241.971,116.41"/>
+	<polygon fill="black" stroke-width="1" points="241.971,116.41 232.603,115.3 236.868,124.345"/>
+	<text x="113.5" y="142.5" font-family="Times New Roman" font-size="20">start='1'</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 107.727,245.208 A 22.5,22.5 0 1 1 82.882,236.132"/>
+	<text x="16.5" y="300.5" font-family="Times New Roman" font-size="20">start='0'</text>
+	<polygon fill="black" stroke-width="1" points="82.882,236.132 73.454,236.449 79.036,244.746"/>
+	<polygon stroke="black" stroke-width="1" points="299.257,108.31 403.743,121.69"/>
+	<polygon fill="black" stroke-width="1" points="403.743,121.69 396.443,115.714 395.173,125.633"/>
+	<polygon stroke="black" stroke-width="1" points="463.459,127.069 613.541,134.931"/>
+	<polygon fill="black" stroke-width="1" points="613.541,134.931 605.814,129.519 605.29,139.505"/>
+	<path stroke="black" stroke-width="1" fill="none" d="M 662.32,159.801 A 153.905,153.905 0 0 1 668.466,318.816"/>
+	<polygon fill="black" stroke-width="1" points="668.466,318.816 676.711,314.231 667.958,309.395"/>
+	<polygon stroke="black" stroke-width="1" points="622.405,350.811 485.595,385.189"/>
+	<polygon fill="black" stroke-width="1" points="485.595,385.189 494.573,388.088 492.136,378.39"/>
+	<polygon stroke="black" stroke-width="1" points="436.927,369.765 346.073,264.235"/>
+	<polygon fill="black" stroke-width="1" points="346.073,264.235 347.504,273.56 355.082,267.036"/>
+	<text x="396.5" y="308.5" font-family="Times New Roman" font-size="20">S='1'</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 426.804,388.267 A 573.789,573.789 0 0 1 125.608,236.813"/>
+	<polygon fill="black" stroke-width="1" points="125.608,236.813 127.925,245.958 134.843,238.738"/>
+	<text x="70.5" y="356.5" font-family="Times New Roman" font-size="20">counter_hit='1'&amp;&amp;S='0'</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 442.781,154.024 A 526.925,526.925 0 0 1 460.767,362.809"/>
+	<polygon fill="black" stroke-width="1" points="442.781,154.024 440.242,163.11 449.836,160.288"/>
+	<text x="468.5" y="262.5" font-family="Times New Roman" font-size="20">counter_hit='0'&amp;&amp;S='1'</text>
+	<polygon stroke="black" stroke-width="1" points="296.704,238.01 134.296,218.99"/>
+	<polygon fill="black" stroke-width="1" points="134.296,218.99 141.66,224.886 142.824,214.954"/>
+	<text x="171.5" y="213.5" font-family="Times New Roman" font-size="20">counter_hit='1'</text>
+	<polygon stroke="black" stroke-width="1" points="346.841,219.449 413.159,147.551"/>
+	<polygon fill="black" stroke-width="1" points="413.159,147.551 404.06,150.042 411.411,156.822"/>
+	<text x="255.5" y="174.5" font-family="Times New Roman" font-size="20">counter_hit='0'</text>
+</svg>
