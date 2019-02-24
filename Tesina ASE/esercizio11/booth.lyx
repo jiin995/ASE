@@ -83,5 +83,636 @@
 Moltiplicatore di Booth
 \end_layout
 
+\begin_layout Standard
+Anche per la realizzazione del moltiplicatore di Booth è stato utilizzato
+ il modello PO/PC.
+ I componenti utilizzati sono gli stessi di quello di Robertson, ad eccezione
+ dell'utilizzo del flip-flop e del multiplexer.
+ Lo schema strutturale è riportato in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:architettura-booth"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/architettura_booth.PNG
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:architettura-booth"
+
+\end_inset
+
+Architettura del moltiplicatore di Robertson.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si noti come il registro Q presenti un bit Q[-1] in più, considerato sempre
+ come 0 e necessario alla codifica di Booth del primo bit del moltiplicando.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dopodiché sono stati stati definiti gli stati della macchina per la realizzazion
+e della parte di controllo.
+ L'automa a stati finiti è raffigurato in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:architettura-booth-fsm"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ e prevede i seguenti stati:
+\end_layout
+
+\begin_layout Itemize
+Idle: la macchina permane in questo stato finchè non giunge un segnale di
+ 
+\shape italic
+start;
+\end_layout
+
+\begin_layout Itemize
+Init: in questo stato vengono inizializzati i registri e si resetta il contatore
+;
+\end_layout
+
+\begin_layout Itemize
+Choice: in questo stato si sceglie l'operazione da fare in base al valore
+ di 
+\shape italic
+x_lsbs
+\shape default
+, ossia dei due bit correnti considerati per la codifica in Booth del moltiplica
+ndo;
+\end_layout
+
+\begin_layout Itemize
+Right_Shift: in questo stato viene effettuato lo shift dei registri A e
+ Q e viene controllato il counter_hit: se alto, l'operazione è terminata
+ e si va in idle, altrimenti si continua tornando in 
+\shape italic
+choice
+\shape default
+ e incrementando il valore di conteggio;
+\end_layout
+
+\begin_layout Itemize
+Add_Sub: in questo stato si effettua un'operazione di somma o sottrazione
+ tra A (registro di accumulazione) ed M, scelta in base al valore di x_lsbs(0):
+ se alto, si farà la somma, altrimenti la sottrazione.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La principale differenza con l'automa di Robertson è che, negli stadi 
+\shape italic
+choice
+\shape default
+ e 
+\shape italic
+add_sub
+\shape default
+, non esiste alcuna transizione verso idle, in quanto non vi è la possibilità
+ di effettuare la correzione finale: ciò significa che, all'ultimo passo,
+ verrà sempre effettuato uno shift prima di terminare.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/fsm_booth.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:architettura-booth-fsm"
+
+\end_inset
+
+Automa a stati finiti (moltiplicatore di Booth).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Implementazione
+\end_layout
+
+\begin_layout Standard
+Per l'implementazione di tale componente si è utilizzata una descrizione
+ di tipo structural, collegando opportunamene i componenti descritti precedentem
+ente.
+ L'implementazione completa del moltiplicatore di Booth è consultabile qui:
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio11/design/booth_multiplier.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+booth
+\backslash
+_multiplier.vhd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Parte di controllo
+\end_layout
+
+\begin_layout Standard
+In particolare, per quanto riguarda la parte di controllo, questa è stata
+ realizzata mediante una control_unit implementata come FSM in descrizione
+ behavioural, seguendo l'automa a stati finiti visto precedentemente.
+ Di seguito è riportato il comportamento della macchina nello stato di 
+\shape italic
+choice
+\shape default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Implementazione dello stato di
+ choice del moltiplicatore di Robertson.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+when choice     =>
+\end_layout
+
+\begin_layout Plain Layout
+
+	if x_lsbs(0) = x_lsbs(1) then
+\end_layout
+
+\begin_layout Plain Layout
+
+		nxt <= right_shift; 							  
+\end_layout
+
+\begin_layout Plain Layout
+
+	else
+\end_layout
+
+\begin_layout Plain Layout
+
+		nxt <= add_sub; 							  
+\end_layout
+
+\begin_layout Plain Layout
+
+end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si noti come, a differenza del caso Robertson, la scelta viene effettuata
+ in base alle cifre considerate per la codifica di Booth di X: faremo right
+ shift se queste sono uguali (codifica di Booth pari a 0), altrimenti faremo
+ una somma (se pari a 1) o una sottrazione (se pari a -1).
+ L'intera implementazione dell'unita di controllo del moltiplicatore di
+ Booth è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio11/design/booth_control_unit.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+booth
+\backslash
+_control
+\backslash
+_unit.vhd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Parte operativa
+\end_layout
+
+\begin_layout Standard
+Il funzionamento della parte operativa è il seguente: inizialmente, il moltiplic
+ando X e il moltiplicatore Y vengono caricati rispettivamente nei registri
+ Q e M, e viene posto il bit meno significativo di Q pari a 0:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Determinazione di Q.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+val_in_q <= X & '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per quanto concerne l'uscita, questa sarà determinata dalla concatenazione
+ di A e Q (N+M bit), senza considerare il bit meno significativo di Q inserito
+ all'inizio (pari a 0):
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Determinazione di Z.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+Z <= internal_a & internal_q(N downto 1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Simulazione e sintesi
+\end_layout
+
+\begin_layout Standard
+Per tale componente è stata effettuata una simulazione behavioural: i valori
+ di X e Y sono stati posti, rispettivamente, a -126 e 6.
+ Una volta dato lo start, la macchina inizia ad effettuare le dovute operazioni
+ fino a quando stop non diventa alto e in Z viene riportato il risultato
+ corretto.
+ I risultati ottenuti sono osservabili in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:simulazione-booth"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/simulazione_booth.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:simulazione-booth"
+
+\end_inset
+
+Simulazione behavioural del moltiplicatore di Booth.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si è proceduto infine alla sintesi del componente utilizzando diversi valori
+ di lunghezza delle stringhe di bit.
+ Come nel caso Robertson piuttosto che il
+\shape italic
+ maximum combinational path delay
+\shape default
+ è stato valutato il 
+\shape italic
+minimum period
+\shape default
+ di funzionamento (ossia l'inverso della frequenza massima).
+ I risultati sono riportati in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:grafici-sintesi-booth"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{figure} 
+\backslash
+centering  
+\backslash
+begin{tikzpicture}    
+\backslash
+begin{groupplot}[group style={group size=2 by 1,horizontal sep=2cm}, yticklabel
+ style={font=
+\backslash
+footnotesize}, xticklabel style={font=
+\backslash
+footnotesize}]  
+\backslash
+nextgroupplot[legend style={font=
+\backslash
+fontsize{4}{5} 
+\backslash
+selectfont, anchor=south, at={(0.77,0.01)}}, xmin=0,xmax=128, ymin = 0, ymax
+ = 1500, grid=major, width=0.45 
+\backslash
+textwidth, height=
+\backslash
+axisdefaultheight,xlabel= Numero di bit, ylabel=Numero di slice]   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addplot coordinates{     (0,0) (4, 49) (8, 97) (16, 219) (32, 385) (64,
+ 591) (128, 1225)     }; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addplot coordinates{     (0,0) (4, 52) (8, 87) (16, 206) (32, 382) (64,
+ 719) (128, 1435)     };   
+\backslash
+addlegendentry{Booth}  
+\backslash
+addlegendentry{Robertson}  
+\backslash
+nextgroupplot[legend style={font=
+\backslash
+fontsize{4}{5} 
+\backslash
+selectfont, anchor=south, at={(0.77,0.01)}}, xmin=0,xmax=128, ymin = 0, ymax
+ = 15, grid=major, width=0.45
+\backslash
+textwidth, height=
+\backslash
+axisdefaultheight, xlabel= Numero di bit, ylabel=Minimum period (ns)]  
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addplot coordinates{     (0,0) (4, 1.795) (8, 2.539) (16, 3.214) (32, 4.690)
+ (64, 7.954) (128, 14.397)     };
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addplot coordinates{     (0,0) (4, 1.696) (8, 2.479) (16, 3.223) (32, 3.864)
+ (64, 4.142) (128, 5.016)     };
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addlegendentry{Booth}  
+\backslash
+addlegendentry{Robertson}  
+\backslash
+end{groupplot}  
+\backslash
+end{tikzpicture}   
+\backslash
+caption{Grafici dei risultati ottenuti post-sintesi in funzione del numero
+ di bit.}  
+\backslash
+label{fig:grafici-sintesi-booth}  
+\backslash
+end{figure}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Come per il moltiplicatore di Robertson, ISE ha scelto come algoritmo ottimale
+ di codifica degli stati quello 
+\shape italic
+Sequential
+\shape default
+.
+ I risultati ottenuti mostrano come il 
+\shape italic
+minimum period
+\shape default
+ sia nettamente aumentato rispetto al caso Robertson, specialmente con un
+ numero di bit elevato.
+ Tuttavia, grazie alla mancanza di alcuni componenti, il numero di 
+\shape italic
+slice
+\shape default
+ risulta minore.
+\end_layout
+
 \end_body
 \end_document

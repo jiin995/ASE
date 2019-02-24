@@ -688,6 +688,39 @@ filename "esercizio11/Tesina.lyx"
 
 \end_layout
 
+\begin_layout Chapter
+Divisori
+\end_layout
+
+\begin_layout Standard
+Nota: degli esercizi 1 e 2 occorre farne almeno uno, mentre l'altro e lasciato
+ opzionale.
+\end_layout
+
+\begin_layout Enumerate
+Realizzare in hardware l'algoritmo della divisione Restoring per operandi
+ ad 8 bit.
+ L'architettura deve essere realizzata sulla base dello schema di progettazione
+ PO/PC (Parte Operativa e Parte di Controllo).
+\end_layout
+
+\begin_layout Enumerate
+Realizzare in hardware l'algoritmo della divisione Non Restoring per operandi
+ ad 8 bit.
+ L'architettura deve essere realizzata sulla base dello schema di progettazione
+ PO/PC (Parte Operativa e Parte di Controllo).
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "esercizio12/Tesina.lyx"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 
 \lang american

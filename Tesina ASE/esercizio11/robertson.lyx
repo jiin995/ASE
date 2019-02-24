@@ -286,10 +286,6 @@ Automa a stati finiti (moltiplicatore di Robertson).
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
@@ -556,10 +552,6 @@ _unit.vhd}
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsubsection
@@ -664,7 +656,7 @@ Per tale componente è stata effettuata una simulazione behavioural: i valori
  I risultati ottenuti sono osservabili in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:simulazione-mac-1"
+reference "fig:simulazione-robertson"
 plural "false"
 caps "false"
 noprefix "false"
@@ -680,7 +672,7 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -699,7 +691,7 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:simulazione-mac-1"
+name "fig:simulazione-robertson"
 
 \end_inset
 
@@ -813,8 +805,8 @@ axisdefaultheight,xlabel= Numero di bit, ylabel=Numero di slice]
 
 
 \backslash
-addplot coordinates{     (0,0) (4, 50) (8, 88) (16, 164) (32, 321) (64,
- 608) (128, 1223)     }; 
+addplot coordinates{     (0,0) (4, 52) (8, 87) (16, 206) (32, 382) (64,
+ 719) (128, 1435)     }; 
 \end_layout
 
 \begin_layout Plain Layout
@@ -828,8 +820,8 @@ textwidth, height=
 \backslash
 axisdefaultheight, xlabel= Numero di bit, ylabel=Minimum period (ns)] 
 \backslash
-addplot coordinates{     (0,0) (4, 2.352) (8, 3.151) (16, 4.070) (32, 4.660)
- (64, 5.775) (128, 6.459)     };
+addplot coordinates{     (0,0) (4, 1.696) (8, 2.479) (16, 3.223) (32, 3.864)
+ (64, 4.142) (128, 5.016)     };
 \end_layout
 
 \begin_layout Plain Layout
@@ -886,7 +878,7 @@ Sequential
 .
  I risultati ottenuti mostrano come l'area occupata sia nettamente inferiore
  rispetto al caso MAC, arrivando addirittura ad un numero di slice circa
- 35 volte inferiore nel caso dei 128 bit.
+ 30 volte inferiore nel caso dei 128 bit.
 \end_layout
 
 \end_body

@@ -629,7 +629,7 @@ Realizzare un sommatore Carry Select generico ad N bit.
  Il circuito deve essere realizzato a partire da blocchi di Full Adder,
  espresso mediante porte logiche XOR/AND/OR.
  Riportare considerazioni sull'area occupata e tempo di calcolo al variare
- di N e commentare il ris ultato con le formule teoriche.
+ di N e commentare il risultato con le formule teoriche.
 \end_layout
 
 \begin_layout Standard
@@ -676,6 +676,39 @@ ne secondo Booth per operandi ad 8 bit.
  struttura di somma per righe, oppure somma per colonne oppure somma per
  diagonale.
  Discutere l'architettura al variare di N.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "esercizio11/Tesina.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Divisori
+\end_layout
+
+\begin_layout Standard
+Nota: degli esercizi 1 e 2 occorre farne almeno uno, mentre l'altro e lasciato
+ opzionale.
+\end_layout
+
+\begin_layout Enumerate
+Realizzare in hardware l'algoritmo della divisione Restoring per operandi
+ ad 8 bit.
+ L'architettura deve essere realizzata sulla base dello schema di progettazione
+ PO/PC (Parte Operativa e Parte di Controllo).
+\end_layout
+
+\begin_layout Enumerate
+Realizzare in hardware l'algoritmo della divisione Non Resto- ring per operandi
+ ad 8 bit.
+ L'architettura deve essere realizzata sulla base dello schema di progettazione
+ PO/PC (Parte Operativa e Parte di Controllo).
 \end_layout
 
 \begin_layout Standard
