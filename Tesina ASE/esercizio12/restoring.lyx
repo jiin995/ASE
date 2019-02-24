@@ -643,7 +643,7 @@ minimum period
  I risultati sono riportati in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:grafici-sintesi-robertson"
+reference "fig:grafici-sintesi-restoring"
 plural "false"
 caps "false"
 noprefix "false"
@@ -721,8 +721,8 @@ axisdefaultheight,xlabel= Numero di bit, ylabel=Numero di slice]
 
 
 \backslash
-addplot coordinates{     (0,0) (4, 52) (8, 87) (16, 206) (32, 382) (64,
- 719) (128, 1435)     }; 
+addplot coordinates{     (0,0) (4, 52) (8, 88) (16, 171) (32, 293) (64,
+ 542) (128, 1151)     }; 
 \end_layout
 
 \begin_layout Plain Layout
@@ -736,8 +736,8 @@ textwidth, height=
 \backslash
 axisdefaultheight, xlabel= Numero di bit, ylabel=Minimum period (ns)] 
 \backslash
-addplot coordinates{     (0,0) (4, 1.696) (8, 2.479) (16, 3.223) (32, 3.864)
- (64, 4.142) (128, 5.016)     };
+addplot coordinates{     (0,0) (4, 1.560) (8, 2.164) (16, 2.692) (32, 3.573)
+ (64, 4.471) (128, 4.892)     };
 \end_layout
 
 \begin_layout Plain Layout
@@ -766,7 +766,7 @@ caption{Grafici dei risultati ottenuti post-sintesi in funzione del numero
 
 
 \backslash
-label{fig:grafici-sintesi-robertson}
+label{fig:grafici-sintesi-restoring}
 \end_layout
 
 \begin_layout Plain Layout
@@ -792,9 +792,10 @@ Per tale sintesi, ISE ha scelto come algoritmo ottimale di codifica degli
 Sequential
 \shape default
 .
- I risultati ottenuti mostrano come l'area occupata sia nettamente inferiore
- rispetto al caso MAC, arrivando addirittura ad un numero di slice circa
- 30 volte inferiore nel caso dei 128 bit.
+ Per quanto concerne le prestazioni, i risultati sono molto simili a quelli
+ ottenuti con il moltiplicatore di Robertson.
+ In particolare, all'aumentare dei bit l'area aumenta piuttosto linearmente,
+ mentre i tempi in maniera logaritmica.
 \end_layout
 
 \end_body
