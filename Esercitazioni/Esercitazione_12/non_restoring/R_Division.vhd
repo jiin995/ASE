@@ -38,7 +38,8 @@ architecture structural of restoring_divider is
 	END COMPONENT;
 	
 	component counter_UpN_Re_Sr is
-	generic( n : integer := n);
+	generic( n : integer := n;
+			  enable_level : std_logic := '1'		);
     Port ( clock : in  STD_LOGIC;
            enable : in  STD_LOGIC;
            reset_n : in  STD_LOGIC;
@@ -192,7 +193,8 @@ begin
 	reset_count_n<=reset_n and rst_n_cnt;
 	
 	Inst_counter_UpN_Re_Sr: counter_UpN_Re_Sr
-		generic 	map	(	n 				=> (integer(ceil(log2(real(2*n)))) - 1)			
+		generic 	map	(	n 				=> n,
+								enable_level 	=> '1'					
 				)
 				PORT MAP(
 		clock => clock,

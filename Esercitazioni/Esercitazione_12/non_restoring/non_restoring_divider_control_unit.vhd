@@ -21,13 +21,13 @@ end Control_Unit;
 
 architecture Behavioral of Control_Unit is
 
-	type state_type is (Idle,Init,lshift,sum,Sub,set_q0,test);
-	signal current_state: state_type:= Idle;	-- si inizia da idle
+	type state_type is (Idle,Init,lshift,sumSub,set_q0,endsum);
+	signal current_state: state_type:=Idle;	-- si inizia da idle
+	
 	
 begin
 
 	fsm: process(clock,reset_n)
-	
 	begin
 	
 	if reset_n<='0' then
@@ -46,7 +46,7 @@ begin
 	
 		case current_state is
 			when idle=>
-            stop_division <= '1';	-- stop alto quando si ferma	
+			    stop_division <= '1';	-- stop alto quando si ferma	
 				if start_division='1' then
 					current_state<=Init;		-- passo a init per iniziare con start=1
 				else
@@ -66,38 +66,34 @@ begin
 				en_a<='1';
 				en_q<='1';
 				shift<='1';		-- sarebbe scan_en di A e Q
-				current_state<=Sub;	
+				current_state<=sumSub;
 
-			when Sub=>
-				en_a<='1';	
-				subtract<='1';			-- per fare sottrazione con addizionatore
-				current_state<=set_q0;
-				
-			when sum=>
-					en_a<='1';
-					subtract<='0';
-					count_in<='1';
-					if counter_hit='1' then
-						current_state<=Idle;
-					else
-						current_state<=lshift;
-					end if;
-			
+			when sumSub=>
+				en_a<='1';
+				if S='1' then --scelgo l'operazione in base al segno di A (S)	
+					subtract<='0';	-- effettuo la somma
+					current_state<=set_q0;
+				else 
+					subtract<='1';	-- effetto la sottrazione
+					current_state<=set_q0;
+				end if;
 				
 			when set_q0=>			-- faccio uno stato a parte per aspettare che termini la sottrazione al colpo di clock successivo
 					en_q0<='1';		-- Q0 sarà il negato del segno di A(S) poiché abbiamo messo sel_q0=1
-					current_state<=test;
-					
-			when test=>			-- controllo il segno di A(N-1) = S
-				if S='1' then				-- se è 1, devo fare restoring		
-					current_state<=sum;	
-				else							-- altrimenti vado avanti
-					count_in<='1';			-- incremento contatore
-					if counter_hit='1' then		-- se ho finito vai in idle
-						current_state<=Idle;	
-					else
-						current_state<=lshift;	-- altrimenti shifta
+					if counter_hit='1' then	-- controllo se ho terminato
+						current_state<=endsum;	-- scelgo se fare l'ultima somma
+					else 
+						count_in<='1';
+						current_state<=lshift;		-- o continuare con la divisione		
 					end if;
+					
+			when endsum=>
+				if S='1' then 	-- devo fare la somma finale se S=1
+					en_a<='1';
+					subtract<='0';
+					current_state<=Idle;
+				else
+					current_state<=Idle; -- altrimenti torno in idle
 				end if;
 		end case;
 	

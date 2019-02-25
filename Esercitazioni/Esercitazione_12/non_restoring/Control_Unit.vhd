@@ -53,7 +53,7 @@ begin
 					current_state<=Idle;		-- altrimenti resto in idle
 				end if;
 				
-			when Init=>			-- inizializzazione registri
+			when Init=>			-- inizializzaaione registri
 				en_a<='1';
 				en_q<='1';
 				en_q0<='1';

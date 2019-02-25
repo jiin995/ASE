@@ -22,177 +22,70 @@
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="R_division.xise"/>
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Control_Unit_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="DivisorOnBoard_guide.ncd" xil_pn:origination="imported"/>
-    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
-    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="restoring_divider.cmd_log"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="restoring_divider.lso"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="restoring_divider.ngc"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="restoring_divider.ngr"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="restoring_divider.prj"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="restoring_divider.stx"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="restoring_divider.syr"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="restoring_divider.xst"/>
-    <file xil_pn:fileType="FILE_HTML" xil_pn:name="restoring_divider_envsettings.html"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="restoring_divider_isim_beh.exe"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="restoring_divider_stx_beh.prj"/>
-    <file xil_pn:fileType="FILE_HTML" xil_pn:name="restoring_divider_summary.html"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="restoring_divider_tb_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="restoring_divider_tb_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="restoring_divider_tb_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="restoring_divider_tb_isim_beh.wdb"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="restoring_divider_tb_stx_beh.prj"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="restoring_divider_vhdl.prj"/>
-    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="restoring_divider_xst.xrpt"/>
-    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="restoring_divider_tb_stx_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
-    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1551028056" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1551028056">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1551029273" xil_pn:in_ck="6282795645919528719" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1551029273">
+    <transform xil_pn:end_ts="1551089265" xil_pn:in_ck="-525583099565678768" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1551089265">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="Control_Unit.vhd"/>
-      <outfile xil_pn:name="R_Division.vhd"/>
-      <outfile xil_pn:name="carrySelect_addSub.vhd"/>
-      <outfile xil_pn:name="carrySelect_adder.vhd"/>
-      <outfile xil_pn:name="carrySelect_cell.vhd"/>
-      <outfile xil_pn:name="counter_UpN_Re_Sr.vhd"/>
-      <outfile xil_pn:name="flipflop_d_risingEdge_asyncReset.vhd"/>
-      <outfile xil_pn:name="flipflopmux.vhd"/>
-      <outfile xil_pn:name="full_adder.vhd"/>
-      <outfile xil_pn:name="half_adder.vhd"/>
-      <outfile xil_pn:name="latch_d.vhd"/>
-      <outfile xil_pn:name="mux2_1.vhd"/>
-      <outfile xil_pn:name="overflow_checker.vhd"/>
-      <outfile xil_pn:name="restoring_divider_tb.vhd"/>
-      <outfile xil_pn:name="rippleCarry_adder.vhd"/>
-      <outfile xil_pn:name="ripple_carry_adder.vhd"/>
-      <outfile xil_pn:name="scan_chain.vhd"/>
+      <status xil_pn:value="InputAdded"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
-    <transform xil_pn:end_ts="1551029137" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-2417021684670992018" xil_pn:start_ts="1551029137">
+    <transform xil_pn:end_ts="1551089134" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-2417021684670992018" xil_pn:start_ts="1551089134">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1551029137" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="8790513489269116656" xil_pn:start_ts="1551029137">
+    <transform xil_pn:end_ts="1551089134" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="8790513489269116656" xil_pn:start_ts="1551089134">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1551027800" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="8745534199755946417" xil_pn:start_ts="1551027800">
+    <transform xil_pn:end_ts="1551089134" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="2305362858299009635" xil_pn:start_ts="1551089134">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1551029275" xil_pn:in_ck="6282795645919528719" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1551029275">
+    <transform xil_pn:end_ts="1551089267" xil_pn:in_ck="-525583099565678768" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1551089267">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="Control_Unit.vhd"/>
-      <outfile xil_pn:name="R_Division.vhd"/>
-      <outfile xil_pn:name="carrySelect_addSub.vhd"/>
-      <outfile xil_pn:name="carrySelect_adder.vhd"/>
-      <outfile xil_pn:name="carrySelect_cell.vhd"/>
-      <outfile xil_pn:name="counter_UpN_Re_Sr.vhd"/>
-      <outfile xil_pn:name="flipflop_d_risingEdge_asyncReset.vhd"/>
-      <outfile xil_pn:name="flipflopmux.vhd"/>
-      <outfile xil_pn:name="full_adder.vhd"/>
-      <outfile xil_pn:name="half_adder.vhd"/>
-      <outfile xil_pn:name="latch_d.vhd"/>
-      <outfile xil_pn:name="mux2_1.vhd"/>
-      <outfile xil_pn:name="overflow_checker.vhd"/>
-      <outfile xil_pn:name="restoring_divider_tb.vhd"/>
-      <outfile xil_pn:name="rippleCarry_adder.vhd"/>
-      <outfile xil_pn:name="ripple_carry_adder.vhd"/>
-      <outfile xil_pn:name="scan_chain.vhd"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
-    <transform xil_pn:end_ts="1551029277" xil_pn:in_ck="6282795645919528719" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="5456644603408958078" xil_pn:start_ts="1551029275">
+    <transform xil_pn:end_ts="1551089269" xil_pn:in_ck="-525583099565678768" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="5456644603408958078" xil_pn:start_ts="1551089267">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="NotReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="fuse.log"/>
-      <outfile xil_pn:name="isim"/>
-      <outfile xil_pn:name="isim.log"/>
-      <outfile xil_pn:name="restoring_divider_tb_beh.prj"/>
-      <outfile xil_pn:name="restoring_divider_tb_isim_beh.exe"/>
-      <outfile xil_pn:name="xilinxsim.ini"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
-    <transform xil_pn:end_ts="1551029277" xil_pn:in_ck="1639556011993737561" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="7850938116780221515" xil_pn:start_ts="1551029277">
+    <transform xil_pn:end_ts="1551089269" xil_pn:in_ck="-9199695796676529433" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="7850938116780221515" xil_pn:start_ts="1551089269">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="isim.cmd"/>
-      <outfile xil_pn:name="isim.log"/>
-      <outfile xil_pn:name="restoring_divider_tb_isim_beh.wdb"/>
-    </transform>
-    <transform xil_pn:end_ts="1551031893" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1551031893">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1551031893" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="1856694346003450642" xil_pn:start_ts="1551031893">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1551031893" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="8745534199755946417" xil_pn:start_ts="1551031893">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1551031893" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1551031893">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1551031893" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="2001124309795604048" xil_pn:start_ts="1551031893">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1551031893" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="2988080280842703814" xil_pn:start_ts="1551031893">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1551031893" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="247842001105570363" xil_pn:start_ts="1551031893">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1551032212" xil_pn:in_ck="5846075401308024327" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="5076665123753613838" xil_pn:start_ts="1551032206">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="WarningsGenerated"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
-      <outfile xil_pn:name="restoring_divider.lso"/>
-      <outfile xil_pn:name="restoring_divider.ngc"/>
-      <outfile xil_pn:name="restoring_divider.ngr"/>
-      <outfile xil_pn:name="restoring_divider.prj"/>
-      <outfile xil_pn:name="restoring_divider.stx"/>
-      <outfile xil_pn:name="restoring_divider.syr"/>
-      <outfile xil_pn:name="restoring_divider.xst"/>
-      <outfile xil_pn:name="restoring_divider_stx_beh.prj"/>
-      <outfile xil_pn:name="restoring_divider_tb_beh.prj"/>
-      <outfile xil_pn:name="restoring_divider_tb_stx_beh.prj"/>
-      <outfile xil_pn:name="restoring_divider_xst.xrpt"/>
-      <outfile xil_pn:name="webtalk_pn.xml"/>
-      <outfile xil_pn:name="xst"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
   </transforms>
 

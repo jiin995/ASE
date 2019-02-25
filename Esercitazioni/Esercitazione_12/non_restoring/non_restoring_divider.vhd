@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use ieee.math_real.all;
 
-entity restoring_divider is
+entity non_restoring_divider is
 	 generic ( n : integer := 8);
     Port ( X : in  STD_LOGIC_VECTOR (n-1 downto 0);		-- dividendo della divisione
            Y : in  STD_LOGIC_VECTOR (n-1 downto 0); 	-- divisore della divisione
@@ -13,9 +13,9 @@ entity restoring_divider is
            start : in  STD_LOGIC;	-- alto quando inizia la moltiplicazione
            stop : out  STD_LOGIC		-- alto quando il risultato è pronto
 			  );
-end restoring_divider;
+end non_restoring_divider;
 
-architecture structural of restoring_divider is
+architecture structural of non_restoring_divider is
 
 	COMPONENT Control_Unit
 	PORT(
@@ -201,6 +201,5 @@ begin
 		count_hit =>hit,
 		counts =>open
 	);
-	
 end structural;
 

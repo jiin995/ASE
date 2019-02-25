@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use ieee.math_real.all;
 
-entity restoring_divider is
+entity non_restoring_divider is
 	 generic ( n : integer := 8);
     Port ( X : in  STD_LOGIC_VECTOR (n-1 downto 0);		-- dividendo della divisione
            Y : in  STD_LOGIC_VECTOR (n-1 downto 0); 	-- divisore della divisione
@@ -13,9 +13,9 @@ entity restoring_divider is
            start : in  STD_LOGIC;	-- alto quando inizia la moltiplicazione
            stop : out  STD_LOGIC		-- alto quando il risultato è pronto
 			  );
-end restoring_divider;
+end non_restoring_divider;
 
-architecture structural of restoring_divider is
+architecture structural of non_restoring_divider is
 
 	COMPONENT Control_Unit
 	PORT(
@@ -43,7 +43,7 @@ architecture structural of restoring_divider is
            enable : in  STD_LOGIC;
            reset_n : in  STD_LOGIC;
            count_hit : out STD_LOGIC;		-- counter hit
-           counts : out  STD_LOGIC_VECTOR ((integer(ceil(log2(real(n)))) -1) downto 0));
+           counts : out  STD_LOGIC_VECTOR (n-1 downto 0));
 	end component;
 
 	
@@ -125,7 +125,6 @@ begin
 		X =>q0_outmux
 	);
 
-	
 		Q0_edge_trigger_dn: edge_trigger_dn generic map(1) PORT MAP(
 		d(0)=>q0_outmux,
 		en =>en_q0,
@@ -191,10 +190,7 @@ begin
 	
 	reset_count_n<=reset_n and rst_n_cnt;
 	
-	Inst_counter_UpN_Re_Sr: counter_UpN_Re_Sr
-		generic 	map	(	n 				=> (integer(ceil(log2(real(2*n)))) - 1)			
-				)
-				PORT MAP(
+	Inst_counter_UpN_Re_Sr: counter_UpN_Re_Sr generic map (n)PORT MAP(
 		clock => clock,
 		enable =>en_count,
 		reset_n =>reset_count_n,

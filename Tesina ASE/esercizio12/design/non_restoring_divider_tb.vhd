@@ -6,11 +6,11 @@ USE ieee.std_logic_1164.ALL;
 -- arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
-ENTITY restoring_divider_tb IS
+ENTITY non_restoring_divider_tb IS
 	generic ( n : integer := 8);
-END restoring_divider_tb;
+END non_restoring_divider_tb;
  
-ARCHITECTURE behavior OF restoring_divider_tb IS 
+ARCHITECTURE behavior OF non_restoring_divider_tb IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  

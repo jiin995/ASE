@@ -4,13 +4,13 @@
 --
 -- Create Date:   12:33:29 02/24/2019
 -- Design Name:   
--- Module Name:   /home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_12/restoring/restoring_divider_tb.vhd
+-- Module Name:   /home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_12/restoring/non_restoring_divider_tb.vhd
 -- Project Name:  R_division
 -- Target Device:  
 -- Tool versions:  
 -- Description:   
 -- 
--- VHDL Test Bench Created by ISE for module: restoring_divider
+-- VHDL Test Bench Created by ISE for module: non_restoring_divider
 -- 
 -- Dependencies:
 -- 
@@ -32,15 +32,15 @@ USE ieee.std_logic_1164.ALL;
 -- arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
-ENTITY restoring_divider_tb IS
-	generic ( n : integer := 6);
-END restoring_divider_tb;
+ENTITY non_restoring_divider_tb IS
+	generic ( n : integer := 8);
+END non_restoring_divider_tb;
  
-ARCHITECTURE behavior OF restoring_divider_tb IS 
+ARCHITECTURE behavior OF non_restoring_divider_tb IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
-    COMPONENT restoring_divider
+    COMPONENT non_restoring_divider
 	generic ( n : integer := n);
     PORT(
          X : IN  std_logic_vector(n-1 downto 0);
@@ -70,7 +70,7 @@ ARCHITECTURE behavior OF restoring_divider_tb IS
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: restoring_divider generic map (n)PORT MAP (
+   uut: non_restoring_divider generic map (n)PORT MAP (
           X => X,
           Y => Y,
           Q => Q,
@@ -95,8 +95,8 @@ BEGIN
    begin		
       wait for 10 ns;	
 		reset_n<='1';
-		X<="111000";
-		Y<="001010";
+		X<="11100100";
+		Y<="00001010";
       wait for 10 ns;
 		start<='1';
 		wait for 20 ns;
