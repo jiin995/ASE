@@ -20,7 +20,7 @@ architecture behavioral of counter_UpN_Re_Sr is
 signal COUNTS_temp      : STD_LOGIC_VECTOR ((integer(ceil(log2(real(n)))) -1) downto 0):= (others => '0');
 signal count_hit_temp   : STD_LOGIC := '0';
 
-constant max_value : NATURAL :=((2**integer(ceil(log2(real(n)))))-1);
+constant max_value : NATURAL :=n-1;
 
 begin 
     COUNTS <= COUNTS_temp;
