@@ -300,14 +300,14 @@ status open
 
 
 \backslash
-href{run:./esercizio12/design/non-restoring_divider.vhd}{%
+href{run:./esercizio12/design/non_restoring_divider.vhd}{%
 \end_layout
 
 \begin_layout Plain Layout
 
 non
 \backslash
--restoring
+_restoring
 \backslash
 _divider.vhd}
 \end_layout
@@ -325,7 +325,11 @@ Parte di controllo
 In particolare, per quanto riguarda la parte di controllo, questa è stata
  realizzata mediante una control_unit implementata come FSM in descrizione
  behavioural, seguendo l'automa a stati finiti visto precedentemente.
- Di seguito è riportato il comportamento della macchina nello stato di test:
+ Di seguito è riportato il comportamento della macchina nello stato di
+\shape italic
+ set_q0
+\shape default
+:
 \end_layout
 
 \begin_layout Standard
@@ -337,22 +341,27 @@ status open
 
 \backslash
 begin{lstlisting}[language=VHDL,caption={Implementazione dello stato di
- test del Restoring divider.}]
+ set_q0 del Restoring divider.}]
 \end_layout
 
 \begin_layout Plain Layout
 
-when test=>
+when set_q0=>
 \end_layout
 
 \begin_layout Plain Layout
 
-	if S='1' then
+	en_q0<='1';
 \end_layout
 
 \begin_layout Plain Layout
 
-		current_state<=sum;
+	if counter_hit='1' then
+\end_layout
+
+\begin_layout Plain Layout
+
+		current_state<=endsum;
 \end_layout
 
 \begin_layout Plain Layout
@@ -367,32 +376,12 @@ when test=>
 
 \begin_layout Plain Layout
 
-		if counter_hit='1' then
+		current_state<=lshift;
 \end_layout
 
 \begin_layout Plain Layout
 
-			current_state<=idle;
-\end_layout
-
-\begin_layout Plain Layout
-
-		else
-\end_layout
-
-\begin_layout Plain Layout
-
-			current_state<=lshift;
-\end_layout
-
-\begin_layout Plain Layout
-
-		end if; 				
-\end_layout
-
-\begin_layout Plain Layout
-
-	end if;
+end if;
 \end_layout
 
 \begin_layout Plain Layout
@@ -423,12 +412,14 @@ status open
 
 
 \backslash
-href{run:./esercizio12/design/restoring_divider_control_unit.vhd}{%
+href{run:./esercizio12/design/non_restoring_divider_control_unit.vhd}{%
 \end_layout
 
 \begin_layout Plain Layout
 
-restoring
+non
+\backslash
+_restoring
 \backslash
 _divider
 \backslash
@@ -447,14 +438,17 @@ Parte operativa
 \end_layout
 
 \begin_layout Standard
-Il funzionamento della parte operativa è il seguente: inizialmente, il dividendo
- X e il divisore Y vengono caricati rispettivamente nei registri A e Q.
+Il funzionamento della parte operativa è il seguen te: inizialmente, il
+ dividendo X e il divisore Y vengono caricati rispettivamente nei registri
+ A e Q.
  In coda al registro Q, invece, viene posto il flip flop Q0 che determina
  il valore da inserire in Q in caso di shift a sinistra: Q0 sarà pari all'oppost
 o del valore del segno del resto parziale in A.
- Le operazioni di somma vengono effettuate utilizzando il Ripple Carry Adder
- AddSub, che si occuperà di effettuare la differenza tra il contenuto del
- registro A (resto parziale) e il moltiplicatore.
+ Le operazioni di somma e differenza vengono effettuate utilizzando il Ripple
+ Carry Adder AddSub, che si occuperà di effettuare la differenza tra il
+ contenuto del registro A (resto parziale) e il moltiplicatore: se questa
+ risulta negativa, si effettuerà una somma all'istante successivo, altrimenti
+ una differenza.
  Per quanto concerne l'uscita, il quoziente sarà presente nel registro Q,
  mentre il resto in A.
 \end_layout
@@ -465,14 +459,14 @@ Simulazione e sintesi
 
 \begin_layout Standard
 Per tale componente è stata effettuata una simulazione behavioural: i valori
- di X e Y sono stati posti, rispettivamente, a 200 e 18.
+ di X e Y sono stati posti, rispettivamente, a 228 e 10.
  Una volta dato lo start, la macchina inizia ad effettuare le dovute operazioni
  fino a quando stop non diventa alto: in Q viene riportato il quoziente
- 11, e in A il resto 2.
+ 22, e in A il resto 8.
  I risultati ottenuti sono osservabili in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:simulazione-restoring-1"
+reference "fig:simulazione-non-restoring"
 plural "false"
 caps "false"
 noprefix "false"
@@ -493,7 +487,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename images/simulazione_restoring.png
+	filename images/simulazione_non-restoring.png
 	scale 35
 
 \end_inset
@@ -507,11 +501,11 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:simulazione-restoring-1"
+name "fig:simulazione-non-restoring"
 
 \end_inset
 
-Simulazione behavioural del Restoring divider.
+Simulazione behavioural del Non-restoring divider.
 \end_layout
 
 \end_inset
@@ -531,19 +525,24 @@ Simulazione behavioural del Restoring divider.
 \begin_layout Standard
 Si è proceduto infine alla sintesi del componente utilizzando diversi valori
  di lunghezza delle stringhe di bit.
- Essendo tale macchina sequenzale e dunque clockata, piuttosto che il
+ Come per il divisore 
 \shape italic
- maximum combinational path delay
+restoring
 \shape default
- è stato valutato il 
+, si sono valutati il 
 \shape italic
 minimum period
 \shape default
- di funzionamento (ossia l'inverso della frequenza massima).
+ di funzionamento (ossia l'inverso della frequenza massima) e il numero
+ di 
+\shape italic
+slices
+\shape default
+.
  I risultati sono riportati in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:grafici-sintesi-restoring"
+reference "fig:grafici-sintesi-non-restoring"
 plural "false"
 caps "false"
 noprefix "false"
@@ -562,59 +561,37 @@ status open
 
 
 \backslash
-begin{figure}  
-\end_layout
-
-\begin_layout Plain Layout
-
-
+begin{figure} 
 \backslash
-centering
-\end_layout
-
-\begin_layout Plain Layout
-
-
+centering  
 \backslash
-begin{tikzpicture}  
-\end_layout
-
-\begin_layout Plain Layout
-
-
+begin{tikzpicture}    
 \backslash
 begin{groupplot}[group style={group size=2 by 1,horizontal sep=2cm}, yticklabel
  style={font=
 \backslash
 footnotesize}, xticklabel style={font=
 \backslash
-footnotesize}]
-\end_layout
-
-\begin_layout Plain Layout
-
-
+footnotesize}]  
 \backslash
 nextgroupplot[legend style={font=
 \backslash
-fontsize{4}{5}
-\end_layout
-
-\begin_layout Plain Layout
-
-
+fontsize{4}{5} 
 \backslash
-selectfont, anchor=north, at={(0.70,0.16)}}, xmin=0,xmax=128, ymin = 0, ymax
- = 40000, grid=major, width=0.45
-\end_layout
-
-\begin_layout Plain Layout
-
-
+selectfont, anchor=south, at={(0.77,0.01)}}, xmin=0,xmax=128, ymin = 0, ymax
+ = 1160, grid=major, width=0.45 
 \backslash
 textwidth, height=
 \backslash
-axisdefaultheight,xlabel= Numero di bit, ylabel=Numero di slice] 
+axisdefaultheight,xlabel= Numero di bit, ylabel=Numero di slice]   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addplot coordinates{     (0,0) (4, 55) (8, 91) (16, 173) (32, 296) (64,
+ 546) (128, 1151)     }; 
 \end_layout
 
 \begin_layout Plain Layout
@@ -622,19 +599,31 @@ axisdefaultheight,xlabel= Numero di bit, ylabel=Numero di slice]
 
 \backslash
 addplot coordinates{     (0,0) (4, 52) (8, 88) (16, 171) (32, 293) (64,
- 542) (128, 1151)     }; 
+ 542) (128, 1151)     };    
+\backslash
+addlegendentry{Non-restoring}  
+\backslash
+addlegendentry{Restoring}  
+\backslash
+nextgroupplot[legend style={font=
+\backslash
+fontsize{4}{5} 
+\backslash
+selectfont, anchor=south, at={(0.77,0.01)}}, xmin=0,xmax=128, ymin = 0, ymax
+ = 5, grid=major, width=0.45
+\backslash
+textwidth, height=
+\backslash
+axisdefaultheight, xlabel= Numero di bit, ylabel=Minimum period (ns)]  
+ 
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-nextgroupplot[legend style={anchor=north, at={(0.50,0.95)}}, xmin=0,xmax=128,
- ymin = 0, ymax = 290, grid=major, width=0.45
-\backslash
-textwidth, height=
-\backslash
-axisdefaultheight, xlabel= Numero di bit, ylabel=Minimum period (ns)] 
+addplot coordinates{     (0,0) (4, 1.560) (8, 2.164) (16, 2.692) (32, 3.573)
+ (64, 4.471) (128, 4.892)     }; 
 \backslash
 addplot coordinates{     (0,0) (4, 1.560) (8, 2.164) (16, 2.692) (32, 3.573)
  (64, 4.471) (128, 4.892)     };
@@ -644,34 +633,18 @@ addplot coordinates{     (0,0) (4, 1.560) (8, 2.164) (16, 2.692) (32, 3.573)
 
 
 \backslash
-end{groupplot}
-\end_layout
-
-\begin_layout Plain Layout
-
-
+addlegendentry{Non-restoring}  
 \backslash
-end{tikzpicture} 
-\end_layout
-
-\begin_layout Plain Layout
-
-
+addlegendentry{Restoring}  
+\backslash
+end{groupplot}  
+\backslash
+end{tikzpicture}   
 \backslash
 caption{Grafici dei risultati ottenuti post-sintesi in funzione del numero
- di bit.} 
-\end_layout
-
-\begin_layout Plain Layout
-
-
+ di bit.}  
 \backslash
-label{fig:grafici-sintesi-restoring}
-\end_layout
-
-\begin_layout Plain Layout
-
-
+label{fig:grafici-sintesi-non-restoring}  
 \backslash
 end{figure}
 \end_layout
@@ -689,13 +662,12 @@ end{figure}
 Per tale sintesi, ISE ha scelto come algoritmo ottimale di codifica degli
  stati quello 
 \shape italic
-Sequential
+One-hot, 
 \shape default
-.
- Per quanto concerne le prestazioni, i risultati sono molto simili a quelli
- ottenuti con il moltiplicatore di Robertson.
- In particolare, all'aumentare dei bit l'area aumenta piuttosto linearmente,
- mentre i tempi in maniera logaritmica.
+probabilmente per la presenza di uno stato in meno rispetto all'algoritmo
+ restoring.
+ Le prestazioni sono analoghe al caso restoring, senza particolari differenze
+ tra le due.
 \end_layout
 
 \end_body
