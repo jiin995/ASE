@@ -80,20 +80,7 @@
 \begin_body
 
 \begin_layout Section
-Approfondimento: Carry Select on board
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Addizionatore Carry Select ulla board
-\end_layout
-
-\end_inset
-
-
+Approfondimento: Carry Select AddSub e on board
 \end_layout
 
 \begin_layout Standard
@@ -272,15 +259,6 @@ begin{lstlisting}[language=VHDL,caption={Interfaccia top level entity .}]
 
 \begin_layout Plain Layout
 
-[...]
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 # bottone centrale
 \end_layout
 
@@ -308,21 +286,8 @@ NET "enable_a"           LOC=P17 | IOSTANDARD=LVCMOS33; #IO_L12P_T1_MRCC_14
 
 \begin_layout Plain Layout
 
-NET "enable_b"           LOC=M17 | IOSTANDARD=LVCMOS33; #IO_L10N_T1_D15_14
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-## LEDs 
-\end_layout
-
-\begin_layout Plain Layout
-
-# led 0 
+NET "enable_b"           LOC=M17 | IOSTANDARD=LVCMOS33; #IO_L10N_T1_D15_14#
+ led 0 
 \end_layout
 
 \begin_layout Plain Layout
@@ -340,24 +305,6 @@ NET "c_out"	          LOC=H17 | IOSTANDARD=LVCMOS33; #IO_L18P_T2_A24_15
 
 NET "overflow"           LOC=V11 | IOSTANDARD=LVCMOS33; #IO_L21N_T3_DQS_A06_D22_
 14
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-[...]
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
 \backslash
 end{lstlisting}
 \backslash
