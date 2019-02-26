@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--This is an ISE project configuration file.-->
+<!--It holds project specific layout data for the projectmgr plugin.-->
+<!--Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.-->
+<Project version="2" owner="projectmgr" name="NR_division" >
+   <!--This is an ISE project configuration file.-->
+   <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/carrySelect_addSub - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|non_restoring|carrySelect_addSub.vhd/carrySelect_adder_inst - carrySelect_adder - structural</ClosedNode>
+         <ClosedNode>/carrySelect_adder - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|non_restoring|carrySelect_adder.vhd</ClosedNode>
+         <ClosedNode>/carrySelect_cell - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|non_restoring|carrySelect_cell.vhd</ClosedNode>
+         <ClosedNode>/non_restoring_divider - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|non_restoring|non_restoring_divider.vhd/Inst_ripple_carry_adder - ripple_carry_adder - structural</ClosedNode>
+         <ClosedNode>/non_restoring_divider - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|non_restoring|non_restoring_divider.vhd/register_a - scan_chain - behavioural</ClosedNode>
+         <ClosedNode>/non_restoring_divider - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|non_restoring|non_restoring_divider.vhd/register_q - scan_chain - behavioural</ClosedNode>
+         <ClosedNode>/restoring_divider - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|non_restoring|R_Division.vhd/Inst_ripple_carry_adder - ripple_carry_adder - structural</ClosedNode>
+         <ClosedNode>/restoring_divider - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|non_restoring|R_Division.vhd/register_a - scan_chain - behavioural</ClosedNode>
+         <ClosedNode>/restoring_divider - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|non_restoring|R_Division.vhd/register_q - scan_chain - behavioural</ClosedNode>
+         <ClosedNode>/rippleCarry_adder - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|non_restoring|rippleCarry_adder.vhd</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>non_restoring_divider - structural (/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_12/non_restoring/non_restoring_divider.vhd)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000475000000020000000000000000000000000200000064ffffffff000000810000000300000002000004750000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>non_restoring_divider - structural (/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_12/non_restoring/non_restoring_divider.vhd)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000315000000010000000100000000000000000000000064ffffffff000000810000000000000001000003150000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView guiview="File" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000452000000040101000100000000000000000000000064ffffffff0000008100000000000000040000030000000001000000000000005d0000000100000000000000840000000100000000000000710000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView guiview="Library" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>work</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000128000000010001000100000000000000000000000064ffffffff000000810000000000000001000001280000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>work</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Configure Target Device</ClosedNode>
+         <ClosedNode>Design Utilities</ClosedNode>
+         <ClosedNode>Implement Design</ClosedNode>
+         <ClosedNode>Synthesize - XST</ClosedNode>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000002a6000000010000000100000000000000000000000064ffffffff000000810000000000000001000002a60000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/non_restoring_divider - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|non_restoring|non_restoring_divider.vhd</ClosedNode>
+         <ClosedNode>/non_restoring_divider_tb - behavior |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|non_restoring|restoring_divider_tb.vhd/uut - non_restoring_divider - structural</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000003f9000000020000000000000000000000000200000064ffffffff000000810000000300000002000003f90000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>non_restoring_divider_tb - behavior (/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_12/non_restoring/restoring_divider_tb.vhd)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities</ClosedNode>
+         <ClosedNode>ISim Simulator</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000402000000010000000100000000000000000000000064ffffffff000000810000000000000001000004020000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Simulate Behavioral Model</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000002a6000000010000000100000000000000000000000064ffffffff000000810000000000000001000002a60000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Simulate Behavioral Model</CurrentItem>
+   </ItemView>
+   <SourceProcessView>000000ff00000000000000020000014c0000011d01000000060100000002</SourceProcessView>
+   <CurrentView>Behavioral Simulation</CurrentView>
+</Project>
