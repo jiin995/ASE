@@ -33,7 +33,6 @@ architecture structural of carrySelect_addSub is
                     b:   in  STD_LOGIC; --! bit più significativo (segno) di B
                     subtract: in STD_LOGIC; --! bit di operazione: 1 se sottrazione, 0 se addizione
                     s:   in  STD_LOGIC; --! bit più significativo (segno) di S
-						  c_out : in STD_LOGIC;
                     overflow: out STD_LOGIC --! bit alto se ho una condizione di overflow
             );
         end component;
@@ -78,7 +77,6 @@ begin
                                                          b => B((M*P)-1),
                                                          subtract => subtract,
                                                          s => S_TEMP((M*P)-1),
-																			c_out => c_out_int,
                                                          overflow => overflow
                                                 );
 end structural;

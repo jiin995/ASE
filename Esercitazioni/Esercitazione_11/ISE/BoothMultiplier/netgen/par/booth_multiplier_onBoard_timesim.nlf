@@ -1,0 +1,34 @@
+Release 14.7 - netgen P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Command Line: netgen -intstyle ise -s 3 -pcf booth_multiplier_onBoard.pcf -rpw
+100 -tpw 0 -ar Structure -tm booth_multiplier_onBoard -insert_pp_buffers true -w
+-dir netgen/par -ofmt vhdl -sim booth_multiplier_onBoard.ncd
+booth_multiplier_onBoard_timesim.vhd  
+
+Read and Annotate design 'booth_multiplier_onBoard.ncd' ...
+Loading device for application Rf_Device from file '7a100t.nph' in environment
+/opt/Xilinx/14.7/ISE_DS/ISE/.
+   "booth_multiplier_onBoard" is an NCD, version 3.2, device xc7a100t, package
+csg324, speed -3
+Loading constraints from 'booth_multiplier_onBoard.pcf'...
+The speed grade (-3) differs from the speed grade specified in the .ncd file
+(-3).
+The number of routable networks is 200
+Flattening design ...
+Processing design ... 
+  Preping design's networks ...
+  Preping design's macros ...
+Writing VHDL netlist
+'/home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_11/ISE/BoothMultiplier/netgen/par/booth_multiplier_onBoard_timesim.vhd' ...
+Writing VHDL SDF file
+'/home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_11/ISE/BoothMultiplier/netgen/par/booth_multiplier_onBoard_timesim.sdf' ...
+INFO:NetListWriters:635 - The generated VHDL netlist contains Xilinx SIMPRIM simulation primitives and has to be used with SIMPRIM library
+   for correct compilation and simulation. 
+INFO:NetListWriters - Xilinx recommends running separate simulations to check for setup by specifying the MAX field in the SDF file and for
+   hold by specifying the MIN field in the SDF file. Please refer to Simulator documentation for more details on specifying MIN and MAX
+   field in the SDF.
+INFO:NetListWriters:665 - For more information on how to pass the SDF switches to the simulator, see your Simulator tool documentation.
+Number of warnings: 0
+Number of info messages: 3
+Total memory usage is 826840 kilobytes
