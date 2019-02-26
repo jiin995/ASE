@@ -193,7 +193,7 @@ BackgroundPicture{logo.png}{0}}
 \lang american
 \begin_inset CommandInset include
 LatexCommand input
-filename "mac.lyx"
+filename "uart_behavioural.lyx"
 
 \end_inset
 
@@ -205,43 +205,7 @@ filename "mac.lyx"
 \lang american
 \begin_inset CommandInset include
 LatexCommand input
-filename "robertson.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\lang american
-\begin_inset CommandInset include
-LatexCommand input
-filename "booth.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\lang american
-\begin_inset CommandInset include
-LatexCommand input
-filename "parallelo.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\lang american
-\begin_inset CommandInset include
-LatexCommand input
-filename "boothonboard.lyx"
+filename "uart_popc.lyx"
 
 \end_inset
 

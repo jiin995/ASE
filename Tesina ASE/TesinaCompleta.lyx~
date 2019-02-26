@@ -705,7 +705,7 @@ Realizzare in hardware l'algoritmo della divisione Restoring per operandi
 \end_layout
 
 \begin_layout Enumerate
-Realizzare in hardware l'algoritmo della divisione Non Resto- ring per operandi
+Realizzare in hardware l'algoritmo della divisione Non Restoring per operandi
  ad 8 bit.
  L'architettura deve essere realizzata sulla base dello schema di progettazione
  PO/PC (Parte Operativa e Parte di Controllo).
@@ -714,7 +714,7 @@ Realizzare in hardware l'algoritmo della divisione Non Resto- ring per operandi
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
-filename "esercizio11/Tesina.lyx"
+filename "esercizio12/Tesina.lyx"
 
 \end_inset
 

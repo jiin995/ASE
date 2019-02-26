@@ -80,37 +80,16 @@
 \begin_body
 
 \begin_layout Section
-Approfondimento: Carry Select on board
+Approfondimento: Moltiplicatore di Booth on board
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Addizionatore Carry Select ulla board
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Tra i vari addizionatori presentati, abbiamo deciso di sintetizzare sulla
- board il Carry Select.
+Tra i vari moltiplicatori presentati, abbiamo deciso di sintetizzare sulla
+ board il moltiplicatore di Booth.
  In particolare, ricordando che l'FPGA è pensata per sintetizzare macchine
  sincrone, si è realizzata una top level entity che utilizza dei registri
- per sostenere gli input in ingresso all'addizionatore e per sostenere il
- valore in ingresso alla batteria di display a 7 segmenti presenti sulla
- board.
- Si è inoltre deciso di sintetizzare sulla board la versione AddSub per
- effettuare l'operazione di sottrazione calcolando il complemento a due
- di uno degli operandi, come visto per il Ripple Carry Adder.
-\end_layout
-
-\begin_layout Standard
-L'interfaccia della top level entity è la seguente :
+ per sostenere gli input in ingresso al moltiplicatore.
+ L'interfaccia della top level entity è la seguente :
 \begin_inset Newline newline
 \end_inset
 

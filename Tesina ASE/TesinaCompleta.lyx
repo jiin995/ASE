@@ -721,6 +721,34 @@ filename "esercizio12/Tesina.lyx"
 
 \end_layout
 
+\begin_layout Chapter
+UART
+\end_layout
+
+\begin_layout Standard
+Realizzare un dispositivo VHDL che implementa il protocollo UART (a partire
+ da quello diffuso dalla Digilent).
+ Collegare internamente, oppure tramite interfaccia fisica esterna alla
+ board stessa, ad un'altra board oppure ad un PC previo utilizzo di un physical
+ RS232, due interfacce per trasmette e ricevere ottetti.
+ Svolgere l'esercizio riutilizzando il VHDL messo a disposizione da Digilent
+ (e disponbile nel materiale del corso) commentando eventuali ristrutturazioni
+ del codice.
+ (Opzionale) Sviluppare un'architettura per l'implementazione del protocollo
+ UART secondo il paradigma PO/PC ex-novo, evidenziando le similarità/dissimilari
+tà con il progetto Digilent.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "esercizio13/Tesina.lyx"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 
 \lang american

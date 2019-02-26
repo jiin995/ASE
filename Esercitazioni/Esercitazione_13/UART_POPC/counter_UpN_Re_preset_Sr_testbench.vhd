@@ -2,15 +2,15 @@
 -- Company: 
 -- Engineer:
 --
--- Create Date:   19:40:44 02/21/2019
+-- Create Date:   23:26:40 02/25/2019
 -- Design Name:   
--- Module Name:   /home/jiin995/ASE_WorkSpace/Test/BoothMultiplier/booth_multiplier_testbench.vhd
--- Project Name:  BoothMultiplier
+-- Module Name:   /home/jiin995/ASE_WorkSpace/Test/UART_PO_PC/counter_UpN_Re_preset_Sr_testbench.vhd
+-- Project Name:  UART_PO_PC
 -- Target Device:  
 -- Tool versions:  
 -- Description:   
 -- 
--- VHDL Test Bench Created by ISE for module: booth_multiplier
+-- VHDL Test Bench Created by ISE for module: counter_UpN_Re_preset_Sr
 -- 
 -- Dependencies:
 -- 
@@ -25,43 +25,51 @@
 -- to guarantee that the testbench will bind correctly to the post-implementation 
 -- simulation model.
 --------------------------------------------------------------------------------
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
+library IEEE;
+    use IEEE.STD_LOGIC_1164.all;
+    use IEEE.numeric_std.all;
+    use IEEE.math_real.all;
  
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
-ENTITY booth_multiplier_testbench IS
-END booth_multiplier_testbench;
+ENTITY counter_UpN_Re_preset_Sr_testbench IS
+    generic (   n_test : NATURAL :=4
+    );
+END counter_UpN_Re_preset_Sr_testbench;
  
-ARCHITECTURE behavior OF booth_multiplier_testbench IS 
+ARCHITECTURE behavior OF counter_UpN_Re_preset_Sr_testbench IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
-    COMPONENT booth_multiplier
+    COMPONENT counter_UpN_Re_preset_Sr
+	 generic (   n               : NATURAL :=n_test;
+                enable_level    : STD_LOGIC :='1'
+    );
     PORT(
-         X : IN  std_logic_vector(7 downto 0);
-         Y : IN  std_logic_vector(7 downto 0);
-         start : IN  std_logic;
-         clock : IN  std_logic;
+         enable : IN  std_logic;
          reset_n : IN  std_logic;
-         stop : OUT  std_logic;
-         Z : OUT  std_logic_vector(15 downto 0)
+         clock : IN  std_logic;
+         preset      : in STD_LOGIC_VECTOR ((integer(ceil(log2(real(n)))) -1) downto 0);
+			load 	: in STD_LOGIC;
+         count_hit : OUT  std_logic;
+         COUNTS :out STD_LOGIC_VECTOR ((integer(ceil(log2(real(n)))) -1) downto 0)
         );
     END COMPONENT;
     
 
    --Inputs
-   signal X : std_logic_vector(7 downto 0) := (others => '0');
-   signal Y : std_logic_vector(7 downto 0) := (others => '0');
-   signal start : std_logic := '0';
-   signal clock : std_logic := '0';
+   signal enable : std_logic := '0';
+	signal load : std_logic := '0';
    signal reset_n : std_logic := '1';
+   signal clock : std_logic := '0';
+   signal preset : STD_LOGIC_VECTOR ((integer(ceil(log2(real(n_test)))) -1) downto 0) := ('1','0');
+
 
  	--Outputs
-   signal stop : std_logic;
-   signal Z : std_logic_vector(15 downto 0);
+   signal count_hit : std_logic;
+   signal COUNTS : STD_LOGIC_VECTOR ((integer(ceil(log2(real(n_test)))) -1) downto 0);
 
    -- Clock period definitions
    constant clock_period : time := 10 ns;
@@ -69,14 +77,14 @@ ARCHITECTURE behavior OF booth_multiplier_testbench IS
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: booth_multiplier PORT MAP (
-          X => X,
-          Y => Y,
-          start => start,
-          clock => clock,
+   uut: counter_UpN_Re_preset_Sr PORT MAP (
+          enable => enable,
           reset_n => reset_n,
-          stop => stop,
-          Z => Z
+          clock => clock,
+			 load => load,
+          preset => preset,
+          count_hit => count_hit,
+          COUNTS => COUNTS
         );
 
    -- Clock process definitions
@@ -93,11 +101,8 @@ BEGIN
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
-		X <= x"04";
-		Y <= x"02";
-		
-		start <= '1' after 20 ns , '0' after 45 ns ;
-		
+		enable <= '1' after 10 ns ;
+		load <= '1' after 10 ns , '0' after 20 ns;
       wait for clock_period*10;
 
       -- insert stimulus here 
