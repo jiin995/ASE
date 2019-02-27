@@ -166,7 +166,7 @@ begin
 							)
 		port 	  	map 	(	A			=>	internal_a,
 								B       	=>	internal_m, 				
-								subtract	=>	subtract,                                  
+								subtract	=>	internal_q(1),                                  
 								S       	=> internal_a_m,
 								c_out 	=> open,
 								overflow => open

@@ -30,19 +30,21 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity booth_multiplier_onBoard is
-    generic (	 N       : NATURAL :=  8
+    generic (	 N       : NATURAL :=  4
     );
     port (	clock 		: in 	  STD_LOGIC ;
+				--clock_booth : in 		STD_LOGIC;
 				start			: in		STD_LOGIC;
 				start_led	: out		STD_LOGIC;
 				stop			: out		STD_LOGIC;
 				enable_a    : in	  STD_LOGIC ;
 				enable_b		: in 	  STD_LOGIC ;
             subtract    : in    STD_LOGIC ;
-				input       : in    STD_LOGIC_VECTOR ((N-1) downto 0);  -- input addendo
+				input       : in    STD_LOGIC_VECTOR (3 downto 0);  -- input addendo
 				overflow    : out   STD_LOGIC ;
             c_out       : out   STD_LOGIC ;
 				anodes 		: out   STD_LOGIC_VECTOR (7 downto 0);
+				leds 			: out   STD_LOGIC_VECTOR (2*N-1 downto 0);
 				cathodes		: out   STD_LOGIC_VECTOR (7 downto 0)
                              -- output carry in uscita
     );
@@ -100,8 +102,6 @@ signal reset_n				: STD_LOGIC := '1';
 
 signal stop_temp  		: STD_LOGIC := '0';
 
-signal internal_s_long	: STD_LOGIC_VECTOR (31 downto 0) := ( others => '0');
-signal internal_ab_long	: STD_LOGIC_VECTOR (31 downto 0) := ( others => '0');
 signal value_int			: STD_LOGIC_VECTOR (31 downto 0) := ( others => '0');
 signal dots					: STD_LOGIC_VECTOR (7 downto 0) := (others => '0');
 signal enable_digit		: STD_LOGIC_VECTOR (7 downto 0) := x"0F";
@@ -122,41 +122,42 @@ begin
 														cathodes 		=> cathodes
 												);
 	
-	reg_a : register_d_Re_Ar 	generic map (8)
+	reg_a : register_d_Re_Ar 	generic map (N)
 										port map (    clock  => clock,
 														  enable 	=> enable_a,
 														  reset  => reset,
 														  d      => input,
 														  q 		=> internal_a
 												);										
-	reg_b : register_d_Re_Ar 	generic map (8)
+	reg_b : register_d_Re_Ar 	generic map (N)
 										port map (    clock  => clock,
 														  enable 	=> enable_b,
 														  reset  => reset,
 														  d      => input,
 														  q 		=> internal_b
 												);
-	
-	
+--	
+--	
 	booth_multiplier_onBoard: booth_multiplier generic map (N)
-																	port map  ( X 			=> internal_a,
+																	port map  ( X 			=> internal_a ,
 																				   Y 			=> internal_b,
-																					clock 	=> clock,
+																					clock 	=> clock, --clock_booth,
 																					reset_n	=> reset_n,
-																					Z 			=> internal_s,
+																					Z 			=> leds,
 																					start		=> start,
 																					stop		=> stop_temp
 									);
 									
+	
 									
 	process(enable_a,enable_b,internal_a,internal_b,internal_s,stop_temp)
 	begin
 		if(enable_a='1') then
-			value_int <= x"000000" & internal_a;
+			value_int <= x"0000000" & internal_a;
 		elsif(enable_b='1') then
-			value_int <= x"000000" & internal_b;
-		elsif(rising_edge(stop_temp)) then
-			value_int <= x"0000" & internal_S;
+			value_int <= x"0000000" & internal_b;
+		elsif(stop_temp='1') then
+			value_int <= x"000000" & internal_S;
 		end if;
 	end process;
 									

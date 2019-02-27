@@ -32,11 +32,11 @@ use IEEE.STD_LOGIC_1164.ALL;
 --! sul bit C.
 
 entity full_adder is
-  PORT (  X   		:   in  STD_LOGIC;	--! full_adder input : addendo
-          Y   		:   in  STD_LOGIC;	--! full_adder input : addendo
-          C_IN		:   in  STD_LOGIC;	--! full_adder input : carry in ingresso
-          S   		:   out STD_LOGIC;	--! full_adder output : somma
-          C_OUT   :   out STD_LOGIC		--! full_adder output : carry
+  PORT (  X   :   in  STD_LOGIC;	--! full_adder input : addendo
+          Y   :   in  STD_LOGIC;	--! full_adder input : addendo
+          C_in:   in  STD_LOGIC;	--! full_adder input : carry in ingresso
+          S   :   out STD_LOGIC;	--! full_adder output : somma
+          C_out   :   out STD_LOGIC		--! full_adder output : carry
 
   );
 end full_adder;
@@ -48,8 +48,8 @@ architecture dataflow of full_adder is
 -- architecture dataflow of full_adder begin
 --================================================================================================
   begin
-    S 		<=  (X xor Y xor C_IN);
-    C_OUT 	<=  ((X and Y) or ((X xor Y) and C_IN));
+    S <=  (X xor Y xor C_in);
+    C_out <=  ((X and Y) or ((X xor Y) and C_in));
   end dataflow;
 --================================================================================================
 -- architecture dataflow of full_adder end

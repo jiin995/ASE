@@ -59,7 +59,7 @@ begin
                 -- fase di attesa prima di iniziare
                 when idle   =>
                     stop    <=  '1';
-                    if start    = '1' then 
+                    if rising_edge(start)    then 
                         nxt <= init;
                     else
                         nxt <= idle;
@@ -86,14 +86,17 @@ begin
                 when add_sub   => 
 							-- controllo se devo effettuare la somma o la sottrazione
 							-- eseguo la somma se l'ultimo bit è alto
-                            if x_lsbs (0) = '1' then 
+
                                 en_a <= '1';
                                 nxt  <= right_shift;  
-                            else    
-                                en_a     <= '1';
-                                subtract <= '1';
-                                nxt      <= right_shift;
-                            end if;
+--                            if x_lsbs (0) = '1' then 
+--                                en_a <= '1';
+--                                nxt  <= right_shift;  
+--                            else    
+--                                en_a     <= '1';
+--                                subtract <= '1';
+--                                nxt      <= right_shift;
+--                            end if;
                 when right_shift =>             -- esegue lo shift
 							en_a    <= '1';
 							en_q    <= '1';

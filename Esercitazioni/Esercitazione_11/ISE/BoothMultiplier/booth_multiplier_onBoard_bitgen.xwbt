@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=/home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_11/ISE/BoothMultiplier/booth_multiplier_onBoard.ncd
-OUTFILE=/home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_11/ISE/BoothMultiplier/booth_multiplier_onBoard.bit
+INFILE=/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_11/ISE/BoothMultiplier/booth_multiplier_onBoard.ncd
+OUTFILE=/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_11/ISE/BoothMultiplier/booth_multiplier_onBoard.bit
 FAMILY=Artix7
 PART=xc7a100t-3csg324
-WORKINGDIR=/home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_11/ISE/BoothMultiplier
+WORKINGDIR=/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_11/ISE/BoothMultiplier
 LICENSE=WebPack
-USER_INFO=211608202_0_0_277
+USER_INFO=211607849_0_0_036

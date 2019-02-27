@@ -42,13 +42,14 @@ ARCHITECTURE behavior OF BoothMultiplier_tb_onBoard IS
     COMPONENT booth_multiplier_onBoard
     PORT(
          clock : IN  std_logic;
+			--clock_booth: IN std_logic;
          start : IN  std_logic;
          start_led : OUT  std_logic;
          stop : OUT  std_logic;
          enable_a : IN  std_logic;
          enable_b : IN  std_logic;
          subtract : IN  std_logic;
-         input : IN  std_logic_vector(7 downto 0);
+         input : IN  std_logic_vector(3 downto 0);
          overflow : OUT  std_logic;
          c_out : OUT  std_logic;
          anodes : OUT  std_logic_vector(7 downto 0);
@@ -63,7 +64,7 @@ ARCHITECTURE behavior OF BoothMultiplier_tb_onBoard IS
    signal enable_a : std_logic := '0';
    signal enable_b : std_logic := '0';
    signal subtract : std_logic := '0';
-   signal input : std_logic_vector(7 downto 0) := (others => '0');
+   signal input : std_logic_vector(3 downto 0) := (others => '0');
 
  	--Outputs
    signal start_led : std_logic;
@@ -81,6 +82,7 @@ BEGIN
 	-- Instantiate the Unit Under Test (UUT)
    uut: booth_multiplier_onBoard PORT MAP (
           clock => clock,
+			-- clock_booth => clock,
           start => start,
           start_led => start_led,
           stop => stop,
@@ -108,7 +110,7 @@ BEGIN
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
-		input <= x"82", x"06" after 40 ns ;
+		input <= x"4", x"3" after 40 ns ;
 		enable_a <= '1' after 20 ns , '0' after 40 ns ;
 		enable_b <= '1' after 40 ns , '0' after 60 ns ;
 		
