@@ -32,10 +32,10 @@ USE ieee.std_logic_1164.ALL;
 -- arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
-ENTITY tb_shifter IS
-END tb_shifter;
+ENTITY scan_chain_testbench IS
+END scan_chain_testbench;
  
-ARCHITECTURE behavior OF tb_shifter IS 
+ARCHITECTURE behavior OF scan_chain_testbench IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
