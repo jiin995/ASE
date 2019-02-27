@@ -82,6 +82,7 @@ begin
 
 rx_empty_n <= not rx_empty_int;
 rx_empty <= rx_empty_int;
+
 uart_inst : uart port map ( 	clock 	=> clock, 
 										reset 	=> reset,
 										rx			=> rx,
