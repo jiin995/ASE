@@ -9,8 +9,8 @@ library IEEE;
 entity uart_rx_cu is 
     port (	clock   				: in  STD_LOGIC;
             reset   				: in  STD_LOGIC;
-            tick_hit    		: in  STD_LOGIC;   										
-				stop_hit    		: in  STD_LOGIC;   		-- segnale dal bound rate gen 
+            tick_hit    		: in  STD_LOGIC;   		-- segnale che indica il raggiungimento dei 16 conteggi del baud gen, indica che si deve campionare								
+				stop_hit    		: in  STD_LOGIC;   		-- segnale che indica il raggiungimento dei numero di tick di stop che indica la fine della trasmissione
 				received_byte_hit	: in  STD_LOGIC;
 				rx						: in  STD_LOGIC;
 				rx_done				: out STD_LOGIC;
@@ -85,10 +85,12 @@ begin
 				-- stato finale devo aspettare un certo numero di tick per terminare portarmi nello stato di idle
             when stop =>      
 					enable_stop_count <= '1';
+					reset_tick			<= '1';
 					if ( stop_hit = '1' ) then 
 						next_state 	<= idle;
 						rx_done_next<= '1';
 						reset_out  <= '1';
+						load_tick_counter 	 <= '1'; 
                end if;
 					
         end case;

@@ -96,6 +96,8 @@ begin
 		-- stato finale devo aspettare un certo numero di tick per terminare portarmi nello stato di idle
 		when stop => 
 			enable_stop <= '1';
+			enable_tick	<= '1';
+			reset_tick <= '1';
 			if ( stop_hit = '1' ) then 
 				state_next 	<= idle;
 				tx_done 		<= '1';
