@@ -2,6 +2,7 @@ library IEEE;
 	use IEEE.STD_LOGIC_1164.ALL;
     use IEEE.numeric_std.all;
     use IEEE.math_real.all;
+
     
 entity booth_multiplier is
     GENERIC ( N :   INTEGER :=  8			 
@@ -99,16 +100,16 @@ component carrySelect_addSub is
     );
 end component;
 
-component  counter_UpN_Re_Sr is 
-    generic (   n       : NATURAL :=2
-		);
-    port(   enable      : in STD_LOGIC ;                                --! enable input
-            reset_n     : in STD_LOGIC;                                 --! reset input
-            clock       : in STD_LOGIC;                                 --! clock input
-            count_hit   : out STD_LOGIC;                                --! count_hit output
-            COUNTS      : out STD_LOGIC_VECTOR ((integer(ceil(log2(real(n)))) -1) downto 0)    --! COUNT output
-    );
-end component ;
+Component counter_modN
+	 Generic	(	count_max : integer := 8);
+		 Port ( clock 		: in  STD_LOGIC;
+				  count_up 	: in  STD_LOGIC;
+				  reset_n 	: in  STD_LOGIC;
+				  value 		: out  STD_LOGIC_VECTOR ((integer(ceil(log2(real(n)))) -1) downto 0);
+				  hit 		: out STD_LOGIC
+			);
+end component;
+
 
 signal internal_a,internal_m,internal_a_m	:	STD_LOGIC_VECTOR (N-1 downto 0) := (others => '0');
 signal internal_q,val_in_q	:	STD_LOGIC_VECTOR (N downto 0) := (others => '0');
@@ -171,16 +172,15 @@ begin
 								c_out 	=> open,
 								overflow => open
 		 );
-		
-	counter_inst :  counter_UpN_Re_Sr 
-		generic	map 	(  n			=> N
-			)
-		port		map	( 	enable 		=> '1',
-								reset_n  	=> reset_count,
-								clock   		=> count_up,
-								count_hit   => counter_hit,
-								COUNTS     	=> open
-			);
+
+	counter_mod_N: counter_modN 
+		generic 	map	( 	count_max => N	) 
+		port 		map	(	clock => clock,
+								count_up => count_up,
+								reset_n => reset_count,
+								value => open,
+								hit => counter_hit
+				);
 
 	control_unit : booth_multiplier_control_unit
 		generic 	map	(  N   						=> N )
