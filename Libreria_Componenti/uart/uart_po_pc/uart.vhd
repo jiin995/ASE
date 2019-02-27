@@ -36,7 +36,7 @@ entity uart is
 	 generic (data_bits : NATURAL := 8);
 	Port 		( clock 		: in  STD_LOGIC;
 				  reset		: in  STD_LOGIC;
-				  rx 			: in  STD_LOGIC;
+				  rx 			: in  STD_LOGIC;		-- segnale 
 				  -- se alto segnala al buffer in uscita che il dato è stato consumato
 				  rd_uart	: in  STD_LOGIC;				
 				  -- se alto segnala al buffer in ingresso che il dato è pronto per essere inviato
@@ -115,15 +115,6 @@ begin
 
 	reset_n <= not reset;
 
---	baud_generator: counter_UpN_Re_Sr  
---		generic map	(   n       => 651)
---		port map		(  enable      => enable_int ,                               
---							reset_n     => reset_n ,                                
---							clock       => clock,                                
---							count_hit   => tick,                             
---							COUNTS      => open    
---					);
-	
 	uart_rx_inst	: uart_rx port map ( clock   	=> clock,
 													reset  	=> reset,
 													enable  	=> enable_int,
@@ -133,16 +124,6 @@ begin
 													dout    	=> dout
 												);
 													
---	output_buffer : io_buffer port map( clock     => clock,
---														reset   	 => reset,
---														-- quando il byte è stato letto setto lo stato del buffer come vuoto
---														clr_flag  => rd_uart,		
---														-- quando la ricezione si conclude setto lo stato del buffer come pieno
---														set_flag  => rx_done_int,	
---														din       => received_byte,
---														flag      => rx_empty_int,
---														dout      => dout	
---													);
 													
 	uart_tx_inst	: uart_tx port map ( clock   => clock,
 													reset   => reset,
@@ -152,19 +133,6 @@ begin
 													tx_full => tx_full,
 													din     => din
 												);
---													
---	tx_full <= tx_start_int;
---	
---	input_buffer : io_buffer port map( 	clock      => clock,
---													reset   	 => reset,
---													-- quando il byte è stato inviato setto lo stato del buffer come vuoto
---													clr_flag  => tx_done_int,	
---													-- quando arriva il segnale per inviare setto lo stato del buffer come pieno e carico il byte
---													set_flag  => wr_uart,		
---													din       => din,
---													-- quando il byte è stato caricato segnalo a uart_tx che può inviare 
---													flag      => tx_start_int, 
---													dout      => send_byte								
---											);
+
 end Behavioral;
 
