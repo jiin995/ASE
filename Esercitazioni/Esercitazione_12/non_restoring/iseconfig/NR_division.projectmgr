@@ -51,11 +51,7 @@
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000452000000040101000100000000000000000000000064ffffffff0000008100000000000000040000030000000001000000000000005d0000000100000000000000840000000100000000000000710000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-<<<<<<< HEAD
-      <CurrentItem>/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_12/non_restoring/Counter_Hit2n.vhd</CurrentItem>
-=======
       <CurrentItem>Counter_Hit2n.vhd</CurrentItem>
->>>>>>> b5bfaa10729ed995d981bf63067a2483fc02583e
    </ItemView>
    <ItemView guiview="Library" >
       <ClosedNodes>
@@ -83,11 +79,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-<<<<<<< HEAD
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000315000000010000000100000000000000000000000064ffffffff000000810000000000000001000003150000000100000000</ViewHeaderState>
-=======
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000016e000000010000000100000000000000000000000064ffffffff0000008100000000000000010000016e0000000100000000</ViewHeaderState>
->>>>>>> b5bfaa10729ed995d981bf63067a2483fc02583e
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>Synthesize - XST</CurrentItem>
    </ItemView>
@@ -99,15 +91,6 @@
          <ClosedNode>/non_restoring_divider_tb - behavior |home|simone|Scrivania|ASE|Esercitazioni|Esercitazione_12|non_restoring|restoring_divider_tb.vhd</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-<<<<<<< HEAD
-         <SelectedItem>Unassigned User Library Modules</SelectedItem>
-      </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
-      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000003f9000000020000000000000000000000000200000064ffffffff000000810000000300000002000003f90000000100000003000000000000000100000003</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Unassigned User Library Modules</CurrentItem>
-=======
          <SelectedItem>non_restoring_divider_tb - behavior (/home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_12/non_restoring/restoring_divider_tb.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
@@ -115,7 +98,6 @@
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001d7000000020000000000000000000000000200000064ffffffff000000810000000300000002000001d70000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
       <CurrentItem>non_restoring_divider_tb - behavior (/home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_12/non_restoring/restoring_divider_tb.vhd)</CurrentItem>
->>>>>>> b5bfaa10729ed995d981bf63067a2483fc02583e
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -128,11 +110,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-<<<<<<< HEAD
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000315000000010000000100000000000000000000000064ffffffff000000810000000000000001000003150000000100000000</ViewHeaderState>
-=======
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000017d000000010000000100000000000000000000000064ffffffff0000008100000000000000010000017d0000000100000000</ViewHeaderState>
->>>>>>> b5bfaa10729ed995d981bf63067a2483fc02583e
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem/>
    </ItemView>

@@ -22,27 +22,6 @@
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="BoothMultiplier.xise"/>
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
-<<<<<<< HEAD
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="booth_multiplier_testbench_beh.prj"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="booth_multiplier_testbench_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="booth_multiplier_testbench_isim_beh.wdb"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="booth_multiplier_testbench_stx_beh.prj"/>
-    <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
-    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
-  </files>
-
-  <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1551195771" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1551195771">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1551200208" xil_pn:in_ck="-6348435613968299295" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1551200208">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-=======
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="BoothMultiplier_tb_onBoard_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="BoothMultiplier_tb_onBoard_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="BoothMultiplier_tb_onBoard_isim_beh.wdb"/>
@@ -131,16 +110,10 @@
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="BoothMultiplier_tb_onBoard.vhd"/>
       <outfile xil_pn:name="anodes_manager.vhd"/>
->>>>>>> b5bfaa10729ed995d981bf63067a2483fc02583e
       <outfile xil_pn:name="booth_multiplier.vhd"/>
       <outfile xil_pn:name="booth_multiplier_control_unit.vhd"/>
       <outfile xil_pn:name="booth_multiplier_testbench.vhd"/>
       <outfile xil_pn:name="carrySelect_addSub.vhd"/>
-<<<<<<< HEAD
-      <outfile xil_pn:name="carrySelect_adder.vhd"/>
-      <outfile xil_pn:name="carrySelect_cell.vhd"/>
-      <outfile xil_pn:name="counter_UpN_Re_Sr.vhd"/>
-=======
       <outfile xil_pn:name="carrySelect_addSub_onBoard.vhd"/>
       <outfile xil_pn:name="carrySelect_adder.vhd"/>
       <outfile xil_pn:name="carrySelect_cell.vhd"/>
@@ -149,7 +122,6 @@
       <outfile xil_pn:name="counter_UpMod2n_Re_Sr.vhd"/>
       <outfile xil_pn:name="counter_UpN_Re_Sr.vhd"/>
       <outfile xil_pn:name="display_7_segmenti.vhd"/>
->>>>>>> b5bfaa10729ed995d981bf63067a2483fc02583e
       <outfile xil_pn:name="flipflop_d_risingEdge_asyncReset.vhd"/>
       <outfile xil_pn:name="flipflopmux.vhd"/>
       <outfile xil_pn:name="full_adder.vhd"/>
@@ -159,23 +131,6 @@
       <outfile xil_pn:name="rippleCarry_adder.vhd"/>
       <outfile xil_pn:name="scan_chain.vhd"/>
     </transform>
-<<<<<<< HEAD
-    <transform xil_pn:end_ts="1551195774" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-8963074790193961609" xil_pn:start_ts="1551195774">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1551195774" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-7297491617320346155" xil_pn:start_ts="1551195774">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1551195774" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="4721278304075088197" xil_pn:start_ts="1551195774">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1551200209" xil_pn:in_ck="-6348435613968299295" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1551200209">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-=======
     <transform xil_pn:end_ts="1551199239" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-2055311958037515790" xil_pn:start_ts="1551199239">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -193,16 +148,10 @@
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="BoothMultiplier_tb_onBoard.vhd"/>
       <outfile xil_pn:name="anodes_manager.vhd"/>
->>>>>>> b5bfaa10729ed995d981bf63067a2483fc02583e
       <outfile xil_pn:name="booth_multiplier.vhd"/>
       <outfile xil_pn:name="booth_multiplier_control_unit.vhd"/>
       <outfile xil_pn:name="booth_multiplier_testbench.vhd"/>
       <outfile xil_pn:name="carrySelect_addSub.vhd"/>
-<<<<<<< HEAD
-      <outfile xil_pn:name="carrySelect_adder.vhd"/>
-      <outfile xil_pn:name="carrySelect_cell.vhd"/>
-      <outfile xil_pn:name="counter_UpN_Re_Sr.vhd"/>
-=======
       <outfile xil_pn:name="carrySelect_addSub_onBoard.vhd"/>
       <outfile xil_pn:name="carrySelect_adder.vhd"/>
       <outfile xil_pn:name="carrySelect_cell.vhd"/>
@@ -211,7 +160,6 @@
       <outfile xil_pn:name="counter_UpMod2n_Re_Sr.vhd"/>
       <outfile xil_pn:name="counter_UpN_Re_Sr.vhd"/>
       <outfile xil_pn:name="display_7_segmenti.vhd"/>
->>>>>>> b5bfaa10729ed995d981bf63067a2483fc02583e
       <outfile xil_pn:name="flipflop_d_risingEdge_asyncReset.vhd"/>
       <outfile xil_pn:name="flipflopmux.vhd"/>
       <outfile xil_pn:name="full_adder.vhd"/>
@@ -221,42 +169,23 @@
       <outfile xil_pn:name="rippleCarry_adder.vhd"/>
       <outfile xil_pn:name="scan_chain.vhd"/>
     </transform>
-<<<<<<< HEAD
-    <transform xil_pn:end_ts="1551200211" xil_pn:in_ck="-6348435613968299295" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="8029597363498994526" xil_pn:start_ts="1551200209">
-=======
     <transform xil_pn:end_ts="1551202265" xil_pn:in_ck="-8597879581571361523" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="4543887459027120980" xil_pn:start_ts="1551202263">
->>>>>>> b5bfaa10729ed995d981bf63067a2483fc02583e
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
-<<<<<<< HEAD
-      <outfile xil_pn:name="booth_multiplier_testbench_beh.prj"/>
-      <outfile xil_pn:name="booth_multiplier_testbench_isim_beh.exe"/>
-=======
       <outfile xil_pn:name="BoothMultiplier_tb_onBoard_beh.prj"/>
       <outfile xil_pn:name="BoothMultiplier_tb_onBoard_isim_beh.exe"/>
->>>>>>> b5bfaa10729ed995d981bf63067a2483fc02583e
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-<<<<<<< HEAD
-    <transform xil_pn:end_ts="1551200211" xil_pn:in_ck="-3057693169180966896" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-3256175410792258037" xil_pn:start_ts="1551200211">
-=======
     <transform xil_pn:end_ts="1551202265" xil_pn:in_ck="-6336530525325886037" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="2141969256925075233" xil_pn:start_ts="1551202265">
->>>>>>> b5bfaa10729ed995d981bf63067a2483fc02583e
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
-<<<<<<< HEAD
-      <outfile xil_pn:name="booth_multiplier_testbench_isim_beh.wdb"/>
-      <outfile xil_pn:name="isim.cmd"/>
-      <outfile xil_pn:name="isim.log"/>
-    </transform>
-=======
       <outfile xil_pn:name="BoothMultiplier_tb_onBoard_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
@@ -410,7 +339,6 @@
       <outfile xil_pn:name="booth_multiplier_onBoard.twr"/>
       <outfile xil_pn:name="booth_multiplier_onBoard.twx"/>
     </transform>
->>>>>>> b5bfaa10729ed995d981bf63067a2483fc02583e
   </transforms>
 
 </generated_project>
