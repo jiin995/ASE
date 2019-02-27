@@ -80,40 +80,20 @@
 \begin_body
 
 \begin_layout Section
-Approfondimento: Carry Select On Board
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Addizionatore Carry Select ulla board
-\end_layout
-
-\end_inset
-
-
+Approfondimento: Carry Select AddSub e on board
 \end_layout
 
 \begin_layout Standard
 Tra i vari addizionatori presentati, abbiamo deciso di sintetizzare sulla
- board il carry select.
-\end_layout
-
-\begin_layout Standard
-In particolare, ricordando che l'fpga è pensata per sintetizzare macchine
+ board il Carry Select.
+ In particolare, ricordando che l'FPGA è pensata per sintetizzare macchine
  sincrone, si è realizzata una top level entity che utilizza dei registri
  per sostenere gli input in ingresso all'addizionatore e per sostenere il
  valore in ingresso alla batteria di display a 7 segmenti presenti sulla
  board.
-\end_layout
-
-\begin_layout Standard
-Inoltre al si è deciso di sintetizzare sulla board non il classico addizionatore
-, ma abbiamo sintetizzato la versione che prevede anche l'operazione di
- sottrazione, calcolando il complemento a due di uno degli operandi, come
- visto per il ripple carry.
+ Si è inoltre deciso di sintetizzare sulla board la versione AddSub per
+ effettuare l'operazione di sottrazione calcolando il complemento a due
+ di uno degli operandi, come visto per il Ripple Carry Adder.
 \end_layout
 
 \begin_layout Standard
@@ -132,16 +112,12 @@ status open
 
 
 \backslash
-begin{lstlisting}[language=VHDL,caption={Interfaccia top level entity .}]
+begin{lstlisting}[language=VHDL,caption={Interfaccia della top level entity.}]
 \end_layout
 
 \begin_layout Plain Layout
 
 [...]
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \begin_layout Plain Layout
@@ -217,15 +193,7 @@ entity carrySelect_addSub_onBoard is
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
 [...]
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \begin_layout Plain Layout
@@ -243,43 +211,39 @@ selectlanguage{italian}%
 \end_layout
 
 \begin_layout Standard
-In ingresso non vediamo i due operandi che perchè utilizzando un addizzionatore
- a 16 bit non potevamo mappare gli le stringe in input sui i physical della
- board, gli switch sono proprio sedici.
- Per risolvere tale limite si è deciso di adottare la seguente logica, le
- stringe in ingresso sono sostenute da due registri con parallelismo di
- bit e l'ingresso di questi registri sono direttamente collegati agli switch,
- mentre i loro segnali di abilitazione sono mappati su due diversi bottoni
- della board.
+Dal momento che la board dispone di soli 16 switch per definire gli ingressi,
+ non è possibile inserire contemporaneamente entrambi gli operandi.
+ Per risolvere tale limite, si è deciso di adottare la seguente logica:
+ dal momento che le stringhe in ingresso sono sostenute da due registri
+ con parallelismo di 16 bit, abbiamo mappato l'ingresso di entrambi i registri
+ agli switch, mentre i loro segnali di abilitazione sono mappati su due
+ diversi bottoni della board.
 
 \shape italic
  
 \shape default
-Pertanto l' operazione di addizione, prevede che si settano gli switch,
- si preme il bottone per caricare il valore nel registro del primo operando
- ( enable_a
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Abilita il registro per caricare il dato presente in input ( switch ).
-\end_layout
-
+Pertanto, per fare l'operazione di addizione bisogna usare gli switch per
+ impostare i singoli operandi e premere i corrispettivi pulsanti per caricare
+ i due valori nei registri.
+ Dopo pochi instanti, sarà disponibile sul display a 7 segmenti il risultato.
+ Inoltre, se il led 15 sarà acceso, significherà che durante l'operazione
+ si è verificato un overflow.
+ Per effettuare una sottrazione invece, basterà premere il pulsante centrale
+ sull'FPGA a cui è stato mappato l'ingresso 
+\shape italic
+subtract
+\shape default
+ : in questo modo si ordinerà all'addizionatore di complementare il secondo
+ operando e quindi di fare la sottrazione tra il primo operando e il secondo.
+\begin_inset Newline newline
 \end_inset
 
- ) e poi si ripete la procedura analoga per caricare il secondo operando
- premendo il pulsante associato a enable_b, dopo pochi instanti è disponibile
- sul display a 7 segmenti il risultato e se il led 15 si accende significa
- che durente l'operazione di somma o differenza si è verificato un overflow.
- Per effettuare una sottrazione basta premere il pulsante centrale sull'fpga,
- dove è mappato l'ingresso subtract che indica all'addizionatore di complementar
-e il secondo operando e quindi di fare la sottrazione tra il primo operando
- e il secondo.
+
 \end_layout
 
 \begin_layout Standard
-Di seguito il mapping dei pulsanti e dei led con l' I/O del componente di
- alto livello:
+Di seguito è riportato il mapping dei pulsanti e dei led con l' I/O del
+ componente di alto livello:
 \end_layout
 
 \begin_layout Standard
@@ -291,15 +255,6 @@ status open
 
 \backslash
 begin{lstlisting}[language=VHDL,caption={Interfaccia top level entity .}]
-\end_layout
-
-\begin_layout Plain Layout
-
-[...]
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \begin_layout Plain Layout
@@ -331,21 +286,8 @@ NET "enable_a"           LOC=P17 | IOSTANDARD=LVCMOS33; #IO_L12P_T1_MRCC_14
 
 \begin_layout Plain Layout
 
-NET "enable_b"           LOC=M17 | IOSTANDARD=LVCMOS33; #IO_L10N_T1_D15_14
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-## LEDs 
-\end_layout
-
-\begin_layout Plain Layout
-
-# led 0 
+NET "enable_b"           LOC=M17 | IOSTANDARD=LVCMOS33; #IO_L10N_T1_D15_14#
+ led 0 
 \end_layout
 
 \begin_layout Plain Layout
@@ -363,24 +305,6 @@ NET "c_out"	          LOC=H17 | IOSTANDARD=LVCMOS33; #IO_L18P_T2_A24_15
 
 NET "overflow"           LOC=V11 | IOSTANDARD=LVCMOS33; #IO_L21N_T3_DQS_A06_D22_
 14
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-[...]
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
 \backslash
 end{lstlisting}
 \backslash
@@ -390,11 +314,14 @@ selectlanguage{italian}%
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-L'implementazione completa della versione con sottrattore del carry select
- è consultabile qui: 
+L'implementazione completa del Carry Select AddSub è consultabile qui: 
 \begin_inset ERT
 status open
 
@@ -418,7 +345,7 @@ _addSub.vhd}
 \end_layout
 
 \begin_layout Standard
-L'implementazione completa della top level_entity è consultabile qui: 
+L'implementazione completa della top level entity è consultabile qui: 
 \begin_inset ERT
 status open
 

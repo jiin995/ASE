@@ -3,7 +3,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use ieee.math_real.all;
 
 entity non_restoring_divider is
-	 generic ( n : integer := 8);
+	 generic ( n : integer := 128);
     Port ( X : in  STD_LOGIC_VECTOR (n-1 downto 0);		-- dividendo della divisione
            Y : in  STD_LOGIC_VECTOR (n-1 downto 0); 	-- divisore della divisione
            Q : out  STD_LOGIC_VECTOR (n downto 0);	-- quoziente della divisione

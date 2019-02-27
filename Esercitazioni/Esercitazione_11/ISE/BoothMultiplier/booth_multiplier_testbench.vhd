@@ -93,8 +93,8 @@ BEGIN
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
-		X <= x"82";
-		Y <= x"06";
+		X <= x"04";
+		Y <= x"02";
 		
 		start <= '1' after 20 ns , '0' after 45 ns ;
 		
