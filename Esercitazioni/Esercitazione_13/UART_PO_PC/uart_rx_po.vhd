@@ -35,11 +35,12 @@ entity uart_rx_po is
 	generic	( 	data_bits   : NATURAL := 8;		-- Numero di bit dati
 					ticks			: NATURAL := 16;
 					start_Ticks	: NATURAL := 7;
-					stop_Ticks  : NATURAL := 16		-- Numero di conteggi per determinare la fine della trasmissione
+					stop_Ticks  : NATURAL := 16;		-- Numero di conteggi per determinare la fine della trasmissione
+					N				: NATURAL := 651
      );	
 	port		(	clock					: in 	STD_LOGIC;
 					reset					: in 	STD_LOGIC;
-					load_tick			: in 	STD_LOGIC;
+					load_tick			: in 	STD_LOGIC;	
 					enable				: in 	STD_LOGIC;
 					enable_stop			: in  STD_LOGIC;
 					received_bit		: in  STD_LOGIC;
@@ -48,6 +49,7 @@ entity uart_rx_po is
 					rx_done				: in  STD_LOGIC;
 					rd_uart				: in  STD_LOGIC;
 					reset_tick			: in  STD_LOGIC;
+					rx_out				: out STD_LOGIC;
 					rx_empty				: out STD_LOGIC;
 					received_byte_hit	: out STD_LOGIC;
 					tick_hit				: out STD_LOGIC;
@@ -63,11 +65,11 @@ architecture Behavioral of uart_rx_po is
 		 generic (   n               : NATURAL :=4;
 						 enable_level    : STD_LOGIC :='1'
 		 );
-		 port(   enable      : in STD_LOGIC ;                                --! enable input
-					reset_n     : in STD_LOGIC;                                 --! reset input
-					clock       : in STD_LOGIC;                                 --! clock input
-					load 			: in STD_LOGIC;
-					preset      : in STD_LOGIC_VECTOR ((integer(ceil(log2(real(n)))) -1) downto 0);
+		 port(   enable      : in 	STD_LOGIC ;                                --! enable input
+					reset_n     : in 	STD_LOGIC;                                 --! reset input
+					clock       : in 	STD_LOGIC;                                 --! clock input
+					load 			: in 	STD_LOGIC;
+					preset      : in 	STD_LOGIC_VECTOR ((integer(ceil(log2(real(n)))) -1) downto 0);
 					count_hit   : out STD_LOGIC;                                --! count_hit output
 					COUNTS      : out STD_LOGIC_VECTOR((integer(ceil(log2(real(n)))) -1) downto 0)    --! COUNT output
 		 );
@@ -75,16 +77,16 @@ architecture Behavioral of uart_rx_po is
 	
 	    
 	component counter_UpN_Re_Sr is 
-    generic (   n               : NATURAL :=2;
-                enable_level    : STD_LOGIC :='1'
-    );
-    port(   enable      : in STD_LOGIC ;                                --! enable input
-            reset_n     : in STD_LOGIC;                                 --! reset input
-            clock       : in STD_LOGIC;                                 --! clock input
-            count_hit   : out STD_LOGIC;                                --! count_hit output
-            COUNTS      : out STD_LOGIC_VECTOR ((integer(ceil(log2(real(n)))) -1) downto 0)    --! COUNT output
-    );
-	end component;
+		 generic (   n               : NATURAL :=2;
+						 enable_level    : STD_LOGIC :='1'
+		 );
+		 port(   enable      : in 	STD_LOGIC ;                                --! enable input
+					reset_n     : in 	STD_LOGIC;                                 --! reset input
+					clock       : in 	STD_LOGIC;                                 --! clock input
+					count_hit   : out STD_LOGIC;                                --! count_hit output
+					COUNTS      : out STD_LOGIC_VECTOR ((integer(ceil(log2(real(n)))) -1) downto 0)    --! COUNT output
+		 );
+		end component;
 	
 	component scan_chain is
 		generic(	width : integer := 8;									-- dimensione del registro
@@ -101,13 +103,13 @@ architecture Behavioral of uart_rx_po is
 		);
 	end component ;
 	
-	
+	-- Flip flop che mantiene lo stato della scan chain, piena o vuota
 	component flag_FF is 
 		 port    ( clock     : in  STD_LOGIC;
 					  reset     : in  STD_LOGIC;
 					  clr_flag  : in  STD_LOGIC;			-- setto lo stato del buffer come vuoto
 					  set_flag  : in  STD_LOGIC;			-- setta lo stato del buffer come pieno
-					  flag      : out  STD_LOGIC			-- segnala lo stato del buffer
+					  flag      : out STD_LOGIC			-- segnala lo stato del buffer
 		 );
 	end component; 
 
@@ -116,12 +118,13 @@ architecture Behavioral of uart_rx_po is
 	signal tick				: STD_LOGIC := '0';
 	signal preset_in 		: STD_LOGIC_VECTOR ((integer(ceil(log2(real(ticks)))) -1) downto 0);
 	signal rx_empty_int	: STD_LOGIC := '0';
+	
 begin
 
-	reset_n <= not reset ;
-	
+	reset_n 	<= not reset ;
+	rx_out 	<= rx;
 	baud_generator: counter_UpN_Re_Sr  
-							generic map	(  n       => 651)
+							generic map	(  n       => N)			-- freq/(numero di tick * baud rate)
 							port map		(  enable      => enable ,                               
 												reset_n     => '1' ,                                
 												clock       => clock,                                

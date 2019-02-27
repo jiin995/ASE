@@ -40,19 +40,15 @@ entity uart_tx_po is
 	port		(	clock					: in 	STD_LOGIC;
 					reset					: in 	STD_LOGIC;
 					enable				: in 	STD_LOGIC;
-					enable_stop			: in  STD_LOGIC;
-					enable_tick			: in  STD_LOGIC;
 					sended_bit			: in  STD_LOGIC;
 					send_tx				: in  STD_LOGIC;
 					tx_done				: in  STD_LOGIC;
 					wr_uart				: in  STD_LOGIC;
-					tx_mark				: in 	STD_LOGIC;
 					load_din				: in  STD_LOGIC;
-					reset_scan			: in  STD_LOGIC;
 					tx_in					: in  STD_LOGIC;
 					reset_tick			: in  STD_LOGIC;
-					tx_out				: out STD_LOGIC;
 					byte_to_send		: in 	STD_LOGIC_VECTOR ( ( data_bits-1 ) downto 0);
+					bit_to_send				: out STD_LOGIC;
 					tx						: out STD_LOGIC;
 					tx_full				: out STD_LOGIC;
 					sended_byte_hit	: out STD_LOGIC;
@@ -147,7 +143,7 @@ reset_n <= not reset ;
 	counter_stop : counter_UpN_Re_Sr 
 								generic map	( 	n => stop_ticks)
 								port map		(	clock			=> tick,
-													enable 		=> enable_stop,
+													enable 		=> enable ,
 													reset_n 		=> reset_n,
 													count_hit	=> stop_hit,
 													counts		=> open
@@ -169,9 +165,9 @@ reset_n <= not reset ;
 													scan_en	=> load_din,
 													scan_in 	=> '1',
 													d_reg		=> byte_to_send,
-													scan_out	=> tx_out,
+													scan_out	=> bit_to_send,
 													q_reg		=> open,
-													reset_n 	=> not reset_scan
+													reset_n 	=> '1'
 										);
 	
 	flag_FF_inst: flag_FF 
