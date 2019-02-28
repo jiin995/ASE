@@ -60,7 +60,7 @@ entity uart_rx_po is
 end uart_rx_po;
 
 
-architecture Behavioral of uart_rx_po is
+architecture structural of uart_rx_po is
 	component counter_UpN_Re_preset_Sr is 
 		 generic (   n               : NATURAL :=4;
 						 enable_level    : STD_LOGIC :='1'
@@ -183,5 +183,5 @@ begin
 											  flag      => rx_empty_int
 									);
 
-end Behavioral;
+end structural;
 

@@ -97,8 +97,13 @@ signal rx_empty_int, rx_empty_n, tx_full_int :STD_LOGIC := '0';
 
 
 begin
+
 	rx_empty_n <= not rx_empty_int;
 	rx_empty <= rx_empty_int;
+	 
+	tx_full <= tx_full_int;
+	value <= x"000000" & dout;
+	
 	uart_inst : uart port map ( 	clock 	=> clock, 
 											reset 	=> reset,
 											rx			=> rx,
@@ -117,9 +122,6 @@ begin
             d       => dout_int, 
             q       => dout
     );
-	 
-	tx_full <= tx_full_int;
-	value <= x"000000" & dout;
 	display	: display_7_segments port map ( 	enable 			=> enable,	
 															clock  			=> clock,
 															reset	 			=> reset,

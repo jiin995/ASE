@@ -89,7 +89,411 @@ Realizzazione PO/PC
 \begin_layout Standard
 Si è deciso di realizzare un'ulteriore implementazione dell'UART tramite
  modello PO/PC.
- 
+ In particolare, dapprima sono state realizzate due control unit, rispettivament
+e per 
+\shape italic
+uart_rx 
+\shape default
+e 
+\shape italic
+uart_tx
+\shape default
+, che realizzeranno la parte di controllo delle due entità.
+ La loro realizzazione è stata del tutto simile al caso behavioural: in
+ particolare, si sono realizzate due FSM con gli stessi stati del caso precedent
+e.
+ Per gestire i conteggi, invece, si sono utilizzati dei contatori istanziati
+ nella parte operativa delle due entità, in modo da rispettare il paradigma
+ di separazione del modello PO/PC.
+ I contatori utilizzati sono:
+\end_layout
+
+\begin_layout Itemize
+counter_tick - per contare i tick e decidere quando trasmettere/campionare
+ i segnali;
+\end_layout
+
+\begin_layout Itemize
+counter_stopticks - per contare i tick da attendere a fine trasmissione/ricezion
+e;
+\end_layout
+
+\begin_layout Itemize
+counter_n_bits - per contare il numero di bit trasmessi/ricevuti.
+\end_layout
+
+\begin_layout Standard
+Oltre a questi, usiamo anche il baud generator, del tutto analogo a quello
+ utilizzato nell'implementazione behavioural.
+ La parte operativa include anche i registri buffer input/output, stavolta
+ inclusi nelle entità 
+\shape italic
+uart_rx 
+\shape default
+e
+\shape italic
+ uart_tx
+\shape default
+ piuttosto che in quella di alto livello.
+ Per realizzare questi buffer, piuttosto che il componente usato nel capitolo
+ precedente, si sono utilizzate due scan chain (per fare gli shift dei dati
+ ricevuti e trasmessi) con due flip flop usati come flag dei buffer:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Buffer output realizzato con scan
+ chain e flip flop.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+received_byte_reg: scan_chain
+\end_layout
+
+\begin_layout Plain Layout
+
+	generic map ( 	
+\end_layout
+
+\begin_layout Plain Layout
+
+		width 	=> data_bits
+\end_layout
+
+\begin_layout Plain Layout
+
+	)	port map		(	
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock 	=> read_rx,
+\end_layout
+
+\begin_layout Plain Layout
+
+		en		=> enable,
+\end_layout
+
+\begin_layout Plain Layout
+
+		scan_en	=> '1',
+\end_layout
+
+\begin_layout Plain Layout
+
+		scan_in 	=> rx,
+\end_layout
+
+\begin_layout Plain Layout
+
+		d_reg		=> ( others => '0'),
+\end_layout
+
+\begin_layout Plain Layout
+
+		scan_out	=> open,
+\end_layout
+
+\begin_layout Plain Layout
+
+		q_reg		=> received_byte,
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset_n 	=> '1'
+\end_layout
+
+\begin_layout Plain Layout
+
+	);
+\end_layout
+
+\begin_layout Plain Layout
+
+flag_FF_inst: flag_FF							
+\end_layout
+
+\begin_layout Plain Layout
+
+	port map(  
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock     => clock,
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset     => '0',
+\end_layout
+
+\begin_layout Plain Layout
+
+		clr_flag  => rd_uart,
+\end_layout
+
+\begin_layout Plain Layout
+
+		set_flag  => rx_done,
+\end_layout
+
+\begin_layout Plain Layout
+
+		flag      => rx_empty_int
+\end_layout
+
+\begin_layout Plain Layout
+
+	);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Grazie alla scan chain, in trasmissione il dato può essere inserito nel
+ buffer in parallelo e spedito in seriale (o ricevuto in seriale ed estratto
+ dal buffer in parallelo, nel caso della ricezione).
+ Le architetture delle entità 
+\shape italic
+uart_rx 
+\shape default
+e 
+\shape italic
+uart_tx 
+\shape default
+sono visualizzabili in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:architettura-uart-rx-popc"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Le implementazioni complete delle entity sono consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio13/design/uart_po_pc/uart_rx.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+uart
+\backslash
+_rx.vhd}
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio13/design/uart_po_pc/uart_tx.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+uart
+\backslash
+_tx.vhd}
+\end_layout
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/architettura_uart_rx_popc.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:architettura-uart-rx-popc"
+
+\end_inset
+
+Architettura di uart_rx.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/architettura_uart_tx_popc.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:architettura-uart-tx-popc"
+
+\end_inset
+
+Architettura di uart_tx.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per quanto concerne l'entità di alto livello, ancora una volta sono state
+ istanziate le due entità 
+\shape italic
+uart_rx 
+\shape default
+e 
+\shape italic
+uart_tx 
+\shape default
+in modo analogo al caso behavioural
+\shape italic
+, 
+\shape default
+senza però usare i due buffer in quanto sono incluse nelle due entità di
+ più basso livello.
+ L'implementazione completa della top level entity è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio13/design/uart_po_pc/uart.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+uart.vhd}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+On board
+\end_layout
+
+\begin_layout Standard
+L'entità on board è stata realizzata in maniera del tutto analoga al caso
+ precedente.
+ L'unica eccezione è che si è deciso di utilizzare un registro per sostenere
+ i valori in ingresso al display a 7 segmenti.
+ L'implementazione completa della top level entity è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio13/design/uart_po_pc/uart_onBoard.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+uart
+\backslash
+_onBoard.vhd}
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \end_body

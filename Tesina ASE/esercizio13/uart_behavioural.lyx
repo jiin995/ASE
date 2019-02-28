@@ -166,7 +166,56 @@ stop_ticks
 Tale implementazione non è di tipo commerciale, in quanto non prevede la
  possibilità di effettuare un controllo di parità né di utilizzare alcun
  tipo di controllo di flusso.
- Dopodiché è stata realizzata la top level entity 
+ .
+ Le implementazioni complete delle entity sono consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio13/design/uart_behavioural/uart_rx.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+uart
+\backslash
+_rx.vhd}
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio13/design/uart_behavioural/uart_tx.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+uart
+\backslash
+_tx.vhd}
+\end_layout
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dopodiché è stata realizzata la top level entity 
 \shape italic
 uart
 \shape default
@@ -231,7 +280,7 @@ status open
 
 
 \backslash
-href{run:./esercizio13/design/uart.vhd}{%
+href{run:./esercizio13/design/uart_behavioural/uart.vhd}{%
 \end_layout
 
 \begin_layout Plain Layout
@@ -241,7 +290,7 @@ uart.vhd}
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Subsection
@@ -539,17 +588,19 @@ status open
 
 
 \backslash
-href{run:./esercizio13/design/uart_onBoard.vhd}{%
+href{run:./esercizio13/design/uart_behavioural/uart_onBoard.vhd}{%
 \end_layout
 
 \begin_layout Plain Layout
 
-uart/_onBoard.vhd}
+uart
+\backslash
+_onBoard.vhd}
 \end_layout
 
 \end_inset
 
-
+.
 \end_layout
 
 \end_body
