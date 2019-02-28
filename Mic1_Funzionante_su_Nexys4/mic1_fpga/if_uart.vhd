@@ -34,7 +34,6 @@ entity if_uart is
 		  	CE_UART		: in std_logic 	:= '0'; --chip enable del componente
 			IO_MDR	: inout std_logic_vector(31 downto 0) := "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ";  --verso il data bus a 32 bit
 		 	RD		: in std_logic 	:= '0';  --segnale di lettura
-			LEDS	: out std_logic_vector(7 downto 0) := "01010101"; --eco sui led del carattere ricevuto
 		  	WR		: in std_logic 	:= '0'--segnale di scrittura
 			);
 end if_uart;
@@ -98,20 +97,17 @@ architecture Behavioral of if_uart is
 	signal	dval_sig :  std_logic:='0';
 	signal	buffer_rx_sig :  std_logic_vector(7 downto 0):=x"00";
 	signal	zero_leggi_sig :  std_logic:='0';          
-	
-
- 
-
 
 begin
 
 	io_mdr<=io_mdr_sig;
-	LEDS<=buffer_rx_sig;
-	
+
+	-- reimpostato per farlo funzionare a 100 MHz e con un Baud a 9600
+	-- ho provato anche con altro baud
 	Inst_baud_gen: baud_gen 
 	generic map(
-		  N => 5,
-		  M => 32		  
+		  N => 10,
+		  M => 652 --32		  
 	)
 	PORT MAP(
 		ck => ck,
