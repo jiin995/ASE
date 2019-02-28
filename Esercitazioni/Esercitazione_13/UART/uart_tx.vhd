@@ -4,56 +4,58 @@ library IEEE;
 	 use IEEE.STD_LOGIC_ARITH.ALL;
 	 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
+--uart_tx è il trasmettitore
+
 entity uart_tx is 
     generic(
-        data_bits   : NATURAL := 8;
-        stop_Ticks  : NATURAL := 16
+        data_bits   : NATURAL := 8;	-- numero di bit per ogni trasmissione (tra un mark e l'altro)
+        stop_ticks  : NATURAL := 16	-- numero di tick da lasciar passare alla fine della trasmissione di ogni byte
      );
     port (
             clock   : in  STD_LOGIC;
             reset   : in  STD_LOGIC;
-				tx_start: in  STD_LOGIC;
-            tick    : in  STD_LOGIC;    -- segnale dal bound rate gen 
-		      din     : in  STD_LOGIC_VECTOR (data_bits-1 downto 0);
-            tx_done : out STD_LOGIC;
-				tx      : out STD_LOGIC
+				tx_start: in  STD_LOGIC;		-- alto quando deve partire la trasmissione
+            tick    : in  STD_LOGIC;   	-- baud rate
+		      din     : in  STD_LOGIC_VECTOR (data_bits-1 downto 0);	-- byte da trasmettere
+            tx_done : out STD_LOGIC;		-- alto quando la trasmissione è completata
+				tx      : out STD_LOGIC			-- linea di trasmissione
 		);
 end uart_tx;
 
 architecture Behavioral of uart_tx is
 
-type state is (idle,start,send,stop);
-signal current_state,state_next : state := idle;
+	type state is (idle,start,send,stop);
+	signal current_state,state_next : state := idle;
 
---campiono ogni 16 colpi di tick, 4 bit mi permettono di contare fino a 16 
-signal tick_count,tick_count_next 			: ieee.numeric_std.unsigned ( 3 downto 0 ) := ( others => '0' );
+	--campiono ogni 16 colpi di tick, 4 bit mi permettono di contare fino a 16 
+	signal tick_count,tick_count_next 			: ieee.numeric_std.unsigned ( 3 downto 0 ) := ( others => '0' );
 
---numero di bit inviati, 3 bit mi permettono di contare fino a 8
-signal n_sended_bits,n_sended_bits_next 	: ieee.numeric_std.unsigned ( 2 downto 0 ) := ( others => '0' );
+	--numero di bit inviati, 3 bit mi permettono di contare fino a 8
+	signal n_sended_bits,n_sended_bits_next 	: ieee.numeric_std.unsigned ( 2 downto 0 ) := ( others => '0' );
 
--- byte da inviare
-signal send_bits,send_bits_next 		: STD_LOGIC_VECTOR ( data_bits-1 downto 0);
+	-- byte da inviare
+	signal send_bits,send_bits_next 		: STD_LOGIC_VECTOR ( data_bits-1 downto 0);
 
---bit sulla linua in uscita
-signal tx_current, tx_next : STD_LOGIC := '0';
+	--bit sulla linua in uscita
+	signal tx_current, tx_next : STD_LOGIC := '0';
 
 begin
 
-process (clock,reset) begin
-	if( reset = '1') then					-- reset asincrono
-		current_state 	<= idle;
-		tick_count 		<= (others => '0');
-		n_sended_bits 	<= (others => '0');
-		send_bits		<= (others => '0');
-		tx_current 		<= '1';
-	elsif ( rising_edge (clock)) then 	-- aggiorno lo stato
-		current_state 	<= state_next;
-		n_sended_bits 	<= n_sended_bits_next;
-		tick_count		<= tick_count_next;
-		send_bits 		<= send_bits_next;
-		tx_current 		<= tx_next;
-	end if;
-end process ;
+	process (clock,reset) begin
+		if( reset = '1') then					-- reset asincrono
+			current_state 	<= idle;
+			tick_count 		<= (others => '0');
+			n_sended_bits 	<= (others => '0');
+			send_bits		<= (others => '0');
+			tx_current 		<= '1';
+		elsif ( rising_edge (clock)) then 	-- aggiorno lo stato
+			current_state 	<= state_next;
+			n_sended_bits 	<= n_sended_bits_next;
+			tick_count		<= tick_count_next;
+			send_bits 		<= send_bits_next;
+			tx_current 		<= tx_next;
+		end if;
+	end process ;
 
 process (current_state,tick_count,n_sended_bits,send_bits,tx_current,din,tick,tx_start) 
 begin

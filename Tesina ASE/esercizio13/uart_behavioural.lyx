@@ -83,7 +83,35 @@
 \begin_body
 
 \begin_layout Section
-Realizzaziosne behavioural
+Realizzazione behavioural
+\end_layout
+
+\begin_layout Standard
+Per implementare il protocollo UART sulla board Nexys 4 è stato utilizzato
+ il codice fornito.
+ In particolare, sono state realizzate le due entità ricevitore (
+\shape italic
+uart_rx
+\shape default
+) e trasmettitore (
+\shape italic
+uart_tx
+\shape default
+) e poi la top level entity 
+\shape italic
+uart
+\shape default
+, in grado sia di trasmettere che di ricevere.
+ Dopodiché, sono state istanziate due 
+\shape italic
+uart
+\shape default
+ internamente alla board stessa, collegandole opportunamente all'interno
+ dell'entità 
+\shape italic
+on board
+\shape default
+.
 \end_layout
 
 \end_body
