@@ -36,24 +36,14 @@ port(
 		sw : in std_logic_vector(7 downto 0);
 		IO_SWITCH	: in STD_LOGIC;
 		read_led : out STD_LOGIC;
-		start_read : In STD_LOGIC
+		start_read : In STD_LOGIC;
+		anodes 			: out STD_LOGIC_VECTOR (7 downto 0);	--! Uscita che pilota gli anodi
+		cathodes			: out STD_LOGIC_VECTOR (7 downto 0)		--! Uscita che pilota i catodi
 
 );
 end sistema_mic1;
 
 architecture Behavioral of sistema_mic1 is
-
-	COMPONENT if_uart
-	PORT(
-		RXD : IN std_logic;
-		CK : IN std_logic;
-		CE_UART : IN std_logic;
-		RD : IN std_logic;
-		WR : IN std_logic;    
-		IO_MDR : INOUT std_logic_vector(31 downto 0);      
-		TXD : OUT std_logic
-		);
-	END COMPONENT;
 
 	COMPONENT mic1
 	PORT(
@@ -117,17 +107,29 @@ architecture Behavioral of sistema_mic1 is
 
 component io_switch_led 
 	Port (	CK		: in std_logic:= '0'; --clock
-		  	CE_UART		: in std_logic 	:= '0'; --chip enable del componente
-			IO_MDR	: inout std_logic_vector(31 downto 0) := "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ";  --verso il data bus a 32 bit
-		 	RD		: in std_logic 	:= '0';  --segnale di lettura
-			LEDS	: out std_logic_vector(7 downto 0) := "01010101"; --eco sui led del carattere ricevuto
-			SWITCH : in std_logic_vector(7 downto 0);
-		  	WR		: in std_logic 	:= '0';--segnale di scrittura
-			START_READ : In STD_LOGIC
+				CE_UART		: in std_logic 	:= '0'; --chip enable del componente
+				IO_MDR	: inout std_logic_vector(31 downto 0) := "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ";  --verso il data bus a 32 bit
+				RD		: in std_logic 	:= '0';  --segnale di lettura
+				LEDS	: out std_logic_vector(7 downto 0) := "01010101"; --eco sui led del carattere ricevuto
+				SWITCH : in std_logic_vector(7 downto 0);
+				WR		: in std_logic 	:= '0';--segnale di scrittura
+				START_READ : In STD_LOGIC
 			);
 end component;
 
-component io_controller_v2
+COMPONENT if_uart
+	PORT(
+		RXD : IN std_logic;
+		CK : IN std_logic;
+		CE_UART : IN std_logic;
+		RD : IN std_logic;
+		WR : IN std_logic;    
+		IO_MDR : INOUT std_logic_vector(31 downto 0);      
+		TXD : OUT std_logic
+		);
+	END COMPONENT;
+
+component io_controller
 	Port ( 	CLOCK			: in 	std_logic	:= '0'; 	--clock
 				IO_SWITCH	: in 	std_logic 	:= '0';	--selettore componente_io
 				CE				: in 	STD_LOGIC 	:= '0';	
@@ -138,6 +140,8 @@ component io_controller_v2
 				SWITCH		: in 	STD_LOGIC_VECTOR (7 downto 0);
 				TXD			: out std_logic 	:= '1';  --txd seriale
 				LEDS			: out std_logic_vector(7 downto 0) := "01010101"; --eco sui led del carattere ricevuto
+				anodes 			: out STD_LOGIC_VECTOR (7 downto 0);	--! Uscita che pilota gli anodi
+				cathodes			: out STD_LOGIC_VECTOR (7 downto 0);		--! Uscita che pilota i catodi
 				IO_MDR		: inout std_logic_vector(31 downto 0) := "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"  --verso il data bus a 32 bit
 
 		);
@@ -157,7 +161,7 @@ signal	rd_sig :  std_logic;
 signal	fetch_sig :  std_logic;
 signal	CE_rom_cpool :  std_logic;       
 signal	CE_ram_locvarframe_opstack :  std_logic;       
-signal	CE_uart_signal :  std_logic;       
+signal	CE_io :  std_logic;       
 signal	ce_led :  std_logic;       
 signal	ce_uart :  std_logic;       
 signal	ck_signal :  std_logic; 
@@ -189,9 +193,6 @@ begin
 		DATA => ingresso_mbr_sig
 	);
 
-
-
-
 	Inst_ram: ram 
 	generic map(
 		ADDR_WIDTH => 7,
@@ -214,48 +215,50 @@ begin
 
 	Inst_decodifica_indirizzi: decodifica_indirizzi PORT MAP(
 		address => uscita_mar_sig,
-		ce_uart => CE_uart_signal,
+		ce_uart => CE_io,
 		ce_rom => CE_rom_cpool,
 		ce_ram => CE_ram_locvarframe_opstack
 	);
 
 
-ce_uart <= CE_uart_signal and not io_switch;
-	Inst_if_uart: if_uart PORT MAP(
-		TXD => TXD,
-		RXD => RXD,
-		CK => ck_signal,
-		CE_UART => ce_uart,--CE_uart_signal,
-		IO_MDR => io_mdr_sig,
-		RD => rd_sig,
-		WR => wr_sig
-	);
-	
-ce_led <= CE_uart_signal and io_switch;
-	inst_io_controller: io_switch_led PORT MAP(
-		CK => ck_signal,
-		CE_UART => ce_led, --CE_uart_signal,
-		IO_MDR => io_mdr_sig,
-		RD => rd_sig,
-		LEDS => led,
-		switch => sw,
-		WR => wr_sig,
-		start_read => start_read
-	);
-
---	inst_io_controller: io_controller_v2 PORT MAP(
---		CLOCK => ck_signal,
---		CE => CE_uart_signal,
+--ce_uart <= CE_uart_signal and not io_switch;
+--	Inst_if_uart: if_uart PORT MAP(
+--		TXD => TXD,
+--		RXD => RXD,
+--		CK => ck_signal,
+--		CE_UART => ce_uart,--CE_uart_signal,
+--		IO_MDR => io_mdr_sig,
+--		RD => rd_sig,
+--		WR => wr_sig
+--	);
+--	
+--ce_led <= CE_uart_signal and io_switch;
+--	inst_io_controller: io_switch_led PORT MAP(
+--		CK => ck_signal,
+--		CE_UART => ce_led, --CE_uart_signal,
 --		IO_MDR => io_mdr_sig,
 --		RD => rd_sig,
 --		LEDS => led,
 --		switch => sw,
---		RXD	=> RXD,
---		TXD	=> TXD,
---		IO_SWITCH => IO_SWITCH,
 --		WR => wr_sig,
 --		start_read => start_read
 --	);
+
+	inst_io_controller: io_controller	PORT MAP(
+		CLOCK 		=> ck_signal,
+		CE 			=> CE_io ,
+		IO_MDR 		=> io_mdr_sig,
+		RD 			=> rd_sig,
+		LEDS 			=> led,
+		switch 		=> sw,
+		RXD			=> RXD,
+		TXD			=> TXD,
+		IO_SWITCH	=> IO_SWITCH,
+		WR 			=> wr_sig,
+		anodes 		=> anodes,
+		cathodes		=> cathodes,
+		start_read 	=> start_read
+	);
 
 read_led <= start_read; 
 	

@@ -1,106 +1,125 @@
 library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+	use IEEE.STD_LOGIC_1164.ALL;
+	use IEEE.STD_LOGIC_ARITH.ALL;
+	use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-entity io_switch_led is
-	Port (	CK		: in std_logic:= '0'; --clock
-		  	CE_UART		: in std_logic 	:= '0'; --chip enable del componente
-			IO_MDR	: inout std_logic_vector(31 downto 0) := "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ";  --verso il data bus a 32 bit
-		 	RD		: in std_logic 	:= '0';  --segnale di lettura
-			LEDS	: out std_logic_vector(7 downto 0) := "01010101"; --eco sui led del carattere ricevuto
-			SWITCH : in std_logic_vector(7 downto 0);
-		  	WR		: in std_logic 	:= '0';--segnale di scrittura
-			start_read: In STD_LOGIC
+entity io_switch_led_display is
+	Port (	CLOCK				: in std_logic	:= '0'; 	-- clock
+				CE					: in std_logic := '0'; 	-- chip enable del componente
+				RD					: in std_logic := '0'; 	-- segnale di lettura
+				WR					: in std_logic := '0';	-- segnale di scrittura
+				START_READ		: in STD_LOGIC	:= '0';	-- avvia la lettura dagli switch, come se premessimo enter quando usiamo l'uart
+				ENABLE_DISPLAY : in STD_LOGIC := '1';
+				SWITCH 			: in std_logic_vector(7 downto 0);
+				LEDS				: out std_logic_vector(7 downto 0) := (others => '0');
+				anodes 			: out STD_LOGIC_VECTOR (7 downto 0);	--! Uscita che pilota gli anodi
+				cathodes			: out STD_LOGIC_VECTOR (7 downto 0);		--! Uscita che pilota i catodi
+				IO_MDR			: inout std_logic_vector(31 downto 0) := "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"  --verso il data bus a 32 bit
 			);
-end io_switch_led;
+end io_switch_led_display;
 
-architecture Behavioral of io_switch_led is
+architecture Behavioral of io_switch_led_display is
 	
-	--dichiarazione stati della fsm di controllo
-	type stato_fsm is(
-		zero,
-		leggendo,
-		uno
-	);
+	
+	component display_7_segments 
+		PORT ( 	enable			: in STD_LOGIC;								--! enable del componente
+					clock 			: in STD_LOGIC;								--! clock
+					reset				: in STD_LOGIC;								--! reset 1-attivo
+					values 			: in STD_LOGIC_VECTOR (31 downto 0);	--! Stringa di bit del valore da mostrare
+					dots 				: in STD_LOGIC_VECTOR (7 downto 0) ;	--! Segnali che permette di pilotare i punti
+					enable_digit	: in STD_LOGIC_VECTOR (7 downto 0);		--! Segnali che attiva le digit
+					anodes 			: out STD_LOGIC_VECTOR (7 downto 0);	--! Uscita che pilota gli anodi
+					cathodes			: out STD_LOGIC_VECTOR (7 downto 0)		--! Uscita che pilota i catodi
+		);
+	end component;
+
+	
+	--dichiarazione stati della fsm di controllo della lettura
+	type stato_fsm is( idle,reading,read_done);
 	
 	
 	signal state_reg,state_next: stato_fsm;	
 
-	signal	io_mdr_sig :  std_logic_vector(31 downto 0):=x"00000000";
-	signal	tx_data_in_sig :  std_logic_vector(7 downto 0):=x"00";
---	signal	tx_data_en_sig :  std_logic:='0';          
-	signal	rx_data_out_sig :  std_logic_vector(7 downto 0):=x"00";
---	signal	start_read:  std_logic:='0';
-	signal	tx_ch_rdy_sig :  std_logic:='0';
-	signal	buffer_rx_sig :  std_logic_vector(7 downto 0):=x"00";
+	signal	io_mdr_sig 		:  std_logic_vector(31 downto 0):=x"00000000";
+	signal	output_buffer 	:  std_logic_vector(7 downto 0):=x"00";			-- buffer di output
+	signal	switch_in 		:  std_logic_vector(7 downto 0):=x"00";			-- buffer in ingresso dagli switch
+	signal	input_buffer 	:  std_logic_vector(7 downto 0):=x"00";			-- buffer di output
 	signal	zero_leggi_sig :  std_logic:='0';          
 	
 begin
 
-	io_mdr<=io_mdr_sig;
+	io_mdr		<= io_mdr_sig;
 	
-	LEDS<=tx_data_in_sig;
-	rx_data_out_sig <= switch;
+	leds			<= output_buffer;
+	switch_in 	<= switch;
 	
-	output_buffer:process(ck)  --processo per registro buffer tx in scrittura su uart
+	display: display_7_segments port map (	clock => clock,
+														enable => enable_display,
+														reset => '0',
+														values => x"000000" & output_buffer,
+														dots => x"00",
+														enable_digit => x"03",
+														anodes => anodes,
+														cathodes => cathodes
+												);
+	
+	out_buffer:process(CLOCK)  --processo per registro buffer tx in scrittura su uart
 	begin
-		if(falling_edge(ck))then  --sul fronte di discesa del clock
-			if(CE_uart='1' and wr='1')then  --se abilito uart in scrittura
-				tx_data_in_sig<=io_mdr(7 downto 0);  --memorizza valore sul data busa
+		if(falling_edge(CLOCK))then  					--sul fronte di discesa del clock
+			if(CE='1' and wr='1')then  				--se abilito il dispositivo in scrittura, output sui led
+				output_buffer	<=	io_mdr(7 downto 0);  --memorizza valore sul data busa
 			end if;
 		end if;
 	end process;
 	
 	
-	input_buffer:process(ck)  --processo per registro buffer rx per dato ricevuto da uart
+	in_buffer:process(CLOCK)  --processo per registro buffer rx per dato ricevuto da uart
 	begin
-		if(rising_edge(ck))then  --sul fronte di salita del clock
-			if(start_read ='1')then  --se ho ricevuto un dato
-				buffer_rx_sig<=rx_data_out_sig;  --memorizza valore dall'uart
+		if(rising_edge(CLOCK))then  					-- sul fronte di salita del clock
+			if(start_read ='1')then  					-- se ho ricevuto un dato, se è stato premuto il bottone
+				input_buffer	<=	switch_in;  				-- memorizza valore dall'uart
 			end if;
 		end if;
 	end process;
+ 
+	--mux che manda al data bus dato ricevuto oppure 0 se non ho ricevuto il dato oppure alta impedenza
+	-- alta impedenza serve perchè io_mdr è un segnale di io, cioè sia di input che di output, quando il mio 
+	-- componente è in alta impedenza gli altri possono usare lo stesso bus condiviso!!!! non ce l'hanno mai 
+	-- spiegato!
+	io_mdr_sig <= (others => 'Z') when CE='0' else  											--quando il dispositivo è disabilito
+					  x"00000000" when (CE='1' and rd='1' and zero_leggi_sig='1') else 	--quando non ho ricevuto dati
+					  (x"000000" & input_buffer) when (CE='1' and rd='1' and zero_leggi_sig='0') else  --quando  ho ricevuto dati
+					  (others => 'Z'); 																	-- default
 
-	--mux che manda al data bus dato ricevuto oppure 0 se non ho dato oppure alta impedenza
-	io_mdr_sig <= (others => 'Z') when CE_uart='0' else  --uando disabilitata
-					  x"00000000" when (CE_uart='1' and rd='1' and zero_leggi_sig='1') else --quando non ho ricevuto dati
-					  (x"000000" & buffer_rx_sig) when (CE_uart='1' and rd='1' and zero_leggi_sig='0') else  --quando  ho ricevuto dati
-					  (others => 'Z'); --per default
 
-
-	--FSM per controllo dato emesso in lettura da uart (0 oppure dato ricevuto)
+	--FSM per controllo dello stato di lettura
 	
-	state_register:process(ck)--processo per registro di stato
+	state_register:process(CLOCK)--processo per registro di stato
 	begin
-		if(rising_edge(ck))then
+		if(rising_edge(CLOCK))then
 			state_reg<=state_next;
 		end if;
 	end process;
 	
-	logica_stato_futuro:process(state_reg,CE_uart,rd,start_read)--processo per logica calcolo stato futuro
+	next_state:process(state_reg,CE,rd,start_read)--processo per logica calcolo stato futuro
 	begin
+		state_next <= state_reg;
+		
 		case state_reg is
 		
-			when zero =>
+			when idle =>
 				if(start_read='1')then
-					state_next<=leggendo;
-				else
-					state_next<=zero;
+					state_next<=reading;
 				end if;
 	
-			when leggendo =>
-				if(CE_uart='1' and rd='1')then
-					state_next<=uno;
-				else
-					state_next<=leggendo;
+			when reading =>
+				if(CE='1' and rd='1')then
+					state_next<=read_done;
 				end if;	
 
-			when uno =>
-				if(CE_uart='0')then
-					state_next<=zero;
-				else
-					state_next<=uno;
+			when read_done=>
+				if(CE='0')then
+					state_next<=idle;
 				end if;					
 		end case;
 	end process;
@@ -110,11 +129,11 @@ begin
 	begin
 		zero_leggi_sig<='0';  --valore di default
 		case state_reg is
-			when zero=>
+			when idle=>
 				zero_leggi_sig<='1';
-			when uno=>
+			when read_done=>
 				zero_leggi_sig<='0';	
-			when leggendo=>
+			when reading=>
 				zero_leggi_sig<='0';					
 			when others =>
 				zero_leggi_sig<='1';				
