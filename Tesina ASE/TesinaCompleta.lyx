@@ -749,6 +749,35 @@ filename "esercizio13/Tesina.lyx"
 
 \end_layout
 
+\begin_layout Chapter
+MIC1
+\end_layout
+
+\begin_layout Enumerate
+Realizzare la sintesi di un'architettura MIC, di cui sono forniti i codici
+ VHDL e gli strumenti di sviluppo, completando un ciclo di sviluppo.
+ Effettuare, inoltre, la sostituzione del dispositivo per la comunicazione
+ UART utilizzando, invece, led e switch delle board FPGA sfruttando le istruzion
+i di IN e OUT.
+\end_layout
+
+\begin_layout Enumerate
+(Opzionale) Fornire l'implementazione di un I/O generico per il quale, dalle
+ istruzioni di IN e OUT, è possibile utilizzare uno tra D dispositivi disponibil
+i (e.g.
+ led, switch, push buttons, UART).
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "esercizio14/Tesina.lyx"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 
 \lang american

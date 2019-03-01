@@ -1,0 +1,220 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{tikzpicture}
+\end_preamble
+\use_default_options true
+\master Tesina.lyx
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Sintesi del codice fornito
+\end_layout
+
+\begin_layout Standard
+Per lo svolgimento di questo esercizio, è stato usato il codice fornitoci
+ nel materiale del corso per l'implementazione in VHDL del MIC1.
+ In particolare, tale implementazione prevede l'esecuzione di un'operazione
+ di moltiplicazione e di divisione tra due operandi, restituendo prodotto,
+ quoziente e resto.
+ Per effettuare la comunicazione con tale architettura, è stato sfruttato
+ il componente UART per la comunicazione seriale: una volta forniti i due
+ operandi, la macchina ci restituisce i risultati indicati precedentemente.
+\end_layout
+
+\begin_layout Standard
+Come richiesto, tale macchina è stata sintetizzata su board Nexys 4: in
+ particolare, per migliorarne le prestazioni e sfruttare al massimo le potenzial
+ità della board Nexys 4 fornitaci, si è deciso di generare un clock a frequenza
+ 100 Mhz per il funzionamento della macchina (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:mic-clock"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ Tale valore è superiore ai 5 Mhz utilizzati nel codice fornitoci, in quanto
+ questo era mirato alla sintesi su board Nexys 2.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/mic_clock.png
+	scale 22
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:mic-clock"
+
+\end_inset
+
+Generazione del clock.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dopodiché si è proceduto alla sintesi: come previsto, comunicando da PC
+ con l'UART della board tramite USB grazie al convertitore FT2232HQ, è stato
+ possibile utilizzare un comune terminale per comunicare gli operandi e
+ leggere il risultato dell'operazione.
+ I risultati di tale prova sono visibili in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:test-mic1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/test_mic1.png
+	scale 22
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:test-mic1"
+
+\end_inset
+
+Test del MIC1 sintetizzato.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

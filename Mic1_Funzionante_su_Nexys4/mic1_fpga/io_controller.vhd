@@ -40,7 +40,6 @@ entity io_controller is
 				anodes 			: out STD_LOGIC_VECTOR (7 downto 0);	--! Uscita che pilota gli anodi
 				cathodes			: out STD_LOGIC_VECTOR (7 downto 0);	--! Uscita che pilota i catodi
 				IO_MDR		: inout std_logic_vector(31 downto 0) := "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"  --verso il data bus a 32 bit
-
 		);
 end io_controller;
 
@@ -79,16 +78,15 @@ architecture Behavioral of io_controller is
 	
 begin
 	
-	-- abilito i led e gli switch solo quando voglio usarli
+	-- abilito i led, gli switch e i display solo quando voglio usarli e CE è alto
 	ce_led_switch 	<= CE and io_switch; 
 	
 	-- serve per spegnere i led quando uso uart
-	leds <=leds_io when (IO_SWITCH = '1') else (others => '0');
+	leds <= leds_io when (IO_SWITCH = '1') else (others => '0');
 	
-	
-	inst_io_controller: io_switch_led_display PORT MAP(
+	inst_switch_led_display: io_switch_led_display PORT MAP(	-- controller per switch, led e display
 		CLOCK 		=> CLOCK,
-		CE 			=> ce_led_switch,
+		CE 			=> ce_led_switch,	-- uso led, switch e display solo quando ce_led_switch è basso
 		RD 			=> RD,
 		WR				=> WR,
 		LEDS 			=> leds_io,
@@ -100,14 +98,14 @@ begin
 		start_read 	=> start_read
 	);
 	
-	-- abilito l'uart solo quando voglio usarli
+	-- abilito l'uart solo quando voglio usarlo e CE è alto
 	ce_uart 			<= CE and not io_switch;
 	
-	Inst_if_uart: if_uart PORT MAP(
+	Inst_if_uart: if_uart PORT MAP(	-- uart	
 		TXD 		=> TXD,
 		RXD		=> RXD,
 		CK 		=> CLOCK,
-		CE_UART 	=> ce_uart,
+		CE_UART 	=> ce_uart,	-- uso UART solo quando ce_uart è alto
 		IO_MDR 	=> io_mdr,
 		RD 		=> RD,
 		WR 		=> WR

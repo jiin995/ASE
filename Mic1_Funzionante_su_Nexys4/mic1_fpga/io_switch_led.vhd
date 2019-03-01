@@ -49,52 +49,56 @@ architecture Behavioral of io_switch_led_display is
 begin
 
 	io_mdr		<= io_mdr_sig;
+	switch_in 	<= switch;			
 	
-	leds			<= output_buffer;
-	switch_in 	<= switch;
+	leds	<= output_buffer;	-- il buffer in uscita va sui led
 	
 	display: display_7_segments port map (	clock => clock,
 														enable => enable_display,
 														reset => '0',
-														values => x"000000" & output_buffer,
+														values => x"000000" & output_buffer,	-- il buffer in uscita va sul display 
 														dots => x"00",
 														enable_digit => x"03",
 														anodes => anodes,
 														cathodes => cathodes
 												);
 	
-	out_buffer:process(CLOCK)  --processo per registro buffer tx in scrittura su uart
+	out_buffer:process(CLOCK)  --processo per scrittura su buffer d'uscita
 	begin
 		if(falling_edge(CLOCK))then  					--sul fronte di discesa del clock
-			if(CE='1' and wr='1')then  				--se abilito il dispositivo in scrittura, output sui led
-				output_buffer	<=	io_mdr(7 downto 0);  --memorizza valore sul data busa
+			if(CE='1' and wr='1')then  				--se abilito il dispositivo in scrittura, output sul buffer in uscita
+				output_buffer	<=	io_mdr(7 downto 0);  --memorizza valore sul data bus
 			end if;
 		end if;
 	end process;
 	
 	
-	in_buffer:process(CLOCK)  --processo per registro buffer rx per dato ricevuto da uart
+	in_buffer:process(CLOCK)  --processo per lettura nel registro input_buffer dagli switch
 	begin
 		if(rising_edge(CLOCK))then  					-- sul fronte di salita del clock
-			if(start_read ='1')then  					-- se ho ricevuto un dato, se è stato premuto il bottone
-				input_buffer	<=	switch_in;  				-- memorizza valore dall'uart
+			if(start_read ='1')then  					-- se ho ricevuto un dato ed è stato premuto il bottone
+				input_buffer	<=	switch_in;  				-- memorizza valore dagli switch
 			end if;
 		end if;
 	end process;
  
-	--mux che manda al data bus dato ricevuto oppure 0 se non ho ricevuto il dato oppure alta impedenza
+	-- mux che manda al data bus:
+	-- il dato ricevuto, se il dato è stato inserito (zero_leggi_sig='1'),
+	-- 0, se non ho inserito il dato, 0 se non ho ricevuto il dato (zero_leggi_sig='0'), 
+	-- alta impedenza altrimenti (es. se CE='0')
+	
 	-- alta impedenza serve perchè io_mdr è un segnale di io, cioè sia di input che di output, quando il mio 
-	-- componente è in alta impedenza gli altri possono usare lo stesso bus condiviso!!!! non ce l'hanno mai 
-	-- spiegato!
-	io_mdr_sig <= (others => 'Z') when CE='0' else  											--quando il dispositivo è disabilito
+	-- componente è in alta impedenza gli altri possono usare lo stesso bus condiviso
+	
+	io_mdr_sig <= (others => 'Z') when CE='0' else  											--quando il dispositivo è disabilitato
 					  x"00000000" when (CE='1' and rd='1' and zero_leggi_sig='1') else 	--quando non ho ricevuto dati
-					  (x"000000" & input_buffer) when (CE='1' and rd='1' and zero_leggi_sig='0') else  --quando  ho ricevuto dati
+					  (x"000000" & input_buffer) when (CE='1' and rd='1' and zero_leggi_sig='0') else  --quando ho ricevuto dati
 					  (others => 'Z'); 																	-- default
 
 
 	--FSM per controllo dello stato di lettura
 	
-	state_register:process(CLOCK)--processo per registro di stato
+	state_register:process(CLOCK)	--processo per registro di stato
 	begin
 		if(rising_edge(CLOCK))then
 			state_reg<=state_next;
@@ -108,18 +112,18 @@ begin
 		case state_reg is
 		
 			when idle =>
-				if(start_read='1')then
+				if(start_read='1')then		-- start_read='1' indica che la lettura deve partire
 					state_next<=reading;
 				end if;
 	
 			when reading =>
-				if(CE='1' and rd='1')then
+				if(CE='1' and rd='1')then	-- rd = '1' indica che la lettura è terminata
 					state_next<=read_done;
 				end if;	
 
 			when read_done=>
 				if(CE='0')then
-					state_next<=idle;
+					state_next<=idle;			-- torno in idle quando disabilito il controller (CE='0')
 				end if;					
 		end case;
 	end process;
@@ -130,9 +134,9 @@ begin
 		zero_leggi_sig<='0';  --valore di default
 		case state_reg is
 			when idle=>
-				zero_leggi_sig<='1';
+				zero_leggi_sig<='1';	-- non ho il dato nel buffer
 			when read_done=>
-				zero_leggi_sig<='0';	
+				zero_leggi_sig<='0';	-- ho il dato nel buffer
 			when reading=>
 				zero_leggi_sig<='0';					
 			when others =>

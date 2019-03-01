@@ -14,16 +14,20 @@
          <ClosedNode>/sistema_mic1 - Behavioral |home|jiin995|ASE_WorkSpace|Mic1_Funzionante_su_Nexys4|mic1_fpga|sistema_mic1.vhd/inst_io_controller - io_controller - Behavioral</ClosedNode>
          <ClosedNode>/sistema_mic1 - Behavioral |home|jiin995|ASE_WorkSpace|Mic1_Funzionante_su_Nexys4|mic1_fpga|sistema_mic1.vhd/inst_io_controller - io_controller - Behavioral/Inst_if_uart - if_uart - Behavioral</ClosedNode>
          <ClosedNode>/sistema_mic1 - Behavioral |home|jiin995|Dropbox|Uni_Shared|ASE|ASE1819|Laboratorio|ase-mic|mic1_fpga|sistema_mic1.vhd/Inst_mic1 - mic1 - Behavioral</ClosedNode>
+         <ClosedNode>/sistema_mic1 - Behavioral |home|mirko|Desktop|ASE|ASE|Mic1_Funzionante_su_Nexys4|mic1_fpga|sistema_mic1.vhd/Inst_mic1 - mic1 - Behavioral</ClosedNode>
+         <ClosedNode>/sistema_mic1 - Behavioral |home|mirko|Desktop|ASE|ASE|Mic1_Funzionante_su_Nexys4|mic1_fpga|sistema_mic1.vhd/inst_io_controller - io_controller - Behavioral/Inst_if_uart - if_uart - Behavioral</ClosedNode>
+         <ClosedNode>/sistema_mic1 - Behavioral |home|mirko|Desktop|ASE|ASE|Mic1_Funzionante_su_Nexys4|mic1_fpga|sistema_mic1.vhd/inst_io_controller - io_controller - Behavioral/inst_io_controller - io_switch_led_display - Behavioral</ClosedNode>
+         <ClosedNode>/sistema_mic1 - Behavioral |home|mirko|Desktop|ASE|ASE|Mic1_Funzionante_su_Nexys4|mic1_fpga|sistema_mic1.vhd/inst_io_controller - io_controller - Behavioral/inst_switch_led_display - io_switch_led_display - Behavioral</ClosedNode>
          <ClosedNode>PROJECT</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>sistema_mic1 - Behavioral (/home/jiin995/ASE_WorkSpace/Mic1_Funzionante_su_Nexys4/mic1_fpga/sistema_mic1.vhd)</SelectedItem>
+         <SelectedItem>/home/mirko/Desktop/ASE/ASE/Mic1_Funzionante_su_Nexys4/mic1_fpga/constraint.ucf (/home/mirko/Desktop/ASE/ASE/Mic1_Funzionante_su_Nexys4/mic1_fpga/constraint.ucf)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >2</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000042a000000020000000000000000000000000200000064ffffffff0000008100000003000000020000042a0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000044e000000020000000000000000000000000200000064ffffffff0000008100000003000000020000044e0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>sistema_mic1 - Behavioral (/home/jiin995/ASE_WorkSpace/Mic1_Funzionante_su_Nexys4/mic1_fpga/sistema_mic1.vhd)</CurrentItem>
+      <CurrentItem>/home/mirko/Desktop/ASE/ASE/Mic1_Funzionante_su_Nexys4/mic1_fpga/constraint.ucf (/home/mirko/Desktop/ASE/ASE/Mic1_Funzionante_su_Nexys4/mic1_fpga/constraint.ucf)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
       <ClosedNodes>
@@ -44,7 +48,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000165000000010000000100000000000000000000000064ffffffff000000810000000000000001000001650000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000027d000000010000000100000000000000000000000064ffffffff0000008100000000000000010000027d0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem></CurrentItem>
    </ItemView>
@@ -55,9 +59,9 @@
       <SelectedItems/>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000390000000040101000100000000000000000000000064ffffffff0000008100000000000000040000013a00000001000000000000009200000001000000000000005d0000000100000000000001670000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000318000000040101000100000000000000000000000064ffffffff0000008100000000000000040000013a00000001000000000000009200000001000000000000005d0000000100000000000000ef0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>/home/jiin995/ASE_WorkSpace/Mic1_Funzionante_su_Nexys4/mic1_fpga/4to16decoder.vhd</CurrentItem>
+      <CurrentItem>/home/mirko/Desktop/ASE/ASE/Mic1_Funzionante_su_Nexys4/mic1_fpga/4to16decoder.vhd</CurrentItem>
    </ItemView>
    <ItemView guiview="Library" >
       <ClosedNodes>
@@ -67,12 +71,12 @@
       <SelectedItems/>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000124000000010001000100000000000000000000000064ffffffff000000810000000000000001000001240000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000128000000010001000100000000000000000000000064ffffffff000000810000000000000001000001280000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>work</CurrentItem>
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000011b0000011b01000000050100000002</SourceProcessView>
-   <CurrentView>Implementation</CurrentView>
+   <CurrentView>Behavioral Simulation</CurrentView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
@@ -92,13 +96,13 @@
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000165000000010000000100000000000000000000000064ffffffff000000810000000000000001000001650000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000027d000000010000000100000000000000000000000064ffffffff0000008100000000000000010000027d0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
@@ -107,13 +111,13 @@
          <ClosedNode>/TB_SISTEMA_COMPLETO - testbench_arch |home|jiin995|Dropbox|Uni_Shared|ASE|ASE1819|Laboratorio|ase-mic|mic1_fpga|tb_mic1conuart.vhd/UUT - sistema_mic1 - Behavioral/Inst_mic1 - mic1 - Behavioral</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Inst_uart_rx - uart_rx - arch (/home/jiin995/Dropbox/Uni_Shared/ASE/ASE1819/Laboratorio/ase-mic/mic1_fpga/uart_rx.vhd)</SelectedItem>
+         <SelectedItem>Unassigned User Library Modules</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000272000000020000000000000000000000000200000064ffffffff000000810000000300000002000002720000000100000003000000000000000100000003</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Inst_uart_rx - uart_rx - arch (/home/jiin995/Dropbox/Uni_Shared/ASE/ASE1819/Laboratorio/ase-mic/mic1_fpga/uart_rx.vhd)</CurrentItem>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000004a5000000020000000000000000000000000200000064ffffffff000000810000000300000002000004a50000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>Unassigned User Library Modules</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
