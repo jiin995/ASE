@@ -99,7 +99,7 @@ begin
 											stop_hit				=> stop_hit						
 							);
 							
-	uart_pc_inst : uart_tx_cu  
+	uart_cu_inst : uart_tx_cu  
 						port 		map(	clock   				=> clock,
 											reset   				=> reset,
 											tx_start				=> tx_full_int,

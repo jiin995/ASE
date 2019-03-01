@@ -21,8 +21,6 @@ NET "tx_full"        LOC=V12 | IOSTANDARD=LVCMOS33; #IO_L20N_T3_A07_D23_14
 #NET "load_reg_4_7"           LOC=M17 | IOSTANDARD=LVCMOS33; #IO_L10N_T1_D15_14
 #NET "btnu"           LOC=M18 | IOSTANDARD=LVCMOS33; #IO_L4N_T0_D05_14
 
-
-
 ## 7 segment display
 NET "cathodes<0>"             LOC=T10 | IOSTANDARD=LVCMOS33; #IO_L24N_T3_A00_D16_14
 NET "cathodes<1>"             LOC=R10 | IOSTANDARD=LVCMOS33; #IO_25_14

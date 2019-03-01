@@ -36,12 +36,12 @@ architecture Behavioral of uart_tx is
 	-- byte da inviare
 	signal send_bits,send_bits_next 		: STD_LOGIC_VECTOR ( data_bits-1 downto 0);
 
-	--bit sulla linua in uscita
+	--bit sulla linea in uscita
 	signal tx_current, tx_next : STD_LOGIC := '0';
 
 begin
 
-	process (clock,reset) begin
+	process (clock,reset) begin			-- processo per il reset e il cambio di stato
 		if( reset = '1') then					-- reset asincrono
 			current_state 	<= idle;
 			tick_count 		<= (others => '0');
@@ -57,7 +57,7 @@ begin
 		end if;
 	end process ;
 
-process (current_state,tick_count,n_sended_bits,send_bits,tx_current,din,tick,tx_start) 
+process (current_state,tick_count,n_sended_bits,send_bits,tx_current,din,tick,tx_start) -- processo per la scelta dello stato
 begin
 
    --se non ci sono variazioni rimane nella configurazione precedente
@@ -70,58 +70,53 @@ begin
 	
 	case (current_state ) is 
 		when idle =>
-			tx_next 	<= '1';
+			tx_next 	<= '1';	-- trasmetto 1, segnale di mark, mentre sono in idle						
 			if tx_start = '1' then					-- inizio la trasmissione quando il dato è fissato nel buffer
-				state_next 			<= start;
-				tick_count_next 	<= (others => '0');
-				send_bits_next 	<=	din; 
+				state_next 			<= start;		-- vado in start
+				tick_count_next 	<= (others => '0');	-- setto il tick count a 0
+				send_bits_next 	<=	din; 			-- i bit da mandare sono messi in send_bits_next
 			end if;
 			
 		when start =>	
-			-- abbasso la linea per segnalare al ricevente l'inizio della trasmissione
-			tx_next 		<= '0';
-			if ( tick = '1' ) then 
+			tx_next 	<= '0';	-- abbasso la linea per segnalare al ricevente l'inizio della trasmissione
+			if ( tick = '1' ) then	-- quando ho un tick hit (in corrispondenza dei tick)
 				-- aspetto per poter iniziare la trasmissione
-				if ( tick_count = 15 ) then
+				if ( tick_count = 15 ) then				-- appena arrivo a 16 tick, vado in send
 					state_next		 		<= send;
 					tick_count_next 		<= ( others => '0' );
 					n_sended_bits_next   <= ( others => '0' );
 				else 
-					tick_count_next <= tick_count +1;
+					tick_count_next <= tick_count +1;	-- conto i primi 16
 				end if;
 			end if;
 		
-		when send => 
-			-- invio il LSb che ancora devo inviare
-			tx_next <= send_bits(0); 
-			if ( tick = '1' ) then 
-				if ( tick_count = 15 ) then 
+		when send => -- stato di trasmissione
+			tx_next <= send_bits(0); -- invio il prossimo LSb del buffer
+			if ( tick = '1' ) then 		-- in corrispondenza di ogni tick
+				if ( tick_count = 15 ) then 	-- a 16 bit cambio il dato
 					tick_count_next 	<= ( others => '0');
-					-- faccio scorrere i bit nel registro per aggiornare il LSb, che sarà il nuovo bit che verrà inviato al prossimo ciclo
-					send_bits_next 	<= '0' & send_bits ( (data_bits-1) downto 1 );
-					-- controllo se ho inviato tutti i bit
-					if ( n_sended_bits = data_bits -1 ) then 
-						state_next <= stop ;
+					send_bits_next 	<= '0' & send_bits ( (data_bits-1) downto 1 ); -- faccio scorrere i bit nel registro per aggiornare il LSb,
+																										  -- che sarà il nuovo bit che verrà inviato al prossimo ciclo
+					if ( n_sended_bits = data_bits -1 ) then -- controllo se ho inviato tutti i bit
+						state_next <= stop ;		-- in tal caso vado in stop
 					else
-						n_sended_bits_next <= n_sended_bits +1 ;
+						n_sended_bits_next <= n_sended_bits +1 ;	-- altrimenti incremento il numero di bit inviati
 					end if;
-				else
+				else		-- incremento il contatore
 					tick_count_next <= tick_count +1;
 				end if;
 			end if;
 			
-		-- stato finale devo aspettare un certo numero di tick per terminare portarmi nello stato di idle
-		when stop => 
-			tx_next <= '1';
+		when stop => 	-- stato finale
+			tx_next <= '1';	-- alzo il segnale di mark (1)
 			if ( tick = '1' ) then 
-				if ( tick_count = stop_ticks-1 ) then 
-					state_next 	<= idle;
-					tx_done 		<= '1';
+				if ( tick_count = stop_ticks-1 ) then 	-- una volta passati i ticks di fine trasmissione (stop_ticks)
+					state_next 	<= idle;	-- torno in idle
+					tx_done 		<= '1';	-- setto il flag done
 				else
 					tick_count_next <= tick_count+1;
 				end if;
 			end if;
-			
 	end case;
 end process;
 

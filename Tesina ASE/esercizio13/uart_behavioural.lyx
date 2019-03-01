@@ -89,28 +89,517 @@ Realizzazione behavioural
 \begin_layout Standard
 Per implementare il protocollo UART sulla board Nexys 4 è stato utilizzato
  il codice fornito.
- In particolare, sono state realizzate le due entità ricevitore (
+ Le due entità 
 \shape italic
-uart_rx
+uart_rx 
 \shape default
-) e trasmettitore (
+e 
 \shape italic
 uart_tx
 \shape default
-) e poi la top level entity 
+ sono state realizzate tramite descrizione 
+\shape italic
+behavioural.
+ Uart_tx
+\shape default
+, che si occupa della trasmissione, è stata realizzata come fsm con 4 stati:
+ 
+\end_layout
+
+\begin_layout Itemize
+idle - stato iniziale di pausa, in cui si permane finché non bisogna trasmettere
+ un byte;
+\end_layout
+
+\begin_layout Itemize
+start - stato di preparazione, in cui si trasmette un segnale basso per
+ iniziare la trasmissione;
+\end_layout
+
+\begin_layout Itemize
+send - stato di trasmissione, in cui si inviano i singoli bit del byte mantenend
+oli sulla linea per 16 ticks;
+\end_layout
+
+\begin_layout Itemize
+stop - stato di fine trasmissione, in cui si invia il segnale di stop (di
+ durata 
+\shape italic
+stop_ticks
+\shape default
+) prima di tornare in idle.
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Uart_rx, 
+\shape default
+invece, 
+\end_layout
+
+\begin_layout Itemize
+idle - stato iniziale di pausa, in cui si permane finché non si abbassa
+ il segnale di mark;
+\end_layout
+
+\begin_layout Itemize
+start - stato di preparazione, in cui si stabilisce l'offset del contatore
+ dei tick per il campionamento dei bit ricevuti;
+\end_layout
+
+\begin_layout Itemize
+receive - stato di ricezione, in cui si campionano i singoli bit del byte
+ ricevuti ogni 16 ticks;
+\end_layout
+
+\begin_layout Itemize
+stop - stato di fine trasmissione, in cui si aspetta il segnale di stop
+ (di durata 
+\shape italic
+stop_ticks
+\shape default
+) prima di tornare in idle.
+\end_layout
+
+\begin_layout Standard
+Tale implementazione non è di tipo commerciale, in quanto non prevede la
+ possibilità di effettuare un controllo di parità né di utilizzare alcun
+ tipo di controllo di flusso.
+ .
+ Le implementazioni complete delle entity sono consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio13/design/uart_behavioural/uart_rx.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+uart
+\backslash
+_rx.vhd}
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio13/design/uart_behavioural/uart_tx.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+uart
+\backslash
+_tx.vhd}
+\end_layout
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dopodiché è stata realizzata la top level entity 
 \shape italic
 uart
 \shape default
 , in grado sia di trasmettere che di ricevere.
- Dopodiché, sono state istanziate due 
+ Per impostare i valori in ingresso e in uscita alle due entità, si sono
+ usati dei buffer I/O con un flag per indicare se il buffer in ingresso
+ è pieno o se quello in uscita è vuoto.
+ Lo schema della top level entity è visualizzabile in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:architettura-uart"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/architettura_uart.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:architettura-uart"
+
+\end_inset
+
+Architettura dell'UART.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+L'implementazione completa è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio13/design/uart_behavioural/uart.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+uart.vhd}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+On board
+\end_layout
+
+\begin_layout Standard
+Per testare il funzionamento dell'UART sulla board, si è deciso di effettuare
+ una comunicazione seriale da PC a board.
+ Sulla board è stata sintetizzata l'entità 
+\shape italic
+uart_onBoard
+\shape default
+, su cui è stata istanziato il componente 
 \shape italic
 uart
 \shape default
- internamente alla board stessa, collegandole opportunamente all'interno
- dell'entità 
+: si sono utilizzate le linee di ricezione e di trasmissione del convertitore
+ FT2232HQ della board, collegate alle porte D4 e C4, per poter usare UART
+ con una connessione USB (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ft2232hq"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/ft2232hq.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ft2232hq"
+
+\end_inset
+
+Convertitore FT2232HQ UART-USB.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ai fini del test, si è scelto di far coincidere il buffer di ricezione con
+ quello di invio, in modo tale da far funzionare la board con un comportamento
+ 
+\begin_inset Quotes eld
+\end_inset
+
+echo
+\begin_inset Quotes erd
+\end_inset
+
+ (la board rispedisce ciò che riceve).
+ Per fare ciò, si è settato 
 \shape italic
-on board
+din
 \shape default
+ pari a 
+\shape italic
+dout
+\shape default
+ e 
+\shape italic
+wr_uart
+\shape default
+ pari all'inverso di 
+\shape italic
+rx_empty
+\shape default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Istanza di UART in uart_onBoard.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+uart_inst : uart port map ( 	
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock => clock,  										
+\end_layout
+
+\begin_layout Plain Layout
+
+		reset => reset, 										
+\end_layout
+
+\begin_layout Plain Layout
+
+		rx => rx, 										
+\end_layout
+
+\begin_layout Plain Layout
+
+		rx_empty => rx_empty_int, 										
+\end_layout
+
+\begin_layout Plain Layout
+
+		tx => tx, 										
+\end_layout
+
+\begin_layout Plain Layout
+
+		wr_uart => not rx_empty_int, 										
+\end_layout
+
+\begin_layout Plain Layout
+
+		din => dout,	 										
+\end_layout
+
+\begin_layout Plain Layout
+
+		tx_full => tx_full_int, 										
+\end_layout
+
+\begin_layout Plain Layout
+
+		rd_uart => not tx_full_int, 										
+\end_layout
+
+\begin_layout Plain Layout
+
+		dout => dout 								
+\end_layout
+
+\begin_layout Plain Layout
+
+);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sul PC invece si è effettuata la comunicazione UART con la board tramite
+ l'utilizzo di un semplice terminale.
+ Prima di tutto, con 
+\shape italic
+sudo stty -F /dev/ttyUSB1 9600
+\shape default
+ si setta il baud rate appropriato.
+ Dopodiché per trasmettere si utilizza il comando 
+\shape italic
+printf 
+\begin_inset Quotes eld
+\end_inset
+
+messaggio
+\begin_inset Quotes erd
+\end_inset
+
+ > /dev/ttyUSB1
+\shape default
+ per scrivere una stringa sul file relativo alla connessione USB alla board
+ collegata.
+ Per controllare i messaggi ricevuti dalla board, invece, si utilizza 
+\shape italic
+tail -f /dev/ttyUSB1
+\shape default
+ per leggere le ultime righe dello stesso file.
+ Il risultato della simulazione è visibile in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:test_uart"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Si noti inoltre come si sia utilizzato il display a 7 segmenti per visualizzare
+ il messaggio: in particolare, possiamo osservare l'ultimo carattere ricevuto
+ in codifica esadecimale ASCII.
+ Ad esempio, inviando 
+\begin_inset Quotes eld
+\end_inset
+
+a
+\begin_inset Quotes erd
+\end_inset
+
+, il display mostrerà 
+\begin_inset Quotes eld
+\end_inset
+
+61
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/test_uart.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:test_uart"
+
+\end_inset
+
+Test di comunicazione UART PC-board.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+L'implementazione completa è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio13/design/uart_behavioural/uart_onBoard.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+uart
+\backslash
+_onBoard.vhd}
+\end_layout
+
+\end_inset
+
 .
 \end_layout
 

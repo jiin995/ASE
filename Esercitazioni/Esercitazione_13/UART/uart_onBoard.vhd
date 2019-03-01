@@ -1,40 +1,16 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    11:48:20 02/25/2019 
--- Design Name: 
--- Module Name:    uart_onBoard - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
---
--- Dependencies: 
---
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
---
-----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+-- per testare l'uart su board, si è istanziato un'entità top level UART:
+-- i valori da trasmettere sono comunicati tramite gli switch della board all'uart.
+-- i valori vengono ricevuti dallo stesso uart su rx e riportati sul display a 7 segmenti
 
 entity uart_onBoard is
     Port ( clock 		: in  STD_LOGIC;
-			  rx 			: in  STD_LOGIC;
-			  rx_empty 	: out STD_LOGIC; -- se è vuoto vale 1
+			  rx 			: in  STD_LOGIC;	
+			  rx_empty 	: out STD_LOGIC; -- segnala se il buffer in uscita è vuoto
 			  tx			: out STD_LOGIC;
-			  tx_full	: out STD_LOGIC;
+			  tx_full	: out STD_LOGIC;	-- segnala se il buffer in ingresso è pieno
 			  anodes 	: out STD_LOGIC_VECTOR ( 7 downto 0);
 			  cathodes	: out STD_LOGIC_VECTOR ( 7 downto 0)
 );
@@ -47,13 +23,13 @@ component uart is
 	 Port 	( clock 		: in  STD_LOGIC;
 				  reset		: in  STD_LOGIC;
 				  rx 			: in  STD_LOGIC;
-				  rd_uart	: in  STD_LOGIC;	-- se alto resetta il valore di empty
-				  wr_uart	: in  STD_LOGIC;
-				  din 		: in  STD_LOGIC_VECTOR (data_bits-1 downto 0);
+				  rd_uart	: in  STD_LOGIC;	-- se alto resetta il valore di rx_empty
+				  wr_uart	: in  STD_LOGIC;	-- se alto resetta il valore di tx_full
+				  din 		: in  STD_LOGIC_VECTOR (data_bits-1 downto 0);	-- buffer in ingresso
 				  tx			: out	STD_LOGIC;
-				  rx_empty 	: out STD_LOGIC; -- se è vuoto vale 1
+				  rx_empty 	: out STD_LOGIC;
 				  tx_full 	: out STD_LOGIC;
-				  dout 		: out STD_LOGIC_VECTOR (data_bits-1 downto 0)
+				  dout 		: out STD_LOGIC_VECTOR (data_bits-1 downto 0)	-- buffer in uscita
 	);
 end component;
 
@@ -80,8 +56,12 @@ signal rx_empty_int, rx_empty_n, tx_full_int :STD_LOGIC := '0';
 
 begin
 
-rx_empty_n <= not rx_empty_int;
-rx_empty <= rx_empty_int;
+rx_empty_n <= not rx_empty_int;	
+rx_empty <= rx_empty_int;		
+						
+tx_full <= tx_full_int;
+
+value <= x"000000" & dout;	-- il valore letto dall'uart (buffer in uscita) viene portato nel display a 7 segmenti
 
 uart_inst : uart port map ( 	clock 	=> clock, 
 										reset 	=> reset,
@@ -89,17 +69,16 @@ uart_inst : uart port map ( 	clock 	=> clock,
 										rx_empty => rx_empty_int,
 										tx 		=> tx,
 										wr_uart	=> not rx_empty_int,
-										din 		=> dout,
+										din 		=> dout,	
 										tx_full  => tx_full_int,
 										rd_uart 	=> not tx_full_int,
 										dout		=> dout
 								);
-tx_full <= tx_full_int;
-value <= x"000000" & dout;
+
 display	: display_7_segments port map ( 	enable 			=> enable,	
 														clock  			=> clock,
 														reset	 			=> reset,
-														values 			=> value,
+														values 			=> value,	-- il valore letto dall'uart (buffer in uscita) viene portato nel display a 7 segmenti
 														dots 	 			=> dots,
 														enable_digit 	=> enable_digit,
 														anodes 		 	=> anodes,

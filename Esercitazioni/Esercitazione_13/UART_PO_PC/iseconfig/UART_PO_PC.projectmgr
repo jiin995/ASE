@@ -12,17 +12,19 @@
          <ClosedNode>/uart_onBoard - Behavioral |home|jiin995|ASE_WorkSpace|Test|UART_PO_PC|uart_onBoard.vhd/uart_inst - uart - Behavioral/uart_rx_inst - uart_rx - structural/uart_rx_po_inst - uart_rx_po - Behavioral/received_byte_reg - scan_chain - behavioural</ClosedNode>
          <ClosedNode>/uart_onBoard - Behavioral |home|jiin995|ASE_WorkSpace|Test|UART_PO_PC|uart_onBoard.vhd/uart_inst - uart - Behavioral/uart_tx_inst - uart_tx - Behavioral/uart_po_inst - uart_tx_po - Behavioral</ClosedNode>
          <ClosedNode>/uart_onBoard - Behavioral |home|jiin995|ASE_WorkSpace|Test|UART_PO_PC|uart_onBoard.vhd/uart_inst - uart - Behavioral/uart_tx_inst - uart_tx - Behavioral/uart_po_inst - uart_tx_po - Behavioral/received_byte_reg - scan_chain - behavioural</ClosedNode>
+         <ClosedNode>/uart_onBoard - Behavioral |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_13|UART_PO_PC|uart_onBoard.vhd/uart_inst - uart - Behavioral/uart_rx_inst - uart_rx - structural/uart_rx_po_inst - uart_rx_po - Behavioral</ClosedNode>
+         <ClosedNode>/uart_onBoard - Behavioral |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_13|UART_PO_PC|uart_onBoard.vhd/uart_inst - uart - Behavioral/uart_rx_inst - uart_rx - structural/uart_rx_po_inst - uart_rx_po - structural/received_byte_reg - scan_chain - behavioural</ClosedNode>
          <ClosedNode>/uart_tx_po - Behavioral |home|jiin995|ASE_WorkSpace|Test|UART_PO_PC|uart_tx_po.vhd</ClosedNode>
          <ClosedNode>PROJECT</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>uart_onBoard - Behavioral (/home/jiin995/ASE_WorkSpace/Test/UART_PO_PC/uart_onBoard.vhd)</SelectedItem>
+         <SelectedItem>uart_inst - uart - Behavioral (/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_13/UART_PO_PC/uart.vhd)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >3</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000340000000020000000000000000000000000200000064ffffffff000000810000000300000002000003400000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000522000000020000000000000000000000000200000064ffffffff000000810000000300000002000005220000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>uart_onBoard - Behavioral (/home/jiin995/ASE_WorkSpace/Test/UART_PO_PC/uart_onBoard.vhd)</CurrentItem>
+      <CurrentItem>uart_inst - uart - Behavioral (/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_13/UART_PO_PC/uart.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -45,9 +47,9 @@
       <SelectedItems/>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000061f000000040101000100000000000000000000000064ffffffff0000008100000000000000040000004f0000000100000000000000290000000100000000000000840000000100000000000005230000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000318000000040101000100000000000000000000000064ffffffff0000008100000000000000040000004f00000001000000000000002900000001000000000000008400000001000000000000021c0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>/home/jiin995/ASE_WorkSpace/Test/UART_PO_PC/anodes_manager.vhd</CurrentItem>
+      <CurrentItem>/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_13/UART_PO_PC/anodes_manager.vhd</CurrentItem>
    </ItemView>
    <ItemView guiview="Library" >
       <ClosedNodes>
@@ -57,7 +59,7 @@
       <SelectedItems/>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000124000000010001000100000000000000000000000064ffffffff000000810000000000000001000001240000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000128000000010001000100000000000000000000000064ffffffff000000810000000000000001000001280000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>work</CurrentItem>
    </ItemView>
@@ -65,20 +67,19 @@
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
          <ClosedNode>Configure Target Device</ClosedNode>
-         <ClosedNode>Design Utilities</ClosedNode>
          <ClosedNode>Implement Design/Map</ClosedNode>
          <ClosedNode>Implement Design/Place &amp; Route</ClosedNode>
          <ClosedNode>Implement Design/Translate</ClosedNode>
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Configure Target Device</SelectedItem>
+         <SelectedItem>View RTL Schematic</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000173000000010000000100000000000000000000000064ffffffff000000810000000000000001000001730000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000164000000010000000100000000000000000000000064ffffffff000000810000000000000001000001640000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Configure Target Device</CurrentItem>
+      <CurrentItem>View RTL Schematic</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_UCF" guiview="Process" >
       <ClosedNodes>
@@ -146,7 +147,7 @@
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>ISim Simulator</CurrentItem>
    </ItemView>
-   <SourceProcessView>000000ff0000000000000002000001440000011d01000000060100000002</SourceProcessView>
+   <SourceProcessView>000000ff0000000000000002000001610000016201000000060100000002</SourceProcessView>
    <CurrentView>Implementation</CurrentView>
    <ItemView engineview="PostRouteSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
