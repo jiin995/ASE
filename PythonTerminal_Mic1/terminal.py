@@ -20,12 +20,13 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Simple terminal')
     parser.add_argument('port', metavar='port',help='serial port')
     parser.add_argument('baudrate', metavar='baudrate', type=int,help='baudrate')
-
+    parser.add_argument('dbg', metavar='dbg',help='debug option')
     args = parser.parse_args()
 
     #Stampo gli input
     terminal_print(args.port)
     terminal_print(args.baudrate)
+    terminal_print(args.dbg)
 
     #istanzazione dell'oggetto seriale
     #Timeout=0 render la read non bloccante
@@ -37,16 +38,17 @@ if __name__ == "__main__":
             if(len(r_line) > 0):
                 #elimino eventuali caratteri speciali come line feed cr
                 # \W == [^A-Za-z0-9_]
-                clear_line = re.sub('\W+=+_', '', str(r_line))
+                #clear_line = re.sub('\W+=+_', '', str(r_line))
                 #clear_line = re.sub('_', '', clear_line)
                 #clear_line.rstrip()
-                #l1 = []
-                #l2 = []
-                #for c in r_line:   # in Python, a string is just a sequence, so we can iterate over it!
-                #    l1.append(c)
-                #    l2.append(ord(c))
-                #print(l1)
-                #print(l2)
+                if (args.dbg.lower()== "true" ):
+                    l1 = []
+                    l2 = []
+                    for c in r_line:   # in Python, a string is just a sequence, so we can iterate over it!
+                        l1.append(c)
+                        l2.append(ord(c))
+                    print(l1)
+                    print(l2)
                 print(str(r_line),end='')
                 sys.stdout.flush()
                 if('\n' in str(r_line)):
@@ -60,6 +62,9 @@ if __name__ == "__main__":
                     clear_line = re.sub('\W', '', line)
                     clear_line = re.sub('_', '', clear_line)
                     ser.write(clear_line.encode())
+                    #linea non pulita
+                    #ser.write(line.encode())
+
 
     except(KeyboardInterrupt):
         ser.close()
