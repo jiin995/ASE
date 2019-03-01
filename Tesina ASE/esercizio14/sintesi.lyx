@@ -162,6 +162,10 @@ Dopodiché si è proceduto alla sintesi: come previsto, comunicando da PC
  con l'UART della board tramite USB grazie al convertitore FT2232HQ, è stato
  possibile utilizzare un comune terminale per comunicare gli operandi e
  leggere il risultato dell'operazione.
+ A tale fine, è stato realizzato un semplice script Python che, passando
+ come parametri in ingresso il device e il baud rate desiderato, permette
+ di inviare in seriale i parametri richiesti (eliminando spazi e caratteri
+ speciali) e di leggere i risultati ricevuti.
  I risultati di tale prova sono visibili in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -203,7 +207,7 @@ name "fig:test-mic1"
 
 \end_inset
 
-Test del MIC1 sintetizzato.
+Test del MIC1 su terminale.
 \end_layout
 
 \end_inset
