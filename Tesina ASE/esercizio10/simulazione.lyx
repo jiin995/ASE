@@ -109,13 +109,13 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/simulazione-csel.png
-	scale 35
+	scale 55
 
 \end_inset
 
@@ -178,7 +178,7 @@ Si è proceduto infine alla sintesi del componente.
 
 \begin_layout Standard
 Si è deciso quindi di fissare 
-\begin_inset Formula $N=M*P=32$
+\begin_inset Formula $N=M*P=64$
 \end_inset
 
  e di sintetizzare il componente per valutare le prestazioni temporali del
@@ -206,7 +206,7 @@ Si è deciso quindi di fissare
 maximum combinational path delay 
 \shape default
 di funzionamento del Carry Select ottenuti al variare di M e P (con N fissato
- pari a 32):
+ pari a 64):
 \end_layout
 
 \begin_layout Standard

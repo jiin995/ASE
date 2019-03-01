@@ -196,7 +196,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/clocking_wizard.png
-	scale 22
+	scale 40
 
 \end_inset
 
@@ -543,7 +543,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/simulazione_clock_tester.png
-	scale 22
+	scale 45
 
 \end_inset
 
@@ -560,7 +560,7 @@ name "fig:Simulazione"
 
 \end_inset
 
-Risultati simulazione
+Simulazione Clock Generator
 \end_layout
 
 \end_inset

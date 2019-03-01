@@ -215,7 +215,7 @@ multiplexer 4-1
 generico.
  Il valore di cathodes è dunque determinato come segue: si calcola dapprima
  la parte dei dots, selezionando solo quelli relativi alle cifre selezionate
- e poi negandoli (per logica 0-attiva), e infine concatena aggiunge 
+ e poi negandoli (per logica 0-attiva), e infine concatena 
 \shape italic
 cathodes_for_digit
 \shape default
@@ -234,7 +234,7 @@ status open
 
 
 \backslash
-begin{lstlisting}[language=VHDL,caption={Determinazione del valore di cathods..}]
+begin{lstlisting}[language=VHDL,caption={Determinazione del valore di cathodes.}]
 \end_layout
 
 \begin_layout Plain Layout

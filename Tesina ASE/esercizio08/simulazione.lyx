@@ -109,13 +109,13 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/simulazione-cla.png
-	scale 35
+	scale 50
 
 \end_inset
 

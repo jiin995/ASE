@@ -135,7 +135,7 @@ status open
 
 
 \backslash
-begin{lstlisting}[language=VHDL,caption={DoubleDisplayOnBoard.vhd}]
+begin{lstlisting}[language=VHDL,caption={DoubleDisplayOnBoard.}]
 \end_layout
 
 \begin_layout Plain Layout
@@ -351,7 +351,8 @@ status open
 
 
 \backslash
-begin{lstlisting}[language=VHDL,caption={DoubleDisplayOnBoard.vhd}]
+begin{lstlisting}[language=VHDL,caption={DoubleDisplayOnBoard Nexys4DDR_master.uc
+f.}]
 \end_layout
 
 \begin_layout Plain Layout

@@ -110,7 +110,7 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -329,10 +329,6 @@ end{figure}
 \begin_inset Newline newline
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 Si noti come, sia nel caso dell'area che con il ritardo, i risultati siano
  perfettamente coerenti con l'andamento lineare teorico già descritto precedente
 mente.

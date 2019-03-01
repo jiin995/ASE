@@ -277,7 +277,8 @@ Si è deciso di realizzare tale macchina anche come Mealy: in particolare,
  dall'ingresso, il valore in uscita sarà 1 quando, trovandoci nello stato
  s101100, si riceve in ingresso il valore 1.
  Fatto ciò, è stato dunque possibile rimuovere lo stato s1011001 ed aggiungere
- due transizioni da s101100 a init e s1 a fronte degli ingressi 0 e 1.
+ due transizioni da s101100 a init a fronte degli ingressi 0 e 1, quest'ultimo
+ con uscita alta.
  L'automa a stati finiti realizzato è rappresentato in fig.
 \begin_inset CommandInset ref
 LatexCommand ref

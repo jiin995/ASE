@@ -215,10 +215,18 @@ selectlanguage{italian}%
 \begin_layout Standard
 In ingresso, oltre ai segnali di 
 \shape italic
-clock, scan_in e scan_en abbiamo anche scan_clk.
- Quest'ultimo segnale è il clock per la scan chain, ma essendo quello della
+clock, scan_in e scan_en 
+\shape default
+abbiamo anche
+\shape italic
+ scan_clk.
+ 
+\shape default
+Quest'ultimo segnale è il clock per la scan chain, ma essendo quello della
  board un segnale a frequenza troppo elevata, che ci avrebbe impedito di
- apprezzare il funzionamento della scan chain 
+ apprezzare il funzionamento della scan chain
+\shape italic
+ 
 \begin_inset Foot
 status open
 
@@ -230,7 +238,9 @@ anche con un clock negli ordini dei khz premendo il pulsante associato a
 \end_inset
 
 .
- Pertanto abbiamo deciso, anche se sbagliato, di dare manualmente un impulso
+ 
+\shape default
+Pertanto abbiamo deciso, anche se sbagliato, di dare manualmente un impulso
  
 \begin_inset Quotes eld
 \end_inset
@@ -243,16 +253,18 @@ per simulare un clock personalizzato
  Quest'ultima scelta errata ci è stata segnalata anche dal tool di sintesi,
  infatti mappando scan_clk su un pulsante viene generato un errore, ma lo
  stesso tool suggerisce l'opportuna modifica da effettuare al file ucf per
- poter bypassare tale errore
+ poter bypassare tale
+\shape italic
+ 
+\shape default
+errore
+\shape italic
+
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-
-\shape italic
 Aggiungere al file ucf 
-\shape default
-
 \begin_inset Quotes eld
 \end_inset
 
@@ -269,7 +281,15 @@ CLOCK_DEDICATED_ROUTE = FALSE
 \end_layout
 
 \begin_layout Standard
-Di seguito il mapping di scan_en e di scan_clk sull'ucf: 
+Di seguito il mapping di 
+\shape italic
+scan_en
+\shape default
+ e di 
+\shape italic
+scan_clk
+\shape default
+ sull'ucf: 
 \end_layout
 
 \begin_layout Standard
@@ -280,7 +300,8 @@ status open
 
 
 \backslash
-begin{lstlisting}[language=VHDL,caption={Interfaccia top level entity .}]
+begin{lstlisting}[language=VHDL,caption={NexysDDR4_master.ucf per scan-chain
+ onBoard.}]
 \end_layout
 
 \begin_layout Plain Layout

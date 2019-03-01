@@ -440,7 +440,7 @@ Display a 7 segmenti
 \begin_layout Standard
 Illustrare la realizzazione di un'architettura che consenta di mostrare
  su un array di 4 display a 7 segmenti un valore intero.
- Tale puo essere una parola da 16 bit, composta cioe di 4 cifre esadecimali,
+ Tale puo essere una parola da 16 bit, composta cioè di 4 cifre esadecimali,
  ciascuna espressa su di un nibble (4 bit).
  Sviluppare la traccia discutendo l'approccio di design adottato.
 \end_layout
@@ -483,17 +483,17 @@ Progettare una rete composta da una serie di N Flip Flop D abilitati ad
 \end_layout
 
 \begin_layout Enumerate
-Modalita normale: l'array si comporta come un registro di N posizioni;
+Modalità normale: l'array si comporta come un registro di N posizioni;
 \end_layout
 
 \begin_layout Enumerate
-Modalita controllo: i flip-flop possono essere scritti e letti individualmente
- congurandoli in cascata come uno shift register.
+Modalità controllo: i flip-flop possono essere scritti e letti individualmente
+ configurandoli in cascata come uno shift register.
 \end_layout
 
 \begin_layout Standard
 Utilizzare una rete di controllo in grado di alimentare il primo stadio
- con un valore e generare tanti colpi di clock quanto e la distanza del
+ con un valore e generare tanti colpi di clock quanto è la distanza del
  primo stadio dalla cella da raggiungere.
 \end_layout
 
@@ -521,7 +521,8 @@ Realizzare un riconoscitore di una generica sequenza a N bit (e.g.
 \begin_layout Enumerate
 A partire dal riconoscitore di sequenza realizzato al punto 1 con i costrutti
  behavioral a singolo o doppio processo del VHDL, sintetizzare la macchina
- 1 specicando al tool di sintesi Xilinx ISE diverse codiche per gli stati.
+ 1 specificando al tool di sintesi Xilinx ISE diverse codifiche per gli
+ stati.
  Per quelle rilevanti estrapolare la codica assegnata dal sintetizzatore,
  area occupata e frequenza massima di lavoro, apportando eventuali commenti.
 \end_layout
@@ -771,7 +772,7 @@ i (e.g.
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
-filename "esercizio13/Tesina.lyx"
+filename "esercizio14/Tesina.lyx"
 
 \end_inset
 

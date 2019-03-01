@@ -107,13 +107,12 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/rca_tre_operandi.png
-	scale 60
 
 \end_inset
 

@@ -114,7 +114,7 @@ Implementazione
 \end_layout
 
 \begin_layout Standard
-Il latch RS abilitato è stato realizzato collegano opportunamente le porte
+Il latch RS abilitato è stato realizzato collegando opportunamente le porte
  NOR e AND, queste ultime necessarie per l'abilitazione.
  Lo schema di collegamento è riportato in fig.
 \begin_inset CommandInset ref
@@ -140,7 +140,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/latchrs/latch-rs-schematico.png
-	scale 35
+	scale 60
 
 \end_inset
 
@@ -228,11 +228,25 @@ ritardi delle porte e delle linee identici per le due porte NOR e le due
  piccolo.
  Infatti il simulatore raggiunge il limite massimo di delta cycle a causa
  di queste oscillazione che si accumulano nello stesso istante di commutazione
- e la simulazione termina con un errore.
+ e la simulazione termina con un errore :
+\begin_inset Quotes erd
+\end_inset
+
+
+\shape italic
+ERROR: at 100 ns(10000): Iteration limit 10000 is reached.
+ Possible zero delay oscillation detected where simulation can not advance
+ in time because signals can not resolve to a stable value
+\shape default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
  Tale simulazione è visibile in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:latch-rs-schematico"
+reference "fig:latch-rs-simulazione"
 plural "false"
 caps "false"
 noprefix "false"
@@ -253,7 +267,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/latchrs/latch-rs-simulazione.png
-	scale 35
+	scale 50
 
 \end_inset
 
@@ -288,7 +302,7 @@ Tali oscillazioni sono visibili chiaramente nella simulazione post-map riportata
  in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:latch-rs-schematico"
+reference "fig:latch-rs-simulazione-postmap"
 plural "false"
 caps "false"
 noprefix "false"
@@ -311,7 +325,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/latchrs/latch-rs-simulazione-postmap.png
-	scale 35
+	scale 45
 
 \end_inset
 
@@ -353,7 +367,7 @@ Per quanto riguarda la simulazione post-route, le connessioni tra i componenti
  Nel caso in cui la simulazione venga effettuata su board Nexys 4 DDR (fig.
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:latch-rs-schematico"
+reference "fig:latch-rs-simulazione-postroute"
 plural "false"
 caps "false"
 noprefix "false"
@@ -362,7 +376,7 @@ noprefix "false"
 
 ), le oscillazioni restano poiché i ritardi di propagazione sono praticamente
  identici, e si riesce ad osservare anche dalla simulazione, i periodi di
- occilazione di Q e NQ sono praticamente uguli.
+ occilazione di Q e NQ sono praticamente uguali.
  Non c'è una linea nettamente più veloce dell'altra e tale da forzare il
  nostro latch ad assumere un valore stabile dopo un certo intervallo di
  tempo.
@@ -387,7 +401,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/latchrs/latch-rs-simulazione-postroute-nexys.png
-	scale 35
+	scale 45
 
 \end_inset
 
@@ -421,7 +435,7 @@ Simulazione post-route del latch RS su board Nexys 4 DDR.
 Nel caso di simulazione su board Basys 2 (fig.
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:latch-rs-schematico"
+reference "fig:latch-rs-simulazione-postroute-basys"
 plural "false"
 caps "false"
 noprefix "false"
@@ -443,7 +457,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/latchrs/latch-rs-simulazione-postroute-basys.png
-	scale 35
+	scale 50
 
 \end_inset
 

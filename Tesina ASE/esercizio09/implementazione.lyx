@@ -212,12 +212,12 @@ Carry Save
 \end_layout
 
 \begin_layout Standard
-Per realizzare il Carry Save, è stata una descrizione di tipo structural
- con un parametro generico 
+Per realizzare il Carry Save, è stata utilizzata una descrizione di tipo
+ structural con un parametro generico 
 \shape italic
 width
 \shape default
- per definire la il numero di bit dei tre operandi.
+ per definire il numero di bit dei tre operandi.
  Data 
 \shape italic
 width
@@ -266,6 +266,11 @@ RCA: ripple_carry_adder GENERIC MAP (
 \begin_layout Plain Layout
 
 	width => width )
+\end_layout
+
+\begin_layout Plain Layout
+
+PORT MAP(
 \end_layout
 
 \begin_layout Plain Layout

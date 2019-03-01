@@ -103,7 +103,7 @@ La board Nexys 4 DDR ha installato a bordo due batterie di 4 digit ciascuna,
  La soluzione che abbiamo visto precedentemente però permette di controllare
  una sola batteria di 4 digit, e non potendo instanziare due componenti
  che controllano ciascuno 4 digit, è necessario apportare alcune modifiche
- agli elementi che costituiscono il componente che pilota i display a 7
+ agli elementi che costituiscono il componente che pilota il display a 7
  segmenti.
 \end_layout
 
@@ -125,7 +125,11 @@ status open
 
 
 \backslash
-begin{lstlisting}[language=VHDL,caption={display_7_segments}]
+begin{lstlisting}[language=VHDL,caption={display
+\backslash
+_7
+\backslash
+_segments Nexys 4.}]
 \end_layout
 
 \begin_layout Plain Layout
@@ -249,19 +253,19 @@ end{lstlisting}
 
 \begin_layout Standard
 Nella top level entity del componente che permette di mostrare i valori
- sui display, il numero di segnali che indicano il la cifra da mostrare
- passano da 16 a 32, in quanto per ogni digit servono 4 bit per poter codificare
- i valori, in esadecimale, che possiamo mostrare su di essi.
- Poichè il numero di display da pilotare passa da 4 a 8, anche il numero
- di segnali che pilotano i punti , le digit e gli anodi aumentano.
+ sui display, il numero di segnali che indicano la cifra da mostrare passa
+ da 16 a 32, in quanto per ogni digit servono 4 bit per poter codificare
+ i valori in esadecimale che possiamo mostrare su di essi.
+ Poichè il numero di cifre da pilotare passa da 4 a 8, anche il numero di
+ segnali che pilotano i punti , le digit e gli anodi aumentano.
  Inoltre il contatore non è più un contatore modulo 4 ma è un contatore
- modulo 8, in quanto deveno essere abilitate 8 digit.
+ modulo 8, in quanto devono essere abilitate 8 digit.
 \end_layout
 
 \begin_layout Standard
 Tali modifiche riguradano anche l'anodes_manager che deve pilotare 8 digit
- e non più 4, pertanto il decoder da un decoder 2:4 diventa un decoder 3:8
- come si nota di seguito.
+ e non più 4, pertanto il decoder 2:4 diventa un decoder 3:8 come si nota
+ di seguito.
 \end_layout
 
 \begin_layout Standard
@@ -272,7 +276,8 @@ status open
 
 
 \backslash
-begin{lstlisting}[language=VHDL,caption={Abilitazione degli anodi}]
+begin{lstlisting}[language=VHDL,caption={Abilitazione degli anodi su Nexys
+ 4.}]
 \end_layout
 
 \begin_layout Plain Layout
@@ -347,11 +352,10 @@ selectlanguage{italian}%
 \begin_layout Standard
 Per il cathodes_manager cambia il numero di nibble che dobbiamo gestire,
  infatti anche essi passano da 4 a 8, ognuna di esse è costituita da 4 bit
- di values, stringa del valore da mostrare sul display codificato in codifica
- binaria classica.
+ di values, stringa del valore da mostrare sul display codificato inbinario.
  In particolare partendo dal LSB ogni 4 bit di values codifica il valore
  da mostrare su una delle digit.
- Anche il process che si accupa di assegnare ai catodi la corretta codifica
+ Anche il process che si occupa di assegnare ai catodi la corretta codifica
  del valore viene estesa per poter gestire 8 digit e non più 4.
 \begin_inset Newline newline
 \end_inset
@@ -367,12 +371,17 @@ status open
 
 
 \backslash
-begin{lstlisting}[language=VHDL,caption={cathodes_manager.vhd ..}]
+begin{lstlisting}[language=VHDL,caption={Cathodes Manager su Nexys 4.}]
 \end_layout
 
 \begin_layout Plain Layout
 
-    alias digit_0 is values (3 downto 0); 
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+alias digit_0 is values (3 downto 0); 
 \end_layout
 
 \begin_layout Plain Layout

@@ -217,7 +217,7 @@ status open
 
 
 \backslash
-href{run:./esercizio10/design/carry_select_block.vhd}{%
+href{run:./esercizio10/design/carry_select_cell.vhd}{%
 \end_layout
 
 \begin_layout Plain Layout
@@ -226,7 +226,7 @@ carry
 \backslash
 _select
 \backslash
-_block.vhd}
+_cell.vhd}
 \end_layout
 
 \end_inset
