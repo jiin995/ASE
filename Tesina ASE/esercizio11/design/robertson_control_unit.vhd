@@ -102,7 +102,7 @@ begin
 								en_a    		<= '1';             
 								nxt     		<= right_shift;
 							else 
-								-- faccio la correzzione
+								-- faccio la correzione
 								en_a        <= '1';
 								subtract    <= '1'; 
 								nxt	  		<= idle;
@@ -113,7 +113,7 @@ begin
 							en_q    <= '1';
 							sel     <= '1';
 							shift   <= '1';
-							-- tiene traccia del segno di x che dopo n schift si perde!!! e quindi non riesco a capire se 
+							-- tiene traccia del segno di x che dopo n shift si perde!!! e quindi non riesco a capire se 
 							-- se devo fare la somma o la sottrazione
 							x_sign  <= current_multiplicand;
 	

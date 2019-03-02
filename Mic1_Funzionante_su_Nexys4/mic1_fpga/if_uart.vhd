@@ -107,7 +107,7 @@ begin
 	Inst_baud_gen: baud_gen 
 	generic map(
 		  N => 10,
-		  M => 652 --32		  
+		  M => 651 --32		  
 	)
 	PORT MAP(
 		ck => ck,

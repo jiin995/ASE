@@ -649,12 +649,12 @@ Moltiplicatori
 
 \begin_layout Enumerate
 Realizzare in VHDL un circuito di moltiplicazione a celle MAC di N bit.
- La cella MAC deve contenere un Full Adder (descritto gia in esercizi precedenti
+ La cella MAC deve contenere un Full Adder (descritto già in esercizi precedenti
 ) ed una porta AND per la moltiplicazione parziale.
  Tale cella deve essere replicata in una struttura ordinata (per righe e
  colonne) per comporre il circuito intero di moltiplicazione.
  Effettuare considerazioni di occupazione di area e di tempi di propagazione
- dei segnali al variare di N per valori signicativi, apportando eventuali
+ dei segnali al variare di N per valori significativi, apportando eventuali
  commenti salienti.
 \end_layout
 
@@ -694,7 +694,7 @@ Divisori
 \end_layout
 
 \begin_layout Standard
-Nota: degli esercizi 1 e 2 occorre farne almeno uno, mentre l'altro e lasciato
+Nota: degli esercizi 1 e 2 occorre farne almeno uno, mentre l'altro è lasciato
  opzionale.
 \end_layout
 

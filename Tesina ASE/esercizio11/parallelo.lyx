@@ -115,7 +115,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename images/architettura_rcm.png
-	scale 10
+	scale 15
 
 \end_inset
 
@@ -151,7 +151,7 @@ Architettura del Ripple Carry Multiplier.
 
 \begin_layout Standard
 Si noti come tale architettura può essere realizzata mediante l'utilizzo
- di M ripple carry adder in cascata, che andranno a sommare le N righe della
+ di N ripple carry adder in cascata, che andranno a sommare le M righe della
  matrice dei prodotti parziali con le somme parziali calcolate riga per
  riga.
  Tale schema può essere ulteriormente raffinato eliminando il primo (fig.
@@ -183,7 +183,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename images/architettura_rcm_rca.png
-	scale 10
+	scale 15
 
 \end_inset
 
@@ -382,13 +382,13 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/simulazione_rcm.png
-	scale 35
+	scale 50
 
 \end_inset
 
@@ -498,7 +498,7 @@ fontsize{4}{5}
 
 \backslash
 selectfont, anchor=north, at={(0.70,0.16)}}, xmin=0,xmax=128, ymin = 0, ymax
- = 40000, grid=major, width=0.45
+ = 25000, grid=major, width=0.45
 \end_layout
 
 \begin_layout Plain Layout
@@ -523,7 +523,7 @@ addplot coordinates{     (0,0) (4, 26) (8, 91) (16, 363) (32, 1491) (64,
 
 \backslash
 nextgroupplot[legend style={anchor=north, at={(0.50,0.95)}}, xmin=0,xmax=128,
- ymin = 0, ymax = 290, grid=major, width=0.45
+ ymin = 0, ymax = 200, grid=major, width=0.45
 \backslash
 textwidth, height=
 \backslash

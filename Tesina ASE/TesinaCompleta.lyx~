@@ -546,7 +546,7 @@ Realizzare un'architettura di tipo Ripple Carry per un sommatore ad N bit
  generico.
  Il circuito deve essere realizzato a partire da blocchi di Full Adder,
  espresso mediante porte logiche XOR/AND/OR.
- Riportare considerazioni sul- l'area occupata e tempo di calcolo al variare
+ Riportare considerazioni sull'area occupata e tempo di calcolo al variare
  di N e commentare il risultato con le formule teoriche.
 \end_layout
 
@@ -649,12 +649,12 @@ Moltiplicatori
 
 \begin_layout Enumerate
 Realizzare in VHDL un circuito di moltiplicazione a celle MAC di N bit.
- La cella MAC deve contenere un Full Adder (descritto gia in esercizi precedenti
+ La cella MAC deve contenere un Full Adder (descritto già in esercizi precedenti
 ) ed una porta AND per la moltiplicazione parziale.
  Tale cella deve essere replicata in una struttura ordinata (per righe e
  colonne) per comporre il circuito intero di moltiplicazione.
  Effettuare considerazioni di occupazione di area e di tempi di propagazione
- dei segnali al variare di N per valori signicativi, apportando eventuali
+ dei segnali al variare di N per valori significativi, apportando eventuali
  commenti salienti.
 \end_layout
 

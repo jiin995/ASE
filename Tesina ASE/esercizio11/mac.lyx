@@ -198,7 +198,7 @@ full adder
 L'architettura della cella è visibile in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:architettura-mac"
+reference "fig:architettura-cella-mac"
 plural "false"
 caps "false"
 noprefix "false"
@@ -219,7 +219,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename images/architettura_cella_mac.png
-	scale 10
+	scale 20
 
 \end_inset
 
@@ -380,10 +380,10 @@ Moltiplicatore
 
 \begin_layout Standard
 L'implementazione del moltiplicatore è stata realizzata mediante descrizione
- structural: sono state generate dapprima generate le celle MAC, collegate
- secondo il grafico visto precedentemente, e poi dalla matrice delle somme
- parziali sono stati ricavati i valori corrispondenti al risultato della
- moltiplicazione P.
+ structural: sono state generate dapprima le celle MAC, collegate secondo
+ il grafico visto precedentemente, e poi dalla matrice delle somme parziali
+ sono stati ricavati i valori corrispondenti al risultato della moltiplicazione
+ P.
  In particolare, i primi M bit sono ricavabili dalla prima colonna della
  matrice delle somme parziali, mentre i restanti N bit sono ricavabili dall'ulti
 ma riga della matrice, come mostrato qui:
@@ -575,13 +575,13 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/simulazione_mac.png
-	scale 35
+	scale 45
 
 \end_inset
 

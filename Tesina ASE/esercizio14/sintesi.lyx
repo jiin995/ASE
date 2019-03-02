@@ -127,7 +127,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/mic_clock.png
-	scale 22
+	scale 30
 
 \end_inset
 
@@ -190,7 +190,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/test_mic1.png
-	scale 22
+	scale 50
 
 \end_inset
 

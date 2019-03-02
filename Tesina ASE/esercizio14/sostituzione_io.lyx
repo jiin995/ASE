@@ -402,6 +402,10 @@ selectlanguage{italian}%
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 L'implementazione completa del componente è consultabile qui: 
 \begin_inset ERT
 status open
@@ -444,9 +448,10 @@ o di I/O gli switch, i led e il display.
 start_read
 \shape default
 ) per avviare la lettura.
- Una volta inseriti entrambi gli operandi, sia sui led che sul display saranno
- visualizzati gli ultimi 8 bit dell'output buffer, ossia relativi al resto
- della divisione di cui si è discusso precedentemente (fig.
+ Una volta inseriti entrambi gli operandi e premuto quindi il bottone centrale,
+ sia sui led che sul display saranno visualizzati gli ultimi 8 bit dell'output
+ buffer, ossia relativi al resto della divisione di cui si è discusso precedente
+mente (fig.
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:test-mic1-onboard"
@@ -469,8 +474,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename images/test_mic1_onboard.png
-	scale 22
+	filename images/test_mic1_onboard.jpg
+	scale 40
 
 \end_inset
 

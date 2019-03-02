@@ -107,12 +107,12 @@ Contatore
 \end_layout
 
 \begin_layout Itemize
-Registro M (per contenere il dividendo X)
+Registro M (per contenere il divisore Y)
 \end_layout
 
 \begin_layout Itemize
 Registri A e Q scan chain (per contenere rispettivamente il resto parziale
- e il divisore Y)
+ e il dividendo X)
 \end_layout
 
 \begin_layout Itemize
@@ -150,13 +150,13 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/architettura_restoring.png
-	scale 45
+	scale 50
 
 \end_inset
 
@@ -257,13 +257,13 @@ restoring;
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/architettura_fsm_restoring.png
-	scale 75
+	scale 55
 
 \end_inset
 
@@ -548,7 +548,7 @@ Parte operativa
 
 \begin_layout Standard
 Il funzionamento della parte operativa è il seguente: inizialmente, il dividendo
- X e il divisore Y vengono caricati rispettivamente nei registri A e Q.
+ X e il divisore Y vengono caricati rispettivamente nei registri Q e M.
  In coda al registro Q, invece, viene posto il flip flop Q0 che determina
  il valore da inserire in Q in caso di shift a sinistra: Q0 sarà pari all'oppost
 o del valore del segno del resto parziale in A.
@@ -594,7 +594,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/simulazione_restoring.png
-	scale 35
+	scale 45
 
 \end_inset
 
@@ -705,7 +705,7 @@ fontsize{4}{5}
 
 \backslash
 selectfont, anchor=north, at={(0.70,0.16)}}, xmin=0,xmax=128, ymin = 0, ymax
- = 40000, grid=major, width=0.45
+ = 1200, grid=major, width=0.45
 \end_layout
 
 \begin_layout Plain Layout
@@ -730,7 +730,7 @@ addplot coordinates{     (0,0) (4, 52) (8, 88) (16, 171) (32, 293) (64,
 
 \backslash
 nextgroupplot[legend style={anchor=north, at={(0.50,0.95)}}, xmin=0,xmax=128,
- ymin = 0, ymax = 290, grid=major, width=0.45
+ ymin = 0, ymax = 5, grid=major, width=0.45
 \backslash
 textwidth, height=
 \backslash

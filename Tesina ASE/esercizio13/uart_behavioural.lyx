@@ -166,8 +166,7 @@ stop_ticks
 Tale implementazione non è di tipo commerciale, in quanto non prevede la
  possibilità di effettuare un controllo di parità né di utilizzare alcun
  tipo di controllo di flusso.
- .
- Le implementazioni complete delle entity sono consultabile qui: 
+ Le implementazioni complete delle entity sono consultabili qui: 
 \begin_inset ERT
 status open
 
@@ -239,13 +238,13 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/architettura_uart.png
-	scale 45
+	scale 10
 
 \end_inset
 
@@ -328,13 +327,12 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/ft2232hq.png
-	scale 45
 
 \end_inset
 
@@ -547,13 +545,13 @@ a
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/test_uart.png
-	scale 45
+	scale 55
 
 \end_inset
 
