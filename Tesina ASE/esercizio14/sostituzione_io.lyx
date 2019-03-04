@@ -140,6 +140,10 @@ io_uart
 io_switch_led_display 
 \shape default
 per la gestione degli switch, dei led e del display:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -249,10 +253,6 @@ selectlanguage{italian}%
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -356,6 +356,10 @@ _buffer esteso su 32 bit (ossia quello prelevato dagli switch o ricevuto
  se CE='0', dispositivo di I/O disabilitato), verrà riportato un segnale
  di alta impedenza, per far sì che gli altri dispositivi abilitati e che
  condividono il data bus possano utilizzarlo:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

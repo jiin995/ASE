@@ -138,6 +138,10 @@ e
  Per realizzare questi buffer, piuttosto che il componente usato nel capitolo
  precedente, si sono utilizzate due scan chain (per fare gli shift dei dati
  ricevuti e trasmessi) con due flip flop usati come flag dei buffer:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -266,10 +270,6 @@ end{lstlisting}
 selectlanguage{italian}%
 \end_layout
 
-\end_inset
-
-
-\begin_inset Newline newline
 \end_inset
 
 

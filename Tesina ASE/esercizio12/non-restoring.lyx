@@ -199,6 +199,10 @@ Per l'implementazione di tale componente si è utilizzata una descrizione
 ente.
  In particolare si riporta l'interfaccia del componente divisore, del tutto
  analoga a quella del restoring divider:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -285,10 +289,6 @@ selectlanguage{italian}%
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -330,6 +330,10 @@ In particolare, per quanto riguarda la parte di controllo, questa è stata
  set_q0
 \shape default
 :
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -393,10 +397,6 @@ end{lstlisting}
 selectlanguage{italian}%
 \end_layout
 
-\end_inset
-
-
-\begin_inset Newline newline
 \end_inset
 
 

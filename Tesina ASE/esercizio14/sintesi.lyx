@@ -126,8 +126,9 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename images/mic_clock.png
+	filename images/clock_mic.png
 	scale 30
+	BoundingBox 30bp 0bp 0bp 20bp
 
 \end_inset
 

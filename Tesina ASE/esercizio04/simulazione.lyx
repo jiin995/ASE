@@ -84,17 +84,400 @@ Simulazione
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
+Per poter simulare e verificare il corretto funzionamento del componente,
+ si è deciso di realizzare un left-shift register che esegue un operazione
+ di shift ad ogni colpo di clock generato.
+ La top level entity presenta la seguente interfaccia: 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-Descrivere la soluzione relizzata per mezzo di schematici e riportare il
- codice dei soli componenti significativi.
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Left shift register utilizzato
+ per testare il clock.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+entity clk_tester is 	
+\end_layout
+
+\begin_layout Plain Layout
+
+	GENERIC( N 	: integer := 8 			);     
+\end_layout
+
+\begin_layout Plain Layout
+
+	Port (  clock_in 		  : in  STD_LOGIC; 			  
+\end_layout
+
+\begin_layout Plain Layout
+
+			enable 			: in  STD_LOGIC; 			  
+\end_layout
+
+\begin_layout Plain Layout
+
+			reset_n 		   : in  STD_LOGIC; 			  
+\end_layout
+
+\begin_layout Plain Layout
+
+			d_in			   : in  STD_LOGIC; 			 
+\end_layout
+
+\begin_layout Plain Layout
+
+			q_out			  : out STD_LOGIC;           
+\end_layout
+
+\begin_layout Plain Layout
+
+			Q 				 : out STD_LOGIC_VECTOR (N-1 downto 0); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+			half_clock 		: out STD_LOGIC; 			  	
+\end_layout
+
+\begin_layout Plain Layout
+
+			quarter_clock      : out STD_LOGIC; 		
+\end_layout
+
+\begin_layout Plain Layout
+
+			tenth_clock		: out STD_LOGIC;    		
+\end_layout
+
+\begin_layout Plain Layout
+
+			locked 			: out STD_LOGIC 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	); 
+\end_layout
+
+\begin_layout Plain Layout
+
+end clk_tester;
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]												
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
 \end_layout
 
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si precisa che tale interfaccia presenta come uscita i segnali di clock
+ soltanto per rendere più agevole la fase di analisi della simulazione.
+ Per quanto concerne invece il collegamento tra il clock generator e lo
+ shift register, questo è stato realizzato come di seguito:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Collegamento tra clock e shift
+ register.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+signal enable_int 		: STD_LOGIC	:='1';	
+\end_layout
+
+\begin_layout Plain Layout
+
+begin
+\end_layout
+
+\begin_layout Plain Layout
+
+	half_clock		 <= half_clock_int; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	quarter_clock      <= quarter_clock_int; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	tenth_clock 	   <= tenth_clock_int;
+\end_layout
+
+\begin_layout Plain Layout
+
+	locked 			<= enable_int;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	clock_Ints: my_clock port map(	
+\end_layout
+
+\begin_layout Plain Layout
+
+			CLK_IN1 => clock_in, 		
+\end_layout
+
+\begin_layout Plain Layout
+
+			CLK_OUT1 => half_clock_int,
+\end_layout
+
+\begin_layout Plain Layout
+
+			CLK_OUT2 => quarter_clock_int,
+\end_layout
+
+\begin_layout Plain Layout
+
+			CLK_OUT3 => tenth_clock_int,
+\end_layout
+
+\begin_layout Plain Layout
+
+			LOCKED => enable_int 
+\end_layout
+
+\begin_layout Plain Layout
+
+	);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	shift_register_inst: shiftRegister generic map ( 
+\end_layout
+
+\begin_layout Plain Layout
+
+			N => N
+\end_layout
+
+\begin_layout Plain Layout
+
+		) port map (   
+\end_layout
+
+\begin_layout Plain Layout
+
+			clock => half_clock_int,
+\end_layout
+
+\begin_layout Plain Layout
+
+			enable => enable_int, 
+\end_layout
+
+\begin_layout Plain Layout
+
+			reset_n => reset_n,
+\end_layout
+
+\begin_layout Plain Layout
+
+			left => left,
+\end_layout
+
+\begin_layout Plain Layout
+
+			d_in => d_in,
+\end_layout
+
+\begin_layout Plain Layout
+
+			q_out => q_out,
+\end_layout
+
+\begin_layout Plain Layout
+
+			Q => Q 								
+\end_layout
+
+\begin_layout Plain Layout
+
+	); 
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]												
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In particolare, lo shift register è abilitato dal segnale locked del generatore
+ di clock: pertanto, appena il componente ci segnalerà che ha agganciato
+ correttamente la fase del segnale in ingresso, lo shift register sarà abilitato
+ e funzionerà ad una frequenza pari a metà di quella del segnale in ingresso
+ al componente che usa il CMT (che nel nostro caso è 100Mhz, fornendoci
+ quindi 50Mhz di frequenza in uscita).
+ In fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Simulazione"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, sono riportati i risultati della simulazione.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/simulazione_clock_tester.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Simulazione"
+
+\end_inset
+
+Simulazione Clock Generator
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dopo circa 40 cicli di clock (4.650 us), il segnale locked va alto e lo shift
+ register viene abilitato.
+ Sul fronte di salita di half_clock, e dunque ogni due fronti di salita
+ di clock_in, il registro viene correttamente shiftato verso sinistra.
+ Si osservi inoltre come, poichè d_in resta alto per circa un periodo e
+ mezzo, il valore in ogni cella dello shift register viene mantenuto alto
+ per due periodi di half_clock.
+ Dopo il terzo periodo, il valore ritorna basso a causa dello shift effettuato.
+ L'implementazione completa è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio04/design/clock_tester.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+clock
+\backslash
+_tester.vhd}
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \end_body

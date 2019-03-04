@@ -182,6 +182,10 @@ Il latch JK è stato realizzato mediante descrizione behavioural.
  a 0.
  Se entrambi sono alti, invece, il comportamento del latch JK è assimilabile
  a quello del latch T, e dunque il valore di Q viene invertito.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

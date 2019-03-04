@@ -162,10 +162,6 @@ selectlanguage{italian}%
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -210,6 +206,10 @@ carry_look_ahead
 full_adders
 \shape default
  per la rete di full adder atta al calcolo delle somme:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -298,10 +298,6 @@ end{lstlisting}
 selectlanguage{italian}%
 \end_layout
 
-\end_inset
-
-
-\begin_inset Newline newline
 \end_inset
 
 

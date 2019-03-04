@@ -425,6 +425,10 @@ In particolare, per quanto riguarda la parte di controllo, questa è stata
 choice
 \shape default
 :
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -518,10 +522,6 @@ end{lstlisting}
 selectlanguage{italian}%
 \end_layout
 
-\end_inset
-
-
-\begin_inset Newline newline
 \end_inset
 
 

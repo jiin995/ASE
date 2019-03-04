@@ -116,6 +116,46 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/display_7_segmenti_Nexys.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:display_7segmenti_nexys"
+
+\end_inset
+
+Display a 7 segmenti sulla Nexys 4
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Pertanto per abilitare una digit bisognerà innanzitutto alimentare opportunament
 e l'anodo e poi pilotando i catodi opportunamente verrà mostrato sul display
  il valore.
@@ -308,50 +348,6 @@ _segmenti.vhd}
 \end_inset
 
 .
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement ph
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename images/display_7_segmenti_Nexys.png
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:display_7segmenti_nexys"
-
-\end_inset
-
-Display a 7 segmenti sulla Nexys 4
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard

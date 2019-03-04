@@ -221,6 +221,10 @@ Implementazione
 L'implementazione del moltiplicatore è stata realizzata mediante descrizione
  structural: dapprima si è generata la matrice dei prodotti parziali, e
  poi si sono generati i RCA nel seguente modo:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -321,11 +325,7 @@ selectlanguage{italian}%
 
 \end_inset
 
-
-\begin_inset Newline newline
-\end_inset
-
- Si noti come si è evitato di generare il primo RCA portando direttamente
+Si noti come si è evitato di generare il primo RCA portando direttamente
  la prima riga della matrice dei prodotti parziali nella matrice delle somme
  parziali.
  Infine, si è prelevato il risultato come specificato nel grafico: i primi

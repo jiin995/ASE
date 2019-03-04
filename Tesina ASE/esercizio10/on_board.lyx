@@ -80,7 +80,7 @@
 \begin_body
 
 \begin_layout Section
-Approfondimento: Carry Select AddSub e on board
+Approfondimento: Carry Select AddSub on board
 \end_layout
 
 \begin_layout Standard
@@ -91,13 +91,11 @@ Tra i vari addizionatori presentati, abbiamo deciso di sintetizzare sulla
  per sostenere gli input in ingresso all'addizionatore e per sostenere il
  valore in ingresso alla batteria di display a 7 segmenti presenti sulla
  board.
- Si è inoltre deciso di sintetizzare sulla board la versione AddSub per
- effettuare l'operazione di sottrazione calcolando il complemento a due
- di uno degli operandi, come visto per il Ripple Carry Adder.
-\end_layout
-
-\begin_layout Standard
-L'interfaccia della top level entity è la seguente :
+ Si è inoltre deciso di sintetizzare sulla board la versione AddSub, in
+ grado di effettuare l'operazione di sottrazione calcolando il complemento
+ a due del secondo operando, in modo analogo a quanto visto per il Ripple
+ Carry Adder.
+ L'interfaccia della top level entity è la seguente:
 \begin_inset Newline newline
 \end_inset
 
@@ -113,11 +111,6 @@ status open
 
 \backslash
 begin{lstlisting}[language=VHDL,caption={Interfaccia della top level entity.}]
-\end_layout
-
-\begin_layout Plain Layout
-
-[...]
 \end_layout
 
 \begin_layout Plain Layout
@@ -193,11 +186,6 @@ entity carrySelect_addSub_onBoard is
 
 \begin_layout Plain Layout
 
-[...]
-\end_layout
-
-\begin_layout Plain Layout
-
 
 \backslash
 end{lstlisting}
@@ -216,33 +204,27 @@ Dal momento che la board dispone di soli 16 switch per definire gli ingressi,
  Per risolvere tale limite, si è deciso di adottare la seguente logica:
  dal momento che le stringhe in ingresso sono sostenute da due registri
  con parallelismo di 16 bit, abbiamo mappato l'ingresso di entrambi i registri
- agli switch, mentre i loro segnali di abilitazione sono mappati su due
- diversi bottoni della board.
+ agli stessi 16 switch, mentre i loro segnali di abilitazione sono mappati
+ su due diversi pulsanti della board.
 
 \shape italic
  
 \shape default
-Pertanto, per fare l'operazione di addizione bisogna usare gli switch per
- impostare i singoli operandi e premere i corrispettivi pulsanti per caricare
- i due valori nei registri.
- Dopo pochi instanti, sarà disponibile sul display a 7 segmenti il risultato.
+Pertanto, per effettuare un'addizione, bisognerà usare gli switch per impostare
+ i singoli operandi e premere i corrispettivi pulsanti per caricare i due
+ valori nei registri.
+ Dopo pochi instanti, sarà disponibile sul display a 7 segmenti il risultato
+ dell'operazione.
  Inoltre, se il led 15 sarà acceso, significherà che durante l'operazione
  si è verificato un overflow.
- Per effettuare una sottrazione invece, basterà premere il pulsante centrale
+ Per effettuare una sottrazione invece basterà premere il pulsante centrale
  sull'FPGA a cui è stato mappato l'ingresso 
 \shape italic
 subtract
 \shape default
- : in questo modo si ordinerà all'addizionatore di complementare il secondo
+: in questo modo si ordinerà all'addizionatore di complementare il secondo
  operando e quindi di fare la sottrazione tra il primo operando e il secondo.
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Di seguito è riportato il mapping dei pulsanti e dei led con l' I/O del
+ Di seguito è riportato il mapping dei pulsanti e dei led con l'I/O del
  componente di alto livello:
 \end_layout
 
@@ -254,7 +236,7 @@ status open
 
 
 \backslash
-begin{lstlisting}[language=VHDL,caption={Interfaccia top level entity .}]
+begin{lstlisting}[language=VHDL,caption={Mapping dei pulsanti e dei led.}]
 \end_layout
 
 \begin_layout Plain Layout
@@ -342,10 +324,7 @@ _addSub.vhd}
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-L'implementazione completa della top level entity è consultabile qui: 
+ L'implementazione completa della top level entity è consultabile qui: 
 \begin_inset ERT
 status open
 

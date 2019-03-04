@@ -302,6 +302,10 @@ Per l'implementazione di tale componente si è utilizzata una descrizione
  di tipo structural, collegando opportunamene i componenti descritti precedentem
 ente.
  In particolare si riporta l'interfaccia del componente divisore:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -387,10 +391,6 @@ selectlanguage{italian}%
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -426,6 +426,10 @@ In particolare, per quanto riguarda la parte di controllo, questa è stata
  realizzata mediante una control_unit implementata come FSM in descrizione
  behavioural, seguendo l'automa a stati finiti visto precedentemente.
  Di seguito è riportato il comportamento della macchina nello stato di test:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -504,10 +508,6 @@ end{lstlisting}
 selectlanguage{italian}%
 \end_layout
 
-\end_inset
-
-
-\begin_inset Newline newline
 \end_inset
 
 

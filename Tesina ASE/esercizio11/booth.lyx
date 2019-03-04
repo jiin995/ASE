@@ -106,7 +106,7 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -316,6 +316,10 @@ In particolare, per quanto riguarda la parte di controllo, questa è stata
 choice
 \shape default
 :
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -372,10 +376,6 @@ selectlanguage{italian}%
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -417,6 +417,10 @@ Parte operativa
 Il funzionamento della parte operativa è il seguente: inizialmente, il moltiplic
 ando X e il moltiplicatore Y vengono caricati rispettivamente nei registri
  Q e M, e viene posto il bit meno significativo di Q pari a 0:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -447,16 +451,16 @@ selectlanguage{italian}%
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
 Per quanto concerne l'uscita, questa sarà determinata dalla concatenazione
  di A e Q (N+M bit), senza considerare il bit meno significativo di Q inserito
  all'inizio (pari a 0):
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -854,15 +858,12 @@ enable_b
  Appena il led #15 sarà acceso, la macchina avrà inviato il segnale di stop,
  e dunque il risultato sarà visibile sulle prime 4 cifre del display (parallelis
 mo di 16 bit).
+ Di seguito è riportato il mapping dei pulsanti e dei led con l' I/O del
+ componente di alto livello:
 \begin_inset Newline newline
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Di seguito è riportato il mapping dei pulsanti e dei led con l' I/O del
- componente di alto livello:
 \end_layout
 
 \begin_layout Standard
@@ -949,10 +950,6 @@ end{lstlisting}
 selectlanguage{italian}%
 \end_layout
 
-\end_inset
-
-
-\begin_inset Newline newline
 \end_inset
 
 

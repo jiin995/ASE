@@ -387,6 +387,10 @@ L'implementazione del moltiplicatore è stata realizzata mediante descrizione
  In particolare, i primi M bit sono ricavabili dalla prima colonna della
  matrice delle somme parziali, mentre i restanti N bit sono ricavabili dall'ulti
 ma riga della matrice, come mostrato qui:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -523,10 +527,10 @@ selectlanguage{italian}%
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
- L'implementazione completa è consultabile qui: 
+\begin_layout Standard
+L'implementazione completa è consultabile qui: 
 \begin_inset ERT
 status open
 

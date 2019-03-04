@@ -175,10 +175,6 @@ selectlanguage{italian}%
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -361,10 +357,10 @@ selectlanguage{italian}%
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
- L'implementazione completa è consultabile qui: 
+\begin_layout Standard
+L'implementazione completa è consultabile qui: 
 \begin_inset ERT
 status open
 

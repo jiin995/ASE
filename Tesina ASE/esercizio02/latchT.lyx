@@ -118,6 +118,10 @@ Si è implementato il latch T abilitato tramite descrizione behavioural.
  Come da comportamento previsto, il valore di Q verrà invertito solo in
  caso di abilitazione (en=1) e di valore in ingresso T=1, condizione espressa
  tramite struttura if then.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
