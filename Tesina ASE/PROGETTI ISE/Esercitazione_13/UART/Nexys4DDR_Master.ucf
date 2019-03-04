@@ -1,0 +1,56 @@
+## This file is a general .ucf for the Nexys4 DDR Rev C board
+## To use it in a project:
+## - uncomment the lines corresponding to used pins
+## - rename the used signals according to the project
+
+## Clock signal
+NET "clock"   LOC = "E3"	| IOSTANDARD = "LVCMOS33";					#Banodesk = 35, Pin name = #IO_L12P_T1_MRCC_35,					Sch name = clk100mhz
+#NET "clk100mhz" TNM_NET = sys_clk_pin;
+#TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 100 MHz HIGH 50%; 
+
+#led
+NET "rx_empty"       LOC=V11 | IOSTANDARD=LVCMOS33; #IO_L18P_T2_A24_15
+NET "tx_full"        LOC=V12 | IOSTANDARD=LVCMOS33; #IO_L20N_T3_A07_D23_14
+
+## Buttons
+#NET "cpu_resetn"     LOC=C12 | IOSTANDARD=LVCMOS33; #IO_L3P_T0_DQS_AD1P_15
+
+#NET "rd_uart"           LOC=N17 | IOSTANDARD=LVCMOS33; #IO_L9P_T1_DQS_14
+#NET "wr_uart"           LOC=P18 | IOSTANDARD=LVCMOS33; #IO_L9N_T1_DQS_D13_14
+#NET "tx_start"           LOC=P17 | IOSTANDARD=LVCMOS33; #IO_L12P_T1_MRCC_14
+#NET "load_reg_4_7"           LOC=M17 | IOSTANDARD=LVCMOS33; #IO_L10N_T1_D15_14
+#NET "btnu"           LOC=M18 | IOSTANDARD=LVCMOS33; #IO_L4N_T0_D05_14
+
+## 7 segment display
+NET "cathodes<0>"             LOC=T10 | IOSTANDARD=LVCMOS33; #IO_L24N_T3_A00_D16_14
+NET "cathodes<1>"             LOC=R10 | IOSTANDARD=LVCMOS33; #IO_25_14
+NET "cathodes<2>"             LOC=K16 | IOSTANDARD=LVCMOS33; #IO_25_15
+NET "cathodes<3>"             LOC=K13 | IOSTANDARD=LVCMOS33; #IO_L17P_T2_A26_15
+NET "cathodes<4>"             LOC=P15 | IOSTANDARD=LVCMOS33; #IO_L13P_T2_MRCC_14
+NET "cathodes<5>"             LOC=T11 | IOSTANDARD=LVCMOS33; #IO_L19P_T3_A10_D26_14
+NET "cathodes<6>"             LOC=L18 | IOSTANDARD=LVCMOS33; #IO_L4P_T0_D04_14
+NET "cathodes<7>"             LOC=H15 | IOSTANDARD=LVCMOS33; #IO_L19N_T3_A21_VREF_15
+
+NET "anodes<0>"          LOC=J17 | IOSTANDARD=LVCMOS33; #IO_L23P_T3_FOE_B_15
+NET "anodes<1>"          LOC=J18 | IOSTANDARD=LVCMOS33; #IO_L23N_T3_FWE_B_15
+NET "anodes<2>"          LOC=T9 | IOSTANDARD=LVCMOS33; #IO_L24P_T3_A01_D17_14
+NET "anodes<3>"          LOC=J14 | IOSTANDARD=LVCMOS33; #IO_L19P_T3_A22_15
+NET "anodes<4>"          LOC=P14 | IOSTANDARD=LVCMOS33; #IO_L8N_T1_D12_14
+NET "anodes<5>"          LOC=T14 | IOSTANDARD=LVCMOS33; #IO_L14P_T2_SRCC_14
+NET "anodes<6>"          LOC=K2 | IOSTANDARD=LVCMOS33; #IO_L23P_T3_35
+NET "anodes<7>"          LOC=U13 | IOSTANDARD=LVCMOS33; #IO_L23N_T3_A02_D18_14
+
+##USB-RS232 Interface
+#NET "uart_cts"       LOC=D3 | IOSTANDARD=LVCMOS33; #IO_L12N_T1_MRCC_35
+#NET "uart_rts"       LOC=E5 | IOSTANDARD=LVCMOS33; #IO_L5N_T0_AD13N_35
+NET "tx"    LOC=D4 | IOSTANDARD=LVCMOS33; #IO_L11N_T1_SRCC_35
+NET "rx"    LOC=C4 | IOSTANDARD=LVCMOS33; #IO_L7P_T1_AD6
+
+#NET "din<0>"          LOC=J15 | IOSTANDARD=LVCMOS33; #IO_L24N_T3_RS0_15
+#NET "din<1>"          LOC=L16 | IOSTANDARD=LVCMOS33; #IO_L3N_T0_DQS_EMCCLK_14
+#NET "din<2>"          LOC=M13 | IOSTANDARD=LVCMOS33; #IO_L6N_T0_D08_VREF_14
+#NET "din<3>"          LOC=R15 | IOSTANDARD=LVCMOS33; #IO_L13N_T2_MRCC_14
+#NET "din<4>"          LOC=R17 | IOSTANDARD=LVCMOS33; #IO_L12N_T1_MRCC_14
+#NET "din<5>"          LOC=T18 | IOSTANDARD=LVCMOS33; #IO_L7N_T1_D10_14
+#NET "din<6>"          LOC=U18 | IOSTANDARD=LVCMOS33; #IO_L17N_T2_A13_D29_14
+#NET "din<7>"          LOC=R13 | IOSTANDARD=LVCMOS33; #IO_L5N_T0_D07_14

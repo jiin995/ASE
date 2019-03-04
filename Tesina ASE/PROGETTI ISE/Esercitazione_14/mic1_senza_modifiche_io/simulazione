@@ -1,0 +1,32 @@
+onerror {resume}
+quietly WaveActivateNextPane {} 0
+add wave -noupdate -format Logic /tb_sistema_completo/rxd
+add wave -noupdate -format Logic /tb_sistema_completo/txd
+add wave -noupdate -format Logic /tb_sistema_completo/ck
+add wave -noupdate -format Literal /tb_sistema_completo/leds
+add wave -noupdate -format Literal /tb_sistema_completo/ingresso_mbr
+add wave -noupdate -format Literal /tb_sistema_completo/io_mdr
+add wave -noupdate -format Literal /tb_sistema_completo/uscita_mar
+add wave -noupdate -format Literal /tb_sistema_completo/uscita_pc
+add wave -noupdate -format Logic /tb_sistema_completo/wr
+add wave -noupdate -format Logic /tb_sistema_completo/rd
+add wave -noupdate -format Logic /tb_sistema_completo/fetch
+add wave -noupdate -format Logic /tb_sistema_completo/ce_uart
+add wave -noupdate -format Logic /tb_sistema_completo/ce_rom
+add wave -noupdate -format Logic /tb_sistema_completo/ce_ram
+TreeUpdate [SetDefaultTree]
+WaveRestoreCursors {{Cursor 1} {999409 ps} 0}
+configure wave -namecolwidth 150
+configure wave -valuecolwidth 100
+configure wave -justifyvalue left
+configure wave -signalnamewidth 0
+configure wave -snapdistance 10
+configure wave -datasetprefix 0
+configure wave -rowmargin 4
+configure wave -childrowmargin 2
+configure wave -gridoffset 0
+configure wave -gridperiod 1
+configure wave -griddelta 40
+configure wave -timeline 0
+update
+WaveRestoreZoom {0 ps} {5477969993 ps}

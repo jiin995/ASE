@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=/home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_10/ISE/carrySelect_addSub_onBoard/impact.xsl
+OUTFILE=/home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_10/ISE/carrySelect_addSub_onBoard/impact.xsl
+FAMILY=Single
+PART=Single
+WORKINGDIR=/home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_10/ISE/carrySelect_addSub_onBoard
+LICENSE=iMPACT
+USER_INFO=iMPACT

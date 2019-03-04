@@ -1,0 +1,43 @@
+# This file is a general .ucf for Basys rev E board
+# To use it in a project:
+# - remove or comment the lines corresponding to unused pins
+# - rename the used signals according to the project
+
+
+# clock pin for Basys rev E Board                                                                                                                        
+ NET "clk"      LOC = "P54"; # Bank = 2,  Pin name = IO_L5N_2/D3/GCLK31, Sch name = CLK1
+#NET "Clk2"      LOC = "P53"; # Bank = 2,  Pin name = IO_L5P_2/D4/GCLK30, Sch name = CLK2
+                                                                                                                       
+                                                                                                                        
+# onBoard 7seg display                                                                                                                        
+ NET "cathodes<0>"    LOC = "P25"; # Bank = 3, Pin name = IO_L8P_3,            Sch name = CA
+ NET "cathodes<1>"    LOC = "P16"; # Bank = 3, Pin name = IO_L5P_3/GCLK22,     Sch name = CB
+ NET "cathodes<2>"    LOC = "P23"; # Bank = 3, Pin name = IO_L7N_3/GCLK27      Sch name = CC
+ NET "cathodes<3>"    LOC = "P21"; # Bank = 3, Pin name = IO_L6N_3/GCLK25,     Sch name = CD
+ NET "cathodes<4>"    LOC = "P20"; # Bank = 3, Pin name = IO_L6P_3/GCLK24/TRDY2,Sch name = CE
+ NET "cathodes<5>"    LOC = "P17"; # Bank = 3, Pin name = IO_L5N_3/GCLK23/IRDY2,Sch name = CF
+ NET "cathodes<6>"    LOC = "P83"; # Bank = 1, Pin name = IO/VREF_1,           Sch name = CG
+ NET "cathodes<7>"        LOC = "P22"; # Bank = 3, Pin name = IO_L7P_3/GCLK26,     Sch name = DP
+                                                                                                                        
+ NET "anodes<0>"     LOC = "P34"; # Bank = 3, Pin name = IO_L10P_3,           Sch name = AN1
+ NET "anodes<1>"     LOC = "P33"; # Bank = 3, Pin name = IO_L9N_3,            Sch name = AN2
+ NET "anodes<2>"     LOC = "P32"; # Bank = 3, Pin name = IO_L9P_3,            Sch name = AN3
+ NET "anodes<3>"     LOC = "P26"; # Bank = 3, Pin name = IO_L8N_3,            Sch name = AN4
+                                                                                                                        
+                                                                                                                        
+# Switches                                                                                                                        
+ NET "in_byte<0>"     LOC = "P38"; # Bank = 2, Pin name = IP,                  Sch name = SW0
+ NET "in_byte<1>"     LOC = "P36"; # Bank = 3, Pin name = IP,                  Sch name = SW1
+ NET "in_byte<2>"     LOC = "P29"; # Bank = 3, Pin name = IO(3S100E)/IP(3S250E),Sch name = SW2
+ NET "in_byte<3>"     LOC = "P24"; # Bank = 3, Pin name = IP                   Sch name = SW3
+ NET "in_byte<4>"     LOC = "P18"; # Bank = 3, Pin name = IP,                  Sch name = SW4
+ NET "in_byte<5>"     LOC = "P12"; # Bank = 3, Pin name = IP/VREF_3,           Sch name = SW5
+ NET "in_byte<6>"     LOC = "P10"; # Bank = 3, Pin name = IO(3S100E)/IP(3S250E),Sch name = SW6
+ NET "in_byte<7>"     LOC = "P6";  # Bank = 3, Pin name = IP,                  Sch name = SW7
+                                                                                                                        
+# Buttons                                                                                                                        
+ NET "load_divisor"    LOC = "P69"; # Bank = 2, Pin name = IP,                   Sch name = BTN0
+ NET "load_dividend"    LOC = "P48"; # Bank = 2, Pin name = IP_L3N_2/VREF_2       Sch name = BTN1
+ NET "start_division"    LOC = "P47"; # Bank = 2, Pin name = IP_L3P_2,             Sch name = BTN2
+ NET "reset"    LOC = "P41"; # Bank = 2, Pin name = IP,                   Sch name = BTN3
+       
