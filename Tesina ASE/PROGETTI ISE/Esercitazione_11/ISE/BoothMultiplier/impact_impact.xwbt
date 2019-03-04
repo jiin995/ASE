@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=/home/jiin995/ASE_WorkSpace/Esercitazioni/Esercitazione_11/ISE/BoothMultiplier/impact.xsl
+OUTFILE=/home/jiin995/ASE_WorkSpace/Esercitazioni/Esercitazione_11/ISE/BoothMultiplier/impact.xsl
+FAMILY=Single
+PART=Single
+WORKINGDIR=/home/jiin995/ASE_WorkSpace/Esercitazioni/Esercitazione_11/ISE/BoothMultiplier
+LICENSE=iMPACT
+USER_INFO=iMPACT

@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=/home/jiin995/ASE_WorkSpace/Test/UART/impact.xsl
+OUTFILE=/home/jiin995/ASE_WorkSpace/Test/UART/impact.xsl
+FAMILY=Single
+PART=Single
+WORKINGDIR=/home/jiin995/ASE_WorkSpace/Test/UART
+LICENSE=iMPACT
+USER_INFO=iMPACT
