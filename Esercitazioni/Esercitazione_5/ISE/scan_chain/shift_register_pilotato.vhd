@@ -37,14 +37,14 @@ entity scan_chain is
 			scan_en 	: in  STD_LOGIC;							-- segnale di selezione modalità (0 = normale, 1 = controllo)
 			scan_in 	: in  STD_LOGIC;							-- primo valore scan-in 
 			d_reg 		: in  STD_LOGIC_VECTOR (width-1 downto 0);	-- valore in ingresso nel registro
-           	scan_out 	: out  STD_LOGIC							-- ultimo valore scan-out
-           	q_reg 		: out  STD_LOGIC_VECTOR (width-1 downto 0);	-- valore in uscita del registro
+           	scan_out 	: out  STD_LOGIC;							-- ultimo valore scan-out
+           	q_reg 		: out  STD_LOGIC_VECTOR (width-1 downto 0)	-- valore in uscita del registro
 	);
 end scan_chain;
 
 architecture behavioural of scan_chain is
 
-signal connections : std_logic_vector(width downto 0)	-- genero i flip flop multiplexatie di appoggio per connessioni tra i diversi flip-flop
+signal connections : std_logic_vector(width downto 0);	-- genero i flip flop multiplexatie di appoggio per connessioni tra i diversi flip-flop
 
 COMPONENT flipflopmux		-- flip flop multiplexato	-- genero i flip flop multiplexati
 	PORT(	clock 	: IN std_logic;    

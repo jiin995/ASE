@@ -11,18 +11,19 @@
          <ClosedNode>/booth_multiplier_onBoard - Behavioral |home|jiin995|ASE_WorkSpace|Esercitazioni|Esercitazione_11|ISE|BoothMultiplier|carrySelect_addSub_onBoard.vhd/booth_multiplier_onBoard - booth_multiplier - Structural/carrySelect_addSub_inst - carrySelect_addSub - structural</ClosedNode>
          <ClosedNode>/booth_multiplier_onBoard - Behavioral |home|jiin995|ASE_WorkSpace|Esercitazioni|Esercitazione_11|ISE|BoothMultiplier|carrySelect_addSub_onBoard.vhd/booth_multiplier_onBoard - booth_multiplier - Structural/register_a - scan_chain - behavioural</ClosedNode>
          <ClosedNode>/booth_multiplier_onBoard - Behavioral |home|jiin995|ASE_WorkSpace|Esercitazioni|Esercitazione_11|ISE|BoothMultiplier|carrySelect_addSub_onBoard.vhd/booth_multiplier_onBoard - booth_multiplier - Structural/register_q - scan_chain - behavioural</ClosedNode>
+         <ClosedNode>/booth_multiplier_onBoard - Behavioral |home|simone|Scrivania|ASE|Esercitazioni|Esercitazione_11|ISE|BoothMultiplier|booth_On_Board.vhd/booth_multiplier_onBoard - booth_multiplier - Structural/carrySelect_addSub_inst - carrySelect_addSub - structural</ClosedNode>
          <ClosedNode>/carrySelect_addSub - structural |home|jiin995|ASE_WorkSpace|Test|BoothMultiplier|carrySelect_addSub.vhd</ClosedNode>
          <ClosedNode>/rippleCarry_addsub - structural |home|jiin995|ASE_WorkSpace|Test|BoothMultiplier|rippleCarry_addsub.vhd</ClosedNode>
          <ClosedNode>/scan_chain - behavioural |home|jiin995|ASE_WorkSpace|Test|BoothMultiplier|scan_chain.vhd</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>booth_multiplier_onBoard - Behavioral (/home/jiin995/ASE_WorkSpace/Esercitazioni/Esercitazione_11/ISE/BoothMultiplier/carrySelect_addSub_onBoard.vhd)</SelectedItem>
+         <SelectedItem>booth_multiplier_onBoard - booth_multiplier - Structural (/home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_11/ISE/BoothMultiplier/booth_multiplier.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000004b2000000020000000000000000000000000200000064ffffffff000000810000000300000002000004b20000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000030e000000020000000000000000000000000200000064ffffffff0000008100000003000000020000030e0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>booth_multiplier_onBoard - Behavioral (/home/jiin995/ASE_WorkSpace/Esercitazioni/Esercitazione_11/ISE/BoothMultiplier/carrySelect_addSub_onBoard.vhd)</CurrentItem>
+      <CurrentItem>booth_multiplier_onBoard - booth_multiplier - Structural (/home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_11/ISE/BoothMultiplier/booth_multiplier.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -45,9 +46,9 @@
       <SelectedItems/>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000039f000000040101000100000000000000000000000064ffffffff0000008100000000000000040000004f0000000100000000000000290000000100000000000000840000000100000000000002a30000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000027b000000040101000100000000000000000000000064ffffffff0000008100000000000000040000004f00000001000000000000002900000001000000000000008400000001000000000000017f0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>/home/jiin995/ASE_WorkSpace/Esercitazioni/Esercitazione_11/ISE/BoothMultiplier/anodes_manager.vhd</CurrentItem>
+      <CurrentItem>anodes_manager.vhd</CurrentItem>
    </ItemView>
    <ItemView guiview="Library" >
       <ClosedNodes>
@@ -57,7 +58,7 @@
       <SelectedItems/>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000124000000010001000100000000000000000000000064ffffffff000000810000000000000001000001240000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000128000000010001000100000000000000000000000064ffffffff000000810000000000000001000001280000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>work</CurrentItem>
    </ItemView>
@@ -71,13 +72,13 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Configure Target Device</SelectedItem>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000173000000010000000100000000000000000000000064ffffffff000000810000000000000001000001730000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000017d000000010000000100000000000000000000000064ffffffff0000008100000000000000010000017d0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Configure Target Device</CurrentItem>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>

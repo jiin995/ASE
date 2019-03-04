@@ -10,15 +10,16 @@
          <ClosedNode>/carrySelect_addSub - structural |home|jiin995|ASE_WorkSpace|Test|RobertsonMultiplier|carrySelect_addSub.vhd/carrySelect_adder_inst - carrySelect_adder - structural</ClosedNode>
          <ClosedNode>/robertson_multiplier - Structural |home|jiin995|ASE_WorkSpace|Test|RobertsonMultiplier|robertson_multiplier.vhd/register_q - scan_chain - behavioural</ClosedNode>
          <ClosedNode>/robertson_multiplier - Structural |home|jiin995|ASE_WorkSpace|Test|RobertsonMultiplier|robertson_multiplier.vhd/rippleCarry_inst - rippleCarry_addsub - structural</ClosedNode>
+         <ClosedNode>/robertson_multiplier - Structural |home|simone|Scrivania|ASE|Esercitazioni|Esercitazione_11|ISE|RobertsonMultiplier|robertson_multiplier.vhd/carrySelect_addSub_inst - carrySelect_addSub - structural</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>robertson_multiplier - Structural (/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_11/ISE/RobertsonMultiplier/robertson_multiplier.vhd)</SelectedItem>
+         <SelectedItem>robertson_multiplier - Structural (/home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_11/ISE/RobertsonMultiplier/robertson_multiplier.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000528000000020000000000000000000000000200000064ffffffff000000810000000300000002000005280000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000002fa000000020000000000000000000000000200000064ffffffff000000810000000300000002000002fa0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>robertson_multiplier - Structural (/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_11/ISE/RobertsonMultiplier/robertson_multiplier.vhd)</CurrentItem>
+      <CurrentItem>robertson_multiplier - Structural (/home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_11/ISE/RobertsonMultiplier/robertson_multiplier.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
       <ClosedNodes>
@@ -34,7 +35,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000014b000000010000000100000000000000000000000064ffffffff0000008100000000000000010000014b0000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000016e000000010000000100000000000000000000000064ffffffff0000008100000000000000010000016e0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem></CurrentItem>
    </ItemView>
@@ -47,7 +48,7 @@
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000075f000000040101000100000000000000000000000064ffffffff0000008100000000000000040000026600000001000000000000005c0000000100000000000000840000000100000000000004190000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_11/ISE/RobertsonMultiplier/carrySelect_adder.vhd</CurrentItem>
+      <CurrentItem>carrySelect_adder.vhd</CurrentItem>
    </ItemView>
    <ItemView guiview="Library" >
       <ClosedNodes>

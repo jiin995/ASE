@@ -18,13 +18,13 @@
          <ClosedNode>PROJECT</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>uart_inst - uart - Behavioral (/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_13/UART_PO_PC/uart.vhd)</SelectedItem>
+         <SelectedItem>uart_inst - uart - Behavioral (/home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_13/UART_PO_PC/uart.vhd)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >3</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000522000000020000000000000000000000000200000064ffffffff000000810000000300000002000005220000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000336000000020000000000000000000000000200000064ffffffff000000810000000300000002000003360000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>uart_inst - uart - Behavioral (/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_13/UART_PO_PC/uart.vhd)</CurrentItem>
+      <CurrentItem>uart_inst - uart - Behavioral (/home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_13/UART_PO_PC/uart.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -47,9 +47,9 @@
       <SelectedItems/>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000318000000040101000100000000000000000000000064ffffffff0000008100000000000000040000004f00000001000000000000002900000001000000000000008400000001000000000000021c0000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000027b000000040101000100000000000000000000000064ffffffff0000008100000000000000040000004f00000001000000000000002900000001000000000000008400000001000000000000017f0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_13/UART_PO_PC/anodes_manager.vhd</CurrentItem>
+      <CurrentItem>anodes_manager.vhd</CurrentItem>
    </ItemView>
    <ItemView guiview="Library" >
       <ClosedNodes>
@@ -77,7 +77,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000164000000010000000100000000000000000000000064ffffffff000000810000000000000001000001640000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000016e000000010000000100000000000000000000000064ffffffff0000008100000000000000010000016e0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>View RTL Schematic</CurrentItem>
    </ItemView>
