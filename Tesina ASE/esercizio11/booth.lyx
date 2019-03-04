@@ -729,10 +729,6 @@ Tra i vari moltiplicatori presentati, abbiamo deciso di sintetizzare sulla
  sincrone, si è realizzata una top level entity che utilizza dei registri
  per sostenere gli input in ingresso al moltiplicatore.
  L'interfaccia della top level entity è la seguente :
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard

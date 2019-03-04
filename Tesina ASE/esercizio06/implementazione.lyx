@@ -282,7 +282,7 @@ Si è deciso di realizzare tale macchina anche come Mealy: in particolare,
  L'automa a stati finiti realizzato è rappresentato in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:automa-moore"
+reference "fig:automa-mealy"
 plural "false"
 caps "false"
 noprefix "false"

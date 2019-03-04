@@ -121,14 +121,15 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/clock_mic.png
 	scale 30
-	BoundingBox 30bp 0bp 0bp 20bp
+	BoundingBox 0bp 0bp 1920bp 1080bp
+	clip
 
 \end_inset
 

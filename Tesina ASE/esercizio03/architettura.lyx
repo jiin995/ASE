@@ -188,7 +188,55 @@ noprefix "false"
 \end_inset
 
 .
- I segnali in ingresso saranno:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/display_7_segmenti.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:display_7segmenti"
+
+\end_inset
+
+Schematico del display a 7 segmenti.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+I segnali in ingresso saranno:
 \end_layout
 
 \begin_layout Itemize
@@ -348,47 +396,6 @@ _segmenti.vhd}
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement ph
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename images/display_7_segmenti.png
-	scale 30
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:display_7segmenti"
-
-\end_inset
-
-Schematico del display a 7 segmenti.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_body

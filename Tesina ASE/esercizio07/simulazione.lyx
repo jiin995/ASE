@@ -91,7 +91,10 @@ Simulazione
 Per tale componente è stata effettuata una simulazione behavioural, durante
  la quale sono stati cambiati sia gli operandi in ingresso che il carry
  in ingresso.
- I risultati ottenuti sono osservabili in fig.
+\end_layout
+
+\begin_layout Standard
+I risultati ottenuti sono osservabili in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:simulazione-rca"
@@ -116,7 +119,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/simulazione-rca.png
-	scale 35
+	scale 45
 
 \end_inset
 
@@ -197,6 +200,10 @@ noprefix "false"
 \end_inset
 
 .
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

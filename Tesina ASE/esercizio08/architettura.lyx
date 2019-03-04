@@ -211,13 +211,13 @@ Full adder
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/architettura-cla.png
-	scale 35
+	scale 30
 
 \end_inset
 
