@@ -33,7 +33,7 @@ library IEEE;
 --! somma sul bit S e il riporto sul bit C.
 
 entity rippleCarry_adder is 
-    generic (   width   : NATURAL := 128      --! usato per definire il parallelismo del 
+    generic (   width   : NATURAL := 8      --! usato per definire il parallelismo del 
                                             --! rippleCarry_adder 
     );
     port (

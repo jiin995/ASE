@@ -1,0 +1,431 @@
+# Reading C:/Modeltech_xe_starter/tcl/vsim/pref.tcl 
+# do {TB_SISTEMA_COMPLETO.fdo} 
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling package costanti
+# -- Loading package costanti
+# -- Compiling entity control_store
+# -- Compiling architecture behavioral of control_store
+# ** Warning: control_store.vhd(4264): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4265): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4266): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4267): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4268): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4269): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4270): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4271): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4272): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4273): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4274): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4275): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4276): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4277): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4278): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4279): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4280): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4281): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4282): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4283): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4284): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4285): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4286): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4287): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4288): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4289): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4290): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4291): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4292): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4293): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4294): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4295): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4296): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4297): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4298): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4299): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4300): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4301): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4302): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4303): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4304): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4305): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4306): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4307): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4308): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4309): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4310): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4311): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4312): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4313): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4314): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4315): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4316): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4317): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4318): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4319): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4320): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4321): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4322): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4323): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4324): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4325): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4326): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4327): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4328): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4329): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4330): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4331): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4332): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4333): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4334): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4335): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4336): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4337): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4338): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4339): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4340): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4341): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4342): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4343): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4344): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4345): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4346): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4347): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4348): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4349): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4350): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4351): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4352): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4353): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4354): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4355): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4356): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4357): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4358): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4359): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4360): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4361): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4362): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4363): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4364): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4365): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4366): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4367): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4368): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4369): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4370): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4371): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4372): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4373): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4374): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4375): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4376): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4377): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4378): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4379): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4382): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4383): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4384): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4385): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4386): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4387): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4388): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4389): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4390): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4391): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4393): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4394): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4395): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4396): Case choice must be a locally static expression.
+# ** Warning: control_store.vhd(4397): Case choice must be a locally static expression.
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity shifter
+# -- Compiling architecture behavioral of shifter
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity posedge_reg_enable
+# -- Compiling architecture behavioral of posedge_reg_enable
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity oring
+# -- Compiling architecture behavioral of oring
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity negedge_dff
+# -- Compiling architecture behavioral of negedge_dff
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity neg_edge_reg
+# -- Compiling architecture behavioral of neg_edge_reg
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity mpc
+# -- Compiling architecture behavioral of mpc
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity mdr_register
+# -- Compiling architecture behavioral of mdr_register
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity mbr_register
+# -- Compiling architecture behavioral of mbr_register
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity high_bit
+# -- Compiling architecture dataflow of high_bit
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity dff
+# -- Compiling architecture behavioral of dff
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity alu
+# -- Compiling architecture alu_structural of alu
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity decoder
+# -- Compiling architecture behavioral of decoder
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Loading package numeric_std
+# -- Compiling entity uart_tx
+# -- Compiling architecture arch of uart_tx
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Loading package numeric_std
+# -- Compiling entity uart_rx
+# -- Compiling architecture arch of uart_rx
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Loading package costanti
+# -- Compiling entity parte_di_controllo
+# -- Compiling architecture behavioral of parte_di_controllo
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity parte_operativa
+# -- Compiling architecture behavioral of parte_operativa
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Loading package numeric_std
+# -- Compiling entity baud_gen
+# -- Compiling architecture arch of baud_gen
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Loading package numeric_std
+# -- Compiling entity boot_rom
+# -- Compiling architecture basic of boot_rom
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Loading package numeric_std
+# -- Compiling entity ram
+# -- Compiling architecture behavioral of ram
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity mic1
+# -- Compiling architecture behavioral of mic1
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity if_uart
+# -- Compiling architecture behavioral of if_uart
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Loading package vcomponents
+# -- Compiling entity divisore_freq
+# -- Compiling architecture behavioral of divisore_freq
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity decodifica_indirizzi
+# -- Compiling architecture behavioral of decodifica_indirizzi
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Compiling entity cpool_rom
+# -- Compiling architecture basic of cpool_rom
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Loading package vcomponents
+# -- Compiling entity sistema_mic1
+# -- Compiling architecture behavioral of sistema_mic1
+# Model Technology ModelSim XE III vcom 6.2g Compiler 2007.02 Feb 22 2007
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Loading package textio
+# -- Loading package std_logic_textio
+# -- Compiling entity tb_sistema_completo
+# -- Compiling architecture testbench_arch of tb_sistema_completo
+# vsim -lib work -t 1ps TB_SISTEMA_COMPLETO 
+# Loading C:\Modeltech_xe_starter\win32xoem/../std.standard
+# Loading C:\Modeltech_xe_starter\win32xoem/../ieee.std_logic_1164(body)
+# Loading C:\Modeltech_xe_starter\win32xoem/../ieee.std_logic_arith(body)
+# Loading C:\Modeltech_xe_starter\win32xoem/../ieee.std_logic_unsigned(body)
+# Loading C:\Modeltech_xe_starter\win32xoem/../std.textio(body)
+# Loading C:\Modeltech_xe_starter\win32xoem/../ieee.std_logic_textio(body)
+# Loading work.tb_sistema_completo(testbench_arch)
+# Loading C:\Modeltech_xe_starter\win32xoem/../xilinx/vhdl/unisim.vcomponents
+# Loading work.sistema_mic1(behavioral)
+# Loading work.divisore_freq(behavioral)
+# Loading C:\Modeltech_xe_starter\win32xoem/../ieee.vital_timing(body)
+# Loading C:\Modeltech_xe_starter\win32xoem/../ieee.vital_primitives(body)
+# Loading C:\Modeltech_xe_starter\win32xoem/../xilinx/vhdl/unisim.vpkg(body)
+# Loading C:\Modeltech_xe_starter\win32xoem/../xilinx/vhdl/unisim.dcm_sp(dcm_sp_v)
+# Loading C:\Modeltech_xe_starter\win32xoem/../xilinx/vhdl/unisim.dcm_sp_clock_divide_by_2(dcm_sp_clock_divide_by_2_v)
+# Loading C:\Modeltech_xe_starter\win32xoem/../xilinx/vhdl/unisim.dcm_sp_maximum_period_check(dcm_sp_maximum_period_check_v)
+# Loading C:\Modeltech_xe_starter\win32xoem/../xilinx/vhdl/unisim.dcm_sp_clock_lost(dcm_sp_clock_lost_v)
+# Loading work.mic1(behavioral)
+# Loading work.costanti
+# Loading work.parte_di_controllo(behavioral)
+# Loading work.control_store(behavioral)
+# Loading work.oring(behavioral)
+# Loading work.mpc(behavioral)
+# Loading work.high_bit(dataflow)
+# Loading work.decoder(behavioral)
+# Loading work.parte_operativa(behavioral)
+# Loading work.negedge_dff(behavioral)
+# Loading work.dff(behavioral)
+# Loading work.shifter(behavioral)
+# Loading work.posedge_reg_enable(behavioral)
+# Loading work.mdr_register(behavioral)
+# Loading work.mbr_register(behavioral)
+# Loading work.alu(alu_structural)
+# Loading work.neg_edge_reg(behavioral)
+# Loading C:\Modeltech_xe_starter\win32xoem/../ieee.numeric_std(body)
+# Loading work.boot_rom(basic)
+# Loading work.ram(behavioral)
+# Loading work.cpool_rom(basic)
+# Loading work.decodifica_indirizzi(behavioral)
+# Loading work.if_uart(behavioral)
+# Loading work.baud_gen(arch)
+# Loading work.uart_rx(arch)
+# Loading work.uart_tx(arch)
+# .main_pane.mdi.interior.cs.vm.paneset.cli_0.wf.clip.cs.pw.wf
+# .main_pane.workspace.interior.cs.nb.canvas.notebook.cs.page2.cs
+# .main_pane.signals.interior.cs
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 2  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+add wave sim:/tb_sistema_completo/uut/*
+restart -f
+run -all
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 2  Instance: /tb_sistema_completo/uut/inst_mic1/inst_parte_operativa/inst_alu
+# Break key hit 
+# Simulation stop requested.

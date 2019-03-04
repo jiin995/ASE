@@ -23,7 +23,7 @@
       <SelectedItems>
          <SelectedItem>Inst_if_uart - if_uart - Behavioral (/home/simone/Scrivania/ASE/Mic1_Funzionante_su_Nexys4/mic1_fpga/if_uart.vhd)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >40</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >30</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000002b9000000020000000000000000000000000200000064ffffffff000000810000000300000002000002b90000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>

@@ -13,7 +13,9 @@
          <ClosedNode>/non_restoring_divider - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|non_restoring|non_restoring_divider.vhd/Inst_ripple_carry_adder - ripple_carry_adder - structural</ClosedNode>
          <ClosedNode>/non_restoring_divider - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|non_restoring|non_restoring_divider.vhd/register_a - scan_chain - behavioural</ClosedNode>
          <ClosedNode>/non_restoring_divider - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|non_restoring|non_restoring_divider.vhd/register_q - scan_chain - behavioural</ClosedNode>
-         <ClosedNode>/non_restoring_divider - structural |home|simone|Scrivania|ASE|Esercitazioni|Esercitazione_12|non_restoring|non_restoring_divider.vhd</ClosedNode>
+         <ClosedNode>/non_restoring_divider - structural |home|simone|Scrivania|ASE|Esercitazioni|Esercitazione_12|non_restoring|non_restoring_divider.vhd/Inst_ripple_carry_adder - ripple_carry_adder - structural</ClosedNode>
+         <ClosedNode>/non_restoring_divider - structural |home|simone|Scrivania|ASE|Esercitazioni|Esercitazione_12|non_restoring|non_restoring_divider.vhd/register_a - scan_chain - behavioural</ClosedNode>
+         <ClosedNode>/non_restoring_divider - structural |home|simone|Scrivania|ASE|Esercitazioni|Esercitazione_12|non_restoring|non_restoring_divider.vhd/register_q - scan_chain - behavioural</ClosedNode>
          <ClosedNode>/restoring_divider - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|non_restoring|R_Division.vhd/Inst_ripple_carry_adder - ripple_carry_adder - structural</ClosedNode>
          <ClosedNode>/restoring_divider - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|non_restoring|R_Division.vhd/register_a - scan_chain - behavioural</ClosedNode>
          <ClosedNode>/restoring_divider - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|non_restoring|R_Division.vhd/register_q - scan_chain - behavioural</ClosedNode>
@@ -24,7 +26,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001e2000000020000000000000000000000000200000064ffffffff000000810000000300000002000001e20000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000284000000020000000000000000000000000200000064ffffffff000000810000000300000002000002840000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
       <CurrentItem>non_restoring_divider - structural (/home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_12/non_restoring/non_restoring_divider.vhd)</CurrentItem>
    </ItemView>
