@@ -1,13 +1,13 @@
 ---------------------------------------------------------------------------------------------------
---! 
---! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
---! 
----------------------------------------------------------------------------------------------------
---! project name : clock_divisor
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
 --
---! unit name: clock_divisor.vhdl
---!     
---! file description:
+---------------------------------------------------------------------------------------------------
+-- project name : scan_chain_on_board
+--
+-- unit name: clock_divisor.vhd
+--     
+-- file description:
 --! @file
 --! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
 --! @date       15/10/2018
@@ -18,7 +18,7 @@
 --! <b>Dependencies:</b>\n
 --!   Nothing
 --!
---! modified by: Simone Penna
+-- modified by: Simone Penna
 --
 ---------------------------------------------------------------------------------------------------
 --! last changes: <11/11/2018> <15/10/2018> <log>

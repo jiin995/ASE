@@ -1,36 +1,6 @@
---------------------------------------------------------------------------------
---! Company: 
---! Engineer:
---
---! Create Date:   10:35:40 02/14/2019
---! Design Name:   
---! Module Name:   /home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_6/fsm/tb_fsm_moore.vhd
---! Project Name:  fsm
---! Target Device:  
---! Tool versions:  
---! Description:   
---! 
---! VHDL Test Bench Created by ISE for module: fsm_moore
---! 
---! Dependencies:
---! 
---! Revision:
---! Revision 0.01 - File Created
---! Additional Comments:
---
---! Notes: 
---! This testbench has been automatically generated using types std_logic and
---! std_logic_vector for the ports of the unit under test.  Xilinx recommends
---! that these types always be used for the top-level I/O of a design in order
---! to guarantee that the testbench will bind correctly to the post-implementation 
---! simulation model.
---------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  
---! Uncomment the following library declaration if using
---! arithmetic functions with Signed or Unsigned values
---USE ieee.numeric_std.ALL;
  
 ENTITY tb_fsm_moore IS
 END tb_fsm_moore;

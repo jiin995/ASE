@@ -1,12 +1,30 @@
----------------------------------------------
---! D Flip-Flop (ESD book Chapter 2.3.1)
---! by Weijun Zhang, 04/2001
+---------------------------------------------------------------------------------------------------
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
+---------------------------------------------------------------------------------------------------
+-- project name : d_edge_behav
 --
---! Flip-flop is the basic component in 
---! sequential logic design
---! we assign input signal to the output 
---! at the clock rising edge 
----------------------------------------------
+-- unit name: d_edge_behav.vhd
+--     
+-- file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       04/03/2019
+--! @version    0.2
+--! @brief     	flipflop d realizzato con descrizione behavioural
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothings
+--!
+-- modified by: Simone Penna, Mirko Pennone
+--
+---------------------------------------------------------------------------------------------------
+-- last changes: <04/03/2019> <15/10/2018> <log>
+--                Aggiunta doc doxygen
+---------------------------------------------------------------------------------------------------
+
 
 library ieee ;
 use ieee.std_logic_1164.all;

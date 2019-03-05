@@ -1,28 +1,28 @@
 ---------------------------------------------------------------------------------------------------
---! 
---! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
---! 
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
 ---------------------------------------------------------------------------------------------------
---! project name : flipflopd
+-- project name : scan_chain
 --
---! unit name: flipflopd.vhdl
---!     
---! file description:
+-- unit name: flipflopd.vhd
+--     
+-- file description:
 --! @file
 --! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
---! @date       13/11/2018
---! @version    0.1
---! @brief      Implementazione di un flipflop D rising edge con reset asincrono.
+--! @date       04/03/2019
+--! @version    0.2
+--! @brief     	flipflopd implementa un flipflop di tipo d che commuta sul fronte di salita, con segnale di enable e reset asincrono.
 --! @details
 --!
 --! <b>Dependencies:</b>\n
 --!   Nothings
 --!
---! modified by: Gabriele Previtera
+-- modified by: Simone Penna, Mirko Pennone
 --
 ---------------------------------------------------------------------------------------------------
---! last changes: <14/11/2018> <13/11/2018> <log>
---!              create
+-- last changes: <04/03/2019> <15/10/2018> <log>
+--                Aggiunta doc doxygen
 ---------------------------------------------------------------------------------------------------
 
 library IEEE;

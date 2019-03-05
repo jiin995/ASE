@@ -1,29 +1,3 @@
----------------------------------------------------------------------------------------------------
---! 
---! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
---! 
----------------------------------------------------------------------------------------------------
---! project name : S_testbench
---
---! unit name: S_testbench.vhd
---!     
---! file description:
---! @file
---! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
---! @date       25/10/2018
---! @version    0.1
---! @brief     	Testbench della macchina S.
---! @details
---!
---! <b>Dependencies:</b>\n
---!   Nothings
---!
---! modified by: Simone Penna
---
----------------------------------------------------------------------------------------------------
---! last changes: <21/11/2018> <15/10/2018> <log>
---!                Aggiunta doc doxygen
----------------------------------------------------------------------------------------------------
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;

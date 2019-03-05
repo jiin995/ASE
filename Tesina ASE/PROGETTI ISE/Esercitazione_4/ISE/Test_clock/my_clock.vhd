@@ -1,3 +1,31 @@
+---------------------------------------------------------------------------------------------------
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
+---------------------------------------------------------------------------------------------------
+-- project name : my_clock
+--
+-- unit name: my_clock.vhd
+--     
+-- file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       04/03/2019
+--! @version    0.2
+--! @brief     	Clock generato tramite Wizard.
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothings
+--!
+-- modified by: Simone Penna, Mirko Pennone
+--
+---------------------------------------------------------------------------------------------------
+-- last changes: <04/03/2019> <15/10/2018> <log>
+--                Aggiunta doc doxygen
+---------------------------------------------------------------------------------------------------
+
+
 --! file: my_clock.vhd
 --! 
 --! (c) Copyright 2008 - 2011 Xilinx, Inc. All rights reserved.
@@ -63,6 +91,7 @@
 --! "Input Clock   Freq (MHz)    Input Jitter (UI)"
 ------------------------------------------------------------------------------
 --! __primary_________100.000____________0.010
+
 
 library ieee;
 use ieee.std_logic_1164.all;

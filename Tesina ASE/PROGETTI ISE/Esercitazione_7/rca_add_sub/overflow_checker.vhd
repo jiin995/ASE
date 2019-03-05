@@ -1,28 +1,28 @@
 ---------------------------------------------------------------------------------------------------
---! 
---! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
---! 
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
 ---------------------------------------------------------------------------------------------------
---! project name : overflow_checker
+-- project name : rca_add_sub
 --
---! unit name: overflow_checker.vhdl
---!     
---! file description:
+-- unit name: overflow_checker.vhdl
+--     
+-- file description:
 --! @file
 --! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
 --! @date       28/11/2018
 --! @version    0.1
---! @brief      overflow_checker è l'implementazione di un overflow_checker
+--! @brief      overflow_checker è l'implementazione di un checker per controllare se vi è overflow nel risultato
 --! @details
---!
+--
 --! <b>Dependencies:</b>\n
 --!   full_adder
 --!
---! modified by: Mirko Pennone
+-- modified by: Mirko Pennone
 --
 ---------------------------------------------------------------------------------------------------
---! last changes: <11/11/2018> <15/10/2018> <log>
---!                Aggiunta doc doxygen
+-- last changes: <11/11/2018> <15/10/2018> <log>
+--                Aggiunta doc doxygen
 ---------------------------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;

@@ -1,33 +1,32 @@
-----------------------------------------------------------------------------------
---! Company: 
---! Engineer: 
+---------------------------------------------------------------------------------------------------
 --! 
---! Create Date:    14:53:38 02/15/2019 
---! Design Name: 
---! Module Name:    scan_chain_on_board - Behavioral 
---! Project Name: 
---! Target Devices: 
---! Tool versions: 
---! Description: 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+--! 
+---------------------------------------------------------------------------------------------------
+-- project name : scan_chain_on_board
 --
---! Dependencies: 
+-- unit name: scan_chain_on_board.vhdl
+--!     
+-- file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       13/11/2018
+--! @version    0.1
+--! @brief      top level entity della scan chain on board
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothings
+--!
+--! modified by: Gabriele Previtera
 --
---! Revision: 
---! Revision 0.01 - File Created
---! Additional Comments: 
---
-----------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+--! last changes: <16/11/2018> <16/11/2018> <log>
+--!              create
+---------------------------------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
---! Uncomment the following library declaration if using
---! arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
---! Uncomment the following library declaration if instantiating
---! any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity scan_chain_on_board is
     Port ( clock 		: in  STD_LOGIC;
