@@ -1,5 +1,5 @@
--- Definition of testbench for mux2_1
--- Author: Gabriele Previtera
+--! Definition of testbench for mux2_1
+--! Author: Gabriele Previtera
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;

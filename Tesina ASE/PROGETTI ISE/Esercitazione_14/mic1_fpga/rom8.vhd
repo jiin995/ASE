@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: UNIVERSITA' DEGLI STUDI DI NAPOLI FEDERICO SECONDO
--- Engineer: AIELLO MARCO MATR. 045/004437
--- 
--- Create Date:    17:14:53 08/4/2007 
--- Design Name: 
--- Module Name:     - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: UNIVERSITA' DEGLI STUDI DI NAPOLI FEDERICO SECONDO
+--! Engineer: AIELLO MARCO MATR. 045/004437
+--! 
+--! Create Date:    17:14:53 08/4/2007 
+--! Design Name: 
+--! Module Name:     - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 
@@ -26,7 +26,7 @@ use ieee.numeric_std.all;
 
 
 library work;
--- use work.memory.all;
+--! use work.memory.all;
 
 entity boot_rom is
   port (
@@ -74,8 +74,8 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
   type rom_array is array(0 to memsize-1) of std_logic_vector(width-1 downto 0);
 
 
---  constant rom_data : rom_array :=  --  ******************************************
---  ( 
+--!  constant rom_data : rom_array :=  --!  ******************************************
+--!  ( 
 --		LDC_W,	--00	
 --		x"00",	--01   
 --		x"01",	--02   
@@ -213,11 +213,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		x"04",--7C
 --		INVOKEVIRTUAL,--7D
 --		x"00",--7E
---  		x"10",--7F
+--!  		x"10",--7F
 --		GOTO,--80
 --		x"FF",--81
 --		x"80",--82
---  		NOP,--83	
+--!  		NOP,--83	
 --
 --		x"01",--84
 --		NOP,--85
@@ -226,11 +226,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		DUP,--88
 --		IFEQ,--89
 --		x"00",--8A
---  		x"34",--8B
+--!  		x"34",--8B
 --		DUP,--8C
 --		OUTT,--8D
 --		ISTORE,--8E
---  		x"01",--8F	
+--!  		x"01",--8F	
 --		
 --		INN,--90
 --		DUP,--91
@@ -239,11 +239,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		x"27",--94
 --		DUP,--95
 --		OUTT,--96
---  		ISTORE,--97
+--!  		ISTORE,--97
 --		x"02",--98
 --		ILOAD,--99
 --		x"01",--9A
---  		BIPUSH,--9B	
+--!  		BIPUSH,--9B	
 --
 --		x"30",--9C
 --		ISUB,--9D
@@ -252,11 +252,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		ILOAD,--A0
 --		x"02",--A1
 --		BIPUSH,--A2
---  		x"30",--A3
+--!  		x"30",--A3
 --		ISUB,--A4
 --		ISTORE,--A5
 --		x"02",--A6
---  		ILOAD,--A7	
+--!  		ILOAD,--A7	
 --		
 --		x"02",--A8
 --		ISTORE,--A9
@@ -265,11 +265,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		x"00",--AC
 --		x"00",--AD
 --		ILOAD,--AE
---  		x"01",--AF
+--!  		x"01",--AF
 --		BIPUSH,--B0
 --		x"0A",--B1
 --		INVOKEVIRTUAL,--B2
---  		x"00",--B3	
+--!  		x"00",--B3	
 --		
 --		x"0F",--B4
 --		ILOAD,--B5
@@ -278,11 +278,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		IRETURN,--B8
 --		POP,--B9
 --		GOTO,--BA
---  		x"FF",--BB
+--!  		x"FF",--BB
 --		x"D6",--BC
 --		POP,--BD
 --		GOTO,--BE
---  		x"FF",--BF	
+--!  		x"FF",--BF	
 --		
 --		x"C9",--C0
 --		NOP,--C1
@@ -291,11 +291,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		x"02",--C4
 --		BIPUSH,--C5
 --		x"00",--C6
---  		ISTORE,--C7
+--!  		ISTORE,--C7
 --		x"03",--C8
 --		ILOAD,--C9
 --		x"01",--CA
---  		IFEQ,--CB	
+--!  		IFEQ,--CB	
 --		
 --		x"00",--CC
 --		x"10",--CD
@@ -304,11 +304,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		ILOAD,--D0
 --		x"03",--D1
 --		IADD,--D2
---  		ISTORE,--D3
+--!  		ISTORE,--D3
 --		x"03",--D4
 --		IINC,--D5
 --		x"01",--D6
---  		x"FF",--D7	
+--!  		x"FF",--D7	
 --				
 --		
 --		GOTO,--D8
@@ -318,11 +318,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		x"03",--DC
 --		IRETURN,--DD
 --		NOP,--DE
---  		x"04",--DF
+--!  		x"04",--DF
 --		NOP,--E0
 --		NOP,--E1
 --		LDC_W,--E2
---  		x"00",--E3
+--!  		x"00",--E3
 --		
 --		x"02",--E4
 --		OUTT,--E5
@@ -331,11 +331,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		x"09",--E8
 --		OUTT,--E9
 --		LDC_W,--EA
---  		x"00",--EB
+--!  		x"00",--EB
 --		x"01",--EC
 --		OUTT,--ED
 --		LDC_W,--EE
---  		x"00",--EF		
+--!  		x"00",--EF		
 --		
 --		x"05",--F0
 --		OUTT,--F1
@@ -344,11 +344,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		x"00",--F4
 --		ILOAD,--F5
 --		x"01",--F6
---  		INVOKEVIRTUAL,--F7
+--!  		INVOKEVIRTUAL,--F7
 --		x"00",--F8
 --		x"11",--F9
 --		LDC_W,--FA
---  		x"00",--FB		
+--!  		x"00",--FB		
 --		
 --		x"0D",--FC
 --		OUTT,--FD
@@ -357,11 +357,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		x"06",--100
 --		OUTT,--101
 --		LDC_W,--102
---  		x"00",--103
+--!  		x"00",--103
 --		x"07",--104
 --		OUTT,--105
 --		LDC_W,--106
---  		x"00",--107	
+--!  		x"00",--107	
 --		
 --		x"01",--108
 --		OUTT,--109
@@ -370,11 +370,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		x"05",--10C
 --		OUTT,--10D
 --		LDC_W,--10E
---  		x"00",--10F
+--!  		x"00",--10F
 --		x"00",--110
 --		ILOAD,--111
 --		x"02",--112
---  		INVOKEVIRTUAL,--113	
+--!  		INVOKEVIRTUAL,--113	
 --		
 --		x"00",--114
 --		x"11",--115
@@ -383,11 +383,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		x"0D",--118
 --		OUTT,--119
 --		LDC_W,--11A
---  		x"00",--11B
+--!  		x"00",--11B
 --		x"09",--11C
 --		OUTT,--11D
 --		LDC_W,--11E
---  		x"00",--11F		
+--!  		x"00",--11F		
 --		
 --		x"0A",--120
 --		OUTT,--121
@@ -396,11 +396,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		x"0B",--124
 --		OUTT,--125
 --		LDC_W,--126
---  		x"00",--127
+--!  		x"00",--127
 --		x"05",--128
 --		OUTT,--129
 --		LDC_W,--12A
---  		x"00",--12B		
+--!  		x"00",--12B		
 --
 --		x"00",--12C
 --		ILOAD,--12D
@@ -500,11 +500,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		x"04",--184
 --		ISTORE,--185
 --		x"05",--186
---  		ILOAD,--187
+--!  		ILOAD,--187
 --		x"05",--188
 --		BIPUSH,--189
 --		x"30",--18A
---  		IADD,--18B		
+--!  		IADD,--18B		
 --
 --		OUTT,--18C
 --		ILOAD,--18D
@@ -513,11 +513,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		x"30",--190
 --		IADD,--191
 --		OUTT,--192
---  		ILOAD,--193
+--!  		ILOAD,--193
 --		x"02",--194
 --		BIPUSH,--195
 --		x"30",--196
---  		IADD,--197
+--!  		IADD,--197
 --
 --		OUTT,--198
 --		ILOAD,--199
@@ -526,11 +526,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		x"30",--19C
 --		IADD,--19D
 --		OUTT,--19E
---  		LDC_W,--19F
+--!  		LDC_W,--19F
 --		x"00",--1A0
 --		x"0D",--1A1
 --		OUTT,--1A2
---  		IRETURN,--1A3
+--!  		IRETURN,--1A3
 --		
 --		BIPUSH,--1A4
 --		x"00",--1A5
@@ -539,11 +539,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		ILOAD,--1A8
 --		x"07",--1A9
 --		ISTORE,--1AA
---  		x"0A",--1AB
+--!  		x"0A",--1AB
 --		ILOAD,--1AC
 --		x"07",--1AD
 --		IFEQ,--1AE
---  		x"00",--1AF
+--!  		x"00",--1AF
 --				
 --		x"1E",--1B0
 --		ILOAD,--1B1
@@ -552,11 +552,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		x"00",--1B4
 --		x"18",--1B5
 --		ILOAD,--1B6
---  		x"0A",--1B7
+--!  		x"0A",--1B7
 --		ILOAD,--1B8
 --		x"08",--1B9
 --		ISUB,--1BA
---  		IFLT,--1BB
+--!  		IFLT,--1BB
 --		
 --		x"00",--1BC
 --		x"11",--1BD
@@ -565,11 +565,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		ILOAD,--1C0
 --		x"08",--1C1
 --		ISUB,--1C2
---  		ISTORE,--1C3
+--!  		ISTORE,--1C3
 --		x"0A",--1C4
 --		IINC,--1C5
 --		x"09",--1C6
---  		x"01",--1C7		
+--!  		x"01",--1C7		
 --
 --		GOTO,--1C8
 --		x"FF",--1C9
@@ -578,11 +578,11 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		ILOAD,--1CC
 --		x"09",--1CD
 --		ILOAD,--1CE
---  		x"0A",--1CF
+--!  		x"0A",--1CF
 --		ILOAD,--1D0
 --		x"06",--1D1
 --		BIPUSH,--1D2
---  		x"01",--1D3
+--!  		x"01",--1D3
 --		
 --		IF_ICMPEQ,--1D4
 --		x"FF",--1D5
@@ -591,24 +591,24 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		x"06",--1D8
 --		BIPUSH,--1D9
 --		x"02",--1DA
---  		IF_ICMPEQ,--1DB
+--!  		IF_ICMPEQ,--1DB
 --		x"FF",--1DC
 --		x"93",--1DD
 --		ILOAD,--1DE
---  		x"06",--1DF	
+--!  		x"06",--1DF	
 --		
 --		BIPUSH,--1E0
 --		x"03",--1E1
---  		IF_ICMPEQ,--1E2
+--!  		IF_ICMPEQ,--1E2
 --		x"FF",--1E3
 --		x"A0",--1E4		
 --		
 --		
---      others=>(others=>'0')		
---  );
+--!      others=>(others=>'0')		
+--!  );
 
 
--- Echo prog
+--! Echo prog
 --
  constant rom_data : rom_array :=  --testa uart in rx con eco di quanto ricevuto
   ( 

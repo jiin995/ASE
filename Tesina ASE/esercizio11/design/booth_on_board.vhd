@@ -1,31 +1,31 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    12:36:14 02/21/2019 
--- Design Name: 
--- Module Name:    booth_multiplier_onBoard - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: 
+--! Engineer: 
+--! 
+--! Create Date:    12:36:14 02/21/2019 
+--! Design Name: 
+--! Module Name:    booth_multiplier_onBoard - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
+--! Uncomment the following library declaration if using
+--! arithmetic functions with Signed or Unsigned values
 --use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
+--! Uncomment the following library declaration if instantiating
+--! any Xilinx primitives in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
@@ -39,12 +39,12 @@ entity booth_multiplier_onBoard is
 				enable_a    : in	  STD_LOGIC ;
 				enable_b		: in 	  STD_LOGIC ;
             subtract    : in    STD_LOGIC ;
-				input       : in    STD_LOGIC_VECTOR ((N-1) downto 0);  -- input addendo
+				input       : in    STD_LOGIC_VECTOR ((N-1) downto 0);  --! input addendo
 				overflow    : out   STD_LOGIC ;
             c_out       : out   STD_LOGIC ;
 				anodes 		: out   STD_LOGIC_VECTOR (7 downto 0);
 				cathodes		: out   STD_LOGIC_VECTOR (7 downto 0)
-                             -- output carry in uscita
+                             --! output carry in uscita
     );
 end booth_multiplier_onBoard;
 

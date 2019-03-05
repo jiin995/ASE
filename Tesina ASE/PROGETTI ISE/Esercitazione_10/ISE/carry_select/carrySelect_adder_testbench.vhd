@@ -41,7 +41,7 @@ begin
 
     stim_proc :process 
    begin		
-      -- hold reset state for 100 ns.
+      --! hold reset state for 100 ns.
       wait for 100 ns;	
 		
 		X <= x"0111";
@@ -60,7 +60,7 @@ begin
 		
 		X <= x"0118";
 
-      -- insert stimulus here 
+      --! insert stimulus here 
 
       wait;
    end process;

@@ -2,15 +2,15 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity fsm_moore is
-    Port ( clock : in  STD_LOGIC;			-- clock in ingresso
-           value_in : in  STD_LOGIC;		-- valori della sequenza
-           value_out : out  STD_LOGIC);		-- alto se viene rilevata la sequenza
+    Port ( clock : in  STD_LOGIC;			--! clock in ingresso
+           value_in : in  STD_LOGIC;		--! valori della sequenza
+           value_out : out  STD_LOGIC);		--! alto se viene rilevata la sequenza
 end fsm_moore;
 
 architecture Behavioral of fsm_moore is
-	type state_type is (init, s1,s10, s101, s1011, s10110, s101100, s1011001);	-- si crea un tipo per gli stati possibili
+	type state_type is (init, s1,s10, s101, s1011, s10110, s101100, s1011001);	--! si crea un tipo per gli stati possibili
 
-	signal current_state, next_state: state_type;	-- stato corrente e stato prossimo
+	signal current_state, next_state: state_type;	--! stato corrente e stato prossimo
 begin
 
 	--process 1: aggiornamento di stato (sul fronte di salita del clock)
@@ -49,9 +49,9 @@ begin
 		when s101100 =>
 			if value_in = '0' then next_state <= init; else next_state <= s1011001;
 			end if;
-		when s1011001 =>			-- stringa rilevata
-			value_out <= '1';		-- uscita alta, dipende solo dallo stato (Moore)!
-			if value_in = '0' then next_state <= init; else next_state <= s1;	-- torno allo stato init o s1
+		when s1011001 =>			--! stringa rilevata
+			value_out <= '1';		--! uscita alta, dipende solo dallo stato (Moore)!
+			if value_in = '0' then next_state <= init; else next_state <= s1;	--! torno allo stato init o s1
 			end if;
 		when others => 
 			next_state <= init;

@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    16:56:20 02/12/2019 
--- Design Name: 
--- Module Name:    DoubleDisplayOnBoard - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: TopLevelEntity per testare il funzionamento del componente
+--! Company: 
+--! Engineer: 
+--! 
+--! Create Date:    16:56:20 02/12/2019 
+--! Design Name: 
+--! Module Name:    DoubleDisplayOnBoard - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: TopLevelEntity per testare il funzionamento del componente
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;

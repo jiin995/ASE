@@ -1,30 +1,30 @@
 
 --------------------------------------------------------------------------------
--- Company: 
--- Engineer:
+--! Company: 
+--! Engineer:
 --
--- Create Date:   19:42:42 03/28/2009
--- Design Name:   if_uart
--- Module Name:   C:/Xilinx92i/sistema_a_mic1/tb_uart.vhd
--- Project Name:  sistema_a_mic1
--- Target Device:  
--- Tool versions:  
--- Description:   
--- 
--- VHDL Test Bench Created by ISE for module: if_uart
+--! Create Date:   19:42:42 03/28/2009
+--! Design Name:   if_uart
+--! Module Name:   C:/Xilinx92i/sistema_a_mic1/tb_uart.vhd
+--! Project Name:  sistema_a_mic1
+--! Target Device:  
+--! Tool versions:  
+--! Description:   
+--! 
+--! VHDL Test Bench Created by ISE for module: if_uart
 --
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
+--! Dependencies:
+--! 
+--! Revision:
+--! Revision 0.01 - File Created
+--! Additional Comments:
 --
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends 
--- that these types always be used for the top-level I/O of a design in order 
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
+--! Notes: 
+--! This testbench has been automatically generated using types std_logic and
+--! std_logic_vector for the ports of the unit under test.  Xilinx recommends 
+--! that these types always be used for the top-level I/O of a design in order 
+--! to guarantee that the testbench will bind correctly to the post-implementation 
+--! simulation model.
 --------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -36,7 +36,7 @@ END tb_uart_vhd;
 
 ARCHITECTURE behavior OF tb_uart_vhd IS 
 
-	-- Component Declaration for the Unit Under Test (UUT)
+	--! Component Declaration for the Unit Under Test (UUT)
 	COMPONENT if_uart
 	PORT(
 		RXD : IN std_logic;
@@ -72,7 +72,7 @@ ARCHITECTURE behavior OF tb_uart_vhd IS
 
 BEGIN
 
-	-- Instantiate the Unit Under Test (UUT)
+	--! Instantiate the Unit Under Test (UUT)
 	uut: if_uart PORT MAP(
 		TXD => TXD,
 		RXD => RXD,
@@ -85,7 +85,7 @@ BEGIN
 	);
 	
 	
-        PROCESS    -- clock process for CLK
+        PROCESS    --! clock process for CLK
         BEGIN
             WAIT for OFFSET;
             CLOCK_LOOP : LOOP
@@ -99,52 +99,52 @@ BEGIN
 
 	tb : PROCESS
 	BEGIN
-                -- -------------  Current Time:  550ns
+                --! -------------!  Current Time:  550ns
                 RXD <= '1'; 
 					 WAIT FOR 550 ns;
                 CE_UART <= '1';
                 WR <= '1';
                 if_databus <= "00000000000000000000000000010010";
-                -- -------------------------------------
-                -- -------------  Current Time:  650ns
+                --! -------------------------------------
+                --! -------------!  Current Time:  650ns
                 WAIT FOR 200 ns;
                 CE_UART <= '0';
                 WR <= '0';
                 if_databus <= "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ";
-                -- -------------------------------------
+                --! -------------------------------------
 					 WAIT FOR 4000 us;
 
 
 
 	
-                -- ricevo un dato a 115200 bps        
-                -- -------------------------------------
+                --! ricevo un dato a 115200 bps        
+                --! -------------------------------------
                 WAIT FOR 104  us;
 					 RXD <= '0';  --start bit	
                 WAIT FOR 104  us;
 					 
 					 
 					 
-					 RXD <= '1';  -- bit 0	95hex
+					 RXD <= '1';  --! bit 0	95hex
                 WAIT FOR 104  us;
-					 RXD <= '0';  -- bit 1	
+					 RXD <= '0';  --! bit 1	
                 WAIT FOR 104  us;
-					 RXD <= '1';  -- bit 2
+					 RXD <= '1';  --! bit 2
                 WAIT FOR 104  us;
-					 RXD <= '0';  -- bit 3
+					 RXD <= '0';  --! bit 3
                 WAIT FOR 104  us;
-					 RXD <= '1';  -- bit 4	
+					 RXD <= '1';  --! bit 4	
                 WAIT FOR 104  us;
-					 RXD <= '0';  -- bit 5	
+					 RXD <= '0';  --! bit 5	
                 WAIT FOR 104  us;
-					 RXD <= '0';  -- bit 6
+					 RXD <= '0';  --! bit 6
                 WAIT FOR 104  us;
-					 RXD <= '1';  -- bit 7					 
+					 RXD <= '1';  --! bit 7					 
                 
 					 
 					 
 					 WAIT FOR 104  us;
-					 RXD <= '1';  -- bit di stop			
+					 RXD <= '1';  --! bit di stop			
 					 
 	
 					 WAIT FOR 550  ns;

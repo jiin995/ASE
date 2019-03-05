@@ -1,13 +1,13 @@
 ---------------------------------------------------------------------------------------------------
--- 
--- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
--- 
+--! 
+--! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+--! 
 ---------------------------------------------------------------------------------------------------
--- project name : register_d_Re_Ar
+--! project name : register_d_Re_Ar
 --
--- unit name: register_d_Re_Ar.vhdl
---     
--- file description:
+--! unit name: register_d_Re_Ar.vhdl
+--!     
+--! file description:
 --! @file
 --! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
 --! @date       13/11/2018
@@ -19,11 +19,11 @@
 --! <b>Dependencies:</b>\n
 --!   Nothings
 --!
--- modified by: Gabriele Previtera
+--! modified by: Gabriele Previtera
 --
 ---------------------------------------------------------------------------------------------------
--- last changes: <16/11/2018> <16/11/2018> <log>
---              create
+--! last changes: <16/11/2018> <16/11/2018> <log>
+--!              create
 ---------------------------------------------------------------------------------------------------
 
 library IEEE;
@@ -45,31 +45,31 @@ entity register_d_Re_Ar is
     );
 end register_d_Re_Ar;
 --================================================================================================
--- architecture declaration
+--! architecture declaration
 --================================================================================================
 architecture behavioral of register_d_Re_Ar is 
 
--- segnale per poter inizializzare l'uscita del mio registro
+--! segnale per poter inizializzare l'uscita del mio registro
 signal Q_temp   :   STD_LOGIC_VECTOR    (width-1 downto 0) := (others => '0');
 
 --================================================================================================
--- architecture behavioral of register_d_Re_Ar begin
+--! architecture behavioral of register_d_Re_Ar begin
 --================================================================================================
 begin
 
-    Q <= Q_temp;    -- aggiorno il valore del registro
+    Q <= Q_temp;    --! aggiorno il valore del registro
 
     ff : process (clock,reset,enable)
         begin
-            -- se il reset è pari al livello di reset, allora il contenuto del registro viene posto a 0
+            --! se il reset è pari al livello di reset, allora il contenuto del registro viene posto a 0
             if( reset = reset_level) then
                 Q_temp <= ( others => '0');
-            elsif rising_edge(clock) and (enable = enable_level) then   -- altrimenti assegnamo a Q_temp il valore di D al rising edge del clock
+            elsif rising_edge(clock) and (enable = enable_level) then   --! altrimenti assegnamo a Q_temp il valore di D al rising edge del clock
                 Q_temp <= D;
             end if;
         end process ff;
 
 end behavioral;
 --================================================================================================
--- architecture behavioral of register_d_Re_Ar end
+--! architecture behavioral of register_d_Re_Ar end
 --================================================================================================

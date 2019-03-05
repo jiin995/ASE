@@ -1,13 +1,13 @@
 ---------------------------------------------------------------------------------------------------
--- 
--- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
--- 
+--! 
+--! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+--! 
 ---------------------------------------------------------------------------------------------------
--- project name : rippleCarry_adder_testbench
+--! project name : rippleCarry_adder_testbench
 --
--- unit name: rippleCarry_addsub_testbench.vhdl
---     
--- file description:
+--! unit name: rippleCarry_addsub_testbench.vhdl
+--!     
+--! file description:
 --! @file
 --! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
 --! @date       15/10/2018
@@ -18,11 +18,11 @@
 --! <b>Dependencies:</b>\n
 --!   full_adder
 --!
--- modified by: Simone Penna
+--! modified by: Simone Penna
 --
 ---------------------------------------------------------------------------------------------------
--- last changes: <11/11/2018> <15/10/2018> <log>
---                Aggiunta doc doxygen
+--! last changes: <11/11/2018> <15/10/2018> <log>
+--!                Aggiunta doc doxygen
 ---------------------------------------------------------------------------------------------------
 library IEEE;
     use IEEE.STD_LOGIC_1164.all;
@@ -69,7 +69,7 @@ begin
 
     stim_proc: process
         begin		
-      -- hold reset state for 100 ns.
+      --! hold reset state for 100 ns.
       wait for 100 ns;	
       
             subtract <= '1';

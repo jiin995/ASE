@@ -1,13 +1,13 @@
 ---------------------------------------------------------------------------------------------------
--- 
--- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
--- 
+--! 
+--! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+--! 
 ---------------------------------------------------------------------------------------------------
--- project name : full_adder
+--! project name : full_adder
 --
--- unit name: full_adder_testbench.vhd
---     
--- file description:
+--! unit name: full_adder_testbench.vhd
+--!     
+--! file description:
 --! @file
 --! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
 --! @date       25/10/2018
@@ -18,11 +18,11 @@
 --! <b>Dependencies:</b>\n
 --!   half_adder
 --!
--- modified by: Simone Penna
+--! modified by: Simone Penna
 --
 ---------------------------------------------------------------------------------------------------
--- last changes: <21/11/2018> <15/10/2018> <log>
---                Aggiunta doc doxygen
+--! last changes: <21/11/2018> <15/10/2018> <log>
+--!                Aggiunta doc doxygen
 ---------------------------------------------------------------------------------------------------
 
 library IEEE;
@@ -49,7 +49,7 @@ architecture behavioral of full_adder_testbench is
     signal C    : STD_LOGIC :='0';
     signal S    : STD_LOGIC :='0';
 
--- Scelgo di testare la definzione architetturale del componente!
+--! Scelgo di testare la definzione architetturale del componente!
     for all : full_adder use entity
         work.full_adder(structural);
 

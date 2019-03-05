@@ -1,35 +1,35 @@
 --------------------------------------------------------------------------------
--- Company: 
--- Engineer:
+--! Company: 
+--! Engineer:
 --
--- Create Date:   12:33:29 02/24/2019
--- Design Name:   
--- Module Name:   /home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_12/restoring/restoring_divider_tb.vhd
--- Project Name:  R_division
--- Target Device:  
--- Tool versions:  
--- Description:   
--- 
--- VHDL Test Bench Created by ISE for module: restoring_divider
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
+--! Create Date:   12:33:29 02/24/2019
+--! Design Name:   
+--! Module Name:   /home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_12/restoring/restoring_divider_tb.vhd
+--! Project Name:  R_division
+--! Target Device:  
+--! Tool versions:  
+--! Description:   
+--! 
+--! VHDL Test Bench Created by ISE for module: restoring_divider
+--! 
+--! Dependencies:
+--! 
+--! Revision:
+--! Revision 0.01 - File Created
+--! Additional Comments:
 --
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
+--! Notes: 
+--! This testbench has been automatically generated using types std_logic and
+--! std_logic_vector for the ports of the unit under test.  Xilinx recommends
+--! that these types always be used for the top-level I/O of a design in order
+--! to guarantee that the testbench will bind correctly to the post-implementation 
+--! simulation model.
 --------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
+--! Uncomment the following library declaration if using
+--! arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
 ENTITY restoring_divider_tb IS
@@ -38,7 +38,7 @@ END restoring_divider_tb;
  
 ARCHITECTURE behavior OF restoring_divider_tb IS 
  
-    -- Component Declaration for the Unit Under Test (UUT)
+    --! Component Declaration for the Unit Under Test (UUT)
  
     COMPONENT restoring_divider
 	generic ( n : integer := n);
@@ -69,7 +69,7 @@ ARCHITECTURE behavior OF restoring_divider_tb IS
 
 BEGIN
  
-	-- Instantiate the Unit Under Test (UUT)
+	--! Instantiate the Unit Under Test (UUT)
    uut: restoring_divider generic map (n)PORT MAP (
           X => X,
           Y => Y,
@@ -90,7 +90,7 @@ BEGIN
    end process;
  
 
-   -- Stimulus process
+   --! Stimulus process
    stim_proc: process
    begin		
       wait for 10 ns;	
@@ -102,7 +102,7 @@ BEGIN
 		wait for 20 ns;
 		start<='0';
 
-      -- insert stimulus here 
+      --! insert stimulus here 
 	wait for 1000 ns;
       wait;
    end process;

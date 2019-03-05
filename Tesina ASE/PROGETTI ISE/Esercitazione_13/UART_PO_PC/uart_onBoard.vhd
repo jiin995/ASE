@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    11:48:20 02/25/2019 
--- Design Name: 
--- Module Name:    uart_onBoard - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: 
+--! Engineer: 
+--! 
+--! Create Date:    11:48:20 02/25/2019 
+--! Design Name: 
+--! Module Name:    uart_onBoard - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;
@@ -22,19 +22,19 @@ library IEEE;
     use IEEE.numeric_std.all;
     use IEEE.math_real.all;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
+--! Uncomment the following library declaration if using
+--! arithmetic functions with Signed or Unsigned values
 --use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
+--! Uncomment the following library declaration if instantiating
+--! any Xilinx primitives in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
 entity uart_onBoard is
     Port ( clock 		: in  STD_LOGIC;
 			  rx 			: in  STD_LOGIC;
-			  rx_empty 	: out STD_LOGIC; -- se è vuoto vale 1
+			  rx_empty 	: out STD_LOGIC; --! se è vuoto vale 1
 			  tx			: out STD_LOGIC;
 			  tx_full	: out STD_LOGIC;
 			  --wr_uart	: in STD_LOGIC;
@@ -51,11 +51,11 @@ component uart is
 	 Port 	( clock 		: in  STD_LOGIC;
 				  reset		: in  STD_LOGIC;
 				  rx 			: in  STD_LOGIC;
-				  rd_uart	: in  STD_LOGIC;	-- se alto resetta il valore di empty
+				  rd_uart	: in  STD_LOGIC;	--! se alto resetta il valore di empty
 				  wr_uart	: in 	STD_LOGIC;
 				  din 		: in  STD_LOGIC_VECTOR (data_bits-1 downto 0);
 				  tx			: out	STD_LOGIC;
-				  rx_empty 	: out STD_LOGIC; -- se è vuoto vale 1
+				  rx_empty 	: out STD_LOGIC; --! se è vuoto vale 1
 				  tx_full 	: out STD_LOGIC;
 				  dout 		: out STD_LOGIC_VECTOR (data_bits-1 downto 0)
 	);

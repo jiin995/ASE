@@ -3,25 +3,25 @@ library IEEE;
 
 entity carrySelect_adder is 
     generic (  
-    -- M parallelismo dei ripplecarry adder
+    --! M parallelismo dei ripplecarry adder
                 M    : NATURAL := 4;
-    -- P parallelismo delle celle dell carry select
+    --! P parallelismo delle celle dell carry select
                 P        : NATURAL := 2
-    -- Come metto M e P, marco e co fanno la stima dei tempi e mettono solo (M*P) da cui ricavano poi M e P 
-    -- io direi di fare una versione con M e P espliciti e una versione come l'hanno fatta loro, ma su quella
+    --! Come metto M e P, marco e co fanno la stima dei tempi e mettono solo (M*P) da cui ricavano poi M e P 
+    --! io direi di fare una versione con M e P espliciti e una versione come l'hanno fatta loro, ma su quella
     --resta da capire come fanno a prendere solo una parte del segnale 
     );
     port (
-            A       : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  -- input addendo
-            B       : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  -- input addendo
-            c_in    : in    STD_LOGIC ;                             -- input carry in ingresso
-            S       : out   STD_LOGIC_VECTOR (((M*P)-1) downto 0);  -- output somma
-            c_out   : out   STD_LOGIC                               -- output carry in uscita
+            A       : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  --! input addendo
+            B       : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  --! input addendo
+            c_in    : in    STD_LOGIC ;                             --! input carry in ingresso
+            S       : out   STD_LOGIC_VECTOR (((M*P)-1) downto 0);  --! output somma
+            c_out   : out   STD_LOGIC                               --! output carry in uscita
     );
 end carrySelect_adder;
 
 --================================================================================================
--- architecture declaration
+--! architecture declaration
 --================================================================================================
 
 architecture structural of carrySelect_adder is
@@ -49,12 +49,12 @@ begin
 
     S <= S_TEMP;
 
-    -- collego i segnali temporanei dei carry, con i porti esterni del componenti 
-    -- in modo tale da non mettere if nel for generate
+    --! collego i segnali temporanei dei carry, con i porti esterni del componenti 
+    --! in modo tale da non mettere if nel for generate
     c_out <= internal_carry(P);
     internal_carry(0) <= c_in; 
 
--- istanzio il numero di celle e le mappo con gli ingressi
+--! istanzio il numero di celle e le mappo con gli ingressi
     cells:
         for i in 0 to P-1 generate 
             cell: carrySelect_cell port map (   A       => A ((((i+1)*M)-1) downto (i*M)),

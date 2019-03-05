@@ -1,35 +1,35 @@
 --------------------------------------------------------------------------------
--- Company: 
--- Engineer:
+--! Company: 
+--! Engineer:
 --
--- Create Date:   15:37:34 11/22/2012
--- Design Name:   
--- Module Name:   C:/Users/Mario/Desktop/rippleCarry/BootMultiplier/tb_shifter.vhd
--- Project Name:  BootMultiplier
--- Target Device:  
--- Tool versions:  
--- Description:   
--- 
--- VHDL Test Bench Created by ISE for module: scan_chain
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
+--! Create Date:   15:37:34 11/22/2012
+--! Design Name:   
+--! Module Name:   C:/Users/Mario/Desktop/rippleCarry/BootMultiplier/tb_shifter.vhd
+--! Project Name:  BootMultiplier
+--! Target Device:  
+--! Tool versions:  
+--! Description:   
+--! 
+--! VHDL Test Bench Created by ISE for module: scan_chain
+--! 
+--! Dependencies:
+--! 
+--! Revision:
+--! Revision 0.01 - File Created
+--! Additional Comments:
 --
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
+--! Notes: 
+--! This testbench has been automatically generated using types std_logic and
+--! std_logic_vector for the ports of the unit under test.  Xilinx recommends
+--! that these types always be used for the top-level I/O of a design in order
+--! to guarantee that the testbench will bind correctly to the post-implementation 
+--! simulation model.
 --------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
+--! Uncomment the following library declaration if using
+--! arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
 ENTITY tb_shifter IS
@@ -37,7 +37,7 @@ END tb_shifter;
  
 ARCHITECTURE behavior OF tb_shifter IS 
  
-    -- Component Declaration for the Unit Under Test (UUT)
+    --! Component Declaration for the Unit Under Test (UUT)
  
     COMPONENT scan_chain
     PORT(
@@ -65,12 +65,12 @@ ARCHITECTURE behavior OF tb_shifter IS
    signal scan_out : std_logic;
    signal q_reg : std_logic_vector(7 downto 0);
 
-   -- Clock period definitions
+   --! Clock period definitions
    constant clock_period : time := 10 ns;
  
 BEGIN
  
-	-- Instantiate the Unit Under Test (UUT)
+	--! Instantiate the Unit Under Test (UUT)
    uut: scan_chain PORT MAP (
           d_reg => d_reg,
           scan_in => scan_in,
@@ -82,7 +82,7 @@ BEGIN
           q_reg => q_reg
         );
 
-   -- Clock process definitions
+   --! Clock process definitions
    clock_process :process
    begin
 		clock <= '0';
@@ -92,15 +92,15 @@ BEGIN
    end process;
  
 
-   -- Stimulus process
+   --! Stimulus process
    stim_proc: process
    begin		
-      -- hold reset state for 100 ns.
+      --! hold reset state for 100 ns.
       wait for 100 ns;	
 
       wait for clock_period*10;
 
-      -- insert stimulus here 
+      --! insert stimulus here 
 		
 		d_reg <= x"07";
 		scan_en <= '0';

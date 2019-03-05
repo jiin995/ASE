@@ -1,37 +1,37 @@
 --------------------------------------------------------------------------------
--- Company: 
--- Engineer:
+--! Company: 
+--! Engineer:
 --
--- Create Date:   23:26:40 02/25/2019
--- Design Name:   
--- Module Name:   /home/jiin995/ASE_WorkSpace/Test/UART_PO_PC/counter_UpN_Re_preset_Sr_testbench.vhd
--- Project Name:  UART_PO_PC
--- Target Device:  
--- Tool versions:  
--- Description:   
--- 
--- VHDL Test Bench Created by ISE for module: counter_UpN_Re_preset_Sr
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
+--! Create Date:   23:26:40 02/25/2019
+--! Design Name:   
+--! Module Name:   /home/jiin995/ASE_WorkSpace/Test/UART_PO_PC/counter_UpN_Re_preset_Sr_testbench.vhd
+--! Project Name:  UART_PO_PC
+--! Target Device:  
+--! Tool versions:  
+--! Description:   
+--! 
+--! VHDL Test Bench Created by ISE for module: counter_UpN_Re_preset_Sr
+--! 
+--! Dependencies:
+--! 
+--! Revision:
+--! Revision 0.01 - File Created
+--! Additional Comments:
 --
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
+--! Notes: 
+--! This testbench has been automatically generated using types std_logic and
+--! std_logic_vector for the ports of the unit under test.  Xilinx recommends
+--! that these types always be used for the top-level I/O of a design in order
+--! to guarantee that the testbench will bind correctly to the post-implementation 
+--! simulation model.
 --------------------------------------------------------------------------------
 library IEEE;
     use IEEE.STD_LOGIC_1164.all;
     use IEEE.numeric_std.all;
     use IEEE.math_real.all;
  
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
+--! Uncomment the following library declaration if using
+--! arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
 ENTITY counter_UpN_Re_preset_Sr_testbench IS
@@ -41,7 +41,7 @@ END counter_UpN_Re_preset_Sr_testbench;
  
 ARCHITECTURE behavior OF counter_UpN_Re_preset_Sr_testbench IS 
  
-    -- Component Declaration for the Unit Under Test (UUT)
+    --! Component Declaration for the Unit Under Test (UUT)
  
     COMPONENT counter_UpN_Re_preset_Sr
 	 generic (   n               : NATURAL :=n_test;
@@ -71,12 +71,12 @@ ARCHITECTURE behavior OF counter_UpN_Re_preset_Sr_testbench IS
    signal count_hit : std_logic;
    signal COUNTS : STD_LOGIC_VECTOR ((integer(ceil(log2(real(n_test)))) -1) downto 0);
 
-   -- Clock period definitions
+   --! Clock period definitions
    constant clock_period : time := 10 ns;
  
 BEGIN
  
-	-- Instantiate the Unit Under Test (UUT)
+	--! Instantiate the Unit Under Test (UUT)
    uut: counter_UpN_Re_preset_Sr PORT MAP (
           enable => enable,
           reset_n => reset_n,
@@ -87,7 +87,7 @@ BEGIN
           COUNTS => COUNTS
         );
 
-   -- Clock process definitions
+   --! Clock process definitions
    clock_process :process
    begin
 		clock <= '0';
@@ -97,15 +97,15 @@ BEGIN
    end process;
  
 
-   -- Stimulus process
+   --! Stimulus process
    stim_proc: process
    begin		
-      -- hold reset state for 100 ns.
+      --! hold reset state for 100 ns.
 		enable <= '1' after 10 ns ;
 		load <= '1' after 10 ns , '0' after 20 ns;
       wait for clock_period*10;
 
-      -- insert stimulus here 
+      --! insert stimulus here 
 
       wait;
    end process;

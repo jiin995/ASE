@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: taken from Pong Chu , Wiley , "FPGA PROTOTYPING BY VHDL EXAMPLES"
--- 
--- Create Date:    10:10:15 01/12/2008 
--- Design Name: 
--- Module Name:    uart_tx - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: 
+--! Engineer: taken from Pong Chu , Wiley , "FPGA PROTOTYPING BY VHDL EXAMPLES"
+--! 
+--! Create Date:    10:10:15 01/12/2008 
+--! Design Name: 
+--! Module Name:    uart_tx - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;
@@ -22,8 +22,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
----- Uncomment the following library declaration if instantiating
----- any Xilinx primitives in this code.
+----! Uncomment the following library declaration if instantiating
+----! any Xilinx primitives in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
@@ -33,8 +33,8 @@ use ieee.std_logic_1164.all;
 use ieee .numeric_std.all;
 entity uart_tx is
  generic(
-  DBIT : integer :=8 ; -- # data bits
-  SB_TICK: integer:=16 -- # ticks for stop bits
+  DBIT : integer :=8 ; --! # data bits
+  SB_TICK: integer:=16 --! # ticks for stop bits
  );
  port(
   ck: in std_logic;
@@ -55,17 +55,17 @@ architecture arch of uart_tx is
  signal b_reg,b_next : std_logic_vector (7 downto 0 ) :=( others => '0' );
  signal tx_reg  : std_logic :='1';
  signal tx_next : std_logic ;
- -- FSMD state & data registers
+ --! FSMD state & data registers
  begin
 
  process (ck)
  begin
---  if reset='1' then
---   state_reg <= idle;
---   s_reg <= ( others => '0' ) ;
---   n_reg <= ( others => '0' ) ;
---   b_reg <= ( others => '0' ) ;
---   tx_reg <= '1';
+--!  if reset='1' then
+--!   state_reg <= idle;
+--!   s_reg <= ( others => '0' ) ;
+--!   n_reg <= ( others => '0' ) ;
+--!   b_reg <= ( others => '0' ) ;
+--!   tx_reg <= '1';
   if (rising_edge(ck)) then
    state_reg <= state_next;
    s_reg <= s_next;

@@ -21,38 +21,38 @@ end booth_multiplier;
 architecture Structural of booth_multiplier is
 
 component booth_multiplier_control_unit is 
-    generic (   N   :   NATURAL :=8    --  parallelismo di X
+    generic (   N   :   NATURAL :=8    --!  parallelismo di X
     );
     port    (   clock                   :   in      STD_LOGIC;
                 start                   :   in      STD_LOGIC;
                 reset_n                 :   in      STD_LOGIC;
-                x_lsbs		    			 :   in      STD_LOGIC_VECTOR (1 downto 0);          -- moltiplicando corrente
-                counter_hit             :   in      STD_LOGIC;          -- segnala la fine della moltiplicazione
+                x_lsbs		    			 :   in      STD_LOGIC_VECTOR (1 downto 0);          --! moltiplicando corrente
+                counter_hit             :   in      STD_LOGIC;          --! segnala la fine della moltiplicazione
                 stop                    :   out     STD_LOGIC;
-                en_a                    :   out     STD_LOGIC;          -- se scan_en =1 la scan chain funziona come shifter register
+                en_a                    :   out     STD_LOGIC;          --! se scan_en =1 la scan chain funziona come shifter register
                 en_q                    :   out     STD_LOGIC;
                 en_m                    :   out     STD_LOGIC;
                 shift                   :   out     STD_LOGIC;                    
                 subtract                :   out     STD_LOGIC;
                 count_up                :   out     STD_LOGIC;
                 reset_a                 :   out     STD_LOGIC;
-                reset_count             :   out     STD_LOGIC          	-- reset il conteggio
+                reset_count             :   out     STD_LOGIC          	--! reset il conteggio
     );
 end component;
 
 component scan_chain is
     generic(
-			  width : integer := 8;									-- dimensione del registro
-			  shift_direction : std_logic := '0'					-- shift a destra
+			  width : integer := 8;									--! dimensione del registro
+			  shift_direction : std_logic := '0'					--! shift a destra
 	 );
-    Port ( 	clock 		: in  STD_LOGIC;							-- segnale clock di tempificazione
-           	en 			: in  STD_LOGIC;							-- segnale di abilitazione 1-attivo
-				reset_n 		: in  STD_LOGIC;							-- segnale di reset 0-attivo
-				scan_en 		: in  STD_LOGIC;							-- segnale di selezione modalità (0 = normale, 1 = controllo)
-				scan_in 		: in  STD_LOGIC;							-- primo valore scan-in 
-				d_reg 		: in  STD_LOGIC_VECTOR (width-1 downto 0);	-- valore in ingresso nel registro
-				scan_out 	: out  STD_LOGIC;							-- ultimo valore scan-out
-				q_reg 		: out  STD_LOGIC_VECTOR (width-1 downto 0)	-- valore in uscita del registro
+    Port ( 	clock 		: in  STD_LOGIC;							--! segnale clock di tempificazione
+           	en 			: in  STD_LOGIC;							--! segnale di abilitazione 1-attivo
+				reset_n 		: in  STD_LOGIC;							--! segnale di reset 0-attivo
+				scan_en 		: in  STD_LOGIC;							--! segnale di selezione modalità (0 = normale, 1 = controllo)
+				scan_in 		: in  STD_LOGIC;							--! primo valore scan-in 
+				d_reg 		: in  STD_LOGIC_VECTOR (width-1 downto 0);	--! valore in ingresso nel registro
+				scan_out 	: out  STD_LOGIC;							--! ultimo valore scan-out
+				q_reg 		: out  STD_LOGIC_VECTOR (width-1 downto 0)	--! valore in uscita del registro
 	);
 end component;
 
@@ -91,12 +91,12 @@ component carrySelect_addSub is
                 P       : NATURAL :=  4
     );
     port (
-            A           : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  -- input addendo
-            B           : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  -- input addendo
+            A           : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  --! input addendo
+            B           : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  --! input addendo
             subtract    : in    STD_LOGIC ;
-            S           : out   STD_LOGIC_VECTOR (((M*P)-1) downto 0);  -- output somma
+            S           : out   STD_LOGIC_VECTOR (((M*P)-1) downto 0);  --! output somma
             overflow    : out   STD_LOGIC ;
-            c_out       : out   STD_LOGIC                               -- output carry in uscita
+            c_out       : out   STD_LOGIC                               --! output carry in uscita
     );
 end component;
 

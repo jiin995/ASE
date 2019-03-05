@@ -1,35 +1,35 @@
 --------------------------------------------------------------------------------
--- Company: 
--- Engineer:
+--! Company: 
+--! Engineer:
 --
--- Create Date:   06:02:06 02/10/2018
--- Design Name:   
--- Module Name:   C:/Documents and Settings/Marco/Desktop/R_division/tb_DivisorOnBoard.vhd
--- Project Name:  R_division
--- Target Device:  
--- Tool versions:  
--- Description:   
--- 
--- VHDL Test Bench Created by ISE for module: DivisorOnBoard
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
+--! Create Date:   06:02:06 02/10/2018
+--! Design Name:   
+--! Module Name:   C:/Documents and Settings/Marco/Desktop/R_division/tb_DivisorOnBoard.vhd
+--! Project Name:  R_division
+--! Target Device:  
+--! Tool versions:  
+--! Description:   
+--! 
+--! VHDL Test Bench Created by ISE for module: DivisorOnBoard
+--! 
+--! Dependencies:
+--! 
+--! Revision:
+--! Revision 0.01 - File Created
+--! Additional Comments:
 --
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
+--! Notes: 
+--! This testbench has been automatically generated using types std_logic and
+--! std_logic_vector for the ports of the unit under test.  Xilinx recommends
+--! that these types always be used for the top-level I/O of a design in order
+--! to guarantee that the testbench will bind correctly to the post-implementation 
+--! simulation model.
 --------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
+--! Uncomment the following library declaration if using
+--! arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
 ENTITY tb_DivisorOnBoard IS
@@ -37,7 +37,7 @@ END tb_DivisorOnBoard;
  
 ARCHITECTURE behavior OF tb_DivisorOnBoard IS 
  
-    -- Component Declaration for the Unit Under Test (UUT)
+    --! Component Declaration for the Unit Under Test (UUT)
  
     COMPONENT DivisorOnBoard
     PORT(
@@ -65,12 +65,12 @@ ARCHITECTURE behavior OF tb_DivisorOnBoard IS
    signal anodes : std_logic_vector(3 downto 0);
    signal cathodes : std_logic_vector(7 downto 0);
 
-   -- Clock period definitions
+   --! Clock period definitions
    constant clk_period : time := 10 ns;
  
 BEGIN
  
-	-- Instantiate the Unit Under Test (UUT)
+	--! Instantiate the Unit Under Test (UUT)
    uut: DivisorOnBoard PORT MAP (
           clk => clk,
           reset => reset,
@@ -82,7 +82,7 @@ BEGIN
           cathodes => cathodes
         );
 
-   -- Clock process definitions
+   --! Clock process definitions
    clk_process :process
    begin
 		clk <= '0';
@@ -92,10 +92,10 @@ BEGIN
    end process;
  
 
-   -- Stimulus process
+   --! Stimulus process
    stim_proc: process
    begin		
-      -- hold reset state for 100 ns.
+      --! hold reset state for 100 ns.
       wait for 100 ns;	
 		reset<='0';
 		in_byte<="11001000";
@@ -109,7 +109,7 @@ BEGIN
 		start_division<='0';
       wait for clk_period*10;
 
-      -- insert stimulus here 
+      --! insert stimulus here 
 
       wait;
    end process;

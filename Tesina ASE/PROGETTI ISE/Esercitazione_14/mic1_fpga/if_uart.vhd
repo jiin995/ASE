@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: UNIVERSITA' DEGLI STUDI DI NAPOLI FEDERICO SECONDO
--- Engineer: AIELLO MARCO MATR. 045/004437
--- 
--- Create Date:    16:17:31 01/12/2008 
--- Design Name: 
--- Module Name:    if_uart - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: UNIVERSITA' DEGLI STUDI DI NAPOLI FEDERICO SECONDO
+--! Engineer: AIELLO MARCO MATR. 045/004437
+--! 
+--! Create Date:    16:17:31 01/12/2008 
+--! Design Name: 
+--! Module Name:    if_uart - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;
@@ -22,8 +22,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
----- Uncomment the following library declaration if instantiating
----- any Xilinx primitives in this code.
+----! Uncomment the following library declaration if instantiating
+----! any Xilinx primitives in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
 entity if_uart is
@@ -42,8 +42,8 @@ architecture Behavioral of if_uart is
 
 	COMPONENT baud_gen
 	generic(
-		N: integer := 4; -- number of bits
-		M : integer := 163 -- mod 4
+		N: integer := 4; --! number of bits
+		M : integer := 163 --! mod 4
 	);
 	PORT(
 		ck : IN std_logic;          
@@ -102,8 +102,8 @@ begin
 
 	io_mdr<=io_mdr_sig;
 
-	-- reimpostato per farlo funzionare a 100 MHz e con un Baud a 9600
-	-- ho provato anche con altro baud
+	--! reimpostato per farlo funzionare a 100 MHz e con un Baud a 9600
+	--! ho provato anche con altro baud
 	Inst_baud_gen: baud_gen 
 	generic map(
 		  N => 10,

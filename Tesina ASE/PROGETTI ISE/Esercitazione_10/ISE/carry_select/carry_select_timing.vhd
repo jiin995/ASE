@@ -1,38 +1,38 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    12:07:17 02/16/2019 
--- Design Name: 
--- Module Name:    carry_select_timing - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: 
+--! Engineer: 
+--! 
+--! Create Date:    12:07:17 02/16/2019 
+--! Design Name: 
+--! Module Name:    carry_select_timing - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
+--! Uncomment the following library declaration if using
+--! arithmetic functions with Signed or Unsigned values
 --use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any XilinX primitives in this code.
+--! Uncomment the following library declaration if instantiating
+--! any XilinX primitives in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
 --entity top level per calcolare il timing
 
 entity carry_select_timing is
-	generic (M : NATURAL := 8;    -- parallelismo dei ripplecarry adder nei blocchi
+	generic (M : NATURAL := 8;    --! parallelismo dei ripplecarry adder nei blocchi
             P : NATURAL := 8);
     Port ( clock : in  STD_LOGIC;
            A : in  STD_LOGIC_VECTOR ((M*P)-1 downto 0);
@@ -45,7 +45,7 @@ end carry_select_timing;
 architecture Behavioral of carry_select_timing is
 
 	component carry_select_adder is 
-    generic (M : NATURAL := M;    -- parallelismo dei ripplecarry adder nei blocchi
+    generic (M : NATURAL := M;    --! parallelismo dei ripplecarry adder nei blocchi
 				 P : NATURAL := P     
     );
     port (

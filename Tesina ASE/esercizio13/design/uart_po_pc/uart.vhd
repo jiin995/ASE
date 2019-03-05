@@ -8,34 +8,34 @@ entity uart is
 	 generic (data_bits : NATURAL := 8);
 	Port 		( clock 		: in  STD_LOGIC;
 				  reset		: in  STD_LOGIC;
-				  rx 			: in  STD_LOGIC;		-- segnale 
-				  -- se alto segnala al buffer in uscita che il dato è stato consumato
+				  rx 			: in  STD_LOGIC;		--! segnale 
+				  --! se alto segnala al buffer in uscita che il dato è stato consumato
 				  rd_uart	: in  STD_LOGIC;				
-				  -- se alto segnala al buffer in ingresso che il dato è pronto per essere inviato
+				  --! se alto segnala al buffer in ingresso che il dato è pronto per essere inviato
 				  wr_uart	: in  STD_LOGIC;				
 				  din 		: in  STD_LOGIC_VECTOR (data_bits-1 downto 0); --byte da inviare
 				  tx			: out	STD_LOGIC;
-				  rx_empty 	: out STD_LOGIC; 				-- se è il buffer in uscita è vuoto vale 1
-				  tx_full 	: out STD_LOGIC;				-- se è il buffer in ingresso è pieno vale 1
+				  rx_empty 	: out STD_LOGIC; 				--! se è il buffer in uscita è vuoto vale 1
+				  tx_full 	: out STD_LOGIC;				--! se è il buffer in ingresso è pieno vale 1
 				  dout 		: out STD_LOGIC_VECTOR (data_bits-1 downto 0)
 	);
 end uart;
 
 architecture Behavioral of uart is
 component uart_rx is 
-	generic	( 	data_bits   : NATURAL := 8;		-- Numero di bit dati
+	generic	( 	data_bits   : NATURAL := 8;		--! Numero di bit dati
 					ticks			: NATURAL := 16;
 					start_Ticks	: NATURAL := 7;
-					stop_Ticks  : NATURAL := 16		-- Numero di conteggi per determinare la fine della trasmissione
+					stop_Ticks  : NATURAL := 16		--! Numero di conteggi per determinare la fine della trasmissione
 			);
     port (
             clock   : in  STD_LOGIC;
 				enable  : in  STD_LOGIC;
             reset   : in  STD_LOGIC;
-            rx      	: in  STD_LOGIC;	 									-- bit ricevuto
+            rx      	: in  STD_LOGIC;	 									--! bit ricevuto
 				rd_uart	: in 	STD_LOGIC;
-            rx_empty	: out STD_LOGIC;	 									-- va alto quando è stato ricevuto un byte
-            dout    : out STD_LOGIC_VECTOR (data_bits-1 downto 0)	-- byte ricevuto
+            rx_empty	: out STD_LOGIC;	 									--! va alto quando è stato ricevuto un byte
+            dout    : out STD_LOGIC_VECTOR (data_bits-1 downto 0)	--! byte ricevuto
     );
 end component;
 

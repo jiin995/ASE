@@ -1,37 +1,37 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    10:34:23 01/23/2018 
--- Design Name: 
--- Module Name:    Accumulator_Quotient - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: 
+--! Engineer: 
+--! 
+--! Create Date:    10:34:23 01/23/2018 
+--! Design Name: 
+--! Module Name:    Accumulator_Quotient - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
+--! Uncomment the following library declaration if using
+--! arithmetic functions with Signed or Unsigned values
 --use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
+--! Uncomment the following library declaration if instantiating
+--! any Xilinx primitives in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
 entity Accumulator_Quotient is
 	generic ( N : integer := 8; M : integer := 8);
-    Port ( High_Reg: in  STD_LOGIC_VECTOR (N-1 downto 0);	-- ha dimensione n+1 perch l'algoritmo di divisione nel primo passo richiede uno shift per fare spazio al quoziente in posizione Q(0)
+    Port ( High_Reg: in  STD_LOGIC_VECTOR (N-1 downto 0);	--! ha dimensione n+1 perch l'algoritmo di divisione nel primo passo richiede uno shift per fare spazio al quoziente in posizione Q(0)
 			  shift		: in std_logic;
            Low_Reg : in  STD_LOGIC_VECTOR (m-1 downto 0);	
            H_read : out  STD_LOGIC_VECTOR (N-1 downto 0);
@@ -73,7 +73,7 @@ begin
 		reset_n=>reset_q_n,
 		dout=>L_read
 	);
--- Ha dimensione N+1 perch alla prima operazione la divisione richiede uno shift iniziale del dividendo per 
+--! Ha dimensione N+1 perch alla prima operazione la divisione richiede uno shift iniziale del dividendo per 
 --liberare Q[0]; in questo modo in Q[0] potr essere inserito il quoziente calcolato	
 	A: Scan_chain generic map(N,'0') port map( 
 		din=>High_reg,

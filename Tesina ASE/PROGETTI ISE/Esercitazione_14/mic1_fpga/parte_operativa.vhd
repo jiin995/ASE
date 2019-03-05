@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: UNIVERSITA' DEGLI STUDI DI NAPOLI FEDERICO SECONDO
--- Engineer: AIELLO MARCO MATR. 045/004437
--- 
--- Create Date:    19:51:13 01/08/2008 
--- Design Name: 
--- Module Name:    parte_operativa - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: UNIVERSITA' DEGLI STUDI DI NAPOLI FEDERICO SECONDO
+--! Engineer: AIELLO MARCO MATR. 045/004437
+--! 
+--! Create Date:    19:51:13 01/08/2008 
+--! Design Name: 
+--! Module Name:    parte_operativa - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;
@@ -22,8 +22,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
----- Uncomment the following library declaration if instantiating
----- any Xilinx primitives in this code.
+----! Uncomment the following library declaration if instantiating
+----! any Xilinx primitives in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
@@ -278,7 +278,7 @@ begin
 	);
 
 --	mar:process (ck)
---		variable mem : std_logic_vector(31 downto 0):="00000000000000000000000000000000";  --  memoria a 32 bit
+--		variable mem : std_logic_vector(31 downto 0):="00000000000000000000000000000000";  --!  memoria a 32 bit
 --		begin  
 --		if (rising_edge(ck)) then  --fronte di salita clock
 --			if(wcbtr_mar_sig='1')	then
@@ -519,7 +519,7 @@ begin
 		eobb_mbru => eobb_mbru,
 		ffetch_ritardato => ffetch_ritardato,
 		data_mbr => data_mbr,
-		uscita_mbr => mbr_sig  -- *****************  dopo mandalo in input ad un mux sul bbus
+		uscita_mbr => mbr_sig  --! *****************  dopo mandalo in input ad un mux sul bbus
 	);
 
 	fe <= ffetch_ritardato;

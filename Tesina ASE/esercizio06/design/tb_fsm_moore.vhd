@@ -6,7 +6,7 @@ END tb_fsm_moore;
  
 ARCHITECTURE behavior OF tb_fsm_moore IS 
  
-    -- Component Declaration for the Unit Under Test (UUT)
+    --! Component Declaration for the Unit Under Test (UUT)
  
     COMPONENT fsm_moore
     PORT(
@@ -24,19 +24,19 @@ ARCHITECTURE behavior OF tb_fsm_moore IS
  	--Outputs
    signal value_out : std_logic;
 
-   -- Clock period definitions
+   --! Clock period definitions
    constant clock_period : time := 10 ns;
  
 BEGIN
  
-	-- Instantiate the Unit Under Test (UUT)
+	--! Instantiate the Unit Under Test (UUT)
    uut: fsm_moore PORT MAP (
           clock => clock,
           value_in => value_in,
           value_out => value_out
         );
 
-   -- Clock process definitions
+   --! Clock process definitions
    clock_process :process
    begin
 		clock <= '0';
@@ -46,10 +46,10 @@ BEGIN
    end process;
  
 
-   -- Stimulus process
+   --! Stimulus process
    stim_proc: process
    begin		
-      -- hold reset state for 100 ns.
+      --! hold reset state for 100 ns.
       wait for 100 ns;	
 
       value_in <= '1';

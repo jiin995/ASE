@@ -1,16 +1,16 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- per testare l'uart su board, si è istanziato un'entità top level UART:
--- i valori da trasmettere sono comunicati tramite gli switch della board all'uart.
--- i valori vengono ricevuti dallo stesso uart su rx e riportati sul display a 7 segmenti
+--! per testare l'uart su board, si è istanziato un'entità top level UART:
+--! i valori da trasmettere sono comunicati tramite gli switch della board all'uart.
+--! i valori vengono ricevuti dallo stesso uart su rx e riportati sul display a 7 segmenti
 
 entity uart_onBoard is
     Port ( clock 		: in  STD_LOGIC;
 			  rx 			: in  STD_LOGIC;	
-			  rx_empty 	: out STD_LOGIC; -- segnala se il buffer in uscita è vuoto
+			  rx_empty 	: out STD_LOGIC; --! segnala se il buffer in uscita è vuoto
 			  tx			: out STD_LOGIC;
-			  tx_full	: out STD_LOGIC;	-- segnala se il buffer in ingresso è pieno
+			  tx_full	: out STD_LOGIC;	--! segnala se il buffer in ingresso è pieno
 			  anodes 	: out STD_LOGIC_VECTOR ( 7 downto 0);
 			  cathodes	: out STD_LOGIC_VECTOR ( 7 downto 0)
 );
@@ -23,13 +23,13 @@ component uart is
 	 Port 	( clock 		: in  STD_LOGIC;
 				  reset		: in  STD_LOGIC;
 				  rx 			: in  STD_LOGIC;
-				  rd_uart	: in  STD_LOGIC;	-- se alto resetta il valore di rx_empty
-				  wr_uart	: in  STD_LOGIC;	-- se alto resetta il valore di tx_full
-				  din 		: in  STD_LOGIC_VECTOR (data_bits-1 downto 0);	-- buffer in ingresso
+				  rd_uart	: in  STD_LOGIC;	--! se alto resetta il valore di rx_empty
+				  wr_uart	: in  STD_LOGIC;	--! se alto resetta il valore di tx_full
+				  din 		: in  STD_LOGIC_VECTOR (data_bits-1 downto 0);	--! buffer in ingresso
 				  tx			: out	STD_LOGIC;
 				  rx_empty 	: out STD_LOGIC;
 				  tx_full 	: out STD_LOGIC;
-				  dout 		: out STD_LOGIC_VECTOR (data_bits-1 downto 0)	-- buffer in uscita
+				  dout 		: out STD_LOGIC_VECTOR (data_bits-1 downto 0)	--! buffer in uscita
 	);
 end component;
 
@@ -61,7 +61,7 @@ rx_empty <= rx_empty_int;
 						
 tx_full <= tx_full_int;
 
-value <= x"000000" & dout;	-- il valore letto dall'uart (buffer in uscita) viene portato nel display a 7 segmenti
+value <= x"000000" & dout;	--! il valore letto dall'uart (buffer in uscita) viene portato nel display a 7 segmenti
 
 uart_inst : uart port map ( 	clock 	=> clock, 
 										reset 	=> reset,
@@ -78,7 +78,7 @@ uart_inst : uart port map ( 	clock 	=> clock,
 display	: display_7_segments port map ( 	enable 			=> enable,	
 														clock  			=> clock,
 														reset	 			=> reset,
-														values 			=> value,	-- il valore letto dall'uart (buffer in uscita) viene portato nel display a 7 segmenti
+														values 			=> value,	--! il valore letto dall'uart (buffer in uscita) viene portato nel display a 7 segmenti
 														dots 	 			=> dots,
 														enable_digit 	=> enable_digit,
 														anodes 		 	=> anodes,

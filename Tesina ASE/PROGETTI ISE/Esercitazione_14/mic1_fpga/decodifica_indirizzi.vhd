@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: UNIVERSITA' DEGLI STUDI DI NAPOLI FEDERICO SECONDO
--- Engineer: AIELLO MARCO MATR. 045/004437
--- 
--- Create Date:    17:59:52 01/13/2008 
--- Design Name: 
--- Module Name:    decodifica_indirizzi - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: UNIVERSITA' DEGLI STUDI DI NAPOLI FEDERICO SECONDO
+--! Engineer: AIELLO MARCO MATR. 045/004437
+--! 
+--! Create Date:    17:59:52 01/13/2008 
+--! Design Name: 
+--! Module Name:    decodifica_indirizzi - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;
@@ -22,8 +22,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
----- Uncomment the following library declaration if instantiating
----- any Xilinx primitives in this code.
+----! Uncomment the following library declaration if instantiating
+----! any Xilinx primitives in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
 

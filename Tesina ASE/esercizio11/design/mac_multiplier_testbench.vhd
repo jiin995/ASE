@@ -7,8 +7,8 @@ end mac_multiplier_testbench;
 
 architecture behavioral of mac_multiplier_testbench is
 component mac_multiplier is
-    generic (   N : NATURAL := 2;  -- parallelismo primo operando
-                M : NATURAL := 3  -- parllelismo secondo operando
+    generic (   N : NATURAL := 2;  --! parallelismo primo operando
+                M : NATURAL := 3  --! parllelismo secondo operando
     );
     port    (   X   :   in  STD_LOGIC_VECTOR (N-1 downto 0);
                 Y   :   in  STD_LOGIC_VECTOR (M-1 downto 0);

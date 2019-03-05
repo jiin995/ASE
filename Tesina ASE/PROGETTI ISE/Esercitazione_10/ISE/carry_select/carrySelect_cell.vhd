@@ -1,12 +1,12 @@
 library IEEE;
     use IEEE.STD_LOGIC_1164.all;
 
--- blocco carry select è formato da due RCA e due multiplexer 2-1. 
--- I due addizionatori si occuperanno di sommare le due stringhe in ingresso A e B
--- (di lunghezza generica width) con c_in pari, rispettivamente, a 0 e 1.
--- In base al valore c_in effettivo in ingresso al blocco, i due multiplexer
--- sceglieranno quali dei due valori S e c_out, calcolati dai due RCA,
--- riportare in uscita. 
+--! blocco carry select è formato da due RCA e due multiplexer 2-1. 
+--! I due addizionatori si occuperanno di sommare le due stringhe in ingresso A e B
+--! (di lunghezza generica width) con c_in pari, rispettivamente, a 0 e 1.
+--! In base al valore c_in effettivo in ingresso al blocco, i due multiplexer
+--! sceglieranno quali dei due valori S e c_out, calcolati dai due RCA,
+--! riportare in uscita. 
 
 entity carry_select_block is 
     generic (   

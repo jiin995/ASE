@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: Mirko Pennone, Simone Penna, Gabriele Previtera
--- 
--- Create Date:    11:23:00 02/08/2019 
--- Design Name: 
--- Module Name:    latch_jk - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: 
+--! Engineer: Mirko Pennone, Simone Penna, Gabriele Previtera
+--! 
+--! Create Date:    11:23:00 02/08/2019 
+--! Design Name: 
+--! Module Name:    latch_jk - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;

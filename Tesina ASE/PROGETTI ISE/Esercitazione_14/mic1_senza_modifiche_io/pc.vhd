@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: UNIVERSITA' DEGLI STUDI DI NAPOLI FEDERICO SECONDO
--- Engineer: AIELLO MARCO MATR. 045/004437
--- 
--- Create Date:    10:08:15 01/07/2008 
--- Design Name: 
--- Module Name:    parte_di_controllo - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: UNIVERSITA' DEGLI STUDI DI NAPOLI FEDERICO SECONDO
+--! Engineer: AIELLO MARCO MATR. 045/004437
+--! 
+--! Create Date:    10:08:15 01/07/2008 
+--! Design Name: 
+--! Module Name:    parte_di_controllo - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;

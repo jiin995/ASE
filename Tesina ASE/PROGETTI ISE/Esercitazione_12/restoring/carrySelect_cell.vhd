@@ -14,11 +14,11 @@ entity carrySelect_cell is
 end carrySelect_cell;
 
 --================================================================================================
--- architecture declaration
+--! architecture declaration
 --================================================================================================
--- Componenti necessari :   
---  - mux2_1 con parallelismo variabile
---  - ripple carry adder
+--! Componenti necessari :   
+--!  - mux2_1 con parallelismo variabile
+--!  - ripple carry adder
 architecture structural of carrySelect_cell is 
     component mux2_1 is 
             generic (   width : natural :=width                    --! parallelismo dell' I/O del multiplexer

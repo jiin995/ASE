@@ -1,35 +1,35 @@
 --------------------------------------------------------------------------------
--- Company: 
--- Engineer:
+--! Company: 
+--! Engineer:
 --
--- Create Date:   10:35:40 02/14/2019
--- Design Name:   
--- Module Name:   /home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_6/fsm/tb_fsm_moore.vhd
--- Project Name:  fsm
--- Target Device:  
--- Tool versions:  
--- Description:   
--- 
--- VHDL Test Bench Created by ISE for module: fsm_moore
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
+--! Create Date:   10:35:40 02/14/2019
+--! Design Name:   
+--! Module Name:   /home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_6/fsm/tb_fsm_moore.vhd
+--! Project Name:  fsm
+--! Target Device:  
+--! Tool versions:  
+--! Description:   
+--! 
+--! VHDL Test Bench Created by ISE for module: fsm_moore
+--! 
+--! Dependencies:
+--! 
+--! Revision:
+--! Revision 0.01 - File Created
+--! Additional Comments:
 --
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
+--! Notes: 
+--! This testbench has been automatically generated using types std_logic and
+--! std_logic_vector for the ports of the unit under test.  Xilinx recommends
+--! that these types always be used for the top-level I/O of a design in order
+--! to guarantee that the testbench will bind correctly to the post-implementation 
+--! simulation model.
 --------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
+--! Uncomment the following library declaration if using
+--! arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
 ENTITY tb_fsm_moore IS
@@ -37,7 +37,7 @@ END tb_fsm_moore;
  
 ARCHITECTURE behavior OF tb_fsm_moore IS 
  
-    -- Component Declaration for the Unit Under Test (UUT)
+    --! Component Declaration for the Unit Under Test (UUT)
  
     COMPONENT fsm_moore
     PORT(
@@ -55,19 +55,19 @@ ARCHITECTURE behavior OF tb_fsm_moore IS
  	--Outputs
    signal value_out : std_logic;
 
-   -- Clock period definitions
+   --! Clock period definitions
    constant clock_period : time := 10 ns;
  
 BEGIN
  
-	-- Instantiate the Unit Under Test (UUT)
+	--! Instantiate the Unit Under Test (UUT)
    uut: fsm_moore PORT MAP (
           clock => clock,
           value_in => value_in,
           value_out => value_out
         );
 
-   -- Clock process definitions
+   --! Clock process definitions
    clock_process :process
    begin
 		clock <= '0';
@@ -77,10 +77,10 @@ BEGIN
    end process;
  
 
-   -- Stimulus process
+   --! Stimulus process
    stim_proc: process
    begin		
-      -- hold reset state for 100 ns.
+      --! hold reset state for 100 ns.
       wait for 100 ns;	
 
       value_in <= '1';

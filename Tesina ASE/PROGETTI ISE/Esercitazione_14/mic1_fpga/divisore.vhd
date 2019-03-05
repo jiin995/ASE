@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    17:43:28 03/20/2009 
--- Design Name: 
--- Module Name:    main - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: 
+--! Engineer: 
+--! 
+--! Create Date:    17:43:28 03/20/2009 
+--! Design Name: 
+--! Module Name:    main - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;
@@ -27,9 +27,9 @@ Library UNISIM;
 use UNISIM.vcomponents.all;
 
 
-  -- DCM_SP: Digital Clock Manager Circuit
-   --         Spartan-3E/3A
-   -- Xilinx HDL Language Template, version 9.2i
+  --! DCM_SP: Digital Clock Manager Circuit
+   --!         Spartan-3E/3A
+   --! Xilinx HDL Language Template, version 9.2i
 
 
 
@@ -47,18 +47,18 @@ architecture Behavioral of divisore_freq is
 
  
  component clock_div is
-	port(-- Clock in ports
+	port(--! Clock in ports
 		CLK_IN1           : in     std_logic;
-		-- Clock out ports
+		--! Clock out ports
 		CLK_OUT1          : out    std_logic
 	);
  end component;
 begin
 	
 --	clknetwork : clock_div port map(
---		-- Clock in ports
+--		--! Clock in ports
 --		CLK_IN1            => clk,
---		-- Clock out ports
+--		--! Clock out ports
 --		CLK_OUT1           => clk_div);
 	
 	clk_div <= clk;

@@ -6,7 +6,7 @@ entity carry_select_block_testbench is
 end carry_select_block_testbench;
 
 --Scopo verificare che le due somme degli test_width bit avvengano parallelamente e
--- che in base al carry ingresso vengano selezionati l'opportuna somma e resto
+--! che in base al carry ingresso vengano selezionati l'opportuna somma e resto
 
 architecture behavioral of carry_select_block_testbench is   
     component carry_select_block is 

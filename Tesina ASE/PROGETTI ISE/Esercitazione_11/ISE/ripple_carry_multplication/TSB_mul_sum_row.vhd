@@ -3,15 +3,15 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity ripple_carry_multiplier_testbench is
-    generic (   N : NATURAL := 8;  -- parallelismo primo operando
-                M : NATURAL := 8  -- parllelismo secondo operando
+    generic (   N : NATURAL := 8;  --! parallelismo primo operando
+                M : NATURAL := 8  --! parllelismo secondo operando
     );
 end ripple_carry_multiplier_testbench;
 
 architecture behavioral of ripple_carry_multiplier_testbench is
 component ripple_carry_multiplier is
-    generic (   N : NATURAL := N;  -- parallelismo primo operando
-                M : NATURAL := M  -- parllelismo secondo operando
+    generic (   N : NATURAL := N;  --! parallelismo primo operando
+                M : NATURAL := M  --! parllelismo secondo operando
     );
     port    (   A   :   in  STD_LOGIC_VECTOR (N-1 downto 0);
                 B   :   in  STD_LOGIC_VECTOR (M-1 downto 0);
@@ -36,7 +36,7 @@ begin
 		);
 	stimulus : process
    begin		
-      -- hold reset state for 100 ns.
+      --! hold reset state for 100 ns.
       wait for 100 ns;	
 		
 		A <= x"11";
@@ -55,7 +55,7 @@ begin
 		
 		A <= x"18";
 
-      -- insert stimulus here 
+      --! insert stimulus here 
 
       wait;
    end process;

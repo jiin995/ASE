@@ -29,7 +29,7 @@ signal count_hit_temp   : STD_LOGIC := '0';
 constant max_value : NATURAL :=((2**n)-1);
 
 --=============================================================================
--- architecture behavioral of counter_UpMod2n_Re_Sr begin
+--! architecture behavioral of counter_UpMod2n_Re_Sr begin
 --=============================================================================
 
 begin 
@@ -42,14 +42,14 @@ begin
 
         begin
             if (rising_edge(clock) ) then 
-					-- Reset
+					--! Reset
 					if (reset_n = '0') then 
                     counter := 0;
                     count_hit_temp <= '0';
                     COUNTS_temp <= ( others => '0'); 
-					-- Abilitato
+					--! Abilitato
                 elsif(enable = enable_level) then 
-						-- Raggiunto massimo valore di conteggio
+						--! Raggiunto massimo valore di conteggio
                     if counter = max_value then 
                         count_hit_temp <= '1';
                         counter := 0;
@@ -66,5 +66,5 @@ begin
 end behavioral;
 
 --=============================================================================
--- architecture behavioral of counter_UpMod2n_Re_Sr end
+--! architecture behavioral of counter_UpMod2n_Re_Sr end
 --=============================================================================

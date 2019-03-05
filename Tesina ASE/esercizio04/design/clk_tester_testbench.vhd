@@ -1,35 +1,35 @@
 --------------------------------------------------------------------------------
--- Company: 
--- Engineer:
+--! Company: 
+--! Engineer:
 --
--- Create Date:   17:36:56 02/14/2019
--- Design Name:   
--- Module Name:   /home/jiin995/ASE_WorkSpace/Test/clock_test/clk_tester_testbench.vhd
--- Project Name:  clock_test
--- Target Device:  
--- Tool versions:  
--- Description:   
--- 
--- VHDL Test Bench Created by ISE for module: clk_tester
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
+--! Create Date:   17:36:56 02/14/2019
+--! Design Name:   
+--! Module Name:   /home/jiin995/ASE_WorkSpace/Test/clock_test/clk_tester_testbench.vhd
+--! Project Name:  clock_test
+--! Target Device:  
+--! Tool versions:  
+--! Description:   
+--! 
+--! VHDL Test Bench Created by ISE for module: clk_tester
+--! 
+--! Dependencies:
+--! 
+--! Revision:
+--! Revision 0.01 - File Created
+--! Additional Comments:
 --
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
+--! Notes: 
+--! This testbench has been automatically generated using types std_logic and
+--! std_logic_vector for the ports of the unit under test.  Xilinx recommends
+--! that these types always be used for the top-level I/O of a design in order
+--! to guarantee that the testbench will bind correctly to the post-implementation 
+--! simulation model.
 --------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
+--! Uncomment the following library declaration if using
+--! arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
 ENTITY clk_tester_testbench IS
@@ -37,7 +37,7 @@ END clk_tester_testbench;
  
 ARCHITECTURE behavior OF clk_tester_testbench IS 
  
-    -- Component Declaration for the Unit Under Test (UUT)
+    --! Component Declaration for the Unit Under Test (UUT)
  
     COMPONENT clk_tester
     PORT(
@@ -69,12 +69,12 @@ ARCHITECTURE behavior OF clk_tester_testbench IS
    signal Q : std_logic_vector(7 downto 0);
 	signal locked : std_logic;
 
-   -- Clock period definitions
+   --! Clock period definitions
    constant clock_in_period : time := 100 ns;
  
 BEGIN
  
-	-- Instantiate the Unit Under Test (UUT)
+	--! Instantiate the Unit Under Test (UUT)
    uut: clk_tester PORT MAP (
 						 clock_in => clock_in,
 						 enable => enable,
@@ -88,7 +88,7 @@ BEGIN
 						 locked => locked
         );
 
-   -- Clock process definitions
+   --! Clock process definitions
    clock_in_process :process
    begin
 		clock_in <= '0';
@@ -98,14 +98,14 @@ BEGIN
    end process;
  
 
-   -- Stimulus process
+   --! Stimulus process
    stim_proc: process
    begin		
 		
-      -- hold reset state for 100 ns.
+      --! hold reset state for 100 ns.
       wait for clock_in_period*50;
 
-      -- insert stimulus here 
+      --! insert stimulus here 
 		d_in <= '1' after 50 ns, '0' after 300 ns;
       wait;
    end process;

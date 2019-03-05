@@ -5,10 +5,10 @@ library IEEE;
 	 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity uart_tx is 
-	generic	( 	data_bits   : NATURAL := 8;		-- Numero di bit dati
+	generic	( 	data_bits   : NATURAL := 8;		--! Numero di bit dati
 					ticks			: NATURAL := 16;
 					start_Ticks	: NATURAL := 7;
-					stop_Ticks  : NATURAL := 16		-- Numero di conteggi per determinare la fine della trasmissione
+					stop_Ticks  : NATURAL := 16		--! Numero di conteggi per determinare la fine della trasmissione
      );	
     port (
             clock   : in  STD_LOGIC;
@@ -26,44 +26,44 @@ architecture Behavioral of uart_tx is
 	component uart_tx_cu is 
 		 port (	clock   				: in  STD_LOGIC;
 					reset   				: in  STD_LOGIC;
-					tx_start				: in  STD_LOGIC;		-- segnale che indica che la trasmissione deve iniziare	
-					tick_hit    		: in  STD_LOGIC;    	-- raggiungimento dei 16 conteggi per inviare 
-					stop_hit				: in 	STD_LOGIC;		-- hit dello stop counter
-					sended_byte_hit	: in  STD_LOGIC;		-- alto quando ho inviato un byte
-					bit_to_send			: in  STD_LOGIC;		-- bit in ingresso da po , è l'uscita della scan chain ed è il bit da inviare 
+					tx_start				: in  STD_LOGIC;		--! segnale che indica che la trasmissione deve iniziare	
+					tick_hit    		: in  STD_LOGIC;    	--! raggiungimento dei 16 conteggi per inviare 
+					stop_hit				: in 	STD_LOGIC;		--! hit dello stop counter
+					sended_byte_hit	: in  STD_LOGIC;		--! alto quando ho inviato un byte
+					bit_to_send			: in  STD_LOGIC;		--! bit in ingresso da po , è l'uscita della scan chain ed è il bit da inviare 
 					load_din				: out STD_LOGIC;		--	segnala alla scan chain di caricare il byte da inviare
-					increase_n_bits 	: out STD_LOGIC;		-- incrementa il contatore del numero di bit inviati
-					send_tx				: out STD_LOGIC;		-- indica alla scan chain di eseguire uno shif, il bit in uscita sarà il prossimo ad essere inviato
-					reset_out 			: out STD_LOGIC;		-- resetta i contatori tranne il tick counter
-					tx_out				: out STD_LOGIC;		-- uscita tx dalla cu, perchè la cu in baso allo stato deve decidere se tx deve essere alta, bassa o inviare il bit 
-					reset_tick			: out STD_LOGIC;		-- resetta il tick counter
-					tx_done 				: out STD_LOGIC		-- segnala la fine dell'invio
+					increase_n_bits 	: out STD_LOGIC;		--! incrementa il contatore del numero di bit inviati
+					send_tx				: out STD_LOGIC;		--! indica alla scan chain di eseguire uno shif, il bit in uscita sarà il prossimo ad essere inviato
+					reset_out 			: out STD_LOGIC;		--! resetta i contatori tranne il tick counter
+					tx_out				: out STD_LOGIC;		--! uscita tx dalla cu, perchè la cu in baso allo stato deve decidere se tx deve essere alta, bassa o inviare il bit 
+					reset_tick			: out STD_LOGIC;		--! resetta il tick counter
+					tx_done 				: out STD_LOGIC		--! segnala la fine dell'invio
 			);
 	end component;
 
 	component uart_tx_po is
-		generic	( 	data_bits   : NATURAL := 8;		-- Numero di bit dati
+		generic	( 	data_bits   : NATURAL := 8;		--! Numero di bit dati
 						ticks			: NATURAL := 16;
 						start_Ticks	: NATURAL := 7;
-						stop_Ticks  : NATURAL := 16		-- Numero di conteggi per determinare la fine della trasmissione
+						stop_Ticks  : NATURAL := 16		--! Numero di conteggi per determinare la fine della trasmissione
 		  );	
 		 port		(	clock					: in 	STD_LOGIC;
 						reset					: in 	STD_LOGIC;
 						enable				: in 	STD_LOGIC;
-						sended_bit			: in  STD_LOGIC;	-- quando va alto, viene incrementato il contatore del numero di bit inviati	
-						send_tx				: in  STD_LOGIC;	-- quando va alto si esegue uno shift nella scan chain
-						tx_done				: in  STD_LOGIC;	-- quando va alto si aggiorna lo stato del buffer, segnala la fine della trasmissione, il buffer è svuotato
-						wr_uart				: in  STD_LOGIC;	-- quando va alto si idica alla parte di trasmissione che si vuole inviare il byte che si trova su byte_to_send
-						tx_in					: in  STD_LOGIC;	-- tx in ingresso dalla pc ed è quello che deve essere inviato su tx
+						sended_bit			: in  STD_LOGIC;	--! quando va alto, viene incrementato il contatore del numero di bit inviati	
+						send_tx				: in  STD_LOGIC;	--! quando va alto si esegue uno shift nella scan chain
+						tx_done				: in  STD_LOGIC;	--! quando va alto si aggiorna lo stato del buffer, segnala la fine della trasmissione, il buffer è svuotato
+						wr_uart				: in  STD_LOGIC;	--! quando va alto si idica alla parte di trasmissione che si vuole inviare il byte che si trova su byte_to_send
+						tx_in					: in  STD_LOGIC;	--! tx in ingresso dalla pc ed è quello che deve essere inviato su tx
 						load_din				: in  STD_LOGIC;	--	scan en della scan chain, quando è basso carica il byte nella scan chain
-						reset_tick			: in  STD_LOGIC;	-- resetta il tick counter
-						byte_to_send		: in 	STD_LOGIC_VECTOR ( ( data_bits-1 ) downto 0); 	-- byte da inviare
-						tx						: out STD_LOGIC;	-- linea in uscita
-						bit_to_send			: out STD_LOGIC;	-- bit da invare , viene trasmesso al pc 
-						tx_full				: out STD_LOGIC;	-- va alto quando il buffer per inviare è pieno, va basso quando viene svuotato
-						sended_byte_hit	: out STD_LOGIC;	-- va alto quando è stato inviato tutto il byte
-						tick_hit				: out STD_LOGIC;	-- va alto quando si raggiungono i 16 conteggi del tick counter
-						stop_hit				: out STD_LOGIC	-- va alto quando si raggiungono i conteggi dello stop counter 
+						reset_tick			: in  STD_LOGIC;	--! resetta il tick counter
+						byte_to_send		: in 	STD_LOGIC_VECTOR ( ( data_bits-1 ) downto 0); 	--! byte da inviare
+						tx						: out STD_LOGIC;	--! linea in uscita
+						bit_to_send			: out STD_LOGIC;	--! bit da invare , viene trasmesso al pc 
+						tx_full				: out STD_LOGIC;	--! va alto quando il buffer per inviare è pieno, va basso quando viene svuotato
+						sended_byte_hit	: out STD_LOGIC;	--! va alto quando è stato inviato tutto il byte
+						tick_hit				: out STD_LOGIC;	--! va alto quando si raggiungono i 16 conteggi del tick counter
+						stop_hit				: out STD_LOGIC	--! va alto quando si raggiungono i conteggi dello stop counter 
 						
 		);
 	end component;

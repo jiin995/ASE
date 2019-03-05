@@ -1,13 +1,13 @@
 ---------------------------------------------------------------------------------------------------
--- 
--- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
--- 
+--! 
+--! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+--! 
 ---------------------------------------------------------------------------------------------------
--- project name : cathodes_manager
+--! project name : cathodes_manager
 --
--- unit name: cathodes_manager.vhdl
---     
--- file description:
+--! unit name: cathodes_manager.vhdl
+--!     
+--! file description:
 --! @file
 --! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
 --! @date       15/10/2018
@@ -18,11 +18,11 @@
 --! <b>Dependencies:</b>\n
 --!   Nothing
 --!
--- modified by: Simone Penna
+--! modified by: Simone Penna
 --
 ---------------------------------------------------------------------------------------------------
--- last changes: <11/11/2018> <15/10/2018> <log>
---                Aggiunta doc doxygen
+--! last changes: <11/11/2018> <15/10/2018> <log>
+--!                Aggiunta doc doxygen
 ---------------------------------------------------------------------------------------------------
 library IEEE;
     use IEEE.STD_LOGIC_1164.all;
@@ -40,7 +40,7 @@ entity cathodes_manager is
 end cathodes_manager;
 
 --================================================================================================
--- architecture declaration
+--! architecture declaration
 --================================================================================================
 architecture behavioral of cathodes_manager is
 
@@ -61,25 +61,25 @@ constant d          : STD_LOGIC_VECTOR(6 downto 0) := "0100001";
 constant e          : STD_LOGIC_VECTOR(6 downto 0) := "0000110"; 
 constant f          : STD_LOGIC_VECTOR(6 downto 0) := "0001110";
 
-alias digit_0 is values (3 downto 0);	-- i bit da 3 a 0 di values
-alias digit_1 is values (7 downto 4);	-- i bit da 7 a 4 di values
-alias digit_2 is values (11 downto 8);	-- i bit da 11 a 8 di values
-alias digit_3 is values (15 downto 12);	-- i bit da 15 a 12 di values
-alias digit_4 is values (19 downto 16);	-- i bit da 15 a 12 di values
-alias digit_5 is values (23 downto 20);	-- i bit da 15 a 12 di values
-alias digit_6 is values (27 downto 24);	-- i bit da 15 a 12 di values
-alias digit_7 is values (31 downto 28);	-- i bit da 15 a 12 di values
+alias digit_0 is values (3 downto 0);	--! i bit da 3 a 0 di values
+alias digit_1 is values (7 downto 4);	--! i bit da 7 a 4 di values
+alias digit_2 is values (11 downto 8);	--! i bit da 11 a 8 di values
+alias digit_3 is values (15 downto 12);	--! i bit da 15 a 12 di values
+alias digit_4 is values (19 downto 16);	--! i bit da 15 a 12 di values
+alias digit_5 is values (23 downto 20);	--! i bit da 15 a 12 di values
+alias digit_6 is values (27 downto 24);	--! i bit da 15 a 12 di values
+alias digit_7 is values (31 downto 28);	--! i bit da 15 a 12 di values
 
 
-signal cathodes_for_digit : STD_LOGIC_VECTOR (6 downto 0) := (others => '0');	-- 
-signal nibble   : STD_LOGIC_VECTOR (3 downto 0 ) := (others => '0');	-- nibble di 4 bit di values
+signal cathodes_for_digit : STD_LOGIC_VECTOR (6 downto 0) := (others => '0');	--! 
+signal nibble   : STD_LOGIC_VECTOR (3 downto 0 ) := (others => '0');	--! nibble di 4 bit di values
 
 --=============================================================================
--- architecture behavioral of cathodes_manager begin
+--! architecture behavioral of cathodes_manager begin
 --=============================================================================
 begin
 
-	-- in base al valore di select_digit (contatore), posiziona la giusta digit (4 bit di values) in nibble
+	--! in base al valore di select_digit (contatore), posiziona la giusta digit (4 bit di values) in nibble
     digit_switching: process (select_digit,values)
         begin  
             case select_digit is 
@@ -95,7 +95,7 @@ begin
             end case;
         end process;
 
-	-- in base alla digit selezionata nel nibble, imposta cathodes_for_digit al valore da impostare per accendere i corrispondenti segmenti
+	--! in base alla digit selezionata nel nibble, imposta cathodes_for_digit al valore da impostare per accendere i corrispondenti segmenti
     decoder : process (nibble)	
         begin  
             case nibble is
@@ -120,8 +120,8 @@ begin
         end process;
 
 	--multiplexer generico
-    cathodes <=  not dots(to_integer(unsigned(select_digit))) & cathodes_for_digit;	-- bit del dot (negato perché 0 attivo) + la stringa selezionata
+    cathodes <=  not dots(to_integer(unsigned(select_digit))) & cathodes_for_digit;	--! bit del dot (negato perché 0 attivo) + la stringa selezionata
 end behavioral;
 --=============================================================================
--- architecture behavioral of cathodes_manager end
+--! architecture behavioral of cathodes_manager end
 --=============================================================================

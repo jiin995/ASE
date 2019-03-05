@@ -1,13 +1,13 @@
 ---------------------------------------------------------------------------------------------------
--- 
--- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
--- 
+--! 
+--! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+--! 
 ---------------------------------------------------------------------------------------------------
--- project name : flipflop_d_risingEdge_asyncReset_testbench
+--! project name : flipflop_d_risingEdge_asyncReset_testbench
 --
--- unit name: flipflop_d_risingEdge_asyncReset_testbench.vhd
---     
--- file description:
+--! unit name: flipflop_d_risingEdge_asyncReset_testbench.vhd
+--!     
+--! file description:
 --! @file
 --! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
 --! @date       13/11/2018
@@ -18,11 +18,11 @@
 --! <b>Dependencies:</b>\n
 --!   Nothings
 --!
--- modified by: Mirko Pennone
+--! modified by: Mirko Pennone
 --
 ---------------------------------------------------------------------------------------------------
--- last changes: <21/11/2018> <15/10/2018> <log>
---                Aggiunta doc doxygen
+--! last changes: <21/11/2018> <15/10/2018> <log>
+--!                Aggiunta doc doxygen
 ---------------------------------------------------------------------------------------------------
 
 LIBRARY ieee;
@@ -33,7 +33,7 @@ END flipflop_d_risingEdge_asyncReset_testbench;
  
 ARCHITECTURE behavior OF flipflop_d_risingEdge_asyncReset_testbench IS 
  
-    -- Component Declaration for the Unit Under Test (UUT)
+    --! Component Declaration for the Unit Under Test (UUT)
  
     COMPONENT flipflop_d_risingEdge_asyncReset
     generic (   init_value   :  STD_LOGIC   :='0';
@@ -58,12 +58,12 @@ ARCHITECTURE behavior OF flipflop_d_risingEdge_asyncReset_testbench IS
    --Outputs
    signal q : std_logic;
 
-   -- Clock period definitions
+   --! Clock period definitions
    constant clock_period : time := 10 ns;
  
 BEGIN
  
-  -- Instantiate the Unit Under Test (UUT)
+  --! Instantiate the Unit Under Test (UUT)
    uut: flipflop_d_risingEdge_asyncReset PORT MAP (
           clock => clock,
           enable => enable,
@@ -72,7 +72,7 @@ BEGIN
           q => q
         );
 
-   -- Clock process definitions
+   --! Clock process definitions
    clock_process: process
    begin
 		clock <= '0';
@@ -83,10 +83,10 @@ BEGIN
    end process;
 
 
-   -- Stimulus process
+   --! Stimulus process
    stim_proc: process
    begin	
-		wait for clock_period*5; -- Ogni 5 periodi di clock d commuta
+		wait for clock_period*5; --! Ogni 5 periodi di clock d commuta
 		d <= not d;
 
    end process;

@@ -5,22 +5,22 @@ library IEEE;
     
 
 entity booth_multiplier_control_unit is 
-    generic (   N   :   NATURAL :=8    --  parallelismo di X
+    generic (   N   :   NATURAL :=8    --!  parallelismo di X
     );
     port    (   clock                   :   in      STD_LOGIC;
                 start                   :   in      STD_LOGIC;
                 reset_n                 :   in      STD_LOGIC;
-                counter_hit             :   in      STD_LOGIC;                              -- segnala la fine della moltiplicazione
-                x_lsbs    				    :   in      STD_LOGIC_VECTOR (1 downto 0);          -- ultimi due bit di x corrente
+                counter_hit             :   in      STD_LOGIC;                              --! segnala la fine della moltiplicazione
+                x_lsbs    				    :   in      STD_LOGIC_VECTOR (1 downto 0);          --! ultimi due bit di x corrente
                 stop                    :   out     STD_LOGIC;
-                en_a                    :   out     STD_LOGIC;          -- se scan_en =1 la scan chain funziona come shifter register
+                en_a                    :   out     STD_LOGIC;          --! se scan_en =1 la scan chain funziona come shifter register
                 en_q                    :   out     STD_LOGIC;
                 en_m                    :   out     STD_LOGIC;
                 shift                   :   out     STD_LOGIC;                    
                 subtract                :   out     STD_LOGIC;
                 count_up                :   out     STD_LOGIC;
                 reset_a                 :   out     STD_LOGIC;
-                reset_count             :   out     STD_LOGIC          	-- reset il conteggio
+                reset_count             :   out     STD_LOGIC          	--! reset il conteggio
     );
 end booth_multiplier_control_unit;
 
@@ -50,13 +50,13 @@ begin
             en_q        <= '0';
             en_m        <= '0';
             shift       <= '0';
-            subtract    <= '0';     -- non effettuo sottrazione
+            subtract    <= '0';     --! non effettuo sottrazione
             count_up    <= '0';
             reset_a     <= '1';
             reset_count <= '1';
 
             case current is 
-                -- fase di attesa prima di iniziare
+                --! fase di attesa prima di iniziare
                 when idle   =>
                     stop    <=  '1';
                     if rising_edge(start)    then 
@@ -65,18 +65,18 @@ begin
                         nxt <= idle;
                     end if;
 
-                -- inizializzazione 
+                --! inizializzazione 
                 when init       =>
-				    -- resetto i regestri e il contatore
+				    --! resetto i regestri e il contatore
                     en_q        <= '1';
                     en_m        <= '1'; 
                     reset_count <= '0';
                     reset_a     <= '0';
                     nxt         <= choice;
                 
-                -- fase di scelta dell'operazione da fare
+                --! fase di scelta dell'operazione da fare
                 when choice     =>
-                        -- se 00 o 11 devo fare solo lo shift 
+                        --! se 00 o 11 devo fare solo lo shift 
 							if x_lsbs(0) = x_lsbs(1) then
 									nxt     	<= right_shift;
 							  else
@@ -84,24 +84,24 @@ begin
 							  end if;
 
                 when add_sub   => 
-							-- controllo se devo effettuare la somma o la sottrazione
-							-- eseguo la somma se l'ultimo bit è alto
+							--! controllo se devo effettuare la somma o la sottrazione
+							--! eseguo la somma se l'ultimo bit è alto
 
                                 en_a <= '1';
                                 nxt  <= right_shift;  
---                            if x_lsbs (0) = '1' then 
---                                en_a <= '1';
---                                nxt  <= right_shift;  
---                            else    
---                                en_a     <= '1';
---                                subtract <= '1';
---                                nxt      <= right_shift;
---                            end if;
-                when right_shift =>             -- esegue lo shift
+--!                            if x_lsbs (0) = '1' then 
+--!                                en_a <= '1';
+--!                                nxt  <= right_shift;  
+--!                            else    
+--!                                en_a     <= '1';
+--!                                subtract <= '1';
+--!                                nxt      <= right_shift;
+--!                            end if;
+                when right_shift =>             --! esegue lo shift
 							en_a    <= '1';
 							en_q    <= '1';
 							shift   <= '1';
-							-- solo ora posso aggiornare il counter e controllare se sono nello stato finale
+							--! solo ora posso aggiornare il counter e controllare se sono nello stato finale
                             if counter_hit = '0' then 
                                 count_up    <= '1';
                                 nxt         <= choice;

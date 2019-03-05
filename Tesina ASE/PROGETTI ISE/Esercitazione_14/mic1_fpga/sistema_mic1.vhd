@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: UNIVERSITA' DEGLI STUDI DI NAPOLI FEDERICO SECONDO
--- Engineer: AIELLO MARCO MATR. 045/004437
--- 
--- Create Date:    16:17:31 01/12/2008 
--- Design Name: 
--- Module Name:    sistema_mic1 - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: UNIVERSITA' DEGLI STUDI DI NAPOLI FEDERICO SECONDO
+--! Engineer: AIELLO MARCO MATR. 045/004437
+--! 
+--! Create Date:    16:17:31 01/12/2008 
+--! Design Name: 
+--! Module Name:    sistema_mic1 - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;
@@ -22,8 +22,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
----- Uncomment the following library declaration if instantiating
----- any Xilinx primitives in this code.
+----! Uncomment the following library declaration if instantiating
+----! any Xilinx primitives in this code.
 library UNISIM;
 use UNISIM.VComponents.all;
 
@@ -136,7 +136,7 @@ component io_controller
 				RD				: in 	std_logic 	:= '0';  --	segnale di lettura
 				WR				: in 	std_logic 	:= '0';	--	segnale di scrittura
 				RXD			: in 	std_logic 	:= '1'; 	--	rxd seriale
-				START_READ	: in  STD_LOGIC	:= '0';	-- avvia la lettura per gli switch 
+				START_READ	: in  STD_LOGIC	:= '0';	--! avvia la lettura per gli switch 
 				SWITCH		: in 	STD_LOGIC_VECTOR (7 downto 0);
 				TXD			: out std_logic 	:= '1';  --txd seriale
 				LEDS			: out std_logic_vector(7 downto 0) := "01010101"; --eco sui led del carattere ricevuto

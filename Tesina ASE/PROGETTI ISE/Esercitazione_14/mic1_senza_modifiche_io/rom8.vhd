@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: UNIVERSITA' DEGLI STUDI DI NAPOLI FEDERICO SECONDO
--- Engineer: AIELLO MARCO MATR. 045/004437
--- 
--- Create Date:    17:14:53 08/4/2007 
--- Design Name: 
--- Module Name:     - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: UNIVERSITA' DEGLI STUDI DI NAPOLI FEDERICO SECONDO
+--! Engineer: AIELLO MARCO MATR. 045/004437
+--! 
+--! Create Date:    17:14:53 08/4/2007 
+--! Design Name: 
+--! Module Name:     - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 
@@ -26,7 +26,7 @@ use ieee.numeric_std.all;
 
 
 library work;
--- use work.memory.all;
+--! use work.memory.all;
 
 entity boot_rom is
   port (
@@ -74,7 +74,7 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
   type rom_array is array(0 to memsize-1) of std_logic_vector(width-1 downto 0);
 
 
-  constant rom_data : rom_array :=  --  ******************************************
+  constant rom_data : rom_array :=  --!  ******************************************
   ( 
 		LDC_W,	--00	
 		x"00",	--01   
@@ -610,8 +610,8 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 
 
 
---  constant rom_data : rom_array :=  --testa uart in rx con eco di quanto ricevuto
---  ( 
+--!  constant rom_data : rom_array :=  --testa uart in rx con eco di quanto ricevuto
+--!  ( 
 --		INN,
 --		DUP,
 --		BIPUSH,
@@ -627,8 +627,8 @@ constant IDIV :std_logic_vector(7 downto 0):=  x"E0";
 --		GOTO,
 --		x"FF",
 --		x"F4",			
---      others=>(others=>'0')		
---  );
+--!      others=>(others=>'0')		
+--!  );
 
 begin
 

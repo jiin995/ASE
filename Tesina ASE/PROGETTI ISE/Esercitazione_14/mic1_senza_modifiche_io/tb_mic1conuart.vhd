@@ -36,7 +36,7 @@ ARCHITECTURE testbench_arch OF TB_SISTEMA_COMPLETO IS
             ck => ck
         );
 
-        PROCESS    -- clock process for ck
+        PROCESS    --! clock process for ck
         BEGIN
             WAIT for OFFSET;
             CLOCK_LOOP : LOOP
@@ -55,7 +55,7 @@ ARCHITECTURE testbench_arch OF TB_SISTEMA_COMPLETO IS
 					 RXD <= '1'; 	
                 WAIT FOR 1 us;  
 
-                -- -------------  Current Time:  2100ns
+                --! -------------!  Current Time:  2100ns
                 WAIT FOR 1 us;  --tempo di bit
                 RXD <= '0';  --start bit
                 WAIT FOR 104 us;  --tempo di bit
@@ -88,7 +88,7 @@ ARCHITECTURE testbench_arch OF TB_SISTEMA_COMPLETO IS
                 WAIT FOR 104 us;  --tempo di bit 
  
                 RXD <= '1';
-                -- -------------------------------------
+                --! -------------------------------------
 
 
                 WAIT FOR 1600 us;  --pausa
@@ -98,7 +98,7 @@ ARCHITECTURE testbench_arch OF TB_SISTEMA_COMPLETO IS
 					 RXD <= '1'; 	
                 WAIT FOR 204 us;  --tempo di bit
 
-                -- -------------  Current Time:  2100ns
+                --! -------------!  Current Time:  2100ns
                 WAIT FOR 104 us;  --tempo di bit
                 RXD <= '0';  --start bit
                 WAIT FOR 104 us;  --tempo di bit
@@ -139,7 +139,7 @@ ARCHITECTURE testbench_arch OF TB_SISTEMA_COMPLETO IS
 
 
 
-                -- -------------  Current Time:  2100ns
+                --! -------------!  Current Time:  2100ns
                 WAIT FOR 104 us;  --tempo di bit
                 RXD <= '0';  --start bit
                 WAIT FOR 104 us;  --tempo di bit
@@ -178,7 +178,7 @@ ARCHITECTURE testbench_arch OF TB_SISTEMA_COMPLETO IS
 
 
 
-                -- -------------  Current Time:  2100ns
+                --! -------------!  Current Time:  2100ns
                 WAIT FOR 104 us;  --tempo di bit
                 RXD <= '0';  --start bit
                 WAIT FOR 104 us;  --tempo di bit
@@ -217,7 +217,7 @@ ARCHITECTURE testbench_arch OF TB_SISTEMA_COMPLETO IS
 
 
 
-                -- -------------  Current Time:  2100ns
+                --! -------------!  Current Time:  2100ns
                 WAIT FOR 104 us;  --tempo di bit
                 RXD <= '0';  --start bit
                 WAIT FOR 104 us;  --tempo di bit
@@ -257,7 +257,7 @@ ARCHITECTURE testbench_arch OF TB_SISTEMA_COMPLETO IS
 
 
 
-                -- -------------  Current Time:  2100ns
+                --! -------------!  Current Time:  2100ns
                 WAIT FOR 104 us;  --tempo di bit
                 RXD <= '0';  --start bit
                 WAIT FOR 104 us;  --tempo di bit
@@ -297,7 +297,7 @@ ARCHITECTURE testbench_arch OF TB_SISTEMA_COMPLETO IS
 
 
 
-                -- -------------  Current Time:  2100ns
+                --! -------------!  Current Time:  2100ns
                 WAIT FOR 104 us;  --tempo di bit
                 RXD <= '0';  --start bit
                 WAIT FOR 104 us;  --tempo di bit
@@ -338,7 +338,7 @@ ARCHITECTURE testbench_arch OF TB_SISTEMA_COMPLETO IS
 
 
 
-                -- -------------  Current Time:  2100ns
+                --! -------------!  Current Time:  2100ns
                 WAIT FOR 104 us;  --tempo di bit
                 RXD <= '0';  --start bit
                 WAIT FOR 104 us;  --tempo di bit

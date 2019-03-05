@@ -1,6 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
--- ieee=synopsys (lanciarla con questa opzione: ghdl -a ieee=synopsys mux1_n.vhd // ghdl -r --ieee=synopsys mux1_n_tsb --vcd=mux1_n.vcd
+--! ieee=synopsys (lanciarla con questa opzione: ghdl -a ieee=synopsys mux1_n.vhd // ghdl -r --ieee=synopsys mux1_n_tsb --vcd=mux1_n.vcd
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity muxn_1 is
 			generic ( width : natural);

@@ -1,13 +1,13 @@
 ---------------------------------------------------------------------------------------------------
--- 
--- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
--- 
+--! 
+--! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+--! 
 ---------------------------------------------------------------------------------------------------
--- project name : M_testbench
+--! project name : M_testbench
 --
--- unit name: M_testbench.vhd
---     
--- file description:
+--! unit name: M_testbench.vhd
+--!     
+--! file description:
 --! @file
 --! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
 --! @date       25/10/2018
@@ -18,11 +18,11 @@
 --! <b>Dependencies:</b>\n
 --!   Nothings
 --!
--- modified by: Mirko Pennone
+--! modified by: Mirko Pennone
 --
 ---------------------------------------------------------------------------------------------------
--- last changes: <21/11/2018> <15/10/2018> <log>
---                Aggiunta doc doxygen
+--! last changes: <21/11/2018> <15/10/2018> <log>
+--!                Aggiunta doc doxygen
 ---------------------------------------------------------------------------------------------------
 
 LIBRARY ieee;
@@ -33,7 +33,7 @@ END M_testbench;
  
 ARCHITECTURE behavior OF M_testbench IS 
  
-    -- Component Declaration for the Unit Under Test (UUT)
+    --! Component Declaration for the Unit Under Test (UUT)
  
     COMPONENT M
     PORT(
@@ -66,7 +66,7 @@ ARCHITECTURE behavior OF M_testbench IS
  
 BEGIN
  
-	-- Instantiate the Unit Under Test (UUT)
+	--! Instantiate the Unit Under Test (UUT)
    uut: M PORT MAP (
           x0 => x0,
           x1 => x1,
@@ -79,14 +79,14 @@ BEGIN
           y2 => y2
         );
 
-   -- Stimulus process
+   --! Stimulus process
    stim_proc: process
    begin	
 	
-      -- wait per 100 ns (reset)
+      --! wait per 100 ns (reset)
       wait for 100 ns;	
 
-      -- transizione da 0 a 1 di ogni ingresso Xi (ogni 10 ns)
+      --! transizione da 0 a 1 di ogni ingresso Xi (ogni 10 ns)
 		x0 <= '1';
 		wait for 10 ns;
 		x1 <= '1';

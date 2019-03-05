@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: UNIVERSITA' DEGLI STUDI DI NAPOLI FEDERICO SECONDO
--- Engineer: AIELLO MARCO MATR. 045/004437
--- 
--- Create Date:    17:14:53 08/4/2007 
--- Design Name: 
--- Module Name:     - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: UNIVERSITA' DEGLI STUDI DI NAPOLI FEDERICO SECONDO
+--! Engineer: AIELLO MARCO MATR. 045/004437
+--! 
+--! Create Date:    17:14:53 08/4/2007 
+--! Design Name: 
+--! Module Name:     - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 
@@ -24,7 +24,7 @@ use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
 library work;
--- use work.memory.all;
+--! use work.memory.all;
 
 entity cpool_rom is
   port (
@@ -43,8 +43,8 @@ architecture basic of cpool_rom is
 
   type rom_array is array(0 to memsize-1) of std_logic_vector(width-1 downto 0);
 
---  constant rom_data : rom_array :=
---  ( 
+--!  constant rom_data : rom_array :=
+--!  ( 
 --		x"00000040",	--0	 OBJREF
 --		x"0000004F",	--1   
 --		x"00000050",	--2    
@@ -77,7 +77,7 @@ architecture basic of cpool_rom is
 --		x"00000000",	--29   
 --		x"00000000",	--30  
 --		x"00000000" 	--31    
---  );
+--!  );
 
   constant rom_data : rom_array :=  --*********************************
   ( 

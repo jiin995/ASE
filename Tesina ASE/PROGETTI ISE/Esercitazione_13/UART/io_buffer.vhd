@@ -1,5 +1,5 @@
--- buffer per l'UART che segnala il suo stato: che può essere vuoto o pieno
--- flag : 0 il registro è vuoto ci si può scrivere all'interno
+--! buffer per l'UART che segnala il suo stato: che può essere vuoto o pieno
+--! flag : 0 il registro è vuoto ci si può scrivere all'interno
 --			 1 il registro è pieno si può consumare il dato all'interno
 
 library IEEE;
@@ -9,10 +9,10 @@ entity io_buffer is
     generic ( width : NATURAL := 8 );
     port    ( clock     : in  STD_LOGIC;
               reset     : in  STD_LOGIC;
-              clr_flag  : in  STD_LOGIC;			-- setto lo stato del buffer come vuoto
-              set_flag  : in  STD_LOGIC;			-- setta lo stato del buffer come pieno
+              clr_flag  : in  STD_LOGIC;			--! setto lo stato del buffer come vuoto
+              set_flag  : in  STD_LOGIC;			--! setta lo stato del buffer come pieno
               din       : in  STD_LOGIC_VECTOR ( (width - 1) downto 0 );
-              flag      : out  STD_LOGIC;			-- segnala lo stato del buffer
+              flag      : out  STD_LOGIC;			--! segnala lo stato del buffer
               dout      : out STD_LOGIC_VECTOR ( (width - 1) downto 0)
     );
 end io_buffer; 
@@ -23,8 +23,8 @@ architecture behavioral of io_buffer is
     signal flag_reg, flag_next  : STD_LOGIC := '0' ;
 
 begin
--- evoluzione dello stato
-    process (clock, reset) begin    -- reset asincrono
+--! evoluzione dello stato
+    process (clock, reset) begin    --! reset asincrono
         if (reset = '1' ) then
             buf_reg     <= (others => '0');
             flag_reg    <= '0';
@@ -35,7 +35,7 @@ begin
     end process;
 
     process (buf_reg,flag_reg,clr_flag, set_flag, din ) begin
-        -- se non ci sono cambiamenti rimango nello stato precedente
+        --! se non ci sono cambiamenti rimango nello stato precedente
         buf_next    <= buf_reg;
         flag_next   <= flag_reg;
 

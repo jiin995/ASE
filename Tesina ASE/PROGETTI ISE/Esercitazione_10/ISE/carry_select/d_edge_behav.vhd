@@ -1,11 +1,11 @@
 ---------------------------------------------
--- D Flip-Flop (ESD book Chapter 2.3.1)
--- by Weijun Zhang, 04/2001
+--! D Flip-Flop (ESD book Chapter 2.3.1)
+--! by Weijun Zhang, 04/2001
 --
--- Flip-flop is the basic component in 
--- sequential logic design
--- we assign input signal to the output 
--- at the clock rising edge 
+--! Flip-flop is the basic component in 
+--! sequential logic design
+--! we assign input signal to the output 
+--! at the clock rising edge 
 ---------------------------------------------
 
 library ieee ;
@@ -29,7 +29,7 @@ begin
 
     process(D, clock)
     begin
-        -- clock rising edge
+        --! clock rising edge
 		if rising_edge(clock) then
 			Q <= D;
 		end if;

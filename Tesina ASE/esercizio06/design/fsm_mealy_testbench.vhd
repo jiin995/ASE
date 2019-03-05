@@ -1,4 +1,4 @@
--- TestBench Template 
+--! TestBench Template 
 
   LIBRARY ieee;
   USE ieee.std_logic_1164.ALL;
@@ -9,7 +9,7 @@
 
 ARCHITECTURE behavioural OF fsm_mealy_testbench IS 
 
-    -- Component Declaration for the Unit Under Test (UUT)
+    --! Component Declaration for the Unit Under Test (UUT)
  
     COMPONENT fsm_mealy
     PORT(
@@ -26,19 +26,19 @@ ARCHITECTURE behavioural OF fsm_mealy_testbench IS
  	--Outputs
 	signal value_out : BIT := '0';
 	
-	-- Clock period definitions
+	--! Clock period definitions
 	constant clock_period : time := 10 ns;
 	
 BEGIN
 
-	-- Instantiate the Unit Under Test (UUT)
+	--! Instantiate the Unit Under Test (UUT)
 	uut: fsm_mealy PORT MAP (
           clock => clock,
           x => value_in,
           y => value_out
         );
 	
-	-- Clock process definitions
+	--! Clock process definitions
 	clock_process :process
 	begin
 		clock <= '0';
@@ -47,10 +47,10 @@ BEGIN
 		wait for clock_period/2;
 	end process;
 	
-   -- Stimulus process
+   --! Stimulus process
    stim_proc: process
    begin		
-      -- hold reset state for 100 ns.
+      --! hold reset state for 100 ns.
 		wait for 100 ns;	
 
 		wait for clock_period*10;
@@ -75,7 +75,7 @@ BEGIN
 		
 		value_in <= '1';
 		wait for clock_period;
-      -- insert stimulus here 
+      --! insert stimulus here 
 
       wait;
    end process;	

@@ -2,8 +2,8 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
+--! Uncomment the following library declaration if using
+--! arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
 ENTITY non_restoring_divider_tb IS
@@ -12,7 +12,7 @@ END non_restoring_divider_tb;
  
 ARCHITECTURE behavior OF non_restoring_divider_tb IS 
  
-    -- Component Declaration for the Unit Under Test (UUT)
+    --! Component Declaration for the Unit Under Test (UUT)
  
     COMPONENT non_restoring_divider
 	generic ( n : integer := n);
@@ -43,7 +43,7 @@ ARCHITECTURE behavior OF non_restoring_divider_tb IS
 
 BEGIN
  
-	-- Instantiate the Unit Under Test (UUT)
+	--! Instantiate the Unit Under Test (UUT)
    uut: non_restoring_divider generic map (n)PORT MAP (
           X => X,
           Y => Y,
@@ -64,7 +64,7 @@ BEGIN
    end process;
  
 
-   -- Stimulus process
+   --! Stimulus process
    stim_proc: process
    begin		
       wait for 10 ns;	
@@ -76,7 +76,7 @@ BEGIN
 		wait for 20 ns;
 		start<='0';
 
-      -- insert stimulus here 
+      --! insert stimulus here 
 	wait for 1000 ns;
       wait;
    end process;

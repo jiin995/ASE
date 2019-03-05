@@ -1,13 +1,13 @@
 ---------------------------------------------------------------------------------------------------
--- 
--- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
--- 
+--! 
+--! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+--! 
 ---------------------------------------------------------------------------------------------------
--- project name : counter_UpMod2n_Re_Ar
+--! project name : counter_UpMod2n_Re_Ar
 --
--- unit name: counter_UpMod2n_Re_Ar.vhdl
---     
--- file description:
+--! unit name: counter_UpMod2n_Re_Ar.vhdl
+--!     
+--! file description:
 --! @file
 --! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
 --! @date       15/10/2018
@@ -18,11 +18,11 @@
 --! <b>Dependencies:</b>\n
 --!   Nothing
 --!
--- modified by: Gabriele Previtera
+--! modified by: Gabriele Previtera
 --
 ---------------------------------------------------------------------------------------------------
--- last changes: <11/11/2018> <15/10/2018> <log>
---                Aggiunta doc doxygen
+--! last changes: <11/11/2018> <15/10/2018> <log>
+--!                Aggiunta doc doxygen
 ---------------------------------------------------------------------------------------------------
 library IEEE;
     use IEEE.STD_LOGIC_1164.all;
@@ -45,7 +45,7 @@ entity counter_UpMod2n_Re_Ar is
 end entity;
 
 --================================================================================================
--- architecture declaration
+--! architecture declaration
 --================================================================================================
 architecture behavioral of counter_UpMod2n_Re_Ar is
 
@@ -54,7 +54,7 @@ signal count_hit_temp   : STD_LOGIC := '0';
 
 constant max_value : NATURAL :=((2**n)-1);
 --=============================================================================
--- architecture behavioral of counter_UpMod2n_Re_Ar begin
+--! architecture behavioral of counter_UpMod2n_Re_Ar begin
 --=============================================================================
 begin 
     COUNTS <= COUNTS_temp;
@@ -83,5 +83,5 @@ begin
 
 end behavioral;
 --=============================================================================
--- architecture behavioral of counter_UpMod2n_Re_Ar end
+--! architecture behavioral of counter_UpMod2n_Re_Ar end
 --=============================================================================

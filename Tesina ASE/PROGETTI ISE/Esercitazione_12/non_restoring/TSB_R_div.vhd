@@ -1,35 +1,35 @@
 --------------------------------------------------------------------------------
--- Company: 
--- Engineer:
+--! Company: 
+--! Engineer:
 --
--- Create Date:   14:47:55 01/31/2018
--- Design Name:   
--- Module Name:   C:/Documents and Settings/ASE_ise/R_division/TSB_R_div.vhd
--- Project Name:  R_division
--- Target Device:  
--- Tool versions:  
--- Description:   
--- 
--- VHDL Test Bench Created by ISE for module: R_Division
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
+--! Create Date:   14:47:55 01/31/2018
+--! Design Name:   
+--! Module Name:   C:/Documents and Settings/ASE_ise/R_division/TSB_R_div.vhd
+--! Project Name:  R_division
+--! Target Device:  
+--! Tool versions:  
+--! Description:   
+--! 
+--! VHDL Test Bench Created by ISE for module: R_Division
+--! 
+--! Dependencies:
+--! 
+--! Revision:
+--! Revision 0.01 - File Created
+--! Additional Comments:
 --
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
+--! Notes: 
+--! This testbench has been automatically generated using types std_logic and
+--! std_logic_vector for the ports of the unit under test.  Xilinx recommends
+--! that these types always be used for the top-level I/O of a design in order
+--! to guarantee that the testbench will bind correctly to the post-implementation 
+--! simulation model.
 --------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
+--! Uncomment the following library declaration if using
+--! arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
 ENTITY TSB_R_div IS
@@ -37,7 +37,7 @@ END TSB_R_div;
  
 ARCHITECTURE behavior OF TSB_R_div IS 
  
-    -- Component Declaration for the Unit Under Test (UUT)
+    --! Component Declaration for the Unit Under Test (UUT)
  
     COMPONENT R_Division
     PORT(
@@ -66,7 +66,7 @@ ARCHITECTURE behavior OF TSB_R_div IS
  
 BEGIN
  
-	-- Instantiate the Unit Under Test (UUT)
+	--! Instantiate the Unit Under Test (UUT)
    uut: R_Division PORT MAP (
           Dividend => Dividend,
           Divisor => Divisor,
@@ -77,7 +77,7 @@ BEGIN
           start => start
         );
 
-   -- Clock process definitions
+   --! Clock process definitions
    clock_process :process
    begin
 		clock <= '0';
@@ -87,7 +87,7 @@ BEGIN
    end process;
  
 
-   -- Stimulus process
+   --! Stimulus process
    stim_proc: process
    begin		
       wait for 10 ns;	
@@ -99,7 +99,7 @@ BEGIN
 		wait for 20 ns;
 		start<='0';
 
-      -- insert stimulus here 
+      --! insert stimulus here 
 	wait for 1000 ns;
       wait;
    end process;

@@ -1,13 +1,13 @@
 ---------------------------------------------------------------------------------------------------
--- 
--- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
--- 
+--! 
+--! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+--! 
 ---------------------------------------------------------------------------------------------------
--- project name : flipflop_d_risingEdge_asyncReset
+--! project name : flipflop_d_risingEdge_asyncReset
 --
--- unit name: flipflop_d_risingEdge_asyncReset.vhdl
---     
--- file description:
+--! unit name: flipflop_d_risingEdge_asyncReset.vhdl
+--!     
+--! file description:
 --! @file
 --! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
 --! @date       13/11/2018
@@ -18,11 +18,11 @@
 --! <b>Dependencies:</b>\n
 --!   Nothings
 --!
--- modified by: Gabriele Previtera
+--! modified by: Gabriele Previtera
 --
 ---------------------------------------------------------------------------------------------------
--- last changes: <14/11/2018> <13/11/2018> <log>
---              create
+--! last changes: <14/11/2018> <13/11/2018> <log>
+--!              create
 ---------------------------------------------------------------------------------------------------
 
 library IEEE;
@@ -49,32 +49,32 @@ entity flipflop_d_risingEdge_asyncReset is
 end flipflop_d_risingEdge_asyncReset;
 
 --================================================================================================
--- architecture declaration
+--! architecture declaration
 --================================================================================================
 
 architecture behavioural of flipflop_d_risingEdge_asyncReset is 
 
-signal q_temp   :   STD_LOGIC   :=init_value; -- segnale temporaneo d'appoggio per definire il valore dell'uscita
+signal q_temp   :   STD_LOGIC   :=init_value; --! segnale temporaneo d'appoggio per definire il valore dell'uscita
 
 --================================================================================================
--- architecture behavioural begin
+--! architecture behavioural begin
 --================================================================================================
 
 begin
 
-    -- assegno il segnale q_temp all'output q
+    --! assegno il segnale q_temp all'output q
     q   <=  q_temp;
 
-    -- esegui questo processo solo quando c'è un evento di clock o di reset (sensitivity list, reset asincrono)
+    --! esegui questo processo solo quando c'è un evento di clock o di reset (sensitivity list, reset asincrono)
     ff : process(clock, reset)
 
         begin   
 
-        -- reset dello stato del componente 
+        --! reset dello stato del componente 
             if ( reset = reset_level ) then 
                 q_temp <= init_value;
 
-            -- controlla il fronte di salita del clock e se il componente è abilitato: in tal caso assegna d a q_temp
+            --! controlla il fronte di salita del clock e se il componente è abilitato: in tal caso assegna d a q_temp
             elsif ( rising_edge(clock) and (enable = enable_level) ) then
                 q_temp <= d;
 
@@ -85,5 +85,5 @@ begin
 end behavioural;
 
 --================================================================================================
--- architecture behavioural end
+--! architecture behavioural end
 --================================================================================================

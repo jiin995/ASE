@@ -42,38 +42,38 @@ architecture structural of carry_look_ahead_adder is
 
     signal G        :   STD_LOGIC_VECTOR ((width-1) downto 0);    --Segnale per conservare le condizionoi di generazione
     signal P        :   STD_LOGIC_VECTOR ((width-1) downto 0);    --Segnale per conservare le condizioni di propagazione
-    signal C        :   STD_LOGIC_VECTOR ((width) downto 0) := (others => '0'); -- Segnale per conservare i carry calcolati dal carry_look_ahead
-    signal S_TEMP   :   STD_LOGIC_VECTOR  ((width-1) downto 0) := (others => '0'); -- Segnale di supporto per la somma
+    signal C        :   STD_LOGIC_VECTOR ((width) downto 0) := (others => '0'); --! Segnale per conservare i carry calcolati dal carry_look_ahead
+    signal S_TEMP   :   STD_LOGIC_VECTOR  ((width-1) downto 0) := (others => '0'); --! Segnale di supporto per la somma
     signal C_null   :   STD_LOGIC_VECTOR ((width-1) downto 0) := (others => '0'); --Segnale per collegare a niete le uscite del fulladder
 
 begin
 
     C(0) <= c_in;
-    c_out <= C(width); -- per rendere la struttura generica
+    c_out <= C(width); --! per rendere la struttura generica
 
     S <= S_TEMP;
 
-    -- Propagation/Generation calculator: rete che calcola le condizioni di propagazione e generazione
+    --! Propagation/Generation calculator: rete che calcola le condizioni di propagazione e generazione
     prop_gen_calculator: propagation_generation_calculator port map (   X => X,
                                                                         Y => Y,
                                                                         G => G,
                                                                         P => P
     );
 
-    -- Carry Look Ahead: rete che calcola i carry in ingresso agli stadi successivi con le condizioni di gen/prop
+    --! Carry Look Ahead: rete che calcola i carry in ingresso agli stadi successivi con le condizioni di gen/prop
     carry_look_ahead: for i in 0 to (width-1) generate
         carry_ahead : 
                     C(i+1) <= G(i) or (P(i) and C(i));
     end generate carry_look_ahead;
 
-    -- Full Adders: rete di full adder che fa la somma tra i valori x, y e i carry in ingresso
+    --! Full Adders: rete di full adder che fa la somma tra i valori x, y e i carry in ingresso
     full_adders: for i in 0 to (width-1) generate
         fullAdder : 
                     full_adder port map (   x => X(i),
                                             y => Y(i),
                                             c_in => C (i),
                                             s => S_TEMP(i),
-                                            c_out => open -- non è necessario, è già stato calcolato con il propagation/generation calculator
+                                            c_out => open --! non è necessario, è già stato calcolato con il propagation/generation calculator
 
                     );
     end generate full_adders;

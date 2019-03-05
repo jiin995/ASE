@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: UNIVERSITA' DEGLI STUDI DI NAPOLI FEDERICO SECONDO
--- Engineer: AIELLO MARCO MATR. 045/004437
--- 
--- Create Date:    18:57:07 01/06/2008 
--- Design Name: 
--- Module Name:    alu - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: UNIVERSITA' DEGLI STUDI DI NAPOLI FEDERICO SECONDO
+--! Engineer: AIELLO MARCO MATR. 045/004437
+--! 
+--! Create Date:    18:57:07 01/06/2008 
+--! Design Name: 
+--! Module Name:    alu - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE; 
@@ -48,9 +48,9 @@ end ALU;
 --begin
 --
 --	alu:process (A,B,INVA,ENA,ENB,F0,F1,INC)
---   variable o:std_logic_vector(31 downto 0):=x"00000000";
---   variable zvar:std_logic:='0';
---   variable nvar:std_logic:='0';
+--!   variable o:std_logic_vector(31 downto 0):=x"00000000";
+--!   variable zvar:std_logic:='0';
+--!   variable nvar:std_logic:='0';
 --	begin
 --		if (F0='0' and  F1='1' and ENA='1' and ENB='0' and INVA='0' and INC='0' )then
 --			o:= A ;
@@ -73,7 +73,7 @@ end ALU;
 --		elsif (F0='1' and  F1='1' and ENA='0' and ENB='1' and INVA='1' and INC='0' )then
 --			o:=  B - 1;		
 --		elsif (F0='1' and  F1='1' and ENA='1' and ENB='0' and INVA='1' and INC='1' )then
---			o:=  (not A) + 1;	-- -a = complemento ad 1 di a + 1	
+--			o:=  (not A) + 1;	--! -a = complemento ad 1 di a + 1	
 --		elsif (F0='0' and  F1='0' and ENA='1' and ENB='1' and INVA='0' and INC='0' )then
 --			o:=  A and B;
 --		elsif (F0='0' and  F1='1' and ENA='1' and ENB='1' and INVA='0' and INC='0' )then
@@ -83,7 +83,7 @@ end ALU;
 --		elsif (F0='1' and  F1='1' and ENA='0' and ENB='0' and INVA='0' and INC='1' )then
 --			o:=  "00000000000000000000000000000001";		
 --		elsif (F0='1' and  F1='1' and ENA='0' and ENB='0' and INVA='1' and INC='0' )then
---			o:=  "11111111111111111111111111111111";  --   -1
+--			o:=  "11111111111111111111111111111111";  --!   -1
 --		else
 --			o:= "00000000000000000000000000000000" ; --se configurazione illegale esce 0	
 --		end if;
@@ -134,23 +134,23 @@ signal meno_uno : std_logic_vector(31 downto 0);
 	
 begin
 
-   -- calcola in parallelo tutte le possibili operazioni
+   --! calcola in parallelo tutte le possibili operazioni
 	a_sig <= A; --passa  A
 	b_sig <= B; --passa  B
    not_a_sig <= not A ; --not A
    not_b_sig <= not B ; --not B
-	a_piu_b_sig <= A + B ; -- a + b
+	a_piu_b_sig <= A + B ; --! a + b
 	a_piu_b_piu_uno_sig <= A + B + 1; --a + b + 1
-	a_piu_uno <= A + 1;	-- a + 1
-	b_piu_uno <= B + 1;	-- b + 1
-	b_meno_a <= B - A;  -- b - a
-	b_meno_uno<= B - 1; -- b - 1
-	a_complemento_a_uno <= (not A) + 1;	-- -a = complemento ad 1 di a + 1
-	a_and_b <= A and B; -- a and b
-	a_or_b <= A or B; -- a or b
+	a_piu_uno <= A + 1;	--! a + 1
+	b_piu_uno <= B + 1;	--! b + 1
+	b_meno_a <= B - A;  --! b - a
+	b_meno_uno<= B - 1; --! b - 1
+	a_complemento_a_uno <= (not A) + 1;	--! -a = complemento ad 1 di a + 1
+	a_and_b <= A and B; --! a and b
+	a_or_b <= A or B; --! a or b
 	zero <= "00000000000000000000000000000000" ; --se configurazione illegale esce 0
-   	uno <= "00000000000000000000000000000001"; -- 1
-	meno_uno <= "11111111111111111111111111111111";  --   -1
+   	uno <= "00000000000000000000000000000001"; --! 1
+	meno_uno <= "11111111111111111111111111111111";  --!   -1
 
    --sceglie quale risultato dare in uscita in accordo con i bit di controllo 
    Output <= 	a_sig when (F0='0' and  F1='1' and ENA='1' and ENB='0' and INVA='0' and INC='0' ) else
@@ -171,10 +171,10 @@ begin
 					meno_uno  when (F0='1' and  F1='1' and ENA='0' and ENB='0' and INVA='1' and INC='0' ) else
 					zero;
 
-	-- calcola flag di segno
+	--! calcola flag di segno
 	N <= Output(31);
 
-	-- calcola flag di zero
+	--! calcola flag di zero
 	Z <= '1' when (Output=x"00000000") else '0';  --Z va ad 1 solo se output vale zero
 
 

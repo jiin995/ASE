@@ -1,35 +1,35 @@
 --------------------------------------------------------------------------------
--- Company: 
--- Engineer:
+--! Company: 
+--! Engineer:
 --
--- Create Date:   12:58:02 01/29/2018
--- Design Name:   
--- Module Name:   C:/Documents and Settings/OK/carry_save/carry_save_testbench.vhd
--- Project Name:  carry_save
--- Target Device:  
--- Tool versions:  
--- Description:   
--- 
--- VHDL Test Bench Created by ISE for module: carry_save
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
+--! Create Date:   12:58:02 01/29/2018
+--! Design Name:   
+--! Module Name:   C:/Documents and Settings/OK/carry_save/carry_save_testbench.vhd
+--! Project Name:  carry_save
+--! Target Device:  
+--! Tool versions:  
+--! Description:   
+--! 
+--! VHDL Test Bench Created by ISE for module: carry_save
+--! 
+--! Dependencies:
+--! 
+--! Revision:
+--! Revision 0.01 - File Created
+--! Additional Comments:
 --
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
+--! Notes: 
+--! This testbench has been automatically generated using types std_logic and
+--! std_logic_vector for the ports of the unit under test.  Xilinx recommends
+--! that these types always be used for the top-level I/O of a design in order
+--! to guarantee that the testbench will bind correctly to the post-implementation 
+--! simulation model.
 --------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
+--! Uncomment the following library declaration if using
+--! arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
 ENTITY carry_save_testbench IS
@@ -37,7 +37,7 @@ END carry_save_testbench;
  
 ARCHITECTURE behavior OF carry_save_testbench IS 
  
-    -- Component Declaration for the Unit Under Test (UUT)
+    --! Component Declaration for the Unit Under Test (UUT)
  
     COMPONENT carry_save
     PORT(
@@ -59,7 +59,7 @@ ARCHITECTURE behavior OF carry_save_testbench IS
  
 BEGIN
  
-	-- Instantiate the Unit Under Test (UUT)
+	--! Instantiate the Unit Under Test (UUT)
    uut: carry_save PORT MAP (
           X => X,
           Y => Y,
@@ -67,10 +67,10 @@ BEGIN
           S => S
         );
 
-   -- Stimulus process
+   --! Stimulus process
    stim_proc: process
    begin		
-      -- hold reset state for 100 ns.
+      --! hold reset state for 100 ns.
       wait for 100 ns;	
 		
 		X <= x"4";
@@ -92,7 +92,7 @@ BEGIN
 		Z <= x"7";
 		X <= x"8";
 
-      -- insert stimulus here 
+      --! insert stimulus here 
 
       wait;
    end process;

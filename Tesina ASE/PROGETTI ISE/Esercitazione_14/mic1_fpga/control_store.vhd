@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: UNIVERSITA' DEGLI STUDI DI NAPOLI FEDERICO SECONDO
--- Engineer: AIELLO MARCO MATR. 045/004437
--- 
--- Create Date:    15:15:18 01/08/2008 
--- Design Name: 
--- Module Name:    control_store - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: UNIVERSITA' DEGLI STUDI DI NAPOLI FEDERICO SECONDO
+--! Engineer: AIELLO MARCO MATR. 045/004437
+--! 
+--! Create Date:    15:15:18 01/08/2008 
+--! Design Name: 
+--! Module Name:    control_store - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;
@@ -333,7 +333,7 @@ constant microistruzione_tutti_zeri : microinstruction := (
 --nop1
 constant microistruzione_nop1 : microinstruction := (
 	next_address =>main1,  	--goto Main1	(NOP consente l'acquisizione del nuovo codice operativo in MBR
-							-- lanciato con il fetch di main1 predentemente
+							--! lanciato con il fetch di main1 predentemente
 	jmpc =>'0',
 	jamn =>'0',
 	jamz =>'0',
@@ -368,7 +368,7 @@ constant microistruzione_nop1 : microinstruction := (
 --main1
 constant microistruzione_main1 : microinstruction := (
 	next_address =>nop1,  --goto Main1
-	jmpc =>'1',-- goto (MBR)
+	jmpc =>'1',--! goto (MBR)
 	jamn =>'0',
 	jamz =>'0',
 
@@ -387,7 +387,7 @@ constant microistruzione_main1 : microinstruction := (
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
-	pc =>'1',-- abilita PC sul B-bus e fa perciò PC=PC+1
+	pc =>'1',--! abilita PC sul B-bus e fa perciò PC=PC+1
 	mdr =>'0',
 	mar =>'0',
 
@@ -448,7 +448,7 @@ constant microistruzione_goto2 : microinstruction := (
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
-	pc =>'1',-- abilita PC sull'A-bus e fa perci� PC=PC+1
+	pc =>'1',--! abilita PC sull'A-bus e fa perci� PC=PC+1
 	mdr =>'0',
 	mar =>'0',
 	wwrite =>'0',
@@ -537,7 +537,7 @@ constant microistruzione_goto5 : microinstruction := (
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
-	pc =>'1',-- abilita PC sull'A-bus e fa perci� PC=OPC+H
+	pc =>'1',--! abilita PC sull'A-bus e fa perci� PC=OPC+H
 	mdr =>'0',
 	mar =>'0',
 	wwrite =>'0',
@@ -598,10 +598,10 @@ constant microistruzione_bipush1 : microinstruction := (
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
-	sp =>'1',-- abilita SP sull'A-bus e fa perci� SP=SP+1
+	sp =>'1',--! abilita SP sull'A-bus e fa perci� SP=SP+1
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=SP=SP+1
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=SP=SP+1
 
 	wwrite =>'0',
 	rread =>'0',
@@ -630,7 +630,7 @@ constant microistruzione_bipush2 : microinstruction := (
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
-	pc =>'1',-- abilita PC sull'A-bus e fa perci� PC=PC+1
+	pc =>'1',--! abilita PC sull'A-bus e fa perci� PC=PC+1
 	mdr =>'0',
 	mar =>'0',
 	wwrite =>'0',
@@ -687,10 +687,10 @@ constant microistruzione_iadd1 : microinstruction := (
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
-	sp =>'1',-- abilita SP sull'A-bus e fa perci� SP=SP-1
+	sp =>'1',--! abilita SP sull'A-bus e fa perci� SP=SP-1
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
 	wwrite =>'0',
 	rread =>'1',  --read
 	fetch =>'0',
@@ -711,7 +711,7 @@ constant microistruzione_iadd2 : microinstruction := (
 	enb =>'1',
 	inva =>'0',
 	inc =>'0',
-	h =>'1',-- abilita H sull'A-bus e fa perci� H=TOS
+	h =>'1',--! abilita H sull'A-bus e fa perci� H=TOS
 	opc =>'0',
 	tos =>'0',
 	cpp =>'0',
@@ -775,10 +775,10 @@ constant microistruzione_isub1 : microinstruction := (
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
-	sp =>'1',-- abilita SP sull'A-bus e fa perci� SP=SP-1
+	sp =>'1',--! abilita SP sull'A-bus e fa perci� SP=SP-1
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
 	wwrite =>'0',
 	rread =>'1',  --read
 	fetch =>'0',
@@ -799,7 +799,7 @@ constant microistruzione_isub2 : microinstruction := (
 	enb =>'1',
 	inva =>'0',
 	inc =>'0',
-	h =>'1',-- abilita H sull'A-bus e fa perci� H=TOS
+	h =>'1',--! abilita H sull'A-bus e fa perci� H=TOS
 	opc =>'0',
 	tos =>'0',
 	cpp =>'0',
@@ -862,10 +862,10 @@ constant microistruzione_iand1 : microinstruction := (
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
-	sp =>'1',-- abilita SP sull'A-bus e fa perci� SP=SP-1
+	sp =>'1',--! abilita SP sull'A-bus e fa perci� SP=SP-1
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
 	wwrite =>'0',
 	rread =>'1',  --read
 	fetch =>'0',
@@ -886,7 +886,7 @@ constant microistruzione_iand2 : microinstruction := (
 	enb =>'1',
 	inva =>'0',
 	inc =>'0',
-	h =>'1',-- abilita H sull'A-bus e fa perci� H=TOS
+	h =>'1',--! abilita H sull'A-bus e fa perci� H=TOS
 	opc =>'0',
 	tos =>'0',
 	cpp =>'0',
@@ -949,10 +949,10 @@ constant microistruzione_ior1 : microinstruction := (
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
-	sp =>'1',-- abilita SP sull'A-bus e fa perci� SP=SP-1
+	sp =>'1',--! abilita SP sull'A-bus e fa perci� SP=SP-1
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
 	wwrite =>'0',
 	rread =>'1',  --read
 	fetch =>'0',
@@ -973,7 +973,7 @@ constant microistruzione_ior2 : microinstruction := (
 	enb =>'1',
 	inva =>'0',
 	inc =>'0',
-	h =>'1',-- abilita H sull'A-bus e fa perci� H=TOS
+	h =>'1',--! abilita H sull'A-bus e fa perci� H=TOS
 	opc =>'0',
 	tos =>'0',
 	cpp =>'0',
@@ -1036,10 +1036,10 @@ constant microistruzione_dup1 : microinstruction := (
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
-	sp =>'1',-- abilita SP sull'A-bus e fa perci� SP=SP+1
+	sp =>'1',--! abilita SP sull'A-bus e fa perci� SP=SP+1
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=SP=SP+1
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=SP=SP+1
 	wwrite =>'0',
 	rread =>'0',
 	fetch =>'0',
@@ -1094,10 +1094,10 @@ constant microistruzione_pop1 : microinstruction := (
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
-	sp =>'1',-- abilita SP sull'A-bus e fa perci� SP=SP-1
+	sp =>'1',--! abilita SP sull'A-bus e fa perci� SP=SP-1
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
 	wwrite =>'0',
 	rread =>'1',  --read
 	fetch =>'0',
@@ -1184,7 +1184,7 @@ constant microistruzione_swap1 : microinstruction := (
 	sp =>'0',
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=SP-1
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=SP-1
 	wwrite =>'0',
 	rread =>'1',  --read
 	fetch =>'0',
@@ -1214,7 +1214,7 @@ constant microistruzione_swap2 : microinstruction := (
 	sp =>'0',
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=SP
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=SP
 	wwrite =>'0',
 	rread =>'0',
 	fetch =>'0',
@@ -1236,7 +1236,7 @@ constant microistruzione_swap3 : microinstruction := (
 	enb =>'1',
 	inva =>'0',
 	inc =>'0',
-	h =>'1',-- abilita H sull'A-bus e fa perci� H=MDR
+	h =>'1',--! abilita H sull'A-bus e fa perci� H=MDR
 	opc =>'0',
 	tos =>'0',
 	cpp =>'0',
@@ -1273,7 +1273,7 @@ constant microistruzione_swap4 : microinstruction := (
 	sp =>'0',
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=SP-1
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=SP-1
 --	wwrite =>'1', --write
 	wwrite =>'0',
 	rread =>'0',  
@@ -1303,7 +1303,7 @@ constant microistruzione_swap5 : microinstruction := (
 	lv =>'0',
 	sp =>'0',
 	pc =>'0',
-	mdr =>'1',-- abilita MDR sull'A-bus e fa perci� MDR=TOS
+	mdr =>'1',--! abilita MDR sull'A-bus e fa perci� MDR=TOS
 	mar =>'0',
 --	wwrite =>'0',
 	wwrite =>'1',
@@ -1356,7 +1356,7 @@ constant microistruzione_istore1 : microinstruction := (
 	enb =>'1',
 	inva =>'0',
 	inc =>'0',
-	h =>'1',-- abilita H sull'A-bus e fa perci� H=LV
+	h =>'1',--! abilita H sull'A-bus e fa perci� H=LV
 	opc =>'0',
 	tos =>'0',
 	cpp =>'0',
@@ -1394,7 +1394,7 @@ constant microistruzione_istore2 : microinstruction := (
 	sp =>'0',
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=MBRU+H
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=MBRU+H
 	wwrite =>'0',
 	rread =>'0',
 	fetch =>'0',
@@ -1422,7 +1422,7 @@ constant microistruzione_istore3 : microinstruction := (
 	lv =>'0',
 	sp =>'0',
 	pc =>'0',
-	mdr =>'1',-- abilita MDR sull'A-bus e fa perci� MDR=TOS
+	mdr =>'1',--! abilita MDR sull'A-bus e fa perci� MDR=TOS
 	mar =>'0',
 	wwrite =>'1',  --write
 	rread =>'0',
@@ -1449,10 +1449,10 @@ constant microistruzione_istore4 : microinstruction := (
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
-	sp =>'1',-- abilita SP sull'A-bus e fa perci� SP=SP-1
+	sp =>'1',--! abilita SP sull'A-bus e fa perci� SP=SP-1
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
 	wwrite =>'0',
 	rread =>'1',  --read
 	fetch =>'0',
@@ -1479,7 +1479,7 @@ constant microistruzione_istore5 : microinstruction := (
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
-	pc =>'1',-- abilita PC sull'A-bus e fa perci� PC=PC+1
+	pc =>'1',--! abilita PC sull'A-bus e fa perci� PC=PC+1
 	mdr =>'0',
 	mar =>'0',
 	wwrite =>'0',
@@ -1531,7 +1531,7 @@ constant microistruzione_iload1 : microinstruction := (
 	enb =>'1',
 	inva =>'0',
 	inc =>'0',
-	h =>'1',-- abilita H sull'A-bus e fa perci� H=LV
+	h =>'1',--! abilita H sull'A-bus e fa perci� H=LV
 	opc =>'0',
 	tos =>'0',
 	cpp =>'0',
@@ -1569,7 +1569,7 @@ constant microistruzione_iload2 : microinstruction := (
 	sp =>'0',
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=MBRU+H
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=MBRU+H
 	wwrite =>'0',
 	rread =>'1',--read
 --	rread =>'0',
@@ -1596,10 +1596,10 @@ constant microistruzione_iload3 : microinstruction := (
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
-	sp =>'1',-- abilita SP sull'A-bus e fa perci� SP=SP+1
+	sp =>'1',--! abilita SP sull'A-bus e fa perci� SP=SP+1
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=SP=SP+1
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=SP=SP+1
 	wwrite =>'0',
 	rread =>'0',
 	fetch =>'0',
@@ -1626,7 +1626,7 @@ constant microistruzione_iload4 : microinstruction := (
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
-	pc =>'1',-- abilita PC sull'A-bus e fa perci� PC=PC+1
+	pc =>'1',--! abilita PC sull'A-bus e fa perci� PC=PC+1
 	mdr =>'0',
 	mar =>'0',
 	wwrite =>'1',
@@ -1678,7 +1678,7 @@ constant microistruzione_iinc1 : microinstruction := (
 	enb =>'1',
 	inva =>'0',
 	inc =>'0',
-	h =>'1',-- abilita H sull'A-bus e fa perci� H=LV
+	h =>'1',--! abilita H sull'A-bus e fa perci� H=LV
 	opc =>'0',
 	tos =>'0',
 	cpp =>'0',
@@ -1716,7 +1716,7 @@ constant microistruzione_iinc2 : microinstruction := (
 	sp =>'0',
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=MBRU+H
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=MBRU+H
 	wwrite =>'0',
 	rread =>'1',--read
 --	rread =>'0',
@@ -1744,7 +1744,7 @@ constant microistruzione_iinc3 : microinstruction := (
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
-	pc =>'1',-- abilita PC sull'A-bus e fa perci� PC=PC+1
+	pc =>'1',--! abilita PC sull'A-bus e fa perci� PC=PC+1
 	mdr =>'0',
 	mar =>'0',
 	wwrite =>'0',
@@ -1767,7 +1767,7 @@ constant microistruzione_iinc4 : microinstruction := (
 	enb =>'1',
 	inva =>'0',
 	inc =>'0',
-	h =>'1',-- abilita H sull'A-bus e fa perci� H=MDR
+	h =>'1',--! abilita H sull'A-bus e fa perci� H=MDR
 	opc =>'0',
 	tos =>'0',
 	cpp =>'0',
@@ -1803,7 +1803,7 @@ constant microistruzione_iinc5 : microinstruction := (
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
-	pc =>'1',-- abilita PC sull'A-bus e fa perci� PC=PC+1
+	pc =>'1',--! abilita PC sull'A-bus e fa perci� PC=PC+1
 	mdr =>'0',
 	mar =>'0',
 	wwrite =>'0',
@@ -1861,7 +1861,7 @@ constant microistruzione_ldc_w1 : microinstruction := (
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
-	pc =>'1',-- abilita PC sull'A-bus e fa perci� PC=PC+1
+	pc =>'1',--! abilita PC sull'A-bus e fa perci� PC=PC+1
 	mdr =>'0',
 	mar =>'0',
 	wwrite =>'0',
@@ -1922,7 +1922,7 @@ constant microistruzione_ldc_w2 : microinstruction := (
 --	sp =>'0',
 --	pc =>'0',
 --	mdr =>'0',
---	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=CPP+H,
+--	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=CPP+H,
 --	wwrite =>'0',
 --	rread =>'0',
 --	fetch =>'0',
@@ -2010,7 +2010,7 @@ constant microistruzione_ldc_w4 : microinstruction := (
 	sp =>'0',
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=CPP+H
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=CPP+H
 	wwrite =>'0',
 	rread =>'1',--read
 	fetch =>'0',
@@ -2067,7 +2067,7 @@ constant microistruzione_wide2 : microinstruction := (
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
-	pc =>'1',-- abilita PC sull'A-bus e fa perci� PC=PC+1
+	pc =>'1',--! abilita PC sull'A-bus e fa perci� PC=PC+1
 	mdr =>'0',
 	mar =>'0',
 	wwrite =>'0',
@@ -2079,7 +2079,7 @@ constant microistruzione_wide2 : microinstruction := (
 --wide3
 constant microistruzione_wide3 : microinstruction := (
 	next_address =>cento,  --aggiunta per
-	jmpc =>'1',-- goto (MBR OR 0x100)
+	jmpc =>'1',--! goto (MBR OR 0x100)
 	jamn =>'0',
 	jamz =>'0',
 	sll8 =>'0',
@@ -2125,7 +2125,7 @@ constant microistruzione_wideiload1 : microinstruction := (
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
-	pc =>'1',-- abilita PC sull'A-bus e fa perci� PC=PC+1
+	pc =>'1',--! abilita PC sull'A-bus e fa perci� PC=PC+1
 	mdr =>'0',
 	mar =>'0',
 	wwrite =>'0',
@@ -2214,7 +2214,7 @@ constant microistruzione_wideiload4 : microinstruction := (
 	sp =>'0',
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=CPP+H
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=CPP+H
 	wwrite =>'0',
 	rread =>'1',--read
 	fetch =>'0',
@@ -2248,7 +2248,7 @@ constant microistruzione_wideistore1 : microinstruction := (
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
-	pc =>'1',-- abilita PC sull'A-bus e fa perci� PC=PC+1
+	pc =>'1',--! abilita PC sull'A-bus e fa perci� PC=PC+1
 	mdr =>'0',
 	mar =>'0',
 	wwrite =>'0',
@@ -2337,7 +2337,7 @@ constant microistruzione_wideistore4 : microinstruction := (
 	sp =>'0',
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=CPP+H
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=CPP+H
 	wwrite =>'0',
 	rread =>'1',--read
 	fetch =>'0',
@@ -2363,10 +2363,10 @@ constant microistruzione_iflt1 : microinstruction := (
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
-	sp =>'1',-- abilita SP sull'A-bus e fa perci� SP=SP-1
+	sp =>'1',--! abilita SP sull'A-bus e fa perci� SP=SP-1
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
 	wwrite =>'0',
 	rread =>'1',  --read
 	fetch =>'0',
@@ -2388,7 +2388,7 @@ constant microistruzione_iflt2 : microinstruction := (
 	inva =>'0',
 	inc =>'0',
 	h =>'0',
-	opc =>'1',-- abilita OPC sull'A-bus e fa perci� OPC=TOS
+	opc =>'1',--! abilita OPC sull'A-bus e fa perci� OPC=TOS
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
@@ -2418,7 +2418,7 @@ constant microistruzione_iflt3 : microinstruction := (
 	inc =>'0',
 	h =>'0',
 	opc =>'0',
-	tos =>'1',-- abilita OPC sull'A-bus e fa perci� TOS=MDR
+	tos =>'1',--! abilita OPC sull'A-bus e fa perci� TOS=MDR
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
@@ -2510,7 +2510,7 @@ constant microistruzione_f : microinstruction := (
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
-	pc =>'1',-- abilita PC sull'A-bus e fa perci� PC=PC+1
+	pc =>'1',--! abilita PC sull'A-bus e fa perci� PC=PC+1
 	mdr =>'0',
 	mar =>'0',
 	wwrite =>'0',
@@ -2539,7 +2539,7 @@ constant microistruzione_f2 : microinstruction := (
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
-	pc =>'1',-- abilita PC sull'A-bus e fa perci� PC=PC+1
+	pc =>'1',--! abilita PC sull'A-bus e fa perci� PC=PC+1
 	mdr =>'0',
 	mar =>'0',
 	wwrite =>'0',
@@ -2596,10 +2596,10 @@ constant microistruzione_ifeq1 : microinstruction := (
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
-	sp =>'1',-- abilita SP sull'A-bus e fa perci� SP=SP-1
+	sp =>'1',--! abilita SP sull'A-bus e fa perci� SP=SP-1
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
 	wwrite =>'0',
 	rread =>'1',  --read
 	fetch =>'0',
@@ -2621,7 +2621,7 @@ constant microistruzione_ifeq2 : microinstruction := (
 	inva =>'0',
 	inc =>'0',
 	h =>'0',
-	opc =>'1',-- abilita OPC sull'A-bus e fa perci� OPC=TOS
+	opc =>'1',--! abilita OPC sull'A-bus e fa perci� OPC=TOS
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
@@ -2651,7 +2651,7 @@ constant microistruzione_ifeq3 : microinstruction := (
 	inc =>'0',
 	h =>'0',
 	opc =>'0',
-	tos =>'1',-- abilita OPC sull'A-bus e fa perci� TOS=MDR
+	tos =>'1',--! abilita OPC sull'A-bus e fa perci� TOS=MDR
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
@@ -2712,10 +2712,10 @@ constant microistruzione_if_icmpeq1 : microinstruction := (
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
-	sp =>'1',-- abilita SP sull'A-bus e fa perci� SP=SP-1
+	sp =>'1',--! abilita SP sull'A-bus e fa perci� SP=SP-1
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
 	wwrite =>'0',
 	rread =>'1',  --read
 	fetch =>'0',
@@ -2741,10 +2741,10 @@ constant microistruzione_if_icmpeq2 : microinstruction := (
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
-	sp =>'1',-- abilita SP sull'A-bus e fa perci� SP=SP-1
+	sp =>'1',--! abilita SP sull'A-bus e fa perci� SP=SP-1
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
 	wwrite =>'0',
 	rread =>'0', 
 	fetch =>'0',
@@ -2765,7 +2765,7 @@ constant microistruzione_if_icmpeq3 : microinstruction := (
 	enb =>'1',
 	inva =>'0',
 	inc =>'0',
-	h =>'1',-- abilita H sull'A-bus e fa perci� H=MDR
+	h =>'1',--! abilita H sull'A-bus e fa perci� H=MDR
 	opc =>'0',
 	tos =>'0',
 	cpp =>'0',
@@ -2797,7 +2797,7 @@ constant microistruzione_if_icmpeq4 : microinstruction := (
 	inva =>'0',
 	inc =>'0',
 	h =>'0',
-	opc =>'1',-- abilita OPC sull'A-bus e fa perci� OPC=TOS
+	opc =>'1',--! abilita OPC sull'A-bus e fa perci� OPC=TOS
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
@@ -2827,7 +2827,7 @@ constant microistruzione_if_icmpeq5 : microinstruction := (
 	inc =>'0',
 	h =>'0',
 	opc =>'0',
-	tos =>'1',-- abilita OPC sull'A-bus e fa perci� TOS=MDR
+	tos =>'1',--! abilita OPC sull'A-bus e fa perci� TOS=MDR
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
@@ -2922,7 +2922,7 @@ constant microistruzione_invokevirtual1bis : microinstruction := (
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
-	pc =>'1',-- abilita PC sull'A-bus e fa perci� PC=PC+1
+	pc =>'1',--! abilita PC sull'A-bus e fa perci� PC=PC+1
 	mdr =>'0',
 	mar =>'0',
 	wwrite =>'0',
@@ -3012,7 +3012,7 @@ constant microistruzione_invokevirtual4 : microinstruction := (
 	sp =>'0',
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=CPP+H
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=CPP+H
 	wwrite =>'0',
 	rread =>'1',--read
 	fetch =>'0',
@@ -3034,7 +3034,7 @@ constant microistruzione_invokevirtual5 : microinstruction := (
 	inva =>'0',
 	inc =>'1',
 	h =>'0',
-	opc =>'1',-- abilita OPC sull'A-bus e fa perci� OPC=PC+1
+	opc =>'1',--! abilita OPC sull'A-bus e fa perci� OPC=PC+1
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
@@ -3068,7 +3068,7 @@ constant microistruzione_invokevirtual6 : microinstruction := (
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
-	pc =>'1',-- abilita PC sull'A-bus e fa perci� PC=MDR
+	pc =>'1',--! abilita PC sull'A-bus e fa perci� PC=MDR
 	mdr =>'0',
 	mar =>'0',
 	wwrite =>'0',  
@@ -3127,7 +3127,7 @@ constant microistruzione_invokevirtual7 : microinstruction := (
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
-	pc =>'1',-- abilita PC sull'A-bus e fa perci� PC=PC+1
+	pc =>'1',--! abilita PC sull'A-bus e fa perci� PC=PC+1
 	mdr =>'0',
 	mar =>'0',
 	wwrite =>'0',
@@ -3214,7 +3214,7 @@ constant microistruzione_invokevirtual10 : microinstruction := (
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
-	pc =>'1',-- abilita PC sull'A-bus e fa perci� PC=PC+1
+	pc =>'1',--! abilita PC sull'A-bus e fa perci� PC=PC+1
 	mdr =>'0',
 	mar =>'0',
 	wwrite =>'0',
@@ -3239,7 +3239,7 @@ constant microistruzione_invokevirtual11 : microinstruction := (
 	inc =>'1',
 	h =>'0',
 	opc =>'0',
-	tos =>'1',-- abilita TOS sull'A-bus e fa perci� TOS=SP-H
+	tos =>'1',--! abilita TOS sull'A-bus e fa perci� TOS=SP-H
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
@@ -3268,13 +3268,13 @@ constant microistruzione_invokevirtual12 : microinstruction := (
 	inc =>'1',
 	h =>'0',
 	opc =>'0',
-	tos =>'1',-- abilita TOS sull'A-bus e fa perci� TOS=MAR=TOS+1
+	tos =>'1',--! abilita TOS sull'A-bus e fa perci� TOS=MAR=TOS+1
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� TOS=MAR=TOS+1
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� TOS=MAR=TOS+1
 	wwrite =>'0',
 	rread =>'0',
 	fetch =>'0',  
@@ -3301,7 +3301,7 @@ constant microistruzione_invokevirtual13 : microinstruction := (
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
-	pc =>'1',-- abilita PC sull'A-bus e fa perci� PC=PC+1
+	pc =>'1',--! abilita PC sull'A-bus e fa perci� PC=PC+1
 	mdr =>'0',
 	mar =>'0',
 	wwrite =>'0',
@@ -3389,7 +3389,7 @@ constant microistruzione_invokevirtual16 : microinstruction := (
 	lv =>'0',
 	sp =>'0',
 	pc =>'0',
-	mdr =>'1',-- abilita SP sull'A-bus e fa perci� MDR=SP+H+1
+	mdr =>'1',--! abilita SP sull'A-bus e fa perci� MDR=SP+H+1
 	mar =>'0',
 	wwrite =>'1', --write
 	rread =>'0',
@@ -3416,10 +3416,10 @@ constant microistruzione_invokevirtual17 : microinstruction := (
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
-	sp =>'1',-- abilita MDR sull'A-bus e fa perci� MAR=SP=MDR
+	sp =>'1',--! abilita MDR sull'A-bus e fa perci� MAR=SP=MDR
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MDR sull'A-bus e fa perci� MAR=SP=MDR
+	mar =>'1',--! abilita MDR sull'A-bus e fa perci� MAR=SP=MDR
 	wwrite =>'0',
 	rread =>'0',
 	fetch =>'0',
@@ -3474,10 +3474,10 @@ constant microistruzione_invokevirtual19 : microinstruction := (
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
-	sp =>'1',-- abilita SP sull'A-bus e fa perci� SP=SP+1
+	sp =>'1',--! abilita SP sull'A-bus e fa perci� SP=SP+1
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=SP=SP+1
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=SP=SP+1
 	wwrite =>'0',
 	rread =>'0',
 	fetch =>'0',
@@ -3505,7 +3505,7 @@ constant microistruzione_invokevirtual20 : microinstruction := (
 	lv =>'0',
 	sp =>'0',
 	pc =>'0',
-	mdr =>'1',-- abilita MDR sull'A-bus e fa perci� MDR=LV
+	mdr =>'1',--! abilita MDR sull'A-bus e fa perci� MDR=LV
 	mar =>'0',
 	wwrite =>'1',  --write
 	rread =>'0',
@@ -3533,7 +3533,7 @@ constant microistruzione_invokevirtual21 : microinstruction := (
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
-	pc =>'1',-- abilita PC sull'A-bus e fa perci� PC=PC+1
+	pc =>'1',--! abilita PC sull'A-bus e fa perci� PC=PC+1
 	mdr =>'0',
 	mar =>'0',
 	wwrite =>'0',
@@ -3590,10 +3590,10 @@ constant microistruzione_ireturn1 : microinstruction := (
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
-	sp =>'1',-- abilita SP sull'A-bus e fa perci� MAR=SP=LV
+	sp =>'1',--! abilita SP sull'A-bus e fa perci� MAR=SP=LV
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=SP=LV
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=SP=LV
 	wwrite =>'0', 
 	rread =>'1',  --read
 	fetch =>'0',
@@ -3647,11 +3647,11 @@ constant microistruzione_ireturn3 : microinstruction := (
 	opc =>'0',
 	tos =>'0',
 	cpp =>'0',
-	lv =>'1',-- abilita SP sull'A-bus e fa perci� MAR=LV=MDR
+	lv =>'1',--! abilita SP sull'A-bus e fa perci� MAR=LV=MDR
 	sp =>'0',
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=LV=MDR
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=LV=MDR
 	wwrite =>'0', 
 	rread =>'1',  --read
 	fetch =>'0',
@@ -3680,7 +3680,7 @@ constant microistruzione_ireturn4 : microinstruction := (
 	sp =>'0',
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=LV+1
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=LV+1
 	wwrite =>'0',
 	rread =>'0',
 	fetch =>'0',
@@ -3707,7 +3707,7 @@ constant microistruzione_ireturn5 : microinstruction := (
 	cpp =>'0',
 	lv =>'0',
 	sp =>'0',
-	pc =>'1',-- abilita PC sull'A-bus e fa perci� PC=MDR
+	pc =>'1',--! abilita PC sull'A-bus e fa perci� PC=MDR
 	mdr =>'0',
 	mar =>'0',
 	wwrite =>'0',  
@@ -3738,7 +3738,7 @@ constant microistruzione_ireturn6 : microinstruction := (
 	sp =>'0',
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=SP
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=SP
 	wwrite =>'0',  
 	rread =>'0',
 	fetch =>'0',
@@ -3851,7 +3851,7 @@ constant microistruzione_out2: microinstruction := (
 	inva =>'0',
 	inc =>'0',
 	h =>'0',
-	opc =>'1',-- abilita OPC sull'A-bus e fa perciò OPC=OPC+H
+	opc =>'1',--! abilita OPC sull'A-bus e fa perciò OPC=OPC+H
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
@@ -3887,7 +3887,7 @@ constant microistruzione_out3 : microinstruction := (
 	sp =>'0',
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita OPC sull'A-bus e fa perciò MAR=OPC+H
+	mar =>'1',--! abilita OPC sull'A-bus e fa perciò MAR=OPC+H
 	wwrite =>'0',
 	rread =>'0',
 	fetch =>'0',
@@ -3972,10 +3972,10 @@ constant microistruzione_out6 : microinstruction := (
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
-	sp =>'1',-- abilita SP sull'A-bus e fa perci� SP=SP-1
+	sp =>'1',--! abilita SP sull'A-bus e fa perci� SP=SP-1
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
+	mar =>'1',--! abilita MAR sull'A-bus e fa perci� MAR=SP=SP-1
 	wwrite =>'0',  --write
 	rread =>'1',  --read
 	fetch =>'0',
@@ -4026,7 +4026,7 @@ constant microistruzione_out8 : microinstruction := (
 	inva =>'0',
 	inc =>'0',
 	h =>'0',
-	opc =>'1',-- abilita OPC sull'A-bus e fa perci� OPC=CPP
+	opc =>'1',--! abilita OPC sull'A-bus e fa perci� OPC=CPP
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
@@ -4055,7 +4055,7 @@ constant microistruzione_out9 : microinstruction := (
 	inva =>'1',
 	inc =>'0',
 	h =>'0',
-	opc =>'1',-- abilita OPC sull'A-bus e fa perci� OPC=OPC-1
+	opc =>'1',--! abilita OPC sull'A-bus e fa perci� OPC=OPC-1
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
@@ -4148,7 +4148,7 @@ constant microistruzione_in2 : microinstruction := (
 	inc =>'0',
 	
 	h =>'0',
-	opc =>'1',-- abilita OPC sull'A-bus e fa perci� OPC=OPC+H
+	opc =>'1',--! abilita OPC sull'A-bus e fa perci� OPC=OPC+H
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
@@ -4184,7 +4184,7 @@ constant microistruzione_in3 : microinstruction := (
 	sp =>'0',
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita OPC sull'A-bus e fa perciò MAR=OPC+H
+	mar =>'1',--! abilita OPC sull'A-bus e fa perciò MAR=OPC+H
 	wwrite =>'0',
 	rread =>'1',  --read
 	fetch =>'0',
@@ -4210,10 +4210,10 @@ constant microistruzione_in4 : microinstruction := (
 	tos =>'0',
 	cpp =>'0',
 	lv =>'0',
-	sp =>'1',-- abilita SP sull'A-bus e fa perciò SP=SP+1
+	sp =>'1',--! abilita SP sull'A-bus e fa perciò SP=SP+1
 	pc =>'0',
 	mdr =>'0',
-	mar =>'1',-- abilita MAR sull'A-bus e fa perciò MAR=SP=SP+1
+	mar =>'1',--! abilita MAR sull'A-bus e fa perciò MAR=SP=SP+1
 	wwrite =>'0',
 	rread =>'0',
 	fetch =>'0',
@@ -4262,8 +4262,8 @@ use work.costanti.all;
 
 
 
----- Uncomment the following library declaration if instantiating
----- any Xilinx primitives in this code.
+----! Uncomment the following library declaration if instantiating
+----! any Xilinx primitives in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
 

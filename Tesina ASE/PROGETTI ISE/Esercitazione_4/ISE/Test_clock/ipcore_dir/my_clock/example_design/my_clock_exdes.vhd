@@ -1,57 +1,57 @@
--- file: my_clock_exdes.vhd
--- 
--- (c) Copyright 2008 - 2011 Xilinx, Inc. All rights reserved.
--- 
--- This file contains confidential and proprietary information
--- of Xilinx, Inc. and is protected under U.S. and
--- international copyright and other intellectual property
--- laws.
--- 
--- DISCLAIMER
--- This disclaimer is not a license and does not grant any
--- rights to the materials distributed herewith. Except as
--- otherwise provided in a valid license issued to you by
--- Xilinx, and to the maximum extent permitted by applicable
--- law: (1) THESE MATERIALS ARE MADE AVAILABLE "AS IS" AND
--- WITH ALL FAULTS, AND XILINX HEREBY DISCLAIMS ALL WARRANTIES
--- AND CONDITIONS, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING
--- BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, NON-
--- INFRINGEMENT, OR FITNESS FOR ANY PARTICULAR PURPOSE; and
--- (2) Xilinx shall not be liable (whether in contract or tort,
--- including negligence, or under any other theory of
--- liability) for any loss or damage of any kind or nature
--- related to, arising under or in connection with these
--- materials, including for any direct, or any indirect,
--- special, incidental, or consequential loss or damage
--- (including loss of data, profits, goodwill, or any type of
--- loss or damage suffered as a result of any action brought
--- by a third party) even if such damage or loss was
--- reasonably foreseeable or Xilinx had been advised of the
--- possibility of the same.
--- 
--- CRITICAL APPLICATIONS
--- Xilinx products are not designed or intended to be fail-
--- safe, or for use in any application requiring fail-safe
--- performance, such as life-support or safety devices or
--- systems, Class III medical devices, nuclear facilities,
--- applications related to the deployment of airbags, or any
--- other applications that could lead to death, personal
--- injury, or severe property or environmental damage
--- (individually and collectively, "Critical
--- Applications"). Customer assumes the sole risk and
--- liability of any use of Xilinx products in Critical
--- Applications, subject only to applicable laws and
--- regulations governing limitations on product liability.
--- 
--- THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
--- PART OF THIS FILE AT ALL TIMES.
--- 
+--! file: my_clock_exdes.vhd
+--! 
+--! (c) Copyright 2008 - 2011 Xilinx, Inc. All rights reserved.
+--! 
+--! This file contains confidential and proprietary information
+--! of Xilinx, Inc. and is protected under U.S. and
+--! international copyright and other intellectual property
+--! laws.
+--! 
+--! DISCLAIMER
+--! This disclaimer is not a license and does not grant any
+--! rights to the materials distributed herewith. Except as
+--! otherwise provided in a valid license issued to you by
+--! Xilinx, and to the maximum extent permitted by applicable
+--! law: (1) THESE MATERIALS ARE MADE AVAILABLE "AS IS" AND
+--! WITH ALL FAULTS, AND XILINX HEREBY DISCLAIMS ALL WARRANTIES
+--! AND CONDITIONS, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING
+--! BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, NON-
+--! INFRINGEMENT, OR FITNESS FOR ANY PARTICULAR PURPOSE; and
+--! (2) Xilinx shall not be liable (whether in contract or tort,
+--! including negligence, or under any other theory of
+--! liability) for any loss or damage of any kind or nature
+--! related to, arising under or in connection with these
+--! materials, including for any direct, or any indirect,
+--! special, incidental, or consequential loss or damage
+--! (including loss of data, profits, goodwill, or any type of
+--! loss or damage suffered as a result of any action brought
+--! by a third party) even if such damage or loss was
+--! reasonably foreseeable or Xilinx had been advised of the
+--! possibility of the same.
+--! 
+--! CRITICAL APPLICATIONS
+--! Xilinx products are not designed or intended to be fail-
+--! safe, or for use in any application requiring fail-safe
+--! performance, such as life-support or safety devices or
+--! systems, Class III medical devices, nuclear facilities,
+--! applications related to the deployment of airbags, or any
+--! other applications that could lead to death, personal
+--! injury, or severe property or environmental damage
+--! (individually and collectively, "Critical
+--! Applications"). Customer assumes the sole risk and
+--! liability of any use of Xilinx products in Critical
+--! Applications, subject only to applicable laws and
+--! regulations governing limitations on product liability.
+--! 
+--! THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
+--! PART OF THIS FILE AT ALL TIMES.
+--! 
 
 ------------------------------------------------------------------------------
--- Clocking wizard example design
+--! Clocking wizard example design
 ------------------------------------------------------------------------------
--- This example design instantiates the created clocking network, where each
---   output clock drives a counter. The high bit of each counter is ported.
+--! This example design instantiates the created clocking network, where each
+--!   output clock drives a counter. The high bit of each counter is ported.
 ------------------------------------------------------------------------------
 
 library ieee;
@@ -67,34 +67,34 @@ entity my_clock_exdes is
 generic (
   TCQ               : in time := 100 ps);
 port
- (-- Clock in ports
+ (--! Clock in ports
   CLK_IN1           : in  std_logic;
-  -- Reset that only drives logic in example design
+  --! Reset that only drives logic in example design
   COUNTER_RESET     : in  std_logic;
   CLK_OUT           : out std_logic_vector(3 downto 1) ;
-  -- High bits of counters driven by clocks
+  --! High bits of counters driven by clocks
   COUNT             : out std_logic_vector(3 downto 1);
-  -- Status and control signals
+  --! Status and control signals
   LOCKED            : out std_logic
  );
 end my_clock_exdes;
 
 architecture xilinx of my_clock_exdes is
 
-  -- Parameters for the counters
+  --! Parameters for the counters
   ---------------------------------
-  -- Counter width
+  --! Counter width
   constant C_W        : integer := 16;
 
-  -- Number of counters
+  --! Number of counters
   constant NUM_C      : integer := 3;
-  -- Array typedef
+  --! Array typedef
   type ctrarr is array (1 to NUM_C) of std_logic_vector(C_W-1 downto 0);
 
-  -- When the clock goes out of lock, reset the counters
+  --! When the clock goes out of lock, reset the counters
   signal   locked_int : std_logic;
   signal   reset_int  : std_logic                     := '0';
-  -- Declare the clocks and counters
+  --! Declare the clocks and counters
   signal   clk        : std_logic_vector(NUM_C downto 1);
  
   signal   clk_int    : std_logic_vector(NUM_C downto 1);
@@ -107,22 +107,22 @@ architecture xilinx of my_clock_exdes is
 
 component my_clock is
 port
- (-- Clock in ports
+ (--! Clock in ports
   CLK_IN1           : in     std_logic;
-  -- Clock out ports
+  --! Clock out ports
   CLK_OUT1          : out    std_logic;
   CLK_OUT2          : out    std_logic;
   CLK_OUT3          : out    std_logic;
-  -- Status and control signals
+  --! Status and control signals
   LOCKED            : out    std_logic
  );
 end component;
 
 begin
-  -- Alias output to internally used signal
+  --! Alias output to internally used signal
   LOCKED    <= locked_int;
 
-  -- When the clock goes out of lock, reset the counters
+  --! When the clock goes out of lock, reset the counters
   reset_int <= (not locked_int) or COUNTER_RESET;
 
 
@@ -143,17 +143,17 @@ begin
 end generate counters_1;
 
 
-  -- Instantiation of the clocking network
+  --! Instantiation of the clocking network
   ----------------------------------------
   clknetwork : my_clock
   port map
-   (-- Clock in ports
+   (--! Clock in ports
     CLK_IN1            => CLK_IN1,
-    -- Clock out ports
+    --! Clock out ports
     CLK_OUT1           => clk_int(1),
     CLK_OUT2           => clk_int(2),
     CLK_OUT3           => clk_int(3),
-    -- Status and control signals
+    --! Status and control signals
     LOCKED             => locked_int);
 
 
@@ -170,13 +170,13 @@ end generate counters_1;
      S  => '0');
    end generate;
 
-  -- Connect the output clocks to the design
+  --! Connect the output clocks to the design
   -------------------------------------------
   clk(1) <= clk_int(1);
   clk(2) <= clk_int(2);
   clk(3) <= clk_int(3);
 
-  -- Output clock sampling
+  --! Output clock sampling
   -------------------------------------
   counters: for count_gen in 1 to NUM_C generate begin
     process (clk(count_gen), rst_sync_int2(count_gen)) begin
@@ -187,8 +187,8 @@ end generate counters_1;
         end if;
     end process;
 
-    -- alias the high bit of each counter to the corresponding
-    --   bit in the output bus
+    --! alias the high bit of each counter to the corresponding
+    --!   bit in the output bus
     COUNT(count_gen) <= counter(count_gen)(C_W-1);
 
   end generate counters;

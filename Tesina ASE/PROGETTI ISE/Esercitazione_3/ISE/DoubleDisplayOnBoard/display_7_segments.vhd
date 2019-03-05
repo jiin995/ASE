@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    16:55:34 11/17/2018 
--- Design Name: 
--- Module Name:    display_7_segments - Architectural 
--- Project Name: 
--- Target Devices
--- Tool versions: 
--- Description: 
+--! Company: 
+--! Engineer: 
+--! 
+--! Create Date:    16:55:34 11/17/2018 
+--! Design Name: 
+--! Module Name:    display_7_segments - Architectural 
+--! Project Name: 
+--! Target Devices
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;

@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    09:54:30 02/26/2019 
--- Design Name: 
--- Module Name:    uart_rx_po - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: 
+--! Engineer: 
+--! 
+--! Create Date:    09:54:30 02/26/2019 
+--! Design Name: 
+--! Module Name:    uart_rx_po - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;
@@ -22,20 +22,20 @@ use IEEE.STD_LOGIC_1164.ALL;
     use IEEE.numeric_std.all;
     use IEEE.math_real.all;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
+--! Uncomment the following library declaration if using
+--! arithmetic functions with Signed or Unsigned values
 --use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
+--! Uncomment the following library declaration if instantiating
+--! any Xilinx primitives in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
 entity uart_tx_po is
-	generic	( 	data_bits   : NATURAL := 8;		-- Numero di bit dati
+	generic	( 	data_bits   : NATURAL := 8;		--! Numero di bit dati
 					ticks			: NATURAL := 16;
 					start_Ticks	: NATURAL := 7;
-					stop_Ticks  : NATURAL := 16		-- Numero di conteggi per determinare la fine della trasmissione
+					stop_Ticks  : NATURAL := 16		--! Numero di conteggi per determinare la fine della trasmissione
      );	
 	port		(	clock					: in 	STD_LOGIC;
 					reset					: in 	STD_LOGIC;
@@ -88,17 +88,17 @@ architecture Behavioral of uart_tx_po is
 	end component;
 	
 	component scan_chain is
-		generic(	width : integer := 8;									-- dimensione del registro
-					shift_direction : std_logic := '0'					-- shift a destra
+		generic(	width : integer := 8;									--! dimensione del registro
+					shift_direction : std_logic := '0'					--! shift a destra
 		);
-		Port ( 	clock 		: in  STD_LOGIC;							-- segnale clock di tempificazione
-					en 			: in  STD_LOGIC;							-- segnale di abilitazione 1-attivo
-					reset_n 		: in  STD_LOGIC;							-- segnale di reset 0-attivo
-					scan_en 		: in  STD_LOGIC;							-- segnale di selezione modalità (0 = normale, 1 = controllo)
-					scan_in 		: in  STD_LOGIC;							-- primo valore scan-in 
-					d_reg 		: in  STD_LOGIC_VECTOR (width-1 downto 0);	-- valore in ingresso nel registro
-					scan_out 	: out STD_LOGIC;							-- ultimo valore scan-out
-					q_reg 		: out STD_LOGIC_VECTOR (width-1 downto 0)	-- valore in uscita del registro
+		Port ( 	clock 		: in  STD_LOGIC;							--! segnale clock di tempificazione
+					en 			: in  STD_LOGIC;							--! segnale di abilitazione 1-attivo
+					reset_n 		: in  STD_LOGIC;							--! segnale di reset 0-attivo
+					scan_en 		: in  STD_LOGIC;							--! segnale di selezione modalità (0 = normale, 1 = controllo)
+					scan_in 		: in  STD_LOGIC;							--! primo valore scan-in 
+					d_reg 		: in  STD_LOGIC_VECTOR (width-1 downto 0);	--! valore in ingresso nel registro
+					scan_out 	: out STD_LOGIC;							--! ultimo valore scan-out
+					q_reg 		: out STD_LOGIC_VECTOR (width-1 downto 0)	--! valore in uscita del registro
 		);
 	end component ;
 	
@@ -106,9 +106,9 @@ architecture Behavioral of uart_tx_po is
 	component flag_FF is 
 		 port    ( clock     : in  STD_LOGIC;
 					  reset     : in  STD_LOGIC;
-					  clr_flag  : in  STD_LOGIC;			-- setto lo stato del buffer come vuoto
-					  set_flag  : in  STD_LOGIC;			-- setta lo stato del buffer come pieno
-					  flag      : out STD_LOGIC			-- segnala lo stato del buffer
+					  clr_flag  : in  STD_LOGIC;			--! setto lo stato del buffer come vuoto
+					  set_flag  : in  STD_LOGIC;			--! setta lo stato del buffer come pieno
+					  flag      : out STD_LOGIC			--! segnala lo stato del buffer
 		 );
 	end component; 
 
@@ -149,7 +149,7 @@ reset_n <= not reset ;
 													counts		=> open
 										);
 	
-	counter_n_bits : counter_UpN_Re_Sr  -- contatore modulo n e dobbiamo contare fino a 8 
+	counter_n_bits : counter_UpN_Re_Sr  --! contatore modulo n e dobbiamo contare fino a 8 
 								generic map	( 	n => data_bits)
 								port map		(	clock			=> sended_bit,
 													enable 		=> enable,

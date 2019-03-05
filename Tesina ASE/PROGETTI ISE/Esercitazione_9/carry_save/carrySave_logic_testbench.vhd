@@ -42,7 +42,7 @@ architecture behavioral of carry_save_logic_testbench is
             end loop;
             wait for 20 ns;
 
-            -- testo il c_out
+            --! testo il c_out
             Y <= x"F";
             wait for 20 ns;
             wait;

@@ -1,31 +1,31 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    13:13:13 01/31/2018 
--- Design Name: 
--- Module Name:    NR_Division - Strucutal 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: 
+--! Engineer: 
+--! 
+--! Create Date:    13:13:13 01/31/2018 
+--! Design Name: 
+--! Module Name:    NR_Division - Strucutal 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use ieee.math_real.all;
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
+--! Uncomment the following library declaration if using
+--! arithmetic functions with Signed or Unsigned values
 --use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
+--! Uncomment the following library declaration if instantiating
+--! any Xilinx primitives in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
@@ -72,7 +72,7 @@ architecture Strucutal of R_Division is
 	
 	component Accumulator_Quotient is
 	generic ( N : integer := 8; M : integer := 8);
-    Port ( High_Reg: in  STD_LOGIC_VECTOR (N-1 downto 0);	-- ha dimensione n+1 perchè l'algoritmo di divisione nel primo passo richiede uno shift per fare spazio al quoziente in posizione Q(0)
+    Port ( High_Reg: in  STD_LOGIC_VECTOR (N-1 downto 0);	--! ha dimensione n+1 perchè l'algoritmo di divisione nel primo passo richiede uno shift per fare spazio al quoziente in posizione Q(0)
 			  Load_data_n		: in std_logic;
            Low_Reg : in  STD_LOGIC_VECTOR (m-1 downto 0);	
            H_read : out  STD_LOGIC_VECTOR (N-1 downto 0);

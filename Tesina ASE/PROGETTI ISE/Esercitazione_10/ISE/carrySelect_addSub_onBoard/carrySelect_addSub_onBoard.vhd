@@ -1,49 +1,49 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    12:36:14 02/21/2019 
--- Design Name: 
--- Module Name:    carrySelect_addSub_onBoard - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: 
+--! Engineer: 
+--! 
+--! Create Date:    12:36:14 02/21/2019 
+--! Design Name: 
+--! Module Name:    carrySelect_addSub_onBoard - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
+--! Uncomment the following library declaration if using
+--! arithmetic functions with Signed or Unsigned values
 --use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
+--! Uncomment the following library declaration if instantiating
+--! any Xilinx primitives in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
 entity carrySelect_addSub_onBoard is
     generic (	 M       : NATURAL :=  4;
-    -- P parallelismo delle celle dell carry select
+    --! P parallelismo delle celle dell carry select
                 P       : NATURAL :=  4
     );
     port (	clock 		: in 	  STD_LOGIC ;
 				enable_a    : in	  STD_LOGIC ;
 				enable_b		: in 	  STD_LOGIC ;
             subtract    : in    STD_LOGIC ;
-				input       : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  -- input addendo
+				input       : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  --! input addendo
 				overflow    : out   STD_LOGIC ;
             c_out       : out   STD_LOGIC ;
 				anodes 		: out   STD_LOGIC_VECTOR (7 downto 0);
 				cathodes		: out   STD_LOGIC_VECTOR (7 downto 0)
-                             -- output carry in uscita
+                             --! output carry in uscita
     );
 end carrySelect_addSub_onBoard;
 
@@ -63,16 +63,16 @@ end component;
 
 component carrySelect_addSub is 
     generic (	 M       : NATURAL :=  4;
-    -- P parallelismo delle celle dell carry select
+    --! P parallelismo delle celle dell carry select
                 P       : NATURAL :=  4
     );
     port (
-            A           : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  -- input addendo
-            B           : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  -- input addendo
+            A           : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  --! input addendo
+            B           : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  --! input addendo
             subtract    : in    STD_LOGIC ;
-            S           : out   STD_LOGIC_VECTOR (((M*P)-1) downto 0);  -- output somma
+            S           : out   STD_LOGIC_VECTOR (((M*P)-1) downto 0);  --! output somma
             overflow    : out   STD_LOGIC ;
-            c_out       : out   STD_LOGIC                               -- output carry in uscita
+            c_out       : out   STD_LOGIC                               --! output carry in uscita
     );
 end component;
 

@@ -1,13 +1,13 @@
 ---------------------------------------------------------------------------------------------------
--- 
--- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
--- 
+--! 
+--! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+--! 
 ---------------------------------------------------------------------------------------------------
--- project name : S_testbench
+--! project name : S_testbench
 --
--- unit name: S_testbench.vhd
---     
--- file description:
+--! unit name: S_testbench.vhd
+--!     
+--! file description:
 --! @file
 --! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
 --! @date       25/10/2018
@@ -18,11 +18,11 @@
 --! <b>Dependencies:</b>\n
 --!   Nothings
 --!
--- modified by: Simone Penna
+--! modified by: Simone Penna
 --
 ---------------------------------------------------------------------------------------------------
--- last changes: <21/11/2018> <15/10/2018> <log>
---                Aggiunta doc doxygen
+--! last changes: <21/11/2018> <15/10/2018> <log>
+--!                Aggiunta doc doxygen
 ---------------------------------------------------------------------------------------------------
 
 LIBRARY ieee;
@@ -34,7 +34,7 @@ END S_testbench;
  
 ARCHITECTURE behavior OF S_testbench IS 
  
-    -- Component Declaration for the Unit Under Test (UUT)
+    --! Component Declaration for the Unit Under Test (UUT)
  
     COMPONENT S
     PORT(
@@ -59,13 +59,13 @@ ARCHITECTURE behavior OF S_testbench IS
 
  	--Outputs
    signal W : std_logic_vector(5 downto 0);
-   -- No clocks detected in port list. Replace <clock> below with 
-   -- appropriate port name 
+   --! No clocks detected in port list. Replace <clock> below with 
+   --! appropriate port name 
  
  
 BEGIN
  
-	-- Instantiate the Unit Under Test (UUT)
+	--! Instantiate the Unit Under Test (UUT)
    uut: S PORT MAP (
           A => A,
           B => B,
@@ -77,10 +77,10 @@ BEGIN
         );
  
 
-   -- Stimulus process
+   --! Stimulus process
    stim_proc: process
    begin		
-      -- wait di 100 ns (reset)
+      --! wait di 100 ns (reset)
       wait for 100 ns;	
 
 		--alzo tutti i bit delle stringhe in ingresso, a distanza di 10 ns l'una dall'altra.

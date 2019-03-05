@@ -1,31 +1,31 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    14:53:38 02/15/2019 
--- Design Name: 
--- Module Name:    scan_chain_on_board - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: 
+--! Engineer: 
+--! 
+--! Create Date:    14:53:38 02/15/2019 
+--! Design Name: 
+--! Module Name:    scan_chain_on_board - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
+--! Uncomment the following library declaration if using
+--! arithmetic functions with Signed or Unsigned values
 --use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
+--! Uncomment the following library declaration if instantiating
+--! any Xilinx primitives in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
@@ -54,18 +54,18 @@ signal d_in 			: STD_LOGIC_VECTOR (31 downto 0) := ( others => '0' );
 
 component scan_chain is
     generic(
-			  width : integer := 32;						-- dimensione del registro
-			  shift_direction : std_logic := '1'	-- shift a sinistra
+			  width : integer := 32;						--! dimensione del registro
+			  shift_direction : std_logic := '1'	--! shift a sinistra
 	 );
     Port ( 
-           clock  	: in  STD_LOGIC;	-- segnale clock di tempificazione
-           en 			: in  STD_LOGIC;		-- segnale di abilitazione 1-attivo
-			  reset_n 	: in 	STD_LOGIC;	-- segnale di reset 0-attivo
-			  scan_en 	: in  STD_LOGIC;										-- segnale di selezione modalità (0 = normale, 1 = controllo)
-			  scan_in 	: in  STD_LOGIC;										-- primo valore scan-in 
-			  d_reg 		: in  STD_LOGIC_VECTOR (width-1 downto 0);		-- valore in ingresso nel registro
-           q_reg 		: out  STD_LOGIC_VECTOR (width-1 downto 0);	-- valore in uscita del registro
-           scan_out 	: out  STD_LOGIC							-- ultimo valore scan-out
+           clock  	: in  STD_LOGIC;	--! segnale clock di tempificazione
+           en 			: in  STD_LOGIC;		--! segnale di abilitazione 1-attivo
+			  reset_n 	: in 	STD_LOGIC;	--! segnale di reset 0-attivo
+			  scan_en 	: in  STD_LOGIC;										--! segnale di selezione modalità (0 = normale, 1 = controllo)
+			  scan_in 	: in  STD_LOGIC;										--! primo valore scan-in 
+			  d_reg 		: in  STD_LOGIC_VECTOR (width-1 downto 0);		--! valore in ingresso nel registro
+           q_reg 		: out  STD_LOGIC_VECTOR (width-1 downto 0);	--! valore in uscita del registro
+           scan_out 	: out  STD_LOGIC							--! ultimo valore scan-out
 			  );
 end component;
 

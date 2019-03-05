@@ -4,14 +4,14 @@ use ieee.math_real.all;
 
 entity restoring_divider is
 	 generic ( n : integer := 8);
-    Port ( X : in  STD_LOGIC_VECTOR (n-1 downto 0);		-- dividendo della divisione
-           Y : in  STD_LOGIC_VECTOR (n-1 downto 0); 	-- divisore della divisione
-           Q : out  STD_LOGIC_VECTOR (n downto 0);	-- quoziente della divisione
-           R : out  STD_LOGIC_VECTOR (n-1 downto 0);	-- resto della divisione
+    Port ( X : in  STD_LOGIC_VECTOR (n-1 downto 0);		--! dividendo della divisione
+           Y : in  STD_LOGIC_VECTOR (n-1 downto 0); 	--! divisore della divisione
+           Q : out  STD_LOGIC_VECTOR (n downto 0);	--! quoziente della divisione
+           R : out  STD_LOGIC_VECTOR (n-1 downto 0);	--! resto della divisione
            Reset_n : in  STD_LOGIC;
 			  clock	: in	std_logic;
-           start : in  STD_LOGIC;	-- alto quando inizia la moltiplicazione
-           stop : out  STD_LOGIC		-- alto quando il risultato è pronto
+           start : in  STD_LOGIC;	--! alto quando inizia la moltiplicazione
+           stop : out  STD_LOGIC		--! alto quando il risultato è pronto
 			  );
 end restoring_divider;
 
@@ -43,24 +43,24 @@ architecture structural of restoring_divider is
     Port ( clock : in  STD_LOGIC;
            enable : in  STD_LOGIC;
            reset_n : in  STD_LOGIC;
-           count_hit : out STD_LOGIC;		-- counter hit
+           count_hit : out STD_LOGIC;		--! counter hit
            counts : out  STD_LOGIC_VECTOR ((integer(ceil(log2(real(n)))) -1) downto 0));
 	end component;
 
 	
 	component scan_chain is
     generic(
-			  width : integer := N;									-- dimensione del registro
-			  shift_direction : std_logic := '1'					-- shift a sinistra
+			  width : integer := N;									--! dimensione del registro
+			  shift_direction : std_logic := '1'					--! shift a sinistra
 	 );
-    Port ( 	clock 		: in  STD_LOGIC;							-- segnale clock di tempificazione
-           	en 			: in  STD_LOGIC;							-- segnale di abilitazione 1-attivo
-				reset_n 		: in  STD_LOGIC;							-- segnale di reset 0-attivo
-				scan_en 		: in  STD_LOGIC;							-- segnale di selezione modalità (0 = normale, 1 = controllo)
-				scan_in 		: in  STD_LOGIC;							-- primo valore scan-in 
-				d_reg 		: in  STD_LOGIC_VECTOR (width-1 downto 0);	-- valore in ingresso nel registro
-				scan_out 	: out  STD_LOGIC;							-- ultimo valore scan-out
-				q_reg 		: out  STD_LOGIC_VECTOR (width-1 downto 0)	-- valore in uscita del registro
+    Port ( 	clock 		: in  STD_LOGIC;							--! segnale clock di tempificazione
+           	en 			: in  STD_LOGIC;							--! segnale di abilitazione 1-attivo
+				reset_n 		: in  STD_LOGIC;							--! segnale di reset 0-attivo
+				scan_en 		: in  STD_LOGIC;							--! segnale di selezione modalità (0 = normale, 1 = controllo)
+				scan_in 		: in  STD_LOGIC;							--! primo valore scan-in 
+				d_reg 		: in  STD_LOGIC_VECTOR (width-1 downto 0);	--! valore in ingresso nel registro
+				scan_out 	: out  STD_LOGIC;							--! ultimo valore scan-out
+				q_reg 		: out  STD_LOGIC_VECTOR (width-1 downto 0)	--! valore in uscita del registro
 	);
 end component;
 	

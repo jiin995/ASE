@@ -1,20 +1,20 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    22:37:42 02/28/2019 
--- Design Name: 
--- Module Name:    io_controller - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
+--! Company: 
+--! Engineer: 
+--! 
+--! Create Date:    22:37:42 02/28/2019 
+--! Design Name: 
+--! Module Name:    io_controller - Behavioral 
+--! Project Name: 
+--! Target Devices: 
+--! Tool versions: 
+--! Description: 
 --
--- Dependencies: 
+--! Dependencies: 
 --
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
+--! Revision: 
+--! Revision 0.01 - File Created
+--! Additional Comments: 
 --
 ----------------------------------------------------------------------------------
 library IEEE;
@@ -22,8 +22,8 @@ library IEEE;
 	use IEEE.STD_LOGIC_ARITH.ALL;
 	use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
----- Uncomment the following library declaration if instantiating
----- any Xilinx primitives in this code.
+----! Uncomment the following library declaration if instantiating
+----! any Xilinx primitives in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
 entity io_controller is
@@ -33,7 +33,7 @@ entity io_controller is
 				RD				: in 	std_logic 	:= '0';  --	segnale di lettura
 				WR				: in 	std_logic 	:= '0';	--	segnale di scrittura
 				RXD			: in 	std_logic 	:= '1'; 	--	rxd seriale
-				START_READ	: in  STD_LOGIC	:= '0';	-- avvia la lettura  dagli switch 
+				START_READ	: in  STD_LOGIC	:= '0';	--! avvia la lettura  dagli switch 
 				SWITCH		: in 	STD_LOGIC_VECTOR (7 downto 0);
 				TXD			: out std_logic 	:= '1';  --txd seriale
 				LEDS			: out std_logic_vector(7 downto 0); --eco sui led del carattere ricevuto
@@ -47,11 +47,11 @@ end io_controller;
 architecture Behavioral of io_controller is
 
 	component io_switch_led_display 
-		Port (	CLOCK				: in std_logic	:= '0'; 	-- clock
-					CE					: in std_logic := '0'; 	-- chip enable del componente
-					RD					: in std_logic := '0'; 	-- segnale di lettura
-					WR					: in std_logic := '0';	-- segnale di scrittura
-					START_READ		: in STD_LOGIC	:= '0';	-- avvia la lettura dagli switch, come se premessimo enter quando usiamo l'uart
+		Port (	CLOCK				: in std_logic	:= '0'; 	--! clock
+					CE					: in std_logic := '0'; 	--! chip enable del componente
+					RD					: in std_logic := '0'; 	--! segnale di lettura
+					WR					: in std_logic := '0';	--! segnale di scrittura
+					START_READ		: in STD_LOGIC	:= '0';	--! avvia la lettura dagli switch, come se premessimo enter quando usiamo l'uart
 					ENABLE_DISPLAY : in STD_LOGIC := '1';
 					SWITCH 			: in std_logic_vector(7 downto 0);
 					LEDS				: out std_logic_vector(7 downto 0) := (others => '0');
@@ -78,15 +78,15 @@ architecture Behavioral of io_controller is
 	
 begin
 	
-	-- abilito i led, gli switch e i display solo quando voglio usarli e CE è alto
+	--! abilito i led, gli switch e i display solo quando voglio usarli e CE è alto
 	ce_led_switch 	<= CE and io_switch; 
 	
-	-- serve per spegnere i led quando uso uart
+	--! serve per spegnere i led quando uso uart
 	leds <= leds_io when (IO_SWITCH = '1') else (others => '0');
 	
-	inst_switch_led_display: io_switch_led_display PORT MAP(	-- controller per switch, led e display
+	inst_switch_led_display: io_switch_led_display PORT MAP(	--! controller per switch, led e display
 		CLOCK 		=> CLOCK,
-		CE 			=> ce_led_switch,	-- uso led, switch e display solo quando ce_led_switch è basso
+		CE 			=> ce_led_switch,	--! uso led, switch e display solo quando ce_led_switch è basso
 		RD 			=> RD,
 		WR				=> WR,
 		LEDS 			=> leds_io,
@@ -98,14 +98,14 @@ begin
 		start_read 	=> start_read
 	);
 	
-	-- abilito l'uart solo quando voglio usarlo e CE è alto
+	--! abilito l'uart solo quando voglio usarlo e CE è alto
 	ce_uart 			<= CE and not io_switch;
 	
-	Inst_if_uart: if_uart PORT MAP(	-- uart	
+	Inst_if_uart: if_uart PORT MAP(	--! uart	
 		TXD 		=> TXD,
 		RXD		=> RXD,
 		CK 		=> CLOCK,
-		CE_UART 	=> ce_uart,	-- uso UART solo quando ce_uart è alto
+		CE_UART 	=> ce_uart,	--! uso UART solo quando ce_uart è alto
 		IO_MDR 	=> io_mdr,
 		RD 		=> RD,
 		WR 		=> WR

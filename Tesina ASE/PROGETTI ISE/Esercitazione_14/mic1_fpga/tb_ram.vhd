@@ -1,44 +1,44 @@
 
 --------------------------------------------------------------------------------
--- Company: 
--- Engineer:
+--! Company: 
+--! Engineer:
 --
--- Create Date:   21:17:25 04/03/2009
--- Design Name:   ram
--- Module Name:   C:/Documents and Settings/caccolillo/Desktop/ccellar_mic_vhdl/mic1/tb_ram.vhd
--- Project Name:  mic1
--- Target Device:  
--- Tool versions:  
--- Description:   
--- 
--- VHDL Test Bench Created by ISE for module: ram
+--! Create Date:   21:17:25 04/03/2009
+--! Design Name:   ram
+--! Module Name:   C:/Documents and Settings/caccolillo/Desktop/ccellar_mic_vhdl/mic1/tb_ram.vhd
+--! Project Name:  mic1
+--! Target Device:  
+--! Tool versions:  
+--! Description:   
+--! 
+--! VHDL Test Bench Created by ISE for module: ram
 --
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
+--! Dependencies:
+--! 
+--! Revision:
+--! Revision 0.01 - File Created
+--! Additional Comments:
 --
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends 
--- that these types always be used for the top-level I/O of a design in order 
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
+--! Notes: 
+--! This testbench has been automatically generated using types std_logic and
+--! std_logic_vector for the ports of the unit under test.  Xilinx recommends 
+--! that these types always be used for the top-level I/O of a design in order 
+--! to guarantee that the testbench will bind correctly to the post-implementation 
+--! simulation model.
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
--- Copyright (c) 1995-2007 Xilinx, Inc.
--- All Right Reserved.
+--! Copyright (c) 1995-2007 Xilinx, Inc.
+--! All Right Reserved.
 --------------------------------------------------------------------------------
---   ____  ____ 
---  /   /\/   / 
--- /___/  \  /    Vendor: Xilinx 
--- \   \   \/     Version : 9.2i
---  \   \         Application : ISE
---  /   /         Filename : tb_ram.vhw
--- /___/   /\     Timestamp : Fri Apr 03 20:43:39 2009
--- \   \  /  \ 
---  \___\/\___\ 
+--!   ____  ____ 
+--!  /   /\/   / 
+--! /___/  \  /    Vendor: Xilinx 
+--! \   \   \/     Version : 9.2i
+--!  \   \         Application : ISE
+--!  /   /         Filename : tb_ram.vhw
+--! /___/   /\     Timestamp : Fri Apr 03 20:43:39 2009
+--! \   \  /  \ 
+--!  \___\/\___\ 
 --
 --Command: 
 --Design Name: tb_ram
@@ -92,7 +92,7 @@ ARCHITECTURE testbench_arch OF tb_ram IS
             data => data
         );
 
-        PROCESS    -- clock process for ck
+        PROCESS    --! clock process for ck
         BEGIN
             WAIT for OFFSET;
             CLOCK_LOOP : LOOP
@@ -105,54 +105,54 @@ ARCHITECTURE testbench_arch OF tb_ram IS
 
         PROCESS
             BEGIN
-                -- -------------  Current Time:  900ns
+                --! -------------!  Current Time:  900ns
                 WAIT FOR 900 ns;
                 cs <= '1';
                 we <= '1';
                 data <= "00000000000000000000000000000001";
-                -- -------------------------------------
-                -- -------------  Current Time:  1100ns
+                --! -------------------------------------
+                --! -------------!  Current Time:  1100ns
                 WAIT FOR 200 ns;
                 cs <= '0';
                 we <= '0';
                 data <= "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ";
-                -- -------------------------------------
-                -- -------------  Current Time:  1500ns
+                --! -------------------------------------
+                --! -------------!  Current Time:  1500ns
                 WAIT FOR 400 ns;
                 cs <= '1';
                 rd <= '1';
-                -- -------------------------------------
-                -- -------------  Current Time:  1700ns
+                --! -------------------------------------
+                --! -------------!  Current Time:  1700ns
                 WAIT FOR 200 ns;
                 cs <= '0';
                 rd <= '0';
-                -- -------------------------------------
-                -- -------------  Current Time:  2300ns
+                --! -------------------------------------
+                --! -------------!  Current Time:  2300ns
                 WAIT FOR 600 ns;
                 cs <= '1';
                 rd <= '1';
-                -- -------------------------------------
-                -- -------------  Current Time:  2500ns
+                --! -------------------------------------
+                --! -------------!  Current Time:  2500ns
                 WAIT FOR 200 ns;
                 cs <= '0';
                 rd <= '0';
-                -- -------------------------------------
-                -- -------------  Current Time:  2900ns
+                --! -------------------------------------
+                --! -------------!  Current Time:  2900ns
                 WAIT FOR 400 ns;
                 rd <= '1';
-                -- -------------------------------------
-                -- -------------  Current Time:  3100ns
+                --! -------------------------------------
+                --! -------------!  Current Time:  3100ns
                 WAIT FOR 200 ns;
                 cs <= '1';
-                -- -------------------------------------
-                -- -------------  Current Time:  3300ns
+                --! -------------------------------------
+                --! -------------!  Current Time:  3300ns
                 WAIT FOR 200 ns;
                 cs <= '0';
-                -- -------------------------------------
-                -- -------------  Current Time:  3500ns
+                --! -------------------------------------
+                --! -------------!  Current Time:  3500ns
                 WAIT FOR 200 ns;
                 rd <= '0';
-                -- -------------------------------------
+                --! -------------------------------------
                 WAIT FOR 5700 ns;
 
             END PROCESS;

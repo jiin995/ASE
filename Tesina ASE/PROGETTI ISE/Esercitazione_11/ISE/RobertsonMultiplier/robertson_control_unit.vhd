@@ -5,23 +5,23 @@ library IEEE;
     
 
 entity robertson_control_unit is 
-    generic (   N   :   NATURAL :=8    --  parallelismo di X
+    generic (   N   :   NATURAL :=8    --!  parallelismo di X
     );
     port    (   clock                   :   in      STD_LOGIC;
                 start                   :   in      STD_LOGIC;
                 reset_n                 :   in      STD_LOGIC;
-                current_multiplicand    :   in      STD_LOGIC;          -- moltiplicando corrente
-                counter_hit             :   in      STD_LOGIC;          -- segnala la fine della moltiplicazione
+                current_multiplicand    :   in      STD_LOGIC;          --! moltiplicando corrente
+                counter_hit             :   in      STD_LOGIC;          --! segnala la fine della moltiplicazione
                 stop                    :   out     STD_LOGIC;
-                en_a                    :   out     STD_LOGIC;          -- se scan_en =1 la scan chain funziona come shifter register
+                en_a                    :   out     STD_LOGIC;          --! se scan_en =1 la scan chain funziona come shifter register
                 en_q                    :   out     STD_LOGIC;
                 en_m                    :   out     STD_LOGIC;
                 shift                   :   out     STD_LOGIC;                    
                 subtract                :   out     STD_LOGIC;
                 count_up                :   out     STD_LOGIC;
-                sel                     :   out     STD_LOGIC;          -- sel pilota il secondo input dell'adder 0 in input è Y 1 sono tutti 0
+                sel                     :   out     STD_LOGIC;          --! sel pilota il secondo input dell'adder 0 in input è Y 1 sono tutti 0
                 reset_a                 :   out     STD_LOGIC;
-                reset_count             :   out     STD_LOGIC          	-- reset il conteggio
+                reset_count             :   out     STD_LOGIC          	--! reset il conteggio
     );
 end robertson_control_unit;
 
@@ -54,14 +54,14 @@ begin
             en_q        <= '0';
             en_m        <= '0';
             shift       <= '0';
-            subtract    <= '0';     -- non effettuo sottrazione
+            subtract    <= '0';     --! non effettuo sottrazione
             count_up    <= '0';
-            sel         <= '0';     -- in uscita dal mux va sempre M
+            sel         <= '0';     --! in uscita dal mux va sempre M
             reset_a     <= '1';
             reset_count <= '1';
 
             case current is 
-                -- fase di attesa prima di iniziare
+                --! fase di attesa prima di iniziare
                 when idle   =>
                     stop    <=  '1';
                     if start    = '1' then 
@@ -70,16 +70,16 @@ begin
                         nxt <= idle;
                     end if;
 
-                -- inizializzazione 
+                --! inizializzazione 
                 when init       =>
-				    -- resetto i regestri e il contatore
+				    --! resetto i regestri e il contatore
                     en_q        <= '1';
                     en_m        <= '1'; 
                     reset_count <= '0';
                     reset_a     <= '0';
                     nxt         <= choice;
                 
-                -- fase di scelta dell'operazione da fare
+                --! fase di scelta dell'operazione da fare
                 when choice     =>
 						  if counter_hit = '0' then 
 							  if current_multiplicand = '0' then
@@ -96,28 +96,28 @@ begin
 							end if;
 
                 when add_sub   => 
-							-- controllo se devo effettuare la somma o la sottrazione
+							--! controllo se devo effettuare la somma o la sottrazione
 							if counter_hit = '0' then
-							   -- abilito a così carica il risultato dell'adder che lavora sempre!
+							   --! abilito a così carica il risultato dell'adder che lavora sempre!
 								en_a    		<= '1';             
 								nxt     		<= right_shift;
 							else 
-								-- faccio la correzzione
+								--! faccio la correzzione
 								en_a        <= '1';
 								subtract    <= '1'; 
 								nxt	  		<= idle;
 							end if;
                     
-                when right_shift =>             -- esegue lo shift
+                when right_shift =>             --! esegue lo shift
 							en_a    <= '1';
 							en_q    <= '1';
 							sel     <= '1';
 							shift   <= '1';
-							-- tiene traccia del segno di x che dopo n schift si perde!!! e quindi non riesco a capire se 
-							-- se devo fare la somma o la sottrazione
+							--! tiene traccia del segno di x che dopo n schift si perde!!! e quindi non riesco a capire se 
+							--! se devo fare la somma o la sottrazione
 							x_sign  <= current_multiplicand;
 	
-							-- solo ora posso aggiornare il counter e controllare se sono nello stato finale
+							--! solo ora posso aggiornare il counter e controllare se sono nello stato finale
                      count_up    <= '1';
                      nxt         <= choice;
             end case;

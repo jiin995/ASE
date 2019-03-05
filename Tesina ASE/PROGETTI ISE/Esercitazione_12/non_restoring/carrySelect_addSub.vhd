@@ -5,21 +5,21 @@ library IEEE;
 
 entity carrySelect_addSub is 
     generic (	 M       : NATURAL :=  4;
-    -- P parallelismo delle celle dell carry select
+    --! P parallelismo delle celle dell carry select
                 P       : NATURAL :=  2
     );
     port (
-            A           : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  -- input addendo
-            B           : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  -- input addendo
+            A           : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  --! input addendo
+            B           : in    STD_LOGIC_VECTOR (((M*P)-1) downto 0);  --! input addendo
             subtract    : in    STD_LOGIC ;
-            S           : out   STD_LOGIC_VECTOR (((M*P)-1) downto 0);  -- output somma
+            S           : out   STD_LOGIC_VECTOR (((M*P)-1) downto 0);  --! output somma
             overflow    : out   STD_LOGIC ;
-            c_out       : out   STD_LOGIC                               -- output carry in uscita
+            c_out       : out   STD_LOGIC                               --! output carry in uscita
     );
 end carrySelect_addSub;
 
 --================================================================================================
--- architecture declaration
+--! architecture declaration
 --================================================================================================
 
 architecture structural of carrySelect_addSub is
@@ -47,7 +47,7 @@ architecture structural of carrySelect_addSub is
         );
     end component;
 
--- Devo fare la XOR con subtract
+--! Devo fare la XOR con subtract
 signal internal_B   : STD_LOGIC_VECTOR (((M*P)-1) downto 0) := (others => '0');
 signal subtract_vec : STD_LOGIC_VECTOR (((M*P)-1) downto 0 ) := (others => '0');
 signal S_TEMP       : STD_LOGIC_VECTOR (((M*P)-1) downto 0 ) := (others => '0');
@@ -59,7 +59,7 @@ begin
     internal_B   <= B xor subtract_vec;
 	 c_out <= c_out_int;
     
--- istanzio il numero di celle e le mappo con gli ingressi
+--! istanzio il numero di celle e le mappo con gli ingressi
     carrySelect_adder_inst: carrySelect_adder generic	map (  M => M,
 																				 P => P
 																)
