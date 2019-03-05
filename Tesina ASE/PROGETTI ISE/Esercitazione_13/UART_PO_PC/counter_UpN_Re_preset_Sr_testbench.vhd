@@ -1,38 +1,8 @@
---------------------------------------------------------------------------------
---! Company: 
---! Engineer:
---
---! Create Date:   23:26:40 02/25/2019
---! Design Name:   
---! Module Name:   /home/jiin995/ASE_WorkSpace/Test/UART_PO_PC/counter_UpN_Re_preset_Sr_testbench.vhd
---! Project Name:  UART_PO_PC
---! Target Device:  
---! Tool versions:  
---! Description:   
---! 
---! VHDL Test Bench Created by ISE for module: counter_UpN_Re_preset_Sr
---! 
---! Dependencies:
---! 
---! Revision:
---! Revision 0.01 - File Created
---! Additional Comments:
---
---! Notes: 
---! This testbench has been automatically generated using types std_logic and
---! std_logic_vector for the ports of the unit under test.  Xilinx recommends
---! that these types always be used for the top-level I/O of a design in order
---! to guarantee that the testbench will bind correctly to the post-implementation 
---! simulation model.
---------------------------------------------------------------------------------
 library IEEE;
     use IEEE.STD_LOGIC_1164.all;
     use IEEE.numeric_std.all;
     use IEEE.math_real.all;
  
---! Uncomment the following library declaration if using
---! arithmetic functions with Signed or Unsigned values
---USE ieee.numeric_std.ALL;
  
 ENTITY counter_UpN_Re_preset_Sr_testbench IS
     generic (   n_test : NATURAL :=4

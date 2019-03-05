@@ -1,33 +1,32 @@
-----------------------------------------------------------------------------------
---! Company: 
---! Engineer: 
---! 
---! Create Date:    10:01:38 11/08/2017 
---! Design Name: 
---! Module Name:    counter_modn - Behavioral 
---! Project Name: 
---! Target Devices: 
---! Tool versions: 
---! Description: 
+---------------------------------------------------------------------------------------------------
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
+---------------------------------------------------------------------------------------------------
+-- project name : restoring
 --
---! Dependencies: 
+-- unit name: counter_modn.vhd
+--     
+-- file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       04/03/2019
+--! @version    0.2
+--! @brief     	Contatore modulo 2 alla N
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothings
+--!
+-- modified by: Simone Penna, Mirko Pennone
 --
---! Revision: 
---! Revision 0.01 - File Created
---! Additional Comments: 
---
-----------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+-- last changes: <04/03/2019> <15/10/2018> <log>
+--                Aggiunta doc doxygen
+---------------------------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
---! Uncomment the following library declaration if using
---! arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
-
---! Uncomment the following library declaration if instantiating
---! any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity counter_mod_2n is
 	 generic (N : natural := 2);

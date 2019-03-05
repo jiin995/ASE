@@ -3,7 +3,7 @@
 --! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
 --! 
 ---------------------------------------------------------------------------------------------------
---! project name : cathodes_manager
+--! project name : mic1_fpga
 --
 --! unit name: cathodes_manager.vhdl
 --!     
@@ -12,7 +12,7 @@
 --! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
 --! @date       15/10/2018
 --! @version    0.1
---! @brief      cathodes_anager è l'implementazione di un gestore di catodi
+--! @brief      Componente che permette di gestire i catodi di un display a 7 segmenti
 --! @details
 --!
 --! <b>Dependencies:</b>\n
@@ -119,7 +119,7 @@ begin
             end case;
         end process;
 
-	--multiplexer generico
+	--!multiplexer generico
     cathodes <=  not dots(to_integer(unsigned(select_digit))) & cathodes_for_digit;	--! bit del dot (negato perché 0 attivo) + la stringa selezionata
 end behavioral;
 --=============================================================================

@@ -135,8 +135,8 @@ signal meno_uno : std_logic_vector(31 downto 0);
 begin
 
    --! calcola in parallelo tutte le possibili operazioni
-	a_sig <= A; --passa  A
-	b_sig <= B; --passa  B
+	a_sig <= A; --!passa  A
+	b_sig <= B; --!passa  B
    not_a_sig <= not A ; --not A
    not_b_sig <= not B ; --not B
 	a_piu_b_sig <= A + B ; --! a + b

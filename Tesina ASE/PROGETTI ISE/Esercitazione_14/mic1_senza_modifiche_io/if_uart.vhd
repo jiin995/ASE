@@ -22,20 +22,17 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-----! Uncomment the following library declaration if instantiating
-----! any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+
 entity if_uart is
 	Port ( 	
-	      TXD		: out std_logic := '1';  --txd seriale
-		 	RXD		: in std_logic 	:= '1'; --rxd seriale
-		  	CK		: in std_logic:= '0'; --clock
-		  	CE_UART		: in std_logic 	:= '0'; --chip enable del componente
-			IO_MDR	: inout std_logic_vector(31 downto 0) := "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ";  --verso il data bus a 32 bit
-		 	RD		: in std_logic 	:= '0';  --segnale di lettura
-			LEDS	: out std_logic_vector(7 downto 0) := "01010101"; --eco sui led del carattere ricevuto
-		  	WR		: in std_logic 	:= '0'--segnale di scrittura
+	      TXD		: out std_logic := '1';  --!txd seriale
+		 	RXD		: in std_logic 	:= '1'; --!rxd seriale
+		  	CK		: in std_logic:= '0'; --!clock
+		  	CE_UART		: in std_logic 	:= '0'; --!chip enable del componente
+			IO_MDR	: inout std_logic_vector(31 downto 0) := "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ";  --!verso il data bus a 32 bit
+		 	RD		: in std_logic 	:= '0';  --!segnale di lettura
+			LEDS	: out std_logic_vector(7 downto 0) := "01010101"; --!eco sui led del carattere ricevuto
+		  	WR		: in std_logic 	:= '0'--!segnale di scrittura
 			);
 end if_uart;
 

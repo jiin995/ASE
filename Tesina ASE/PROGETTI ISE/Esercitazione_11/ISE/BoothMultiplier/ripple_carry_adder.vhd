@@ -1,3 +1,29 @@
+---------------------------------------------------------------------------------------------------
+--! 
+--! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+--! 
+---------------------------------------------------------------------------------------------------
+--! project name : BoothMultiplier
+--
+--! unit name: ripple_carry_adder.vhdl
+--!     
+--! file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       15/10/2018
+--! @version    0.1
+--! @brief      rippleCarry_adder è l'implementazione di un rippleCarry_adder
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   full_adder
+--!
+--! modified by: Gabriele Previtera
+--
+---------------------------------------------------------------------------------------------------
+--! last changes: <11/11/2018> <15/10/2018> <log>
+--!                Aggiunta doc doxygen
+---------------------------------------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 

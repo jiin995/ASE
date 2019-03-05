@@ -74,7 +74,7 @@ begin
 		dout=>L_read
 	);
 --! Ha dimensione N+1 perch alla prima operazione la divisione richiede uno shift iniziale del dividendo per 
---liberare Q[0]; in questo modo in Q[0] potr essere inserito il quoziente calcolato	
+--!liberare Q[0]; in questo modo in Q[0] potr essere inserito il quoziente calcolato	
 	A: Scan_chain generic map(N,'0') port map( 
 		din=>High_reg,
 		scan_in=>a_to_q,

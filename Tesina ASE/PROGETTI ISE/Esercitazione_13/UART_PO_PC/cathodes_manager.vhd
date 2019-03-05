@@ -3,7 +3,7 @@
 --! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
 --! 
 ---------------------------------------------------------------------------------------------------
---! project name : cathodes_manager
+--! project name : uart_PO_PC
 --
 --! unit name: cathodes_manager.vhdl
 --!     

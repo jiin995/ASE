@@ -1,30 +1,4 @@
---------------------------------------------------------------------------------
---! Company: 
---! Engineer:
---
---! Create Date:   16:29:39 02/26/2019
---! Design Name:   
---! Module Name:   /home/simone/Scrivania/ASE/Esercitazioni/Esercitazione_11/ISE/BoothMultiplier/BoothMultiplier_tb_onBoard.vhd
---! Project Name:  BoothMultiplier
---! Target Device:  
---! Tool versions:  
---! Description:   
---! 
---! VHDL Test Bench Created by ISE for module: booth_multiplier_onBoard
---! 
---! Dependencies:
---! 
---! Revision:
---! Revision 0.01 - File Created
---! Additional Comments:
---
---! Notes: 
---! This testbench has been automatically generated using types std_logic and
---! std_logic_vector for the ports of the unit under test.  Xilinx recommends
---! that these types always be used for the top-level I/O of a design in order
---! to guarantee that the testbench will bind correctly to the post-implementation 
---! simulation model.
---------------------------------------------------------------------------------
+
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  

@@ -1,35 +1,34 @@
-----------------------------------------------------------------------------------
---! Company: 
---! Engineer: 
---! 
---! Create Date:    09:54:30 02/26/2019 
---! Design Name: 
---! Module Name:    uart_rx_po - Behavioral 
---! Project Name: 
---! Target Devices: 
---! Tool versions: 
---! Description: 
+---------------------------------------------------------------------------------------------------
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
+---------------------------------------------------------------------------------------------------
+-- project name : uart_PO_PC
 --
---! Dependencies: 
+-- unit name: uart_rx_po.vhd
+--     
+-- file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       04/03/2019
+--! @version    0.2
+--! @brief     	Parte operativa della parte di ricezione dell'UART
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothings
+--!
+-- modified by: Simone Penna, Mirko Pennone
 --
---! Revision: 
---! Revision 0.01 - File Created
---! Additional Comments: 
---
-----------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+-- last changes: <04/03/2019> <15/10/2018> <log>
+--                Aggiunta doc doxygen
+---------------------------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
     use IEEE.numeric_std.all;
     use IEEE.math_real.all;
 
---! Uncomment the following library declaration if using
---! arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
---! Uncomment the following library declaration if instantiating
---! any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity uart_rx_po is
 	generic	( 	data_bits   : NATURAL := 8;		--! Numero di bit dati

@@ -3,7 +3,7 @@
 --! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
 --! 
 ---------------------------------------------------------------------------------------------------
---! project name : anodes_manager
+--! project name : uart_PO_PC
 --
 --! unit name: anodes_manager.vhdl
 --!     

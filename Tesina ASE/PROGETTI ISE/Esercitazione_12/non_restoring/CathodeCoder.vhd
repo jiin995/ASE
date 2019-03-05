@@ -1,33 +1,32 @@
-----------------------------------------------------------------------------------
---! Company: 
---! Engineer: 
---! 
---! Create Date:    19:14:22 11/12/2017 
---! Design Name: 
---! Module Name:    CathodeCoder - Behavioral 
---! Project Name: 
---! Target Devices: 
---! Tool versions: 
---! Description: 
+---------------------------------------------------------------------------------------------------
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
+---------------------------------------------------------------------------------------------------
+-- project name : non_restoring
 --
---! Dependencies: 
+-- unit name: CathodeCoder.vhd
+--     
+-- file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       04/03/2019
+--! @version    0.2
+--! @brief     	Componente che codifica i catodi di un display a 7 segmenti
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothings
+--!
+-- modified by: Simone Penna, Mirko Pennone
 --
---! Revision: 
---! Revision 0.01 - File Created
---! Additional Comments: 
---
-----------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+-- last changes: <04/03/2019> <15/10/2018> <log>
+--                Aggiunta doc doxygen
+---------------------------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
---! Uncomment the following library declaration if using
---! arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
---! Uncomment the following library declaration if instantiating
---! any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity CathodeCoder is
     Port ( nibble : in  STD_LOGIC_VECTOR (3 downto 0);

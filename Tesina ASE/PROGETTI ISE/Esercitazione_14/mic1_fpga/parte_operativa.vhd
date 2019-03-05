@@ -22,18 +22,14 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-----! Uncomment the following library declaration if instantiating
-----! any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity parte_operativa is
 port(
-	--ingressi dal MIR per pilotaggio memoria
-	wwrite:in std_logic:='0';  --linea write per la ram
-	rread:in std_logic:='0';  --linea read per la ram
-	ffetch:in std_logic:='0';  --linea read per la rom	
-	ck:in std_logic;--clock
+	--!ingressi dal MIR per pilotaggio memoria
+	wwrite:in std_logic:='0';  --!linea write per la ram
+	rread:in std_logic:='0';  --!linea read per la ram
+	ffetch:in std_logic:='0';  --!linea read per la rom	
+	ck:in std_logic;--!clock
 	--ingressi abilitazione B bus			
 	eobb_mdr:in std_logic;--enable onto B bus MDR
 	eobb_pc:in std_logic;--enable onto B bus PC

@@ -1,22 +1,29 @@
-----------------------------------------------------------------------------------
---! Company: 
---! Engineer: Mirko Pennone, Simone Penna, Gabriele Previtera
---! 
---! Create Date:    11:23:00 02/08/2019 
---! Design Name: 
---! Module Name:    scan_chain - Behavioral 
---! Project Name: 
---! Target Devices: 
---! Tool versions: 
---! Description: 
+---------------------------------------------------------------------------------------------------
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
+---------------------------------------------------------------------------------------------------
+-- project name : uart_PO_PC
 --
---! Dependencies: 
+-- unit name: scan_chain.vhd
+--     
+-- file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       04/03/2019
+--! @version    0.2
+--! @brief     	Registro di N flip flop D multiplexati
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothings
+--!
+-- modified by: Simone Penna, Mirko Pennone
 --
---! Revision: 
---! Revision 0.01 - File Created
---! Additional Comments: 
---
-----------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+-- last changes: <04/03/2019> <15/10/2018> <log>
+--                Aggiunta doc doxygen
+---------------------------------------------------------------------------------------------------
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;

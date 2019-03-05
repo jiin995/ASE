@@ -3,7 +3,7 @@
 --! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
 --! 
 ---------------------------------------------------------------------------------------------------
---! project name : anodes_manager
+--! project name : mic1_fpga
 --
 --! unit name: anodes_manager.vhdl
 --!     
@@ -12,7 +12,7 @@
 --! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
 --! @date       15/10/2018
 --! @version    0.1
---! @brief      anodes_manager è l'implementazione di un gestore di anodi
+--! @brief      Componente che permette di gestire gli anodi del display a 7 segmenti
 --! @details
 --!
 --! <b>Dependencies:</b>\n

@@ -1,10 +1,39 @@
---! parte di ricezione dell'UART PC e PO unico blocco
---! versione digiland/ libro
+---------------------------------------------------------------------------------------------------
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
+---------------------------------------------------------------------------------------------------
+-- project name : uart_PO_PC
+--
+-- unit name: uart_rx.vhd
+--     
+-- file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       04/03/2019
+--! @version    0.2
+--! @brief     	Parte di ricezione dell'UART
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothings
+--!
+-- modified by: Simone Penna, Mirko Pennone
+--
+---------------------------------------------------------------------------------------------------
+-- last changes: <04/03/2019> <15/10/2018> <log>
+--                Aggiunta doc doxygen
+---------------------------------------------------------------------------------------------------
+
 library IEEE;
     use IEEE.STD_LOGIC_1164.all;
     use IEEE.NUMERIC_STD.all;
 	 use IEEE.STD_LOGIC_ARITH.ALL;
 	 use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+
+--! parte di ricezione dell'UART PC e PO unico blocco
+--! versione digiland/ libro
 
 
 entity uart_rx is 

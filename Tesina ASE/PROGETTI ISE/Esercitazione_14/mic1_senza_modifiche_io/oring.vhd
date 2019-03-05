@@ -22,17 +22,12 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-----! Uncomment the following library declaration if instantiating
-----! any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
 entity oring is
 port(
-	uscita_oring:out std_logic_vector(7 downto 0):=x"01";  --uscita oring ,al reset è a  indirizzo main1
-	jmpc:in std_logic; --ingresso jmpc
-	addr:in std_logic_vector(7 downto 0);  --ingresso addr dal mir
-	reg_mbr:in std_logic_vector(7 downto 0)  --ing. registro MBR
+	uscita_oring:out std_logic_vector(7 downto 0):=x"01";  --!uscita oring ,al reset è a  indirizzo main1
+	jmpc:in std_logic; --!ingresso jmpc
+	addr:in std_logic_vector(7 downto 0);  --!ingresso addr dal mir
+	reg_mbr:in std_logic_vector(7 downto 0)  --!ing. registro MBR
 );
 end oring;
 

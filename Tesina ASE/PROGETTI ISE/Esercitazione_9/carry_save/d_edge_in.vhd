@@ -1,12 +1,4 @@
----------------------------------------------
---! D Flip-Flop (ESD book Chapter 2.3.1)
---! by Weijun Zhang, 04/2001
---
---! Flip-flop is the basic component in 
---! sequential logic design
---! we assign input signal to the output 
---! at the clock rising edge 
----------------------------------------------
+
 
 library ieee ;
 use ieee.std_logic_1164.all;

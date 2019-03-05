@@ -3,7 +3,7 @@
 --! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
 --! 
 ---------------------------------------------------------------------------------------------------
---! project name : counter_UpMod2n_Re_Ar
+--! project name : non_restoring
 --
 --! unit name: counter_UpMod2n_Re_Ar.vhdl
 --!     

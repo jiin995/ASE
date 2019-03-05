@@ -1,37 +1,7 @@
---------------------------------------------------------------------------------
---! Company: 
---! Engineer:
---
---! Create Date:   06:02:06 02/10/2018
---! Design Name:   
---! Module Name:   C:/Documents and Settings/Marco/Desktop/R_division/tb_DivisorOnBoard.vhd
---! Project Name:  R_division
---! Target Device:  
---! Tool versions:  
---! Description:   
---! 
---! VHDL Test Bench Created by ISE for module: DivisorOnBoard
---! 
---! Dependencies:
---! 
---! Revision:
---! Revision 0.01 - File Created
---! Additional Comments:
---
---! Notes: 
---! This testbench has been automatically generated using types std_logic and
---! std_logic_vector for the ports of the unit under test.  Xilinx recommends
---! that these types always be used for the top-level I/O of a design in order
---! to guarantee that the testbench will bind correctly to the post-implementation 
---! simulation model.
---------------------------------------------------------------------------------
+
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
- 
---! Uncomment the following library declaration if using
---! arithmetic functions with Signed or Unsigned values
---USE ieee.numeric_std.ALL;
- 
+
 ENTITY tb_DivisorOnBoard IS
 END tb_DivisorOnBoard;
  

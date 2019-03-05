@@ -3,7 +3,7 @@
 --! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
 --! 
 ---------------------------------------------------------------------------------------------------
---! project name : register_d_Re_Ar
+--! project name : BoothMultiplier
 --
 --! unit name: register_d_Re_Ar.vhdl
 --!     

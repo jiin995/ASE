@@ -3,7 +3,7 @@
 --! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
 --! 
 ---------------------------------------------------------------------------------------------------
---! project name : mux2_1
+--! project name : carrySelect_addSub_onBoard
 --
 --! unit name: mux2_1.vhd
 --!     

@@ -1,3 +1,29 @@
+---------------------------------------------------------------------------------------------------
+--! 
+--! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+--! 
+---------------------------------------------------------------------------------------------------
+--! project name : carry_look_ahead_adder
+--
+--! unit name: carry_look_ahead_adder.vhdl
+--!     
+--! file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       15/10/2018
+--! @version    0.1
+--! @brief      Sommatore Carry Lokk-Ahead
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   half_adder
+--!
+--! modified by: Gabriele Previtera
+--
+---------------------------------------------------------------------------------------------------
+--! last changes: <11/11/2018> <15/10/2018> <log>
+--!                Aggiunta doc doxygen
+---------------------------------------------------------------------------------------------------
 library IEEE;
     use IEEE.STD_LOGIC_1164.all;
 
@@ -40,12 +66,12 @@ architecture structural of carry_look_ahead_adder is
     end component;
 
 
-    signal G    :   STD_LOGIC_VECTOR ((width-1) downto 0);    --Segnale per conservare le condizionoi di generazione
-    signal P    :   STD_LOGIC_VECTOR ((width-1) downto 0);    --Segnale per conservare le condizioni di propagazione
+    signal G    :   STD_LOGIC_VECTOR ((width-1) downto 0);    --!Segnale per conservare le condizioni di generazione
+    signal P    :   STD_LOGIC_VECTOR ((width-1) downto 0);    --!Segnale per conservare le condizioni di propagazione
     signal C  :   STD_LOGIC_VECTOR ((width) downto 0) := (others => '0'); --! Segnale per conservare i carry calcolati dal carry_look_ahead
     signal S_TEMP       :   STD_LOGIC_VECTOR  ((width-1) downto 0) := (others => '0'); --! Segnale di supporto per la somma
 
-    signal C_null       :   STD_LOGIC_VECTOR ((width-1) downto 0) := (others => '0'); --Segnale per collegare a niete le uscite del fulladder
+    signal C_null       :   STD_LOGIC_VECTOR ((width-1) downto 0) := (others => '0'); --!Segnale per collegare a niete le uscite del fulladder
 
 begin
 

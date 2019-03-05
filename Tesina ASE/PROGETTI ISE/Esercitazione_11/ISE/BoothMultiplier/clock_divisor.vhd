@@ -3,7 +3,7 @@
 --! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
 --! 
 ---------------------------------------------------------------------------------------------------
---! project name : clock_divisor
+--! project name : BoothMultiplier
 --
 --! unit name: clock_divisor.vhdl
 --!     

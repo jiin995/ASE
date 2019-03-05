@@ -28,13 +28,13 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --use UNISIM.VComponents.all;
 entity if_uart is
 	Port ( 	
-	      TXD		: out std_logic := '1';  --txd seriale
-		 	RXD		: in std_logic 	:= '1'; --rxd seriale
-		  	CK		: in std_logic:= '0'; --clock
-		  	CE_UART		: in std_logic 	:= '0'; --chip enable del componente
-			IO_MDR	: inout std_logic_vector(31 downto 0) := "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ";  --verso il data bus a 32 bit
-		 	RD		: in std_logic 	:= '0';  --segnale di lettura
-		  	WR		: in std_logic 	:= '0'--segnale di scrittura
+	      TXD		: out std_logic := '1';  --!txd seriale
+		 	RXD		: in std_logic 	:= '1'; --!rxd seriale
+		  	CK		: in std_logic:= '0'; --!clock
+		  	CE_UART		: in std_logic 	:= '0'; --!chip enable del componente
+			IO_MDR	: inout std_logic_vector(31 downto 0) := "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ";  --!verso il data bus a 32 bit
+		 	RD		: in std_logic 	:= '0';  --!segnale di lettura
+		  	WR		: in std_logic 	:= '0'--!segnale di scrittura
 			);
 end if_uart;
 

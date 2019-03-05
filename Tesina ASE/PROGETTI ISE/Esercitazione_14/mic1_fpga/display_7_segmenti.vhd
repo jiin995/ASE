@@ -1,22 +1,30 @@
-----------------------------------------------------------------------------------
---! Company: 
---! Engineer: 
---! 
---! Create Date:    16:55:34 11/17/2018 
---! Design Name: 
---! Module Name:    display_7_segmenti - Architectural 
---! Project Name: 
---! Target Devices
---! Tool versions: 
---! Description: 
+---------------------------------------------------------------------------------------------------
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
+---------------------------------------------------------------------------------------------------
+-- project name : mic1_fpga
 --
---! Dependencies: 
+-- unit name: display_7_segmenti.vhd
+--     
+-- file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       04/03/2019
+--! @version    0.2
+--! @brief     	Componente che permette di pilotare le digit di un display a 7 segmenti
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothings
+--!
+-- modified by: Simone Penna, Mirko Pennone
 --
---! Revision: 
---! Revision 0.01 - File Created
---! Additional Comments: 
---
-----------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+-- last changes: <04/03/2019> <15/10/2018> <log>
+--                Aggiunta doc doxygen
+---------------------------------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 

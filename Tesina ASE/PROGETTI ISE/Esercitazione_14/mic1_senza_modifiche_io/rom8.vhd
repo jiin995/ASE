@@ -30,18 +30,18 @@ library work;
 
 entity boot_rom is
   port (
-    ADDRESS : in  std_logic_vector(8 downto 0);  --9 bit indirizzi = 512  locazioni
+    ADDRESS : in  std_logic_vector(8 downto 0);  --!9 bit indirizzi = 512  locazioni
 	 CE : in std_logic;
     DATA : out std_logic_vector(7 downto 0)
   );
 end entity boot_rom;
 
 architecture basic of boot_rom is
-  constant width   : integer := 8;  --larghezza word
-  constant memsize : integer := 512;  --256 locazioni
+  constant width   : integer := 8;  --!larghezza word
+  constant memsize : integer := 512;  --!256 locazioni
 
 
---dichiarazione label della control store
+--!dichiarazione label della control store
 constant BIPUSH :std_logic_vector(7 downto 0):=  x"10"; 
 constant DUP :std_logic_vector(7 downto 0):=  x"59"; 
 constant GOTO :std_logic_vector(7 downto 0):=  x"A7"; 

@@ -1,4 +1,4 @@
-----------------------------------------------------------------------------------
+----------------------------------------------------------------
 --! Company: UNIVERSITA' DEGLI STUDI DI NAPOLI FEDERICO SECONDO
 --! Engineer: AIELLO MARCO MATR. 045/004437
 --! 
@@ -9,14 +9,12 @@
 --! Target Devices: 
 --! Tool versions: 
 --! Description: 
---
+--!
 --! Dependencies: 
---
+--!
 --! Revision: 
 --! Revision 0.01 - File Created
 --! Additional Comments: 
---
-----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
@@ -34,45 +32,45 @@ use work.costanti.all;
 
 entity parte_di_controllo is
 port(
-   --ingressi
-	ff_n:in std_logic:='0';  --ingresso FF flag N
-	ff_z:in std_logic:='0';  --ingresso FF flag Z
-	reg_mbr:in std_logic_vector(7 downto 0);  --ingresso registro MBR
-	ck:in std_logic; --ingresso clock
-	--uscite pilotaggio memoria
-	wwrite:out std_logic:='0';  --linea write per la ram
-	rread:out std_logic:='0';  --linea read per la ram
-	ffetch:out std_logic:='0';  --linea read per la rom
-	--uscite pilotaggio shifter
-	sra1:out std_logic:='0';  --linea sra1 shifter
-	sll8:out std_logic:='0';  --linea sll8 shifter
-	--uscite pilotaggio alu
-	f0:out std_logic:='0';  --linea f0 alu
-	f1:out std_logic:='0';  --linea f1 alu
-	ena:out std_logic:='0';  --linea ena alu
-	enb:out std_logic:='0';  --linea enb alu
-	inva:out std_logic:='0';  --linea inva alu
-	inc:out std_logic:='0';  --linea inc alu
-	--parte dei segnali di abilitazione per il C bus
-	h:out std_logic:='0'; --segnale h
-	opc:out std_logic:='0'; --segnale opc
-	tos:out std_logic:='0'; --segnale tos
-	cpp:out std_logic:='0'; --segnale cpp
-	lv:out std_logic:='0'; --segnale lv
-	sp:out std_logic:='0'; --segnale sp
-	pc:out std_logic:='0'; --segnale pc
-	mdr:out std_logic:='0'; --segnale mdr
-	mar:out std_logic:='0'; --segnale mar
-	--parte dei segnali di abilitazione per il B bus
-	eob_mdr:out std_logic:='0'; --segnale mdr
-	eob_pc:out std_logic:='0'; --segnale pc
-	eob_mbr:out std_logic:='0'; --segnale mbr
-	eob_mbru:out std_logic:='0'; --segnale mbru
-	eob_sp:out std_logic:='0'; --segnale sp
-	eob_lv:out std_logic:='0'; --segnale lv
-	eob_cpp:out std_logic:='0'; --segnale cpp
-	eob_tos:out std_logic:='0'; --segnale tos
-	eob_opc:out std_logic:='0' --segnale opc	
+   --!ingressi
+	ff_n:in std_logic:='0';  --!ingresso FF flag N
+	ff_z:in std_logic:='0';  --!ingresso FF flag Z
+	reg_mbr:in std_logic_vector(7 downto 0);  --!ingresso registro MBR
+	ck:in std_logic; --!ingresso clock
+	--!uscite pilotaggio memoria
+	wwrite:out std_logic:='0';  --!linea write per la ram
+	rread:out std_logic:='0';  --!linea read per la ram
+	ffetch:out std_logic:='0';  --!linea read per la rom
+	--!uscite pilotaggio shifter
+	sra1:out std_logic:='0';  --!linea sra1 shifter
+	sll8:out std_logic:='0';  --!linea sll8 shifter
+	--!uscite pilotaggio alu
+	f0:out std_logic:='0';  --!linea f0 alu
+	f1:out std_logic:='0';  --!linea f1 alu
+	ena:out std_logic:='0';  --!linea ena alu
+	enb:out std_logic:='0';  --!linea enb alu
+	inva:out std_logic:='0';  --!linea inva alu
+	inc:out std_logic:='0';  --!linea inc alu
+	--!parte dei segnali di abilitazione per il C bus
+	h:out std_logic:='0'; --!segnale h
+	opc:out std_logic:='0'; --!segnale opc
+	tos:out std_logic:='0'; --!segnale tos
+	cpp:out std_logic:='0'; --!segnale cpp
+	lv:out std_logic:='0'; --!segnale lv
+	sp:out std_logic:='0'; --!segnale sp
+	pc:out std_logic:='0'; --!segnale pc
+	mdr:out std_logic:='0'; --!segnale mdr
+	mar:out std_logic:='0'; --!segnale mar
+	--!parte dei segnali di abilitazione per il B bus
+	eob_mdr:out std_logic:='0'; --!segnale mdr
+	eob_pc:out std_logic:='0'; --!segnale pc
+	eob_mbr:out std_logic:='0'; --!segnale mbr
+	eob_mbru:out std_logic:='0'; --!segnale mbru
+	eob_sp:out std_logic:='0'; --!segnale sp
+	eob_lv:out std_logic:='0'; --!segnale lv
+	eob_cpp:out std_logic:='0'; --!segnale cpp
+	eob_tos:out std_logic:='0'; --!segnale tos
+	eob_opc:out std_logic:='0' --!segnale opc	
 );
 end parte_di_controllo;
 
@@ -82,8 +80,8 @@ architecture Behavioral of parte_di_controllo is
 
 	COMPONENT control_store
 	port(
-		addr:in std_logic_vector(8 downto 0);  --ingressi indirizzo 
-		mir:out microinstruction:=microistruzione_tutti_zeri  --uscita control store
+		addr:in std_logic_vector(8 downto 0);  --!ingressi indirizzo 
+		mir:out microinstruction:=microistruzione_tutti_zeri  --!uscita control store
 		);	
 	END COMPONENT;
 
@@ -124,20 +122,20 @@ architecture Behavioral of parte_di_controllo is
 
 
 
-	signal addr_sig:std_logic_vector(8 downto 0):="000000000";  --segnale che collega addr di MIR con oring
+	signal addr_sig:std_logic_vector(8 downto 0):="000000000";  --!segnale che collega addr di MIR con oring
 	signal jmpc_sig:std_logic:='0'; 
-	signal jamn_sig:std_logic:='0'; --segnale jamn
-	signal jamz_sig:std_logic:='0'; --segnale jamz
-	signal indcstore_sig:std_logic_vector(8 downto 0):="000000000";  --ingressi indirizzo 
+	signal jamn_sig:std_logic:='0'; --!segnale jamn
+	signal jamz_sig:std_logic:='0'; --!segnale jamz
+	signal indcstore_sig:std_logic_vector(8 downto 0):="000000000";  --!ingressi indirizzo 
 	signal uscitaoring_sig:std_logic_vector(7 downto 0):="00000000";
 	signal highbit_sig:std_logic:='0'; 
 	signal highbit_sig_ored:std_logic:='0'; 
-	signal lineedecoder_sig:std_logic_vector(3 downto 0):="0000";  --uscite pilotaggio decoder 4:16
-	signal lineedec_appese : std_logic_vector(6 downto 0);  --serve ad attaccarci le linee appese del decoder
+	signal lineedecoder_sig:std_logic_vector(3 downto 0):="0000";  --!uscite pilotaggio decoder 4:16
+	signal lineedec_appese : std_logic_vector(6 downto 0);  --!serve ad attaccarci le linee appese del decoder
 
 begin
 
-	highbit_sig_ored<=highbit_sig or addr_sig(8); --or tra high bit e bit 9 del campo next_address
+	highbit_sig_ored<=highbit_sig or addr_sig(8); --!or tra high bit e bit 9 del campo next_address
 
 	Inst_control_store: control_store PORT MAP(
 		addr => indcstore_sig,

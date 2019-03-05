@@ -106,13 +106,13 @@ architecture Behavioral of sistema_mic1 is
 	END COMPONENT;
 
 component io_switch_led 
-	Port (	CK		: in std_logic:= '0'; --clock
-				CE_UART		: in std_logic 	:= '0'; --chip enable del componente
-				IO_MDR	: inout std_logic_vector(31 downto 0) := "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ";  --verso il data bus a 32 bit
-				RD		: in std_logic 	:= '0';  --segnale di lettura
-				LEDS	: out std_logic_vector(7 downto 0) := "01010101"; --eco sui led del carattere ricevuto
+	Port (	CK		: in std_logic:= '0'; --!clock
+				CE_UART		: in std_logic 	:= '0'; --!chip enable del componente
+				IO_MDR	: inout std_logic_vector(31 downto 0) := "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ";  --!verso il data bus a 32 bit
+				RD		: in std_logic 	:= '0';  --!segnale di lettura
+				LEDS	: out std_logic_vector(7 downto 0) := "01010101"; --!eco sui led del carattere ricevuto
 				SWITCH : in std_logic_vector(7 downto 0);
-				WR		: in std_logic 	:= '0';--segnale di scrittura
+				WR		: in std_logic 	:= '0';--!segnale di scrittura
 				START_READ : In STD_LOGIC
 			);
 end component;
@@ -130,19 +130,19 @@ COMPONENT if_uart
 	END COMPONENT;
 
 component io_controller
-	Port ( 	CLOCK			: in 	std_logic	:= '0'; 	--clock
-				IO_SWITCH	: in 	std_logic 	:= '0';	--selettore componente_io
+	Port ( 	CLOCK			: in 	std_logic	:= '0'; 	--!clock
+				IO_SWITCH	: in 	std_logic 	:= '0';	--!selettore componente_io
 				CE				: in 	STD_LOGIC 	:= '0';	
-				RD				: in 	std_logic 	:= '0';  --	segnale di lettura
-				WR				: in 	std_logic 	:= '0';	--	segnale di scrittura
-				RXD			: in 	std_logic 	:= '1'; 	--	rxd seriale
+				RD				: in 	std_logic 	:= '0';  --!segnale di lettura
+				WR				: in 	std_logic 	:= '0';	--!segnale di scrittura
+				RXD			: in 	std_logic 	:= '1'; 	--!rxd seriale
 				START_READ	: in  STD_LOGIC	:= '0';	--! avvia la lettura per gli switch 
 				SWITCH		: in 	STD_LOGIC_VECTOR (7 downto 0);
-				TXD			: out std_logic 	:= '1';  --txd seriale
-				LEDS			: out std_logic_vector(7 downto 0) := "01010101"; --eco sui led del carattere ricevuto
+				TXD			: out std_logic 	:= '1';  --!txd seriale
+				LEDS			: out std_logic_vector(7 downto 0) := "01010101"; --!eco sui led del carattere ricevuto
 				anodes 			: out STD_LOGIC_VECTOR (7 downto 0);	--! Uscita che pilota gli anodi
 				cathodes			: out STD_LOGIC_VECTOR (7 downto 0);		--! Uscita che pilota i catodi
-				IO_MDR		: inout std_logic_vector(31 downto 0) := "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"  --verso il data bus a 32 bit
+				IO_MDR		: inout std_logic_vector(31 downto 0) := "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"  --!verso il data bus a 32 bit
 
 		);
 end component;

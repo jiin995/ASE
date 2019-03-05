@@ -3,7 +3,7 @@
 --! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
 --! 
 ---------------------------------------------------------------------------------------------------
---! project name : rippleCarry_adder
+--! project name : restoring
 --
 --! unit name: rippleCarry_adder.vhdl
 --!     

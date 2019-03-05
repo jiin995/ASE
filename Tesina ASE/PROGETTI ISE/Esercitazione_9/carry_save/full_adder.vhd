@@ -3,7 +3,7 @@
 --! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
 --! 
 ---------------------------------------------------------------------------------------------------
---! project name : full_adder
+--! project name : carry_save
 --
 --! unit name: full_adder.vhdl
 --!     

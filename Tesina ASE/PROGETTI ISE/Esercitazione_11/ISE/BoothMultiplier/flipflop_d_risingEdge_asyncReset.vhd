@@ -3,7 +3,7 @@
 --! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
 --! 
 ---------------------------------------------------------------------------------------------------
---! project name : flipflop_d_risingEdge_asyncReset
+--! project name : BoothMultiplier
 --
 --! unit name: flipflop_d_risingEdge_asyncReset.vhdl
 --!     

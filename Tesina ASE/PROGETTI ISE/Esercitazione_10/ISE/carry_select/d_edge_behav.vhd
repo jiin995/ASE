@@ -1,12 +1,29 @@
----------------------------------------------
---! D Flip-Flop (ESD book Chapter 2.3.1)
---! by Weijun Zhang, 04/2001
+---------------------------------------------------------------------------------------------------
+--! 
+--! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+--! 
+---------------------------------------------------------------------------------------------------
+--! project name : carry_select
 --
---! Flip-flop is the basic component in 
---! sequential logic design
---! we assign input signal to the output 
---! at the clock rising edge 
----------------------------------------------
+--! unit name: d_edge_behav.vhdl
+--!     
+--! file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       13/11/2018
+--! @version    0.1
+--! @brief      Implementazione di un flipflop D rising edge
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothings
+--!
+--! modified by: Gabriele Previtera
+--
+---------------------------------------------------------------------------------------------------
+--! last changes: <14/11/2018> <13/11/2018> <log>
+--!              create
+---------------------------------------------------------------------------------------------------
 
 library ieee ;
 use ieee.std_logic_1164.all;

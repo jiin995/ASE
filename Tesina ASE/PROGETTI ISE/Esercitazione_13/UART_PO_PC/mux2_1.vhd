@@ -3,7 +3,7 @@
 --! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
 --! 
 ---------------------------------------------------------------------------------------------------
---! project name : mux2_1
+--! project name : uart_PO_PC
 --
 --! unit name: mux2_1.vhd
 --!     

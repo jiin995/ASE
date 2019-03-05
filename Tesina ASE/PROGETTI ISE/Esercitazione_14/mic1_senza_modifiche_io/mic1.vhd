@@ -22,21 +22,17 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-----! Uncomment the following library declaration if instantiating
-----! any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity mic1 is
 port(
-	cki:in std_logic;  --clock
-	uscita_mar:out std_logic_vector(31 downto 0):=x"00000000";  --uscita verso la memoria reg. MAR
-	io_mdr:inout std_logic_vector(31 downto 0):=x"00000000";  --ingr./uscita verso la memoria reg. MDR
-	uscita_pc:out std_logic_vector(31 downto 0):=x"00000000";  --uscita verso la memoria reg. PC
-	ingresso_mbr:in std_logic_vector(7 downto 0):=x"00";  --ingresso dalla memoria reg. MBR
-	wr:out std_logic;  --write
-	rd:out std_logic;  --read
-	fetch:out std_logic  --fetch
+	cki:in std_logic;  --!clock
+	uscita_mar:out std_logic_vector(31 downto 0):=x"00000000";  --!uscita verso la memoria reg. MAR
+	io_mdr:inout std_logic_vector(31 downto 0):=x"00000000";  --!ingr./uscita verso la memoria reg. MDR
+	uscita_pc:out std_logic_vector(31 downto 0):=x"00000000";  --!uscita verso la memoria reg. PC
+	ingresso_mbr:in std_logic_vector(7 downto 0):=x"00";  --!ingresso dalla memoria reg. MBR
+	wr:out std_logic;  --!write
+	rd:out std_logic;  --!read
+	fetch:out std_logic  --!fetch
 );
 end mic1;
 

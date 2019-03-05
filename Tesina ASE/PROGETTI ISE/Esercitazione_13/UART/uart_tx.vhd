@@ -1,3 +1,29 @@
+---------------------------------------------------------------------------------------------------
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
+---------------------------------------------------------------------------------------------------
+-- project name : uart
+--
+-- unit name: uart_tx.vhd
+--     
+-- file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       04/03/2019
+--! @version    0.2
+--! @brief     	Parte di trasmissione dell'UART
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothings
+--!
+-- modified by: Simone Penna, Mirko Pennone
+--
+---------------------------------------------------------------------------------------------------
+-- last changes: <04/03/2019> <15/10/2018> <log>
+--                Aggiunta doc doxygen
+---------------------------------------------------------------------------------------------------
 library IEEE;
     use IEEE.STD_LOGIC_1164.all;
     use IEEE.NUMERIC_STD.all;
@@ -27,16 +53,16 @@ architecture Behavioral of uart_tx is
 	type state is (idle,start,send,stop);
 	signal current_state,state_next : state := idle;
 
-	--campiono ogni 16 colpi di tick, 4 bit mi permettono di contare fino a 16 
+	--!campiono ogni 16 colpi di tick, 4 bit mi permettono di contare fino a 16 
 	signal tick_count,tick_count_next 			: ieee.numeric_std.unsigned ( 3 downto 0 ) := ( others => '0' );
 
-	--numero di bit inviati, 3 bit mi permettono di contare fino a 8
+	--!numero di bit inviati, 3 bit mi permettono di contare fino a 8
 	signal n_sended_bits,n_sended_bits_next 	: ieee.numeric_std.unsigned ( 2 downto 0 ) := ( others => '0' );
 
 	--! byte da inviare
 	signal send_bits,send_bits_next 		: STD_LOGIC_VECTOR ( data_bits-1 downto 0);
 
-	--bit sulla linea in uscita
+	--!bit sulla linea in uscita
 	signal tx_current, tx_next : STD_LOGIC := '0';
 
 begin
@@ -60,7 +86,7 @@ begin
 process (current_state,tick_count,n_sended_bits,send_bits,tx_current,din,tick,tx_start) --! processo per la scelta dello stato
 begin
 
-   --se non ci sono variazioni rimane nella configurazione precedente
+   --!se non ci sono variazioni rimane nella configurazione precedente
 	state_next 				<= current_state;
 	n_sended_bits_next 	<= n_sended_bits;
 	send_bits_next			<= send_bits;

@@ -1,3 +1,29 @@
+---------------------------------------------------------------------------------------------------
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
+---------------------------------------------------------------------------------------------------
+-- project name : uart_PO_PC
+--
+-- unit name: uart.vhd
+--     
+-- file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       04/03/2019
+--! @version    0.2
+--! @brief     	Componente che permette la comunicazione asincrona tra 2 device
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothings
+--!
+-- modified by: Simone Penna, Mirko Pennone
+--
+---------------------------------------------------------------------------------------------------
+-- last changes: <04/03/2019> <15/10/2018> <log>
+--                Aggiunta doc doxygen
+---------------------------------------------------------------------------------------------------
 library IEEE;
 	 use IEEE.STD_LOGIC_1164.ALL;
     use IEEE.STD_LOGIC_1164.all;
@@ -13,7 +39,7 @@ entity uart is
 				  rd_uart	: in  STD_LOGIC;				
 				  --! se alto segnala al buffer in ingresso che il dato è pronto per essere inviato
 				  wr_uart	: in  STD_LOGIC;				
-				  din 		: in  STD_LOGIC_VECTOR (data_bits-1 downto 0); --byte da inviare
+				  din 		: in  STD_LOGIC_VECTOR (data_bits-1 downto 0); --!byte da inviare
 				  tx			: out	STD_LOGIC;
 				  rx_empty 	: out STD_LOGIC; 				--! se è il buffer in uscita è vuoto vale 1
 				  tx_full 	: out STD_LOGIC;				--! se è il buffer in ingresso è pieno vale 1

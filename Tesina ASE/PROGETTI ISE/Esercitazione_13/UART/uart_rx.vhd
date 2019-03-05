@@ -1,3 +1,29 @@
+---------------------------------------------------------------------------------------------------
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
+---------------------------------------------------------------------------------------------------
+-- project name : uart
+--
+-- unit name: uart_rx.vhd
+--     
+-- file description:
+--! @file
+--! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
+--! @date       04/03/2019
+--! @version    0.2
+--! @brief     	Parte di ricezione dell'UART
+--! @details
+--!
+--! <b>Dependencies:</b>\n
+--!   Nothings
+--!
+-- modified by: Simone Penna, Mirko Pennone
+--
+---------------------------------------------------------------------------------------------------
+-- last changes: <04/03/2019> <15/10/2018> <log>
+--                Aggiunta doc doxygen
+---------------------------------------------------------------------------------------------------
 library IEEE;
     use IEEE.STD_LOGIC_1164.all;
     use IEEE.NUMERIC_STD.all;
@@ -26,13 +52,13 @@ architecture behavioral of uart_rx is
     type state is (idle,start,receive,stop);
     signal current_state, next_state : state;
 	 
-	 --campiono ogni 16 colpi di tick, 4 bit mi permettono di contare fino a 16 
+	 --!campiono ogni 16 colpi di tick, 4 bit mi permettono di contare fino a 16 
     signal tick_count,tick_count_next           : ieee.numeric_std.unsigned ( 3 downto 0 ) := ( others => '0' ) ; 
 	 
-	 --numero di bit ricevuti, 3 bit mi permettono di contare fino a 8
+	 --!numero di bit ricevuti, 3 bit mi permettono di contare fino a 8
     signal n_received_bits,n_received_bits_next : ieee.numeric_std.unsigned  ( 2 downto 0 ) := ( others => '0' ) ;
 	 
-	 --byte ricevuto temporaneo
+	 --!byte ricevuto temporaneo
     signal received_bits,received_bits_next     : STD_LOGIC_VECTOR ( data_bits-1 downto 0 ) := ( others => '0' ) ;
 
 begin 
@@ -50,9 +76,9 @@ begin
         end if;
     end process ;
 
-    process (current_state,n_received_bits,received_bits,tick_count,rx,tick) begin --processo per la scelta dello stato  
+    process (current_state,n_received_bits,received_bits,tick_count,rx,tick) begin --!processo per la scelta dello stato  
         
-        --se non ci sono variazioni rimane nella configurazione precedente
+        --!se non ci sono variazioni rimane nella configurazione precedente
         next_state              <= current_state;
         tick_count_next         <= tick_count;
         n_received_bits_next    <= n_received_bits;

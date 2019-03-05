@@ -1,28 +1,28 @@
 ---------------------------------------------------------------------------------------------------
---! 
---! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
---! 
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
 ---------------------------------------------------------------------------------------------------
---! project name : full_adder
+-- project name : BoothMultiplier
 --
---! unit name: full_adder.vhdl
---!     
---! file description:
+-- unit name: full_adder.vhd
+--     
+-- file description:
 --! @file
 --! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
---! @date       15/10/2018
---! @version    0.1
---! @brief      full_adder è l'implementazione di un full_adder
+--! @date       04/03/2019
+--! @version    0.2
+--! @brief     	Sommatore Full-Adder 3 ingressi 2 uscite
 --! @details
 --!
 --! <b>Dependencies:</b>\n
 --!   Nothings
 --!
---! modified by: Gabriele Previtera
+-- modified by: Simone Penna, Mirko Pennone
 --
 ---------------------------------------------------------------------------------------------------
---! last changes: <11/11/2018> <15/10/2018> <log>
---!                Aggiunta doc doxygen
+-- last changes: <04/03/2019> <15/10/2018> <log>
+--                Aggiunta doc doxygen
 ---------------------------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
