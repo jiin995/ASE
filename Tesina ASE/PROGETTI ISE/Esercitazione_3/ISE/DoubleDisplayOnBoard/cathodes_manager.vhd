@@ -1,29 +1,30 @@
 ---------------------------------------------------------------------------------------------------
---! 
---! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
---! 
+-- 
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- 
 ---------------------------------------------------------------------------------------------------
---! project name : cathodes_manager
+-- project name : cathodes_manager
 --
---! unit name: cathodes_manager.vhdl
---!     
---! file description:
+-- unit name: cathodes_manager.vhd
+--     
+-- file description:
 --! @file
 --! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
---! @date       15/10/2018
---! @version    0.1
---! @brief      cathodes_anager è l'implementazione di un gestore di catodi
+--! @date       04/03/2019
+--! @version    0.2
+--! @brief     	cathodes_manager per il display a 7 segmenti
 --! @details
 --!
 --! <b>Dependencies:</b>\n
---!   Nothing
+--!   Nothings
 --!
---! modified by: Simone Penna
+-- modified by: Simone Penna, Mirko Pennone
 --
 ---------------------------------------------------------------------------------------------------
---! last changes: <11/11/2018> <15/10/2018> <log>
---!                Aggiunta doc doxygen
+-- last changes: <04/03/2019> <15/10/2018> <log>
+--                Aggiunta doc doxygen
 ---------------------------------------------------------------------------------------------------
+
 library IEEE;
     use IEEE.STD_LOGIC_1164.all;
     use IEEE.NUMERIC_STD.all;

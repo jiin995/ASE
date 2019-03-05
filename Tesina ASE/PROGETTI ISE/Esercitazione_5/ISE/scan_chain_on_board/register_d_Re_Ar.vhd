@@ -1,13 +1,13 @@
 ---------------------------------------------------------------------------------------------------
 --! 
---! FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
+-- FEDERICO II , CORSO DI ASE 18/19, Gruppo 14 --
 --! 
 ---------------------------------------------------------------------------------------------------
---! project name : register_d_Re_Ar
+-- project name : scan_chain_on_board
 --
---! unit name: register_d_Re_Ar.vhdl
+-- unit name: register_d_Re_Ar.vhdl
 --!     
---! file description:
+-- file description:
 --! @file
 --! @author     Gabriele Previtera, Mirko Pennone, Simone Penna
 --! @date       13/11/2018

@@ -1,37 +1,6 @@
---------------------------------------------------------------------------------
---! Company: 
---! Engineer:
---
---! Create Date:   17:36:56 02/14/2019
---! Design Name:   
---! Module Name:   /home/jiin995/ASE_WorkSpace/Test/clock_test/clk_tester_testbench.vhd
---! Project Name:  clock_test
---! Target Device:  
---! Tool versions:  
---! Description:   
---! 
---! VHDL Test Bench Created by ISE for module: clk_tester
---! 
---! Dependencies:
---! 
---! Revision:
---! Revision 0.01 - File Created
---! Additional Comments:
---
---! Notes: 
---! This testbench has been automatically generated using types std_logic and
---! std_logic_vector for the ports of the unit under test.  Xilinx recommends
---! that these types always be used for the top-level I/O of a design in order
---! to guarantee that the testbench will bind correctly to the post-implementation 
---! simulation model.
---------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
- 
---! Uncomment the following library declaration if using
---! arithmetic functions with Signed or Unsigned values
---USE ieee.numeric_std.ALL;
- 
+
 ENTITY clk_tester_testbench IS
 END clk_tester_testbench;
  
