@@ -1085,8 +1085,18 @@ Simulazione con guardie (Mealy)
 
 \begin_layout Standard
 Per quanto concerne la macchina Mealy, dal momento che sono stati utilizzati
- i costrutti di guardia e la funzione di risoluzione, non è stato possibile
- sintetizzarla poichè 
+ i costrutti di guardia
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+non sintetizzabili in ise
+\end_layout
+
+\end_inset
+
+ e la funzione di risoluzione, non è stato possibile sintetizzarla poichè
+ 
 \shape italic
 current_state
 \shape default

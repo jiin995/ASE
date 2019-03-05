@@ -184,9 +184,11 @@ FA
 \end_inset
 
  è il tempo di propagazione del full adder impiegato.
- Il vantaggio dell'utilizzo di questo circuito è la sua ridotta area: anche
- questa, infatti, dipende linearmente dal numero di full adder e dunque
- da n: A = nA
+ I vantaggi dell'utilizzo di questo circuito sono la sua regolarità, dal
+ momento che è una rete iterativa monodimensionale con flusso di informazione
+ monodirezionale e con celle combinatorie tutte dello stesso tipo che ne
+ facilita la sintesi sul silicio, e la sua ridotta area: anche questa, infatti,
+ dipende linearmente dal numero di full adder e dunque da n: A = nA
 \begin_inset script subscript
 
 \begin_layout Plain Layout

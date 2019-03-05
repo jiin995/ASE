@@ -261,22 +261,27 @@ full_adders: for i in 0 to (width-1) generate
 
 \begin_layout Plain Layout
 
-		x => X(i),                                             
+		x 	=> X(i),                                             
 \end_layout
 
 \begin_layout Plain Layout
 
-		y => Y(i),                                             
+		y 	=> Y(i),                                             
 \end_layout
 
 \begin_layout Plain Layout
 
-		c_in => C (i),                                             
+		c_in  => C (i),                                             
 \end_layout
 
 \begin_layout Plain Layout
 
-		s => S_TEMP(i) 
+		s 	=> S_TEMP(i),
+\end_layout
+
+\begin_layout Plain Layout
+
+		c_out => open
 \end_layout
 
 \begin_layout Plain Layout
@@ -309,6 +314,17 @@ Si noti come, all'interno del port map di ciascun full_adder, non siano
 \shape italic
 c_out
 \shape default
+, sono stati collegati a open
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+parola chiave di vhdl che indica che le uscite o gli ingressi di un componente
+ non devono essere collegate a nessun segnale
+\end_layout
+
+\end_inset
+
 , dal momento che tali riporti sono già stati calcolati precedentemente
  dal 
 \shape italic

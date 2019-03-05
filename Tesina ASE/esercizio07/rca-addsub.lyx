@@ -116,9 +116,9 @@ subtract
 subtract
 \shape default
 =1 verrà effettuata l'addizione A+(-B), in quanto B è stato prima complementato
- e poi incrementato di 1 e dunque invertito grazie al carry in ingresso
- al RCA.
- 
+ e poi incrementato di 1.
+ Queste operazioni permettono di ottenere la rappresentazione in complemento
+ a due di -B.
 \begin_inset Newline newline
 \end_inset
 
@@ -126,11 +126,20 @@ subtract
 \end_layout
 
 \begin_layout Standard
-Si noti come tale addizionatore può presentare una condizione di overflow/underf
-low, dal momento che gli operandi rappresentati in complemento a 2 perdono
+Si noti come tale addizionatore può presentare una condizione di overflow
+ 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+si supera il valore massimo rappresentabile
+\end_layout
+
+\end_inset
+
+, dal momento che gli operandi rappresentati in complemento a 2 perdono
  un bit utile alla rappresentazione del valore per utilizzarlo come segno.
- In particolare, si verificherà una condizione di overflow/underflow in
- questi casi:
+ In particolare, si verificherà una condizione di overflow in questi casi:
 \end_layout
 
 \begin_layout Itemize

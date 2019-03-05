@@ -319,8 +319,8 @@ end{figure}
 
 \begin_layout Standard
 Si osservi come, rispetto ai risultati ottenuti con il Ripple Carry Adder,
- il circuito occupi un numero di slices (e dunque area) e possieda un maximum
- combinational path delay pressoché identico.
+ il circuito occupi un numero di slices (e dunque area) maggiore e possieda
+ un maximum combinational path delay pressoché identico.
  Possiamo dunque concludere che, con l'utilizzo del tool di sintesi per
  board Nexys 4, non sono particolarmente apprezzabili le differenze tra
  l'utilizzo di un RCA e di un CLA grazie alle capacità di ottimizzazione

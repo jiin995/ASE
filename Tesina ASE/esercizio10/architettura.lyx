@@ -157,7 +157,7 @@ In particolare, si noti come ogni blocco (ad eccezione del primo) sia composto
 \shape italic
 c_in
 \shape default
-, ossia il riporto in ingresso.
+, ossia il riporto in ingresso che in un caso è uno e nell'altro è zero.
  In base al valore effettivo del riporto in ingresso, calcolato allo stadio
  precedente, i due multiplexer selezioneranno i bit dell'uscita 
 \shape italic
@@ -171,7 +171,8 @@ c_out
  In questo modo, siamo in grado di calcolare contemporaneamente gli M bit
  in uscita di ogni blocco P: il ritardo complessivo sarà dunque pari a quello
  di un unico RCA di M bit + quello delle P-1 coppie di multiplexer da pilotare,
- ossia T
+ in quanto l'uscita del multiplexer del carry del blocco precedente pilota
+ i blocchi successivi, ossia T
 \begin_inset script subscript
 
 \begin_layout Plain Layout

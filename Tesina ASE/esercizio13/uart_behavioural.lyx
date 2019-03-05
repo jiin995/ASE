@@ -220,8 +220,10 @@ uart
 \shape default
 , in grado sia di trasmettere che di ricevere.
  Per impostare i valori in ingresso e in uscita alle due entità, si sono
- usati dei buffer I/O con un flag per indicare se il buffer in ingresso
- è pieno o se quello in uscita è vuoto.
+ usati dei buffer I/O con un flag che indica lo stato del buffer.
+ In particolare ci interessa sapere se il buffer in ingresso è pieno e quindi
+ il byte deve essere ancora trasmesso o se il buffer in uscita è vuoto e
+ quindi ancora si deve ricevere il nuovo byte.
  Lo schema della top level entity è visualizzabile in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -410,22 +412,27 @@ begin{lstlisting}[language=VHDL,caption={Istanza di UART in uart_onBoard.}]
 
 \begin_layout Plain Layout
 
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
 uart_inst : uart port map ( 	
 \end_layout
 
 \begin_layout Plain Layout
 
-		clock => clock,  										
+		clock    => clock,  										
 \end_layout
 
 \begin_layout Plain Layout
 
-		reset => reset, 										
+		reset    => reset, 										
 \end_layout
 
 \begin_layout Plain Layout
 
-		rx => rx, 										
+		rx 	  => rx, 										
 \end_layout
 
 \begin_layout Plain Layout
@@ -435,37 +442,42 @@ uart_inst : uart port map (
 
 \begin_layout Plain Layout
 
-		tx => tx, 										
+		tx	   => tx, 										
 \end_layout
 
 \begin_layout Plain Layout
 
-		wr_uart => not rx_empty_int, 										
+		wr_uart  => not rx_empty_int, 										
 \end_layout
 
 \begin_layout Plain Layout
 
-		din => dout,	 										
+		din 	 => dout,	 										
 \end_layout
 
 \begin_layout Plain Layout
 
-		tx_full => tx_full_int, 										
+		tx_full  => tx_full_int, 										
 \end_layout
 
 \begin_layout Plain Layout
 
-		rd_uart => not tx_full_int, 										
+		rd_uart  => not tx_full_int, 										
 \end_layout
 
 \begin_layout Plain Layout
 
-		dout => dout 								
+		dout 	=> dout 								
 \end_layout
 
 \begin_layout Plain Layout
 
 );
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
 \end_layout
 
 \begin_layout Plain Layout

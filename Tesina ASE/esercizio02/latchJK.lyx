@@ -287,12 +287,20 @@ architecture behavioral of latch_jk is
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 	Q <= Qtemp;
 \end_layout
 
 \begin_layout Plain Layout
 
 	Qnot <= not Qtemp;
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout

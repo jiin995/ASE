@@ -100,8 +100,20 @@ Implementazione
 \end_layout
 
 \begin_layout Standard
-Il latch RS abilitato è stato realizzato collegando opportunamente le porte
- NOR e AND, queste ultime necessarie per l'abilitazione.
+Il latch RS abilitato è stato realizzato tramite 
+\begin_inset Quotes eld
+\end_inset
+
+
+\shape italic
+schematic
+\shape default
+
+\begin_inset Quotes erd
+\end_inset
+
+ in VHDL, dove sono state collegate opportunamente le porte NOR e AND, queste
+ ultime necessarie per l'abilitazione.
  Lo schema di collegamento è riportato in fig.
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -158,11 +170,13 @@ Schematico del latch RS abilitato.
 
 \begin_layout Standard
 Tale soluzione porterà il nostro componente latch RS a funzionare secondo
- una logica 1-attiva: in particolare, quando S=1 e R=0 il valore di Q si
- porta a 1 (Set), mentre per portare Q a 0 (Reset) bisognerà portare R a
- 1 e S a 0.
+ una logica 1-attiva: in particolare, quando il segnale E (enable) è alto
+ il latch è pronto a effettuare eventuali commutazioni.
+ Quando S=1 e R=0 il valore di Q si porta a 1 (Set), mentre per portare
+ Q a 0 (Reset) bisognerà portare R a 1 e S a 0.
  Si noti come, in tale componente, la combinazione S=1 e R=1 non è ammessa,
- in quanto porterebbe a cambiamenti di stato non definiti.
+ in quanto porterebbe a cambiamenti di stato non definiti a priori e potrebbe
+ portare a violare la condizione per cui NQ deve essere il negato di Q.
  
 \end_layout
 
@@ -207,7 +221,7 @@ Un caso di particolare interesse da osservare è la transizione da R=1, S=1
  oscillatori per le uscite.
  In simulazione behavioural infatti, i ritardi delle porte e delle linee
  risultano identici sia per le due porte NOR che per le due retroazioni
- positive.
+ positive e sono pari a 0, cioè assenza di ritardo.
  Tuttavia, tali oscillazioni non sono visibili in quanto, essendo la simulazione
  behavioural, i ritardi di propagazione sono nulli e dunque il periodo di
  oscillazione è da considerarsi infinitesimo (fig.
@@ -299,7 +313,8 @@ noprefix "false"
 
 : in tale simulazione, ad ogni porta logica è associato il relativo ritardo
  di porta specificato nella libreria di ISE, ma non sono considerati i ritardi
- di propagazione sulle linee di collegamenti.
+ di propagazione sulle linee di collegamenti che risultano ancora essere
+ nulli.
 \end_layout
 
 \begin_layout Standard
@@ -350,7 +365,8 @@ Simulazione post-map del latch RS.
 \begin_layout Standard
 Per quanto riguarda la simulazione post-route, le connessioni tra i componenti
  non sono più considerate ideali, ma vengono considerati anche i ritardi
- di propagazione secondo libreria ISE.
+ di propagazione sulle linee secondo libreria ISE e in base al mapping che
+ è stato effettuato durante la procedura di sintesi.
  Dal momento che i ritardi di propagazione sono diversi per le due retroazioni
  a causa dell'asimmetria del circuito, tale simulazione non dovrebbe generare
  più oscillazioni persistenti quando si passa dal caso non ammesso a quello
@@ -427,8 +443,9 @@ noprefix "false"
 
 ), le oscillazioni invece continuano a presentarsi.
  Ciò è dovuto al fatto che, in tale simulazione, i ritardi di propagazione
- considerati sono tra loro identici: a prova di ciò vi è il fatto che i
- periodi di oscillazione di Q e NQ sono praticamente uguali.
+ considerati sono tra loro praticamente identici (secondo i dati che il
+ simulatore ha a disposizione): a prova di ciò vi è il fatto che i periodi
+ di oscillazione di Q e NQ sono praticamente uguali.
  A differenza del caso della Nexys 2, dunque, non c'è una linea nettamente
  più veloce dell'altra e tale da forzare il nostro latch ad assumere un
  valore stabile dopo un certo intervallo di tempo.

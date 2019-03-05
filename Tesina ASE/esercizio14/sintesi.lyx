@@ -111,9 +111,13 @@ noprefix "false"
 
 \end_inset
 
-).
- Tale valore è superiore ai 5 Mhz utilizzati nel codice fornitoci, in quanto
- questo era mirato alla sintesi su board Nexys 2.
+) e si è opportunamente aggiornato il valore del contatore del
+\shape italic
+ baud generator
+\shape default
+ dell'UART e l'ucf.
+ Tale valore di frequenza è superiore ai 5 Mhz utilizzati nel codice fornitoci,
+ scelti dal progettista originale per la sintesi su board Nexys 2.
 \end_layout
 
 \begin_layout Standard

@@ -336,7 +336,12 @@ begin{lstlisting}[language=VHDL,caption={Implementazione dello stato di
 
 \begin_layout Plain Layout
 
-when choice     =>
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+when choice   =>
 \end_layout
 
 \begin_layout Plain Layout
@@ -362,6 +367,11 @@ when choice     =>
 \begin_layout Plain Layout
 
 end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
 \end_layout
 
 \begin_layout Plain Layout
@@ -436,7 +446,17 @@ begin{lstlisting}[language=VHDL,caption={Determinazione di Q.}]
 
 \begin_layout Plain Layout
 
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
 val_in_q <= X & '0';
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
 \end_layout
 
 \begin_layout Plain Layout
@@ -476,7 +496,17 @@ begin{lstlisting}[language=VHDL,caption={Determinazione di Z.}]
 
 \begin_layout Plain Layout
 
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
 Z <= internal_a & internal_q(N downto 1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
 \end_layout
 
 \begin_layout Plain Layout
@@ -759,12 +789,32 @@ entity booth_multiplier_onBoard is
 
 \begin_layout Plain Layout
 
-		clock : in STD_LOGIC ; 				
+		clock 	: in  STD_LOGIC ; 				
 \end_layout
 
 \begin_layout Plain Layout
 
-		start : in STD_LOGIC; 				
+		start 	: in  STD_LOGIC; 								
+\end_layout
+
+\begin_layout Plain Layout
+
+		enable_a  : in  STD_LOGIC ; 				
+\end_layout
+
+\begin_layout Plain Layout
+
+		enable_b  : in  STD_LOGIC ;             
+\end_layout
+
+\begin_layout Plain Layout
+
+		subtract  : in  STD_LOGIC ; 					
+\end_layout
+
+\begin_layout Plain Layout
+
+		input 	: in  STD_LOGIC_VECTOR ((N-1) downto 0);
 \end_layout
 
 \begin_layout Plain Layout
@@ -774,47 +824,27 @@ entity booth_multiplier_onBoard is
 
 \begin_layout Plain Layout
 
-		stop : out STD_LOGIC; 				
+		stop 	 : out STD_LOGIC; 
 \end_layout
 
 \begin_layout Plain Layout
 
-		enable_a : in STD_LOGIC ; 				
+		overflow  : out STD_LOGIC ;
 \end_layout
 
 \begin_layout Plain Layout
 
-		enable_b : in STD_LOGIC ;             
+		c_out 	: out STD_LOGIC ;
 \end_layout
 
 \begin_layout Plain Layout
 
-		subtract : in STD_LOGIC ; 					
+		anodes    : out STD_LOGIC_VECTOR (7 downto 0);
 \end_layout
 
 \begin_layout Plain Layout
 
-		input : in STD_LOGIC_VECTOR ((N-1) downto 0);
-\end_layout
-
-\begin_layout Plain Layout
-
-		overflow : out STD_LOGIC ;
-\end_layout
-
-\begin_layout Plain Layout
-
-		c_out : out STD_LOGIC ;
-\end_layout
-
-\begin_layout Plain Layout
-
-		anodes : out STD_LOGIC_VECTOR (7 downto 0);
-\end_layout
-
-\begin_layout Plain Layout
-
-		cathodes : out STD_LOGIC_VECTOR (7 downto 0)
+		cathodes  : out STD_LOGIC_VECTOR (7 downto 0)
 \end_layout
 
 \begin_layout Plain Layout
@@ -885,7 +915,7 @@ begin{lstlisting}[language=VHDL,caption={Interfaccia top level entity .}]
 
 \begin_layout Plain Layout
 
-NET "start"	LOC=N17 | IOSTANDARD=LVCMOS33;	#IO_L9P_T1_DQS_14 
+NET "start"		LOC=N17 | IOSTANDARD=LVCMOS33;	#IO_L9P_T1_DQS_14 
 \end_layout
 
 \begin_layout Plain Layout
@@ -899,7 +929,7 @@ NET "enable_a
 \begin_inset Quotes erd
 \end_inset
 
-	LOC=P17 | IOSTANDARD=LVCMOS33;	#IO_L12P_T1_MRCC_14
+	 LOC=P17 | IOSTANDARD=LVCMOS33;	#IO_L12P_T1_MRCC_14
 \end_layout
 
 \begin_layout Plain Layout
@@ -909,7 +939,7 @@ NET "enable_a
 
 \begin_layout Plain Layout
 
-NET "enable_b"	LOC=M17 | IOSTANDARD=LVCMOS33;	#IO_L10N_T1_D15_14
+NET "enable_b"	 LOC=M17 | IOSTANDARD=LVCMOS33;	#IO_L10N_T1_D15_14
 \end_layout
 
 \begin_layout Plain Layout
@@ -929,7 +959,7 @@ NET "start_led"	LOC=H17 | IOSTANDARD=LVCMOS33;	#IO_L18P_T2_A24_15
 
 \begin_layout Plain Layout
 
-NET "stop"	LOC=V11 | IOSTANDARD=LVCMOS33;	#IO_L21N_T3_DQS_A06_D22_14
+NET "stop"		 LOC=V11 | IOSTANDARD=LVCMOS33;	#IO_L21N_T3_DQS_A06_D22_14
 \end_layout
 
 \begin_layout Plain Layout

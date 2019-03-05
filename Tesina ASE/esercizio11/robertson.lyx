@@ -98,7 +98,7 @@ Unità di controllo
 \end_layout
 
 \begin_layout Itemize
-Contatore
+Contatore per tenere traccia del passo di esecuzione dell'algoritmo
 \end_layout
 
 \begin_layout Itemize
@@ -119,7 +119,7 @@ Un addizionatore parallelo: Carry Select add/sub
 \end_layout
 
 \begin_layout Itemize
-Porte XOR
+Porte AND e OR
 \end_layout
 
 \begin_layout Itemize
@@ -328,22 +328,22 @@ entity robertson_multiplier is
 
 \begin_layout Plain Layout
 
-		X : in STD_LOGIC_VECTOR (N-1 downto 0);                 
+		X 	  : in STD_LOGIC_VECTOR (N-1 downto 0);                 
 \end_layout
 
 \begin_layout Plain Layout
 
-		Y : in STD_LOGIC_VECTOR (N-1 downto 0);                
+		Y 	  : in STD_LOGIC_VECTOR (N-1 downto 0);                
 \end_layout
 
 \begin_layout Plain Layout
 
-		start : in STD_LOGIC;                
+		start   : in STD_LOGIC;                
 \end_layout
 
 \begin_layout Plain Layout
 
-		clock : in STD_LOGIC;                
+		clock   : in STD_LOGIC;                
 \end_layout
 
 \begin_layout Plain Layout
@@ -353,12 +353,12 @@ entity robertson_multiplier is
 
 \begin_layout Plain Layout
 
-		stop : out STD_LOGIC;                 
+		stop    : out STD_LOGIC;                 
 \end_layout
 
 \begin_layout Plain Layout
 
-		Z : out STD_LOGIC_VECTOR ((2*N)-1 downto 0));
+		Z       : out STD_LOGIC_VECTOR ((2*N)-1 downto 0));
 \end_layout
 
 \begin_layout Plain Layout
@@ -445,6 +445,11 @@ begin{lstlisting}[language=VHDL,caption={Implementazione dello stato di
 
 \begin_layout Plain Layout
 
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
 when choice => 						  
 \end_layout
 
@@ -490,17 +495,17 @@ when choice =>
 
 \begin_layout Plain Layout
 
-		nxt <= idle;                         	
+			nxt <= idle;                         	
 \end_layout
 
 \begin_layout Plain Layout
 
-	else                                      	
+		else                                      	
 \end_layout
 
 \begin_layout Plain Layout
 
-		nxt <= add_sub;                      		
+			nxt <= add_sub;                      		
 \end_layout
 
 \begin_layout Plain Layout
@@ -515,6 +520,11 @@ when choice =>
 
 \begin_layout Plain Layout
 
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 end{lstlisting}
@@ -525,6 +535,15 @@ selectlanguage{italian}%
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Il segnale 
+\shape italic
+x_sign
+\shape default
+ tiene traccia del bit in uscita dalla scan chain A e alla fine permette
+ di determinare se effettuare una sottrazione di correzione al passo finale.
 \end_layout
 
 \begin_layout Standard
@@ -581,7 +600,17 @@ begin{lstlisting}[language=VHDL,caption={Determinazione di F.}]
 
 \begin_layout Plain Layout
 
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
 F: F_in <= ((internal_m(N-1) and internal_q(0)) or F_out);
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
 \end_layout
 
 \begin_layout Plain Layout
@@ -626,7 +655,17 @@ begin{lstlisting}[language=VHDL,caption={Determinazione di Z.}]
 
 \begin_layout Plain Layout
 
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
 Z <= internal_a & internal_q; 
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
 \end_layout
 
 \begin_layout Plain Layout

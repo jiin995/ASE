@@ -241,6 +241,11 @@ begin{lstlisting}[language=VHDL,caption={Implementazione del Ripple Carry
 
 \begin_layout Plain Layout
 
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
 gen_rcmultiplier: for i in 0 to N-1 generate 
 \end_layout
 
@@ -276,22 +281,22 @@ gen_rcmultiplier: for i in 0 to N-1 generate
 
 \begin_layout Plain Layout
 
-				X => partial_prod(i)(M-1 downto 0),
+				X	 => partial_prod(i)(M-1 downto 0),
 \end_layout
 
 \begin_layout Plain Layout
 
-				Y => partial_sum(i)(M downto 1),
+				Y 	=> partial_sum(i)(M downto 1),
 \end_layout
 
 \begin_layout Plain Layout
 
-				c_in =>'0',
+				c_in  =>'0',
 \end_layout
 
 \begin_layout Plain Layout
 
-				s => partial_sum(i+1)(M-1 downto 0),
+				s 	=> partial_sum(i+1)(M-1 downto 0),
 \end_layout
 
 \begin_layout Plain Layout
@@ -301,7 +306,7 @@ gen_rcmultiplier: for i in 0 to N-1 generate
 
 \begin_layout Plain Layout
 
-				); 		
+			); 		
 \end_layout
 
 \begin_layout Plain Layout
@@ -311,7 +316,54 @@ gen_rcmultiplier: for i in 0 to N-1 generate
 
 \begin_layout Plain Layout
 
-end generate
+end generate;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+gen_P_1: for i in 0 to M-1 generate 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	p(i) <= partial_sum(i+1)(0);			
+\end_layout
+
+\begin_layout Plain Layout
+
+end generate; 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+gen_P_2: for j in 0 to N-1 generate 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	p(M+j) <= partial_sum(M)(j+1);		
+\end_layout
+
+\begin_layout Plain Layout
+
+end generate;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
 \end_layout
 
 \begin_layout Plain Layout

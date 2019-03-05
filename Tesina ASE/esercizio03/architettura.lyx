@@ -100,8 +100,8 @@ Descrivere la soluzione relizzata per mezzo di schematici e riportare il
 \begin_layout Standard
 Sulla board che abbiamo in dotazione per risparmiare sul numero di segnali
  necessari per pilotare 8 digit, la Digilent ha provveduto a collegare i
- catodi in comune a tutte le digit tra di loro e collegare gli anodi di
- ogni led della digit tutti ad un anodo comune per ogni digit, come riportato
+ catodi omologhi a tutte le digit tra di loro e collegare gli anodi di ogni
+ segmento della digit tutti ad un anodo comune per ogni digit, come riportato
  in fig 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -160,7 +160,7 @@ Pertanto per abilitare una digit bisognerà innanzitutto alimentare opportunamen
 e l'anodo e poi pilotando i catodi opportunamente verrà mostrato sul display
  il valore.
  Tale soluzione così fatta presenta però un problema di fondo, alimentando
- tutte le digit si mostrerà su di esse la stessa cifra.
+ tutte le digit si mostrerà su di esse la stessa cifra contemporaneamente.
  Pertanto si deve provvedere a realizzare una soluzione più ingegnosa, in
  particolare, sfruttando la persistenza dell immagini sulla retina e la
  velocità a cui può funzionare la board si riesce a mostrare valori diversi
@@ -236,7 +236,7 @@ Schematico del display a 7 segmenti.
 \end_layout
 
 \begin_layout Standard
-I segnali in ingresso saranno:
+I segnali in ingresso alla top level entity che gestisce il display saranno:
 \end_layout
 
 \begin_layout Itemize
@@ -261,7 +261,8 @@ reset
 \shape italic
 values - 
 \shape default
-segnale di 16 bit per detereminare il valore da visualizzare sul display;
+segnale di 16 bit per detereminare il valore da visualizzare sul display,
+ 4 bit per ogni digit;
 \end_layout
 
 \begin_layout Itemize
@@ -362,7 +363,10 @@ anodes_manager -
 cathod_manager - 
 \shape default
 componente per la selezione dei segmenti da attivare per ogni cifra, formato
- da un multiplexer 4-1 e un nibble selector/cathod coder.
+ da un multiplexer 4-1 che sceglie in base al valore di conteggio il nibble
+ da passare al cathod coder che abilita opportunamente i segmenti in modo
+ da mostrare il valore in esadecimale presente sul nibble associato a quella
+ digit.
 \end_layout
 
 \begin_layout Standard

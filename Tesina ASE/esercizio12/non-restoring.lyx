@@ -219,6 +219,11 @@ begin{lstlisting}[language=VHDL,caption={Implementazione del Non-restoring
 
 \begin_layout Plain Layout
 
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
 entity non-restoring_divider is 	 
 \end_layout
 
@@ -229,22 +234,22 @@ entity non-restoring_divider is
 
 \begin_layout Plain Layout
 
-	Port ( X : in  STD_LOGIC_VECTOR (n-1 downto 0);
+	Port (  X       : in  STD_LOGIC_VECTOR (n-1 downto 0);
 \end_layout
 
 \begin_layout Plain Layout
 
-			Y: in  STD_LOGIC_VECTOR (n-1 downto 0);
+			Y	   : in  STD_LOGIC_VECTOR (n-1 downto 0);
 \end_layout
 
 \begin_layout Plain Layout
 
-			Q : out  STD_LOGIC_VECTOR (n downto 0);
+			Q	   : out STD_LOGIC_VECTOR (n downto 0);
 \end_layout
 
 \begin_layout Plain Layout
 
-			R : out  STD_LOGIC_VECTOR (n-1 downto 0);
+			R 	  : out STD_LOGIC_VECTOR (n-1 downto 0);
 \end_layout
 
 \begin_layout Plain Layout
@@ -254,17 +259,17 @@ entity non-restoring_divider is
 
 \begin_layout Plain Layout
 
-			clock : in	std_logic;
+			clock   : in  STD_LOGIC;
 \end_layout
 
 \begin_layout Plain Layout
 
-			start : in  STD_LOGIC;
+			start   : in  STD_LOGIC;
 \end_layout
 
 \begin_layout Plain Layout
 
-			stop : out  STD_LOGIC
+			stop    : out STD_LOGIC
 \end_layout
 
 \begin_layout Plain Layout
@@ -275,6 +280,11 @@ entity non-restoring_divider is
 \begin_layout Plain Layout
 
 end non-restoring_divider;
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
 \end_layout
 
 \begin_layout Plain Layout
@@ -350,6 +360,11 @@ begin{lstlisting}[language=VHDL,caption={Implementazione dello stato di
 
 \begin_layout Plain Layout
 
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
 when set_q0=>
 \end_layout
 
@@ -386,6 +401,11 @@ when set_q0=>
 \begin_layout Plain Layout
 
 end if;
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
 \end_layout
 
 \begin_layout Plain Layout

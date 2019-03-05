@@ -164,70 +164,70 @@ entity io_controller is
 
 \begin_layout Plain Layout
 
-	Port ( 	CLOCK			: in 	std_logic	:= '0'; 	--clock
+	Port (  CLOCK		 : in  STD_LOGIC	 := '0'; 	-- clock
 \end_layout
 
 \begin_layout Plain Layout
 
-				IO_SWITCH	: in 	std_logic 	:= '0';	--selettore componenti i/o ('1' per
- switch, display e led, '0' per uart)
+			IO_SWITCH	 : in  STD_LOGIC 	:= '0';	 -- selettore componenti i/o ('1'
+ per switch, display e led, '0' per uart)
 \end_layout
 
 \begin_layout Plain Layout
 
-				CE				: in 	STD_LOGIC 	:= '0';	
+			CE			: in  STD_LOGIC 	:= '0';	
 \end_layout
 
 \begin_layout Plain Layout
 
-				RD				: in 	std_logic 	:= '0';  --	segnale di lettura
+			RD			: in  STD_LOGIC 	:= '0';     -- segnale di lettura
 \end_layout
 
 \begin_layout Plain Layout
 
-				WR				: in 	std_logic 	:= '0';	--	segnale di scrittura
+			WR			: in  STD_LOGIC 	:= '0';	 -- segnale di scrittura
 \end_layout
 
 \begin_layout Plain Layout
 
-				RXD			: in 	std_logic 	:= '1';
+			RXD		   : in  STD_LOGIC 	:= '1';
 \end_layout
 
 \begin_layout Plain Layout
 
-				START_READ	: in  STD_LOGIC	:= '0';	-- avvia la lettura
+			START_READ	: in  STD_LOGIC	 := '0';	 -- avvia la lettura
 \end_layout
 
 \begin_layout Plain Layout
 
-				SWITCH		: in 	STD_LOGIC_VECTOR (7 downto 0);
+			SWITCH		: in  STD_LOGIC_VECTOR (7 downto 0);
 \end_layout
 
 \begin_layout Plain Layout
 
-				TXD			: out std_logic 	:= '1';
+			TXD		   : out STD_LOGIC 	:= '1';
 \end_layout
 
 \begin_layout Plain Layout
 
-				LEDS			: out std_logic_vector(7 downto 0) := "01010101";
+			LEDS		  : out STD_LOGIC_VECTOR (7 downto 0);
 \end_layout
 
 \begin_layout Plain Layout
 
-				anodes 			: out STD_LOGIC_VECTOR (7 downto 0);	--! Uscita che pilota
+			ANODES 	   : out STD_LOGIC_VECTOR (7 downto 0);	--! Uscita che pilota
  gli anodi
 \end_layout
 
 \begin_layout Plain Layout
 
-				cathodes			: out STD_LOGIC_VECTOR (7 downto 0);	--! Uscita che pilota
+			CATHODES	  : out STD_LOGIC_VECTOR (7 downto 0);	--! Uscita che pilota
  i catodi
 \end_layout
 
 \begin_layout Plain Layout
 
-				IO_MDR		: inout std_logic_vector(31 downto 0) := "ZZZZZZZZZZZZZZZZZZZZZZZZZZ
+			IO_MDR		: inout STD_LOGIC_VECTOR (31 downto 0) := "ZZZZZZZZZZZZZZZZZZZZZZZZZZ
 ZZZZZZ"  --verso il data bus a 32 bit
 \end_layout
 
@@ -268,7 +268,7 @@ io_uart
 \shape italic
 io_switch_led_display 
 \shape default
-a seconda del valore di io_switch.
+a seconda del valore di IO_SWITCH.
  Inoltre, se si è scelto di usare l'UART, i led vengono spenti.
  L'implementazione completa del componente è consultabile qui: 
 \begin_inset ERT

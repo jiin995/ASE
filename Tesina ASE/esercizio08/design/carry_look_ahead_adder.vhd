@@ -21,10 +21,10 @@ architecture structural of carry_look_ahead_adder is
 
     component full_adder is 
         port (
-                x   :   in  STD_LOGIC;
-                y   :   in  STD_LOGIC;
-                c_in :   in  STD_LOGIC;
-                s   :   out STD_LOGIC;  
+                x       :   in  STD_LOGIC;
+                y       :   in  STD_LOGIC;
+                c_in    :   in  STD_LOGIC;
+                s       :   out STD_LOGIC;  
                 c_out   :   out STD_LOGIC
         );
     end component;
@@ -40,12 +40,11 @@ architecture structural of carry_look_ahead_adder is
     end component;
 
 
-    signal G    :   STD_LOGIC_VECTOR ((width-1) downto 0);    --Segnale per conservare le condizionoi di generazione
-    signal P    :   STD_LOGIC_VECTOR ((width-1) downto 0);    --Segnale per conservare le condizioni di propagazione
-    signal C  :   STD_LOGIC_VECTOR ((width) downto 0) := (others => '0'); -- Segnale per conservare i carry calcolati dal carry_look_ahead
-    signal S_TEMP       :   STD_LOGIC_VECTOR  ((width-1) downto 0) := (others => '0'); -- Segnale di supporto per la somma
-
-    signal C_null       :   STD_LOGIC_VECTOR ((width-1) downto 0) := (others => '0'); --Segnale per collegare a niete le uscite del fulladder
+    signal G        :   STD_LOGIC_VECTOR ((width-1) downto 0);    --Segnale per conservare le condizionoi di generazione
+    signal P        :   STD_LOGIC_VECTOR ((width-1) downto 0);    --Segnale per conservare le condizioni di propagazione
+    signal C        :   STD_LOGIC_VECTOR ((width) downto 0) := (others => '0'); -- Segnale per conservare i carry calcolati dal carry_look_ahead
+    signal S_TEMP   :   STD_LOGIC_VECTOR  ((width-1) downto 0) := (others => '0'); -- Segnale di supporto per la somma
+    signal C_null   :   STD_LOGIC_VECTOR ((width-1) downto 0) := (others => '0'); --Segnale per collegare a niete le uscite del fulladder
 
 begin
 
@@ -55,10 +54,10 @@ begin
     S <= S_TEMP;
 
     -- Propagation/Generation calculator: rete che calcola le condizioni di propagazione e generazione
-    prop_gen_calculator: propagation_generation_calculator port map ( X => X,
-                                                                Y => Y,
-                                                                G => G,
-                                                                P => P
+    prop_gen_calculator: propagation_generation_calculator port map (   X => X,
+                                                                        Y => Y,
+                                                                        G => G,
+                                                                        P => P
     );
 
     -- Carry Look Ahead: rete che calcola i carry in ingresso agli stadi successivi con le condizioni di gen/prop
@@ -73,8 +72,8 @@ begin
                     full_adder port map (   x => X(i),
                                             y => Y(i),
                                             c_in => C (i),
-                                            s => S_TEMP(i)
-                                            --c_out => C(i) // non è necessario, è già stato calcolato con il propagation/generation calculator
+                                            s => S_TEMP(i),
+                                            c_out => open -- non è necessario, è già stato calcolato con il propagation/generation calculator
 
                     );
     end generate full_adders;

@@ -149,8 +149,10 @@ Automa a stati finiti della macchina (Moore).
 
 \begin_layout Standard
 Per l'implementazione di questo automa in VHDL, si è deciso di utilizzare
- una descrizione di tipo behavioural.
- In particolare, si è utilizzata la tecnica con due processi:
+ una descrizione di tipo behavioural e si è lasciato ad ISE la scelta della
+ codifica degli stati.
+ In particolare, si definito un tipo stato e si è utilizzata la tecnica
+ con due processi per l'implementazione di una FSM:
 \end_layout
 
 \begin_layout Itemize
@@ -181,10 +183,6 @@ Tale scelta, sebbene renda il codice meno compatto, risulta più facilmente
 ta dipende solamente dallo stato in cui si trova la macchina: in particolare,
  come osservabile anche nel codice, l'uscita sarà alta solamente quando
  la macchina avrà rilevato l'intera stringa.
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -197,6 +195,15 @@ status open
 \backslash
 begin{lstlisting}[language=VHDL,caption={Determinazione dell'uscita in VHDL
  (Moore).}]
+\end_layout
+
+\begin_layout Plain Layout
+
+type state_type is (init, s1,s10, s101, s1011, s10110, s101100, s1011001);
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -221,7 +228,12 @@ when s1011001 =>
 
 \begin_layout Plain Layout
 
-	else next_state <= s1; 		
+	else 
+\end_layout
+
+\begin_layout Plain Layout
+
+		next_state <= s1; 		
 \end_layout
 
 \begin_layout Plain Layout
@@ -273,11 +285,11 @@ Implementazione con guardie (Mealy)
 
 \begin_layout Standard
 Si è deciso di realizzare tale macchina anche come Mealy: in particolare,
- dal momento che in questa implementazione l'uscita dipende direttamente
- dall'ingresso, il valore in uscita sarà 1 quando, trovandoci nello stato
- s101100, si riceve in ingresso il valore 1.
+ dal momento che in questa implementazione l'uscita dipende dall'ingresso
+ e dallo stato corrente, il valore in uscita sarà 1 quando, trovandoci nello
+ stato s101100, si riceve in ingresso il valore 1.
  Fatto ciò, è stato dunque possibile rimuovere lo stato s1011001 ed aggiungere
- due transizioni da s101100 a init a fronte degli ingressi 0 e 1, quest'ultimo
+ due transizioni da s101100 a init a fronte degli ingressi 0 e 1, quest'ultima
  con uscita alta.
  L'automa a stati finiti realizzato è rappresentato in fig.
 \begin_inset CommandInset ref
@@ -349,7 +361,111 @@ current_state
 \shape default
 in caso di assegnazioni concorrenti (si sceglie lo stato più a sinistra
  nel vettore degli stati concorrenti).
- L'implementazione completa è consultabile qui: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Determinazione dell'uscita in VHDL
+ (Moore).}]
+\end_layout
+
+\begin_layout Plain Layout
+
+function one_of (source: state_vector) return state is			
+\end_layout
+
+\begin_layout Plain Layout
+
+	begin 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		return source(source'left);		
+\end_layout
+
+\begin_layout Plain Layout
+
+end one_of; 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+signal current_state: one_of state register := init;	
+\end_layout
+
+\begin_layout Plain Layout
+
+	begin 	
+\end_layout
+
+\begin_layout Plain Layout
+
+		clocking: block (clock='1' and not clock'stable)			
+\end_layout
+
+\begin_layout Plain Layout
+
+			begin 			
+\end_layout
+
+\begin_layout Plain Layout
+
+				q0: block (current_state=init and guard)			
+\end_layout
+
+\begin_layout Plain Layout
+
+					begin 				
+\end_layout
+
+\begin_layout Plain Layout
+
+						current_state<= guarded s1 when x='1' else init; 				
+\end_layout
+
+\begin_layout Plain Layout
+
+				end block q0;
+\end_layout
+
+\begin_layout Plain Layout
+
+			[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+	end block clocking; 
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+L'implementazione completa è consultabile qui: 
 \begin_inset ERT
 status open
 

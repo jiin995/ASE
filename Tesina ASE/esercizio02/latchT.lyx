@@ -183,12 +183,20 @@ begin
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 	Q <= Qtemp;
 \end_layout
 
 \begin_layout Plain Layout
 
 	QN <= not Qtemp;
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout

@@ -36,7 +36,7 @@ entity io_controller is
 				START_READ	: in  STD_LOGIC	:= '0';	-- avvia la lettura  dagli switch 
 				SWITCH		: in 	STD_LOGIC_VECTOR (7 downto 0);
 				TXD			: out std_logic 	:= '1';  --txd seriale
-				LEDS			: out std_logic_vector(7 downto 0) := "01010101"; --eco sui led del carattere ricevuto
+				LEDS			: out std_logic_vector(7 downto 0) := (others => '0'); --eco sui led del carattere ricevuto
 				anodes 			: out STD_LOGIC_VECTOR (7 downto 0);	--! Uscita che pilota gli anodi
 				cathodes			: out STD_LOGIC_VECTOR (7 downto 0);	--! Uscita che pilota i catodi
 				IO_MDR		: inout std_logic_vector(31 downto 0) := "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"  --verso il data bus a 32 bit

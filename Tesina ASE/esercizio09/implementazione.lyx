@@ -110,6 +110,15 @@ begin{lstlisting}[language=VHDL,caption={Generazione dei Carry Save Block.}]
 
 \begin_layout Plain Layout
 
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 T <= T_temp;
 \end_layout
 
@@ -130,22 +139,22 @@ carry_save_blocks: for i in 0 to (width-1) generate
 
 \begin_layout Plain Layout
 
-		x => X(i),
+		x 	=> X(i),
 \end_layout
 
 \begin_layout Plain Layout
 
-		y => Y(i),
+		y 	=> Y(i),
 \end_layout
 
 \begin_layout Plain Layout
 
-		c_in => Z(i),
+		c_in  => Z(i),
 \end_layout
 
 \begin_layout Plain Layout
 
-		s => T_temp(i),
+		s 	=> T_temp(i),
 \end_layout
 
 \begin_layout Plain Layout
@@ -161,6 +170,15 @@ carry_save_blocks: for i in 0 to (width-1) generate
 \begin_layout Plain Layout
 
 end generate carry_saves;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
 \end_layout
 
 \begin_layout Plain Layout
@@ -256,47 +274,47 @@ A <= '0' & T(width-1 downto 1);
 
 \begin_layout Plain Layout
 
-RCA: ripple_carry_adder GENERIC MAP (
+RCA: ripple_carry_adder 
 \end_layout
 
 \begin_layout Plain Layout
 
-	width => width )
+GENERIC MAP ( width => width )
 \end_layout
 
 \begin_layout Plain Layout
 
-PORT MAP(
+		PORT MAP(
 \end_layout
 
 \begin_layout Plain Layout
 
-	X => A,
+			X 	=> A,
 \end_layout
 
 \begin_layout Plain Layout
 
-	Y => CS,
+			Y	 => CS,
 \end_layout
 
 \begin_layout Plain Layout
 
-	c_in => '0',
+			c_in  => '0',
 \end_layout
 
 \begin_layout Plain Layout
 
-	S => S(width downto 1),
+			S 	=> S(width downto 1),
 \end_layout
 
 \begin_layout Plain Layout
 
-	c_out => S(width+1) 	
+			c_out => S(width+1) 	
 \end_layout
 
 \begin_layout Plain Layout
 
-);
+		);
 \end_layout
 
 \begin_layout Plain Layout
@@ -314,7 +332,9 @@ selectlanguage{italian}%
 \end_layout
 
 \begin_layout Standard
-
+Dallo snippet di codice si evince anche come la cifra meno significativa
+ del risultato sia proprio la cifra meno significativa ottenuta dalla somma
+ effettuata dal carry save logic.
 \end_layout
 
 \begin_layout Standard

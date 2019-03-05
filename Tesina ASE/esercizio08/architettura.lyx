@@ -100,7 +100,7 @@ noprefix "false"
 .
  Si noti come, per ottimizzare i ritardi rispetto al RCA, si calcolano in
  anticipo i riporti sugli stadi successivi utilizzando le condizioni di
- propagazione (X and Y) e generazione (X or Y).
+ propagazione (X or Y) e generazione (X and Y).
  In particolare, i componenti utilizzati sono:
 \end_layout
 
@@ -147,7 +147,8 @@ i
 \shape italic
 Carry Look Ahead
 \shape default
-, che si occupa del calcolo dei riporti.
+, che si occupa del calcolo dei riporti in ingresso agli addizionatori sottostan
+ti.
  In particolare, 
 \shape italic
 C
@@ -194,6 +195,23 @@ i
 
 \end_inset
 
+
+\shape default
+ ,con 
+\shape italic
+C
+\begin_inset script subscript
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+
+
+\shape default
+pari al carry in ingresso
+\shape italic
 ;
 \end_layout
 

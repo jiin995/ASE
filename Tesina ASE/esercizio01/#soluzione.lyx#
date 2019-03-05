@@ -255,6 +255,12 @@ numero di bit alti in X.
 \end_layout
 
 \begin_layout Standard
+La macchina da progettare non è altro che un contatore parallelo con 6 ingressi
+ e 3 uscite, che coincide con il numero minino di uscite necessarie per
+ codificare il risultato dell'operazione di conteggio.
+\end_layout
+
+\begin_layout Standard
 Utilizzando una rappresentazione 4-2-1 per l'uscita 
 \series bold
 Y
@@ -381,9 +387,9 @@ mapping
 \end_layout
 
 \begin_layout Standard
-Per poter effettuare tale esercizio, rispettando i requisiti forniti, è
- stato necessario suddividere la descrizione delle tre uscite in di tre
- file blif separati.
+Per poter effettuare tale esercizio, rispettando i requisiti forniti (per
+ poterlo confrontare con procedure esatte manuali) , è stato necessario
+ suddividere la descrizione delle tre uscite in di tre file blif separati.
  Tale operazione si è resa necessaria in quanto il comando 
 \shape italic
 simplify
@@ -392,12 +398,17 @@ simplify
 \shape italic
  
 \shape default
-nel procedere alla minimizzazione di una rete combinatoria, utilizza anche
- trasformazioni globali come ad esempio 
+nel procedere alla minimizzazione di una rete combinatoria multilivello
+ e multiuscita, utilizza anche trasformazioni globali come ad esempio 
 \shape italic
 substitute
 \shape default
-.
+ che permette di sostituire espressioni già utilizzate in dei nodi del 
+\series bold
+DAG
+\series default
+ tale operezione ai fini della minimizzazione è ottima ma è difficile da
+ realizzare manualmente.
 \begin_inset Newline newline
 \end_inset
 
@@ -890,7 +901,11 @@ Si calcoli la forma minima della macchina M come rete multi-uscita utilizzando
 \begin_layout Standard
 Per effettuare quest'operazione è stato possibile scegliere tra i diversi
  algoritmi visti a lezione in grado di minimizzare una funzione a due livelli
- multiuscita fornendoci una funzione a due livelli o multilivello.
+ multiuscita, utilizzando lo strumento automatico 
+\series bold
+SIS
+\series default
+, fornendoci una funzione a due livelli o multilivello.
  Si è deciso di utilizzare lo script 
 \shape italic
 rugged.script
@@ -1151,13 +1166,7 @@ y0_temp
 \end_inset
 
 .
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
+ Il codice è disponibile qui: 
 \begin_inset ERT
 status open
 
@@ -1165,206 +1174,19 @@ status open
 
 
 \backslash
-begin{lstlisting}[float][language=VHDL,caption={Implementazione in VHDL
- della macchina M in modalità 
-\begin_inset Quotes eld
-\end_inset
-
-data-flow
-\begin_inset Quotes erd
-\end_inset
-
-.}]
+href{run:./esercizio01/design/M_dataflow.vhd}{%
 \end_layout
 
 \begin_layout Plain Layout
 
-architecture Dataflow of M is
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
--- definition of nodes and temporary outputs
-\end_layout
-
-\begin_layout Plain Layout
-
-[...]
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-begin
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
--- update nodes
-\end_layout
-
-\begin_layout Plain Layout
-
-n10 <= x3 AND x2;
-\end_layout
-
-\begin_layout Plain Layout
-
-n3 <= ( x5 AND (NOT x4) ) OR ( (NOT x5) AND x4);
-\end_layout
-
-\begin_layout Plain Layout
-
-n4 <= ( (NOT x3) AND (NOT n3) ) OR ( x3 AND n3 );
-\end_layout
-
-\begin_layout Plain Layout
-
-n5 <= ( (NOT x2) AND (NOT n4) ) OR ( x2 AND n4 );
-\end_layout
-
-\begin_layout Plain Layout
-
-n6 <= x0 OR x1;
-\end_layout
-
-\begin_layout Plain Layout
-
-n8 <= x2 OR x3;
-\end_layout
-
-\begin_layout Plain Layout
-
-n9 <= x1 AND x0;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
--- update temporary output y0
-\end_layout
-
-\begin_layout Plain Layout
-
-y0_temp <= ( (NOT n5) AND n6 AND (not n9) ) OR ( n5 AND n9 ) OR ( n5 AND
- (NOT n6) ); 	
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\end_layout
-
-\begin_layout Plain Layout
-
--- update node n7 (requires y0_temp)
-\end_layout
-
-\begin_layout Plain Layout
-
-n7 <= (x5 AND (NOT y0_temp)) OR n10;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
--- update temporary outputs y2 and y1
-\end_layout
-
-\begin_layout Plain Layout
-
-y2_temp <= ( x5 AND (NOT y0_temp) AND n10 ) OR ( x4 AND n8 AND n9 )
-\end_layout
-
-\begin_layout Plain Layout
-
-			OR ( x4 AND n6 AND n7 ) OR ( n7 AND n9 );
-\end_layout
-
-\begin_layout Plain Layout
-
-y1_temp <= ( x4 AND (NOT n3) AND (NOT n6) AND (NOT n10) ) OR ( x4 AND (NOT
- n3) AND n9 AND n10 )
-\end_layout
-
-\begin_layout Plain Layout
-
-			OR ( (NOT y2_temp) AND (NOT y0_temp) AND n8 ) OR ( (NOT y2_temp) AND
- n3 AND n6 )
-\end_layout
-
-\begin_layout Plain Layout
-
-			OR ( (NOT y2_temp) AND n10 ) OR ( (NOT y2_temp) AND n9 );
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
--- update outputs
-\end_layout
-
-\begin_layout Plain Layout
-
-y0 <= y0_temp;
-\end_layout
-
-\begin_layout Plain Layout
-
-y1 <= y1_temp;
-\end_layout
-
-\begin_layout Plain Layout
-
-y2 <= y2_temp;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-end Dataflow;
-\end_layout
-
-\begin_layout Plain Layout
-
-[...]
-\end_layout
-
-\begin_layout Plain Layout
-
-
+M
 \backslash
-end{lstlisting}
-\backslash
-selectlanguage{italian}%
+_dataflow.vhd}
 \end_layout
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
@@ -1570,10 +1392,6 @@ noprefix "false"
 \end_inset
 
 .
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1581,7 +1399,7 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1615,6 +1433,10 @@ Schema della macchina M a partire da blocchi full-adder.
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1635,8 +1457,8 @@ status open
 
 
 \backslash
-begin{lstlisting}[float][language=VHDL,caption={Implementazione in VHDL
- di un full-adder.}]
+begin{lstlisting}[language=VHDL,caption={Implementazione in VHDL di un full-adde
+r.}]
 \end_layout
 
 \begin_layout Plain Layout
@@ -1646,12 +1468,12 @@ entity full_adder is
 
 \begin_layout Plain Layout
 
-Port (  X : in  STD_LOGIC;
+Port (  X   : in  STD_LOGIC;
 \end_layout
 
 \begin_layout Plain Layout
 
-		Y : in  STD_LOGIC;
+		Y   : in  STD_LOGIC;
 \end_layout
 
 \begin_layout Plain Layout
@@ -1661,12 +1483,12 @@ Port (  X : in  STD_LOGIC;
 
 \begin_layout Plain Layout
 
-		S : out  STD_LOGIC;
+		S   : out STD_LOGIC;
 \end_layout
 
 \begin_layout Plain Layout
 
-		C : out  STD_LOGIC
+		C   : out STD_LOGIC
 \end_layout
 
 \begin_layout Plain Layout
@@ -1720,11 +1542,6 @@ selectlanguage{italian}%
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Dopodiché, utilizzando questi componenti, si è proceduto a costruire la
- macchina M seguendo una modalità di descrizione di tipo “structural”.
 \begin_inset Newline newline
 \end_inset
 
@@ -1732,6 +1549,9 @@ Dopodiché, utilizzando questi componenti, si è proceduto a costruire la
 \end_layout
 
 \begin_layout Standard
+Dopodiché, utilizzando questi componenti, si è proceduto a costruire la
+ macchina M seguendo una modalità di descrizione di tipo “structural”.
+ Il codice è visualizzabile qui: 
 \begin_inset ERT
 status open
 
@@ -1739,257 +1559,18 @@ status open
 
 
 \backslash
-begin{lstlisting}[float][language=VHDL,caption={Implementazione in VHDL
- della macchina M usando i full-adder.}]
+href{run:./esercizio01/design/M.vhd}{%
 \end_layout
 
 \begin_layout Plain Layout
 
-entity M is
-\end_layout
-
-\begin_layout Plain Layout
-
-Port (  X : in  STD_LOGIC_VECTOR (5 downto 0);
-\end_layout
-
-\begin_layout Plain Layout
-
-		Y : out  STD_LOGIC_VECTOR (2 downto 0));
-\end_layout
-
-\begin_layout Plain Layout
-
-end M;
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-architecture structural of M is
-\end_layout
-
-\begin_layout Plain Layout
-
-[...]
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
--- signals used for the carry output of the full-adders
-\end_layout
-
-\begin_layout Plain Layout
-
-signal C : STD_LOGIC_VECTOR ( 3 downto 0) :=( others => '0' );
-\end_layout
-
-\begin_layout Plain Layout
-
--- signals used for the sum output of the full-adders
-\end_layout
-
-\begin_layout Plain Layout
-
-signal S	: STD_LOGIC_VECTOR (	3 downto 0) :=( others => '0' ); 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-begin
-\end_layout
-
-\begin_layout Plain Layout
-
-	adder_0: full_adder port map (	
-\end_layout
-
-\begin_layout Plain Layout
-
-		X => X(0), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		Y => X(1), 												
-\end_layout
-
-\begin_layout Plain Layout
-
-		CIN => X(2), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		S => S(0), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		C => C(0) 
-\end_layout
-
-\begin_layout Plain Layout
-
-	);
-\end_layout
-
-\begin_layout Plain Layout
-
-	adder_1: full_adder port map (
-\end_layout
-
-\begin_layout Plain Layout
-
-		X => X(3), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		Y => X(4), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		CIN => X(5), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		S => S(1), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		C => C(1)
-\end_layout
-
-\begin_layout Plain Layout
-
-	);
-\end_layout
-
-\begin_layout Plain Layout
-
-	adder_2: full_adder port map (
-\end_layout
-
-\begin_layout Plain Layout
-
-		X => S(0), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		Y => S(1), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		CIN => '0', 														
-\end_layout
-
-\begin_layout Plain Layout
-
-		S => S(2), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		C => C(2) 
-\end_layout
-
-\begin_layout Plain Layout
-
-	);
-\end_layout
-
-\begin_layout Plain Layout
-
-	adder_3: full_adder port map (		
-\end_layout
-
-\begin_layout Plain Layout
-
-		X => C(0), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		Y => C(1), 												
-\end_layout
-
-\begin_layout Plain Layout
-
-		CIN => C(2), 												
-\end_layout
-
-\begin_layout Plain Layout
-
-		S => S(3), 													
-\end_layout
-
-\begin_layout Plain Layout
-
-		C => C(3) 
-\end_layout
-
-\begin_layout Plain Layout
-
-	); 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-	Y(0) <= S(2); 	
-\end_layout
-
-\begin_layout Plain Layout
-
-	Y(1) <= S(3); 	
-\end_layout
-
-\begin_layout Plain Layout
-
-	Y(2) <= C(3);
-\end_layout
-
-\begin_layout Plain Layout
-
-end structural;
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{lstlisting}
-\backslash
-selectlanguage{italian}%
+M.vhd}
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Il risultato della simulazione è analogo a quello dell'esercizio 4.
+.
+ Il risultato della simulazione è analogo a quello dell'esercizio 4.
 \end_layout
 
 \begin_layout Subsection
@@ -2015,20 +1596,24 @@ Come descritto nell'esercizio 5, la macchina M è in grado di determinare,
  Dal momento che si può considerare tale macchina come sommatore in grado
  di sommare 6 bit, si è deciso di utilizzarla per sommare tra loro le cifre
  dello stesso peso delle 6 stringhe fornite in ingresso alla macchina S.
- Essendo tali stringhe composte da 3 bit ciascuna (di peso 2, 1 e 0), sono
- stati utilizzate 3 macchine M per sommare le cifre di stesso peso tra loro.
+ Essendo tali stringhe composte da 3 bit ciascuna (di peso 2, 1 e 0), si
+ è scelto di usare 3 macchine M per sommare le cifre di stesso peso tra
+ loro.
  Una volta ottenute tali somme (ciascuna, rispettivamente, espressa su 3
- bit in codifica binaria), si sono potute fare queste osservazioni: il bit
+ bit in codifica binaria), si è proceduto con tali osservazioni: il bit
  di peso 0 della somma dei 6 bit di peso 0 non è altro che la cifra di peso
  0 del risultato della macchina S, ossia della somma delle 6 stringhe.
  Il bit di peso 1 della stessa somma, invece, rappresenta invece un bit
  di peso 1 della somma totale delle stringhe, e lo stesso ragionamento è
  valido per il bit di peso 2.
  Passando alla somma dei 6 bit di peso 1 delle stringhe di partenza, si
- noti che la cifra di peso 0 di tale somma non è altro che un bit di peso
- 1 della somma totale delle stringhe, menrte la cifra di peso 1 è un bit
- di peso 2 per la somma totale e così via.
- Seguendo questo ragionamento, è stato possibile combinare le cifre delle
+ noti come la cifra di peso 0 di tale somma non è altro che un bit di peso
+ 1 della somma totale delle stringhe, mentree la cifra di peso 1 è un bit
+ di peso 2 per la somma totale, e così via.
+\end_layout
+
+\begin_layout Standard
+Seguendo questo ragionamento, è stato possibile combinare le cifre delle
  somme di peso analogo utilizzando dei full-adder, ottenendo lo schema consultab
 ile in fig.
 \begin_inset CommandInset ref
@@ -2108,12 +1693,7 @@ href{run:./esercizio01/design/S.vhd}{%
 
 \begin_layout Plain Layout
 
-S.vhd
-\end_layout
-
-\begin_layout Plain Layout
-
-}
+S.vhd}
 \end_layout
 
 \end_inset
@@ -2146,7 +1726,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/soluzione/S_simulation.png
-	scale 60
+	scale 40
 
 \end_inset
 

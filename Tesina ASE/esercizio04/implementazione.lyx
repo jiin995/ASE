@@ -85,7 +85,7 @@ Implementazione
 
 \begin_layout Standard
 Prima di procedere con lo svolgimento dell'esercizio, si noti che sulle
- board FPGA Artix7 il DCM
+ board FPGA della famiglia Artix7 il DCM
 \begin_inset Foot
 status open
 
@@ -138,7 +138,8 @@ Per poter sintetizzare un generatore di clock con una frequenza minore o
  Per utilizzare tale componente, Xilinx fornisce un IP-core personalizzabile
  mediante il clocking-wizard, al fine di poter generare un modulo VHDL che
  utilizzi correttamente il CMT sulla board e ottenere un clock alla frequenza
- desiderata.
+ desiderata o che si avvicini a tale frequenza (in quanto non sono tutte
+ ottenibili).
  Durante la personalizzazione del componente, il clocking wizard ci permette
  di scegliere se avere o meno un segnale 
 \shape italic
@@ -165,7 +166,7 @@ noprefix "false"
  pari a 100 Mhz, sono state inserite come frequenze in output richieste
  50, 25 e 10 Mhz.
  Una volta conclusa la procedura, il wizard genera un file .vhd già pronto
- per essere utilizzato.
+ per essere utilizzato nel proprio progetto.
 \end_layout
 
 \begin_layout Standard

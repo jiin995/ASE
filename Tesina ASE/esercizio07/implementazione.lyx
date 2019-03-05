@@ -179,7 +179,11 @@ Ripple Carry Adder
 \begin_layout Standard
 Per implementare il RCA, invece, si è utilizzata una descrizione di tipo
  structural.
- Tramite un 
+ Tramite l'utilizzo del costrutto 
+\shape italic
+for
+\shape default
+ 
 \shape italic
 generate 
 \shape default

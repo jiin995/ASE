@@ -303,12 +303,12 @@ begin
 
 \begin_layout Plain Layout
 
-		X => prodotto_xy,
+		X   => prodotto_xy,
 \end_layout
 
 \begin_layout Plain Layout
 
-		Y => S_in,
+		Y   => S_in,
 \end_layout
 
 \begin_layout Plain Layout
@@ -318,12 +318,12 @@ begin
 
 \begin_layout Plain Layout
 
-		S => S_out,
+		S   => S_out,
 \end_layout
 
 \begin_layout Plain Layout
 
-		C => C_out
+		C   => C_out
 \end_layout
 
 \begin_layout Plain Layout
@@ -334,6 +334,11 @@ begin
 \begin_layout Plain Layout
 
 end dataflow;
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
 \end_layout
 
 \begin_layout Plain Layout
@@ -432,32 +437,32 @@ begin
 
 \begin_layout Plain Layout
 
-				X => X(j),
+				X 	=> X(j),
 \end_layout
 
 \begin_layout Plain Layout
 
-				Y => Y(i),
+				Y 	=> Y(i),
 \end_layout
 
 \begin_layout Plain Layout
 
-				C_in => carry_int (i,j),
+				C_in  => carry_int (i,j),
 \end_layout
 
 \begin_layout Plain Layout
 
-				S_in => partial_sum(i,j+1),
+				S_in  => partial_sum(i,j+1),
 \end_layout
 
 \begin_layout Plain Layout
 
-				C_out   => carry_int(i,j+1),
+				C_out => carry_int(i,j+1),
 \end_layout
 
 \begin_layout Plain Layout
 
-				S_out   => partial_sum(i+1,j)
+				S_out => partial_sum(i+1,j)
 \end_layout
 
 \begin_layout Plain Layout
@@ -467,7 +472,7 @@ begin
 
 \begin_layout Plain Layout
 
-		end generate;
+		end generatec
 \end_layout
 
 \begin_layout Plain Layout
@@ -477,7 +482,11 @@ begin
 
 \begin_layout Plain Layout
 
-		end generate;
+	end generate;
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -497,6 +506,10 @@ begin
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 	result_N : for i in 1 to N generate
 \end_layout
 
@@ -508,6 +521,10 @@ begin
 \begin_layout Plain Layout
 
 	end generate;
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout

@@ -158,6 +158,11 @@ begin{lstlisting}[language=VHDL,caption={Buffer output realizzato con scan
 
 \begin_layout Plain Layout
 
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
 received_byte_reg: scan_chain
 \end_layout
 
@@ -188,32 +193,32 @@ received_byte_reg: scan_chain
 
 \begin_layout Plain Layout
 
-		scan_en	=> '1',
+		scan_en   => '1',
 \end_layout
 
 \begin_layout Plain Layout
 
-		scan_in 	=> rx,
+		scan_in   => rx,
 \end_layout
 
 \begin_layout Plain Layout
 
-		d_reg		=> ( others => '0'),
+		d_reg	 => ( others => '0'),
 \end_layout
 
 \begin_layout Plain Layout
 
-		scan_out	=> open,
+		scan_out  => open,
 \end_layout
 
 \begin_layout Plain Layout
 
-		q_reg		=> received_byte,
+		q_reg	 => received_byte,
 \end_layout
 
 \begin_layout Plain Layout
 
-		reset_n 	=> '1'
+		reset_n   => '1'
 \end_layout
 
 \begin_layout Plain Layout
@@ -259,6 +264,11 @@ flag_FF_inst: flag_FF
 \begin_layout Plain Layout
 
 	);
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
 \end_layout
 
 \begin_layout Plain Layout

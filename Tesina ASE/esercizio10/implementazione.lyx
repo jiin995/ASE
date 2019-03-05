@@ -115,6 +115,11 @@ begin{lstlisting}[language=VHDL,caption={Interfaccia di un Carry Select
 
 \begin_layout Plain Layout
 
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
 entity carry_elect_block is     
 \end_layout
 
@@ -135,32 +140,37 @@ entity carry_elect_block is
 
 \begin_layout Plain Layout
 
-		A : in STD_LOGIC_VECTOR ((width-1) downto 0);            
+			A 	: in STD_LOGIC_VECTOR ((width-1) downto 0);            
 \end_layout
 
 \begin_layout Plain Layout
 
-		B : in STD_LOGIC_VECTOR ((width-1) downto 0);         
+			B 	: in STD_LOGIC_VECTOR ((width-1) downto 0);         
 \end_layout
 
 \begin_layout Plain Layout
 
-		c_in : in STD_LOGIC;             
+			c_in  : in STD_LOGIC;             
 \end_layout
 
 \begin_layout Plain Layout
 
-		S : out STD_LOGIC_VECTOR ((width-1) downto 0);             
+			S 	: out STD_LOGIC_VECTOR ((width-1) downto 0);             
 \end_layout
 
 \begin_layout Plain Layout
 
-		c_out : out STD_LOGIC); 
+			c_out : out STD_LOGIC); 
 \end_layout
 
 \begin_layout Plain Layout
 
 end carry_select_cell;
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
 \end_layout
 
 \begin_layout Plain Layout
@@ -267,23 +277,23 @@ rca: rippleCarry_adder port map(
 
 \begin_layout Plain Layout
 
-	X => A((M-1) downto 0),                                           
+	X 	=> A((M-1) downto 0),                                           
 \end_layout
 
 \begin_layout Plain Layout
 
-	Y => B((M-1) downto 0),                                           
+	Y 	=> B((M-1) downto 0),                                           
 \end_layout
 
 \begin_layout Plain Layout
 
-	c_in => internal_carry(0),                                           
+	c_in  => internal_carry(0),                                           
 \end_layout
 
 \begin_layout Plain Layout
 
-	S => S_TEMP((M-1) downto 0),                                          
- 
+	S 	=> S_TEMP((M-1) downto 0),                                         
+  
 \end_layout
 
 \begin_layout Plain Layout
@@ -312,12 +322,12 @@ blocks: for i in 1 to P-1 generate
 
 \begin_layout Plain Layout
 
-		A => A ((((i+1)*M)-1) downto(i*M)),
+		A 	=> A ((((i+1)*M)-1) downto(i*M)),
 \end_layout
 
 \begin_layout Plain Layout
 
-		B => B ((((i+1)*M)-1) downto (i*M)),
+		B 	=> B ((((i+1)*M)-1) downto (i*M)),
 \end_layout
 
 \begin_layout Plain Layout
@@ -327,12 +337,13 @@ blocks: for i in 1 to P-1 generate
 
 \begin_layout Plain Layout
 
-		S => S_TEMP((((i+1)*M)-1) downto (i*M)),
+		S 	=> S_TEMP((((i+1)*M)-1) downto (i*M)),
 \end_layout
 
 \begin_layout Plain Layout
 
-		c_ou => internal_carry(i+1)                                          
+		c_ou  => internal_carry(i+1)                                         
+ 
 \end_layout
 
 \begin_layout Plain Layout

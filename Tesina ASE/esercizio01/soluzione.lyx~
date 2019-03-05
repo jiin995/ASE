@@ -255,7 +255,10 @@ numero di bit alti in X.
 \end_layout
 
 \begin_layout Standard
-Utilizzando una rappresentazione 4-2-1 per l'uscita 
+La macchina da progettare non è altro che un contatore parallelo con 6 ingressi
+ e 3 uscite, che coincide con il numero minino di uscite necessarie per
+ codificare il risultato dell'operazione di conteggio.
+ Utilizzando una rappresentazione 4-2-1 per l'uscita 
 \series bold
 Y
 \series default
@@ -381,9 +384,9 @@ mapping
 \end_layout
 
 \begin_layout Standard
-Per poter effettuare tale esercizio, rispettando i requisiti forniti, è
- stato necessario suddividere la descrizione delle tre uscite in di tre
- file blif separati.
+Per poter effettuare tale esercizio, rispettando i requisiti forniti (per
+ poterlo confrontare con procedure esatte manuali) , è stato necessario
+ suddividere la descrizione delle tre uscite in di tre file blif separati.
  Tale operazione si è resa necessaria in quanto il comando 
 \shape italic
 simplify
@@ -392,11 +395,15 @@ simplify
 \shape italic
  
 \shape default
-nel procedere alla minimizzazione di una rete combinatoria, utilizza anche
- trasformazioni globali come ad esempio 
+nel procedere alla minimizzazione di una rete combinatoria multilivello
+ e multiuscita, utilizza anche trasformazioni globali come ad esempio 
 \shape italic
-substitute
+substitute,
 \shape default
+ che permette di sostituire espressioni già utilizzate in dei nodi del 
+\series bold
+DAG
+\series default
 .
 \begin_inset Newline newline
 \end_inset
@@ -890,7 +897,11 @@ Si calcoli la forma minima della macchina M come rete multi-uscita utilizzando
 \begin_layout Standard
 Per effettuare quest'operazione è stato possibile scegliere tra i diversi
  algoritmi visti a lezione in grado di minimizzare una funzione a due livelli
- multiuscita fornendoci una funzione a due livelli o multilivello.
+ multiuscita
+\begin_inset space ~
+\end_inset
+
+fornendoci una funzione a due livelli o multilivello.
  Si è deciso di utilizzare lo script 
 \shape italic
 rugged.script
@@ -1377,6 +1388,9 @@ noprefix "false"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement ph
 wide false
@@ -1414,9 +1428,17 @@ Schema della macchina M a partire da blocchi full-adder.
 
 \end_inset
 
- Per quanto concerne l'implementazione in VHDL, si è dapprima proceduto
- all'implementazione di un full-adder seguendo una modalità di descrizione
- di tipo “behavioural”.
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per quanto concerne l'implementazione in VHDL, si è dapprima proceduto all'imple
+mentazione di un full-adder seguendo una modalità di descrizione di tipo
+ “dataflow”.
 \begin_inset Newline newline
 \end_inset
 
@@ -1442,12 +1464,12 @@ entity full_adder is
 
 \begin_layout Plain Layout
 
-Port (  X : in  STD_LOGIC;
+Port (  X   : in  STD_LOGIC;
 \end_layout
 
 \begin_layout Plain Layout
 
-		Y : in  STD_LOGIC;
+		Y   : in  STD_LOGIC;
 \end_layout
 
 \begin_layout Plain Layout
@@ -1457,12 +1479,12 @@ Port (  X : in  STD_LOGIC;
 
 \begin_layout Plain Layout
 
-		S : out  STD_LOGIC;
+		S   : out STD_LOGIC;
 \end_layout
 
 \begin_layout Plain Layout
 
-		C : out  STD_LOGIC
+		C   : out STD_LOGIC
 \end_layout
 
 \begin_layout Plain Layout
@@ -1651,6 +1673,17 @@ Dopodiché si è proceduto alla sua realizzazione in VHDL utilizzando una
 
 structural
 \begin_inset Quotes erd
+\end_inset
+
+ rispecchiando lo schema nella fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:S"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
 .

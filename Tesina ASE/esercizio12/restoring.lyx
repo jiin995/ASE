@@ -124,7 +124,7 @@ Un addizionatore Ripple Carry Adder AddSub
 \end_layout
 
 \begin_layout Itemize
-Porte XOR
+Porta NOT
 \end_layout
 
 \begin_layout Itemize
@@ -331,42 +331,42 @@ entity restoring_divider is
 
 \begin_layout Plain Layout
 
-	Port ( X : in  STD_LOGIC_VECTOR (n-1 downto 0);
+	Port (  Reset_n : in  STD_LOGIC;
 \end_layout
 
 \begin_layout Plain Layout
 
-			Y: in  STD_LOGIC_VECTOR (n-1 downto 0);
+			clock   : in  STD_LOGIC;
 \end_layout
 
 \begin_layout Plain Layout
 
-			Q : out  STD_LOGIC_VECTOR (n downto 0);
+			start   : in  STD_LOGIC;
 \end_layout
 
 \begin_layout Plain Layout
 
-			R : out  STD_LOGIC_VECTOR (n-1 downto 0);
+			X	   : in  STD_LOGIC_VECTOR (n-1 downto 0);
 \end_layout
 
 \begin_layout Plain Layout
 
-			Reset_n : in  STD_LOGIC;
+			Y	   : in  STD_LOGIC_VECTOR (n-1 downto 0);
 \end_layout
 
 \begin_layout Plain Layout
 
-			clock : in	std_logic;
+			stop    : out STD_LOGIC
 \end_layout
 
 \begin_layout Plain Layout
 
-			start : in  STD_LOGIC;
+			Q       : out STD_LOGIC_VECTOR (n downto 0);
 \end_layout
 
 \begin_layout Plain Layout
 
-			stop : out  STD_LOGIC
+			R       : out STD_LOGIC_VECTOR (n-1 downto 0);
 \end_layout
 
 \begin_layout Plain Layout
@@ -467,6 +467,10 @@ when test=>
 \begin_layout Plain Layout
 
 		count_in<='1';
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout

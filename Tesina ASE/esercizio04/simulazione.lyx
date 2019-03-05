@@ -234,7 +234,7 @@ begin{lstlisting}[language=VHDL,caption={Collegamento tra clock e shift
 
 \begin_layout Plain Layout
 
-signal enable_int 		: STD_LOGIC	:='1';	
+signal enable_int 	: STD_LOGIC	:='1';	
 \end_layout
 
 \begin_layout Plain Layout
@@ -244,22 +244,22 @@ begin
 
 \begin_layout Plain Layout
 
-	half_clock		 <= half_clock_int; 
+	half_clock	   <= half_clock_int; 
 \end_layout
 
 \begin_layout Plain Layout
 
-	quarter_clock      <= quarter_clock_int; 
+	quarter_clock    <= quarter_clock_int; 
 \end_layout
 
 \begin_layout Plain Layout
 
-	tenth_clock 	   <= tenth_clock_int;
+	tenth_clock 	 <= tenth_clock_int;
 \end_layout
 
 \begin_layout Plain Layout
 
-	locked 			<= enable_int;
+	locked 		  <= enable_int;
 \end_layout
 
 \begin_layout Plain Layout
@@ -273,7 +273,7 @@ begin
 
 \begin_layout Plain Layout
 
-			CLK_IN1 => clock_in, 		
+			CLK_IN1  => clock_in, 		
 \end_layout
 
 \begin_layout Plain Layout
@@ -293,7 +293,7 @@ begin
 
 \begin_layout Plain Layout
 
-			LOCKED => enable_int 
+			LOCKED   => enable_int 
 \end_layout
 
 \begin_layout Plain Layout
@@ -322,12 +322,12 @@ begin
 
 \begin_layout Plain Layout
 
-			clock => half_clock_int,
+			clock   => half_clock_int,
 \end_layout
 
 \begin_layout Plain Layout
 
-			enable => enable_int, 
+			enable  => enable_int, 
 \end_layout
 
 \begin_layout Plain Layout
@@ -337,22 +337,22 @@ begin
 
 \begin_layout Plain Layout
 
-			left => left,
+			left    => left,
 \end_layout
 
 \begin_layout Plain Layout
 
-			d_in => d_in,
+			d_in    => d_in,
 \end_layout
 
 \begin_layout Plain Layout
 
-			q_out => q_out,
+			q_out   => q_out,
 \end_layout
 
 \begin_layout Plain Layout
 
-			Q => Q 								
+			Q       => Q 								
 \end_layout
 
 \begin_layout Plain Layout
@@ -449,8 +449,8 @@ Simulazione Clock Generator
 \end_layout
 
 \begin_layout Standard
-Dopo circa 40 cicli di clock (4.650 us), il segnale locked va alto e lo shift
- register viene abilitato.
+Dopo circa 40 cicli di clock (4.650 us), il segnale locked va alto perchè
+ il CMT ha agganciato la fase e lo shift register viene abilitato.
  Sul fronte di salita di half_clock, e dunque ogni due fronti di salita
  di clock_in, il registro viene correttamente shiftato verso sinistra.
  Si osservi inoltre come, poichè d_in resta alto per circa un periodo e

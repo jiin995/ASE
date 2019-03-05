@@ -129,7 +129,7 @@ entity scan_chain is
 
 \begin_layout Plain Layout
 
-		width : integer := 8;
+		width 		  : integer := 8;
 \end_layout
 
 \begin_layout Plain Layout
@@ -139,47 +139,52 @@ entity scan_chain is
 
 \begin_layout Plain Layout
 
-	);  Port (
+	); 
 \end_layout
 
 \begin_layout Plain Layout
 
-		clock : in  STD_LOGIC;
+	Port (
 \end_layout
 
 \begin_layout Plain Layout
 
-		en : in  STD_LOGIC;
+		clock    : in  STD_LOGIC;
 \end_layout
 
 \begin_layout Plain Layout
 
-		reset_n : in STD_LOGIC;
+		en       : in  STD_LOGIC;
 \end_layout
 
 \begin_layout Plain Layout
 
-		scan_en : in  STD_LOGIC;
+		reset_n  : in  STD_LOGIC;
 \end_layout
 
 \begin_layout Plain Layout
 
-		d_reg : in  STD_LOGIC_VECTOR (width-1 downto 0);
+		scan_en  : in  STD_LOGIC;
 \end_layout
 
 \begin_layout Plain Layout
 
-		scan_in : in  STD_LOGIC;
+		scan_in  : in  STD_LOGIC;
 \end_layout
 
 \begin_layout Plain Layout
 
-		q_reg : out  STD_LOGIC_VECTOR (width-1 downto 0);
+		d_reg    : in  STD_LOGIC_VECTOR (width-1 downto 0);
 \end_layout
 
 \begin_layout Plain Layout
 
-		scan_out : out  STD_LOGIC
+		q_reg    : out STD_LOGIC_VECTOR (width-1 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+		scan_out : out STD_LOGIC
 \end_layout
 
 \begin_layout Plain Layout
@@ -227,8 +232,8 @@ enable
 \shape italic
 scan_en
 \shape default
-: bit di selezione della modalità di funzionamento (1 per modalità normale,
- 1 per modalità controllo);
+: bit di selezione della modalità di funzionamento (0 per modalità normale
+ (registro parallelo), 1 per modalità controllo);
 \end_layout
 
 \begin_layout Itemize
@@ -321,8 +326,8 @@ scan_in
 \shape italic
 shift_direction 
 \shape default
-si stabilisce quale tipologia di shift register si vuole generare e dunque
- come collegare tra loro i flip-flop.
+si stabilisce quale tipologia di scan chain si vuole generare e dunque come
+ collegare tra loro i flip-flop.
  L'implementazione completa è consultabile qui: 
 \begin_inset ERT
 status open
