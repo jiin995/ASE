@@ -3,7 +3,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity Control_Unit is
     Port ( counter_hit : in  STD_LOGIC;			-- valore del contatore
-			  sel_q0	: out std_logic;			-- segnale di selezione del multiplexer: se 0, Q[0] = X(0), se 1, Q[0] = not A(N)
+			  sel_q0	: out std_logic;			-- segnale di selezione del multiplexer: se 0, Q[0] = X(0), se 1, Q[0] = not A(N-1)
            count_in : out  STD_LOGIC;
            S : in  STD_LOGIC;					-- Risultato confronto/sottrazione ( 0 => 2R > V , 1=> 2R < V ) "segno di A"
            subtract : out  STD_LOGIC;		-- decide se l'addizionatore deve effettuare somma o sottrazione

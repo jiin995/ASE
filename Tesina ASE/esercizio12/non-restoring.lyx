@@ -159,7 +159,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename images/architettura_fsm_non-restoring.png
-	scale 75
+	scale 60
 
 \end_inset
 
@@ -199,6 +199,10 @@ Per l'implementazione di tale componente si è utilizzata una descrizione
 ente.
  In particolare si riporta l'interfaccia del componente divisore, del tutto
  analoga a quella del restoring divider:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -285,10 +289,6 @@ selectlanguage{italian}%
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -330,6 +330,10 @@ In particolare, per quanto riguarda la parte di controllo, questa è stata
  set_q0
 \shape default
 :
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -396,10 +400,6 @@ selectlanguage{italian}%
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -438,9 +438,8 @@ Parte operativa
 \end_layout
 
 \begin_layout Standard
-Il funzionamento della parte operativa è il seguen te: inizialmente, il
- dividendo X e il divisore Y vengono caricati rispettivamente nei registri
- A e Q.
+Il funzionamento della parte operativa è il seguente: inizialmente, il dividendo
+ X e il divisore Y vengono caricati rispettivamente nei registri Q e M.
  In coda al registro Q, invece, viene posto il flip flop Q0 che determina
  il valore da inserire in Q in caso di shift a sinistra: Q0 sarà pari all'oppost
 o del valore del segno del resto parziale in A.
@@ -488,7 +487,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/simulazione_non-restoring.png
-	scale 35
+	scale 50
 
 \end_inset
 

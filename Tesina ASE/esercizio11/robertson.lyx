@@ -102,12 +102,12 @@ Contatore
 \end_layout
 
 \begin_layout Itemize
-Registro M (per contenere il moltiplicando X)
+Registro M (per contenere il moltiplicatore Y)
 \end_layout
 
 \begin_layout Itemize
 Registri A e Q scan chain (per contenere rispettivamente i risultati parziali
- e il moltiplicatore Y)
+ e il moltiplicando X)
 \end_layout
 
 \begin_layout Itemize
@@ -294,8 +294,8 @@ Implementazione
 
 \begin_layout Standard
 Per l'implementazione di tale componente si è utilizzata una descrizione
- di tipo structural, collegando opportunamene i componenti descritti precedentem
-ente.
+ di tipo structural, collegando opportunamente i componenti descritti precedente
+mente.
  In particolare si riporta l'interfaccia del componente moltiplicatore:
 \end_layout
 
@@ -425,6 +425,10 @@ In particolare, per quanto riguarda la parte di controllo, questa è stata
 choice
 \shape default
 :
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -521,10 +525,6 @@ selectlanguage{italian}%
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -562,7 +562,7 @@ Parte operativa
 Il funzionamento della parte operativa è il seguente: inizialmente, il moltiplic
 ando X e il moltiplicatore Y vengono caricati rispettivamente nei registri
  Q e M.
- In testa al registro M, invece, viene posto il flip flop F che determina
+ In testa al registro Q, invece, viene posto il flip flop F che determina
  il valore da inserire in M in caso di shift a destra: F sarà alto se e
  solo se sono entrambi alti M[N-1] e Q[0] (moltiplicatore negativo con operazion
 e di somma), e resterà alto per tutta la durata dell'operazione:
@@ -678,7 +678,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/simulazione_robertson.png
-	scale 35
+	scale 50
 
 \end_inset
 
@@ -789,7 +789,7 @@ fontsize{4}{5}
 
 \backslash
 selectfont, anchor=north, at={(0.70,0.16)}}, xmin=0,xmax=128, ymin = 0, ymax
- = 40000, grid=major, width=0.45
+ = 1500, grid=major, width=0.45
 \end_layout
 
 \begin_layout Plain Layout
@@ -814,7 +814,7 @@ addplot coordinates{     (0,0) (4, 52) (8, 87) (16, 206) (32, 382) (64,
 
 \backslash
 nextgroupplot[legend style={anchor=north, at={(0.50,0.95)}}, xmin=0,xmax=128,
- ymin = 0, ymax = 290, grid=major, width=0.45
+ ymin = 0, ymax = 5.5, grid=major, width=0.45
 \backslash
 textwidth, height=
 \backslash

@@ -1,0 +1,73 @@
+## This file is a general .ucf for the Nexys4 DDR Rev C board
+## To use it in a project:
+## - uncomment the lines corresponding to used pins
+## - rename the used signals according to the project
+
+## Clock signal
+NET "clock"   LOC = "E3"	| IOSTANDARD = "LVCMOS33";					#Bank = 35, Pin name = #IO_L12P_T1_MRCC_35,					Sch name = clk100mhz
+#NET "clock" TNM_NET = sys_clk_pin;
+#TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 100 MHz HIGH 50%; 
+
+
+## Switches
+NET "input<0>"          LOC=J15 | IOSTANDARD=LVCMOS33; #IO_L24N_T3_RS0_15
+NET "input<1>"          LOC=L16 | IOSTANDARD=LVCMOS33; #IO_L3N_T0_DQS_EMCCLK_14
+NET "input<2>"          LOC=M13 | IOSTANDARD=LVCMOS33; #IO_L6N_T0_D08_VREF_14
+NET "input<3>"          LOC=R15 | IOSTANDARD=LVCMOS33; #IO_L13N_T2_MRCC_14
+#NET "input<4>"          LOC=R17 | IOSTANDARD=LVCMOS33; #IO_L12N_T1_MRCC_14
+#NET "input<5>"          LOC=T18 | IOSTANDARD=LVCMOS33; #IO_L7N_T1_D10_14
+#NET "input<6>"          LOC=U18 | IOSTANDARD=LVCMOS33; #IO_L17N_T2_A13_D29_14
+#NET "input<7>"          LOC=R13 | IOSTANDARD=LVCMOS33; #IO_L5N_T0_D07_14
+#NET "input<8>"          LOC=T8 | IOSTANDARD=LVCMOS18; #IO_L24N_T3_34
+#NET "input<9>"          LOC=U8 | IOSTANDARD=LVCMOS18; #IO_25_34
+#NET "input<10>"         LOC=R16 | IOSTANDARD=LVCMOS33; #IO_L15P_T2_DQS_RDWR_B_14
+#NET "input<11>"         LOC=T13 | IOSTANDARD=LVCMOS33; #IO_L23P_T3_A03_D19_14
+#NET "input<12>"         LOC=H6 | IOSTANDARD=LVCMOS33; #IO_L24P_T3_35
+#NET "input<13>"         LOC=U12 | IOSTANDARD=LVCMOS33; #IO_L20P_T3_A08_D24_14
+#NET "input<14>"         LOC=U11 | IOSTANDARD=LVCMOS33; #IO_L19N_T3_A09_D25_VREF_14
+#NET "input<15>"         LOC=V10 | IOSTANDARD=LVCMOS33; #IO_L21P_T3_DQS_14
+
+#bottone centrale
+NET "start"           LOC=N17 | IOSTANDARD=LVCMOS33; #IO_L9P_T1_DQS_14
+#bottone sinistro
+NET "enable_a"           LOC=P17 | IOSTANDARD=LVCMOS33; #IO_L12P_T1_MRCC_14
+#bottone destro
+NET "enable_b"           LOC=M17 | IOSTANDARD=LVCMOS33; #IO_L10N_T1_D15_14
+#bottone giù
+#NET "clock_booth"           LOC=P18 | IOSTANDARD=LVCMOS33 | CLOCK_DEDICATED_ROUTE = FALSE; 	#IO_L10N_T1_D15_14
+
+
+## LEDs
+# led 0
+NET "start_led"         LOC=H17 | IOSTANDARD=LVCMOS33; #IO_L18P_T2_A24_15
+#led 15
+NET "stop"        LOC=V11 | IOSTANDARD=LVCMOS33; #IO_L21N_T3_DQS_A06_D22_14
+# led risultato
+NET "leds<0>"        LOC=K15 | IOSTANDARD=LVCMOS33; #IO_L21N_T3_DQS_A06_D22_14
+NET "leds<1>"        LOC=J13 | IOSTANDARD=LVCMOS33; #IO_L21N_T3_DQS_A06_D22_14
+NET "leds<2>"        LOC=N14 | IOSTANDARD=LVCMOS33; #IO_L21N_T3_DQS_A06_D22_14
+NET "leds<3>"        LOC=R18 | IOSTANDARD=LVCMOS33; #IO_L21N_T3_DQS_A06_D22_14
+NET "leds<4>"        LOC=V17 | IOSTANDARD=LVCMOS33; #IO_L21N_T3_DQS_A06_D22_14
+NET "leds<5>"        LOC=U17 | IOSTANDARD=LVCMOS33; #IO_L21N_T3_DQS_A06_D22_14
+NET "leds<6>"        LOC=U16 | IOSTANDARD=LVCMOS33; #IO_L21N_T3_DQS_A06_D22_14
+NET "leds<7>"        LOC=V16 | IOSTANDARD=LVCMOS33; #IO_L21N_T3_DQS_A06_D22_14
+
+
+## 7 segment display
+NET "cathodes<0>"             LOC=T10 | IOSTANDARD=LVCMOS33; #IO_L24N_T3_A00_D16_14
+NET "cathodes<1>"             LOC=R10 | IOSTANDARD=LVCMOS33; #IO_25_14
+NET "cathodes<2>"             LOC=K16 | IOSTANDARD=LVCMOS33; #IO_25_15
+NET "cathodes<3>"             LOC=K13 | IOSTANDARD=LVCMOS33; #IO_L17P_T2_A26_15
+NET "cathodes<4>"             LOC=P15 | IOSTANDARD=LVCMOS33; #IO_L13P_T2_MRCC_14
+NET "cathodes<5>"             LOC=T11 | IOSTANDARD=LVCMOS33; #IO_L19P_T3_A10_D26_14
+NET "cathodes<6>"             LOC=L18 | IOSTANDARD=LVCMOS33; #IO_L4P_T0_D04_14
+NET "cathodes<7>"             LOC=H15 | IOSTANDARD=LVCMOS33; #IO_L19N_T3_A21_VREF_15
+
+NET "anodes<0>"          LOC=J17 | IOSTANDARD=LVCMOS33; #IO_L23P_T3_FOE_B_15
+NET "anodes<1>"          LOC=J18 | IOSTANDARD=LVCMOS33; #IO_L23N_T3_FWE_B_15
+NET "anodes<2>"          LOC=T9 | IOSTANDARD=LVCMOS33; #IO_L24P_T3_A01_D17_14
+NET "anodes<3>"          LOC=J14 | IOSTANDARD=LVCMOS33; #IO_L19P_T3_A22_15
+NET "anodes<4>"          LOC=P14 | IOSTANDARD=LVCMOS33; #IO_L8N_T1_D12_14
+NET "anodes<5>"          LOC=T14 | IOSTANDARD=LVCMOS33; #IO_L14P_T2_SRCC_14
+NET "anodes<6>"          LOC=K2 | IOSTANDARD=LVCMOS33; #IO_L23P_T3_35
+NET "anodes<7>"          LOC=U13 | IOSTANDARD=LVCMOS33; #IO_L23N_T3_A02_D18_14

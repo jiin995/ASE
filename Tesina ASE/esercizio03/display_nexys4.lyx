@@ -80,21 +80,7 @@
 \begin_body
 
 \begin_layout Section
-Display su Nexys 4
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Descrivere la soluzione relizzata per mezzo di schematici e riportare il
- codice dei soli componenti significativi.
-\end_layout
-
-\end_inset
-
-
+Approfondimento: Display doppio su Nexys 4
 \end_layout
 
 \begin_layout Standard
@@ -103,14 +89,26 @@ La board Nexys 4 DDR ha installato a bordo due batterie di 4 digit ciascuna,
  La soluzione che abbiamo visto precedentemente però permette di controllare
  una sola batteria di 4 digit, e non potendo instanziare due componenti
  che controllano ciascuno 4 digit, è necessario apportare alcune modifiche
- agli elementi che costituiscono il componente che pilota i display a 7
+ agli elementi che costituiscono il componente che pilota il display a 7
  segmenti.
+ In particolare, di seguito, vediamo alcune modifiche che abbiamo apportato
+ ai componenti per poter pilotare tutte le digit che mette a disposizione
+ la Nexys 4 DDR.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-In particolare, di seguito, vediamo alcune modifiche che abbiamo apportato
- ai componenti per poter pilotare tutte le digit che mette a disposizione
- la Nexys 4 DDR.
+Nella top level entity del componente che permette di mostrare i valori
+ sui display, il numero di segnali che indicano la cifra da mostrare passa
+ da 16 a 32, in quanto per ogni digit servono 4 bit per poter codificare
+ i valori in esadecimale che possiamo mostrare su di essi.
+ Poichè il numero di cifre da pilotare passa da 4 a 8, anche il numero di
+ segnali che pilotano i punti, le digit e gli anodi aumentano.
+ Inoltre, il contatore non è più un contatore modulo 4 ma è un contatore
+ modulo 8, in quanto devono essere abilitate 8 digit.
 \begin_inset Newline newline
 \end_inset
 
@@ -125,7 +123,8 @@ status open
 
 
 \backslash
-begin{lstlisting}[language=VHDL,caption={display_7_segments}]
+begin{lstlisting}[language=VHDL,caption={Entità di alto livello modificata
+ per Nexys 4.}]
 \end_layout
 
 \begin_layout Plain Layout
@@ -180,15 +179,7 @@ end display_7_segments;
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
-...
-\end_layout
-
-\begin_layout Plain Layout
-
+[...]
 \end_layout
 
 \begin_layout Plain Layout
@@ -245,23 +236,16 @@ end{lstlisting}
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Nella top level entity del componente che permette di mostrare i valori
- sui display, il numero di segnali che indicano il la cifra da mostrare
- passano da 16 a 32, in quanto per ogni digit servono 4 bit per poter codificare
- i valori, in esadecimale, che possiamo mostrare su di essi.
- Poichè il numero di display da pilotare passa da 4 a 8, anche il numero
- di segnali che pilotano i punti , le digit e gli anodi aumentano.
- Inoltre il contatore non è più un contatore modulo 4 ma è un contatore
- modulo 8, in quanto deveno essere abilitate 8 digit.
-\end_layout
-
-\begin_layout Standard
-Tali modifiche riguradano anche l'anodes_manager che deve pilotare 8 digit
- e non più 4, pertanto il decoder da un decoder 2:4 diventa un decoder 3:8
- come si nota di seguito.
+Tali modifiche riguardano anche l'anodes_manager, che dovrà pilotare 8 anodi
+ invece di 4: pertanto il decoder 2:4 diventa un decoder 3:8, come si nota
+ di seguito:
 \end_layout
 
 \begin_layout Standard
@@ -272,7 +256,8 @@ status open
 
 
 \backslash
-begin{lstlisting}[language=VHDL,caption={Abilitazione degli anodi}]
+begin{lstlisting}[language=VHDL,caption={Abilitazione degli anodi su Nexys
+ 4.}]
 \end_layout
 
 \begin_layout Plain Layout
@@ -342,17 +327,24 @@ selectlanguage{italian}%
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Per il cathodes_manager cambia il numero di nibble che dobbiamo gestire,
- infatti anche essi passano da 4 a 8, ognuna di esse è costituita da 4 bit
- di values, stringa del valore da mostrare sul display codificato in codifica
- binaria classica.
- In particolare partendo dal LSB ogni 4 bit di values codifica il valore
+Per il 
+\shape italic
+cathodes_manager
+\shape default
+ cambia il numero di nibble che dobbiamo gestire: infatti anche essi passano
+ da 4 a 8, e ad ognuno corrispondono 4 bit di values, stringa del valore
+ da mostrare sul display (codificato in binario).
+ In particolare, partendo dal LSB ogni 4 bit di values codifica il valore
  da mostrare su una delle digit.
- Anche il process che si accupa di assegnare ai catodi la corretta codifica
- del valore viene estesa per poter gestire 8 digit e non più 4.
+ Anche il process che si occupa di assegnare ai catodi la corretta codifica
+ del valore viene esteso per poter gestire 8 digit e non più 4.
 \begin_inset Newline newline
 \end_inset
 
@@ -367,12 +359,17 @@ status open
 
 
 \backslash
-begin{lstlisting}[language=VHDL,caption={cathodes_manager.vhd ..}]
+begin{lstlisting}[language=VHDL,caption={Cathodes Manager su Nexys 4.}]
 \end_layout
 
 \begin_layout Plain Layout
 
-    alias digit_0 is values (3 downto 0); 
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+alias digit_0 is values (3 downto 0); 
 \end_layout
 
 \begin_layout Plain Layout
@@ -501,6 +498,371 @@ begin{lstlisting}[language=VHDL,caption={cathodes_manager.vhd ..}]
 end{lstlisting}
 \backslash
 selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Double display on board
+\end_layout
+
+\begin_layout Standard
+Osserviamo il funzionamento del display a 7 segmenti su board.
+ Per poter testare il componente descritto sulla board Nexys 4 utilizzando
+ tutte e 8 le digit, si è realizzata un'entità di più alto livello denominata
+ 
+\shape italic
+DoubleDisplayOnBoard
+\shape default
+ che utilizza il componente descritto nel paragrafo precedente.
+ L'idea che abbiamo seguito consiste nel testare il funzionamento del display
+ mostrando su di esso il valore esadecimale dato in input facendo commutare
+ i 16 switch presenti sulla board.
+ Il primo problema che abbiamo incontrato consiste nel fatto che, per poter
+ mostrare il valore su tutte le 8 digit, abbiamo bisogno di un bus con paralleli
+smo di 32 bit, quindi con gli switch possiamo pilotare massimo 4 digit.
+ Per questo si è suddiviso il bus values in ingresso al componente display_7_seg
+ments in due metà: tali metà sono state collegate a due registri di tipo
+ D abilitati con parallelismo di 16 bit.
+ In ingresso a tali registri si sono collegati i 16 switch: collegando gli
+ enable di tali registri con due pulsanti sulla board, si possono caricare
+ i valori nei registri separatamente:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Double display on board.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+architecture structural of display_onBoard is
+\end_layout
+
+\begin_layout Plain Layout
+
+	entity DoubleDisplayOnBoard is     
+\end_layout
+
+\begin_layout Plain Layout
+
+			Port (  clock 			 : in  STD_LOGIC; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+					values 			: in  STD_LOGIC_VECTOR (15 downto 0); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+					load_reg_0_3 	  : in  STD_LOGIC; 				
+\end_layout
+
+\begin_layout Plain Layout
+
+					load_reg_4_7 	  : in  STD_LOGIC; 				
+\end_layout
+
+\begin_layout Plain Layout
+
+					anodes 			: out  STD_LOGIC_VECTOR (7 downto 0); 				
+\end_layout
+
+\begin_layout Plain Layout
+
+					cathodes 		  : out  STD_LOGIC_VECTOR (7 downto 0) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	end DoubleDisplayOnBoard;
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+alias values_0_3 is values_int (15 downto 0) ; 
+\end_layout
+
+\begin_layout Plain Layout
+
+alias values_4_7 is values_int (31 downto 16) ;
+\end_layout
+
+\begin_layout Plain Layout
+
+begin
+\end_layout
+
+\begin_layout Plain Layout
+
+	register_0_3: register_d_Re_Ar PORT MAP (   clock 	=> clock,
+\end_layout
+
+\begin_layout Plain Layout
+
+												load 	 => load_reg_0_3, 				
+\end_layout
+
+\begin_layout Plain Layout
+
+												reset 	=> reset, 						
+\end_layout
+
+\begin_layout Plain Layout
+
+												d		 => values, 		
+\end_layout
+
+\begin_layout Plain Layout
+
+												q 		=> values_0_3 					
+\end_layout
+
+\begin_layout Plain Layout
+
+								); 														
+\end_layout
+
+\begin_layout Plain Layout
+
+	register_4_7: register_d_Re_Ar PORT MAP (   clock    => clock, 						
+\end_layout
+
+\begin_layout Plain Layout
+
+												load 	=> load_reg_4_7, 					
+\end_layout
+
+\begin_layout Plain Layout
+
+												reset    => reset, 					
+\end_layout
+
+\begin_layout Plain Layout
+
+												d		=> values, 				
+\end_layout
+
+\begin_layout Plain Layout
+
+												q 	   => values_4_7 				
+\end_layout
+
+\begin_layout Plain Layout
+
+								); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'implementazione completa è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio03/design/DoubleDisplayOnBoard/double_display_on_board.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+double
+\backslash
+_display
+\backslash
+_on
+\backslash
+_board.vhd}
+\end_layout
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si noti infine come è stato opportunamente configurato il file Nexys4DDR_master.u
+cf per effettuare il mapping tra i physical della board e le interfacce
+ di ingresso/uscita del componente che abbiamo sintetizzato.
+ Di seguito si riporta il collegamento dei segnali di load dei registri
+ ai bottoni presenti sulla scheda: ciò ci permette di poter scegliere in
+ quale registro e di conseguenza su quale batteria di display mostrare il
+ valore che stiamo dando in input con gli switch.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Collegamento dei pulsanti in Nexys4DDR_
+master.ucf.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+#bottone destro 
+\end_layout
+
+\begin_layout Plain Layout
+
+	NET "load_reg_0_3"           LOC=P17 | IOSTANDARD=LVCMOS33; #IO_L12P_T1_MRCC_14
+\end_layout
+
+\begin_layout Plain Layout
+
+#bottone sinistro 
+\end_layout
+
+\begin_layout Plain Layout
+
+	NET "load_reg_4_7"           LOC=M17 | IOSTANDARD=LVCMOS33; #IO_L10N_T1_D15_14
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il risultato su board è visibile in fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:display_nexys4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/display_nexys4.jpg
+	scale 15
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:display_nexys4"
+
+\end_inset
+
+Display a 7 segmenti su board Nexys 4.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset

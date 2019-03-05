@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--This is an ISE project configuration file.-->
+<!--It holds project specific layout data for the projectmgr plugin.-->
+<!--Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.-->
+<Project version="2" owner="projectmgr" name="R_division" >
+   <!--This is an ISE project configuration file.-->
+   <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/Accumulator_Quotient - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|Accumulator_Quotient.vhd</ClosedNode>
+         <ClosedNode>/AnodeManager - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|AnodeManager.vhd</ClosedNode>
+         <ClosedNode>/CathodeManager - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|CathodeManager.vhd</ClosedNode>
+         <ClosedNode>/DivisorOnBoard - Structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|DivisorOnBoard.vhd/Division_Calculator - R_Division - Strucutal</ClosedNode>
+         <ClosedNode>/DivisorOnBoard - Structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|DivisorOnBoard.vhd/Inst_display_seven_segments - Seven_Segments_Display - structural</ClosedNode>
+         <ClosedNode>/R_Division - Strucutal |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|R_Division.vhd/Inst_Accumulator_Quotient - Accumulator_Quotient - structural</ClosedNode>
+         <ClosedNode>/R_Division - Strucutal |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|R_Division.vhd/Inst_ripple_carry_adder - ripple_carry_adder - structural</ClosedNode>
+         <ClosedNode>/Scan_component - Behavioral |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|Scan_component.vhd</ClosedNode>
+         <ClosedNode>/carrySelect_addSub - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|carrySelect_addSub.vhd</ClosedNode>
+         <ClosedNode>/demux1_4 - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|demux1_4.vhd</ClosedNode>
+         <ClosedNode>/mux4_1 - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|mux4_1.vhd</ClosedNode>
+         <ClosedNode>/restoring_divider - Strucutal |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|R_Division.vhd/Inst_Accumulator_Q - Accumulator_Quotient - structural</ClosedNode>
+         <ClosedNode>/restoring_divider - Strucutal |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|R_Division.vhd/Inst_Accumulator_Quotient - Accumulator_Quotient - structural</ClosedNode>
+         <ClosedNode>/restoring_divider - Strucutal |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|R_Division.vhd/Inst_ripple_carry_adder - ripple_carry_adder - structural</ClosedNode>
+         <ClosedNode>/restoring_divider - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|R_Division.vhd/Inst_Accumulator_Q - Accumulator_Quotient - structural/A - Scan_chain - Behavioral</ClosedNode>
+         <ClosedNode>/restoring_divider - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|R_Division.vhd/Inst_Accumulator_Q - Accumulator_Quotient - structural/A - scan_chain - behavioural</ClosedNode>
+         <ClosedNode>/restoring_divider - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|R_Division.vhd/Inst_Accumulator_Q - Accumulator_Quotient - structural/Q - Scan_chain - Behavioral</ClosedNode>
+         <ClosedNode>/restoring_divider - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|R_Division.vhd/Inst_Accumulator_Q - Accumulator_Quotient - structural/Q - scan_chain - behavioural</ClosedNode>
+         <ClosedNode>/restoring_divider - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|R_Division.vhd/Inst_ripple_carry_adder - ripple_carry_adder - structural</ClosedNode>
+         <ClosedNode>/restoring_divider - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|R_Division.vhd/register_a - scan_chain - behavioural</ClosedNode>
+         <ClosedNode>/restoring_divider - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|R_Division.vhd/register_q - scan_chain - behavioural</ClosedNode>
+         <ClosedNode>/restoring_divisor - Strucutal |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|R_Division.vhd/Inst_Accumulator_Quotient - Accumulator_Quotient - structural</ClosedNode>
+         <ClosedNode>/restoring_divisor - Strucutal |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|R_Division.vhd/Inst_ripple_carry_adder - ripple_carry_adder - structural</ClosedNode>
+         <ClosedNode>/scan_chain - behavioural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|scan_chain.vhd/flipflop - flipflopmux - structural</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>carrySelect_addSub - structural (/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_12/non_restoring/carrySelect_addSub.vhd)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000004eb000000020000000000000000000000000200000064ffffffff000000810000000300000002000004eb0000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>carrySelect_addSub - structural (/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_12/non_restoring/carrySelect_addSub.vhd)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Configure Target Device</ClosedNode>
+         <ClosedNode>Design Utilities</ClosedNode>
+         <ClosedNode>Implement Design</ClosedNode>
+         <ClosedNode>Synthesize - XST</ClosedNode>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000440000000010000000100000000000000000000000064ffffffff000000810000000000000001000004400000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView guiview="File" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000474000000040101000100000000000000000000000064ffffffff000000810000000000000004000002a90000000100000000000000d60000000100000000000000840000000100000000000000710000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_12/non_restoring/carrySelect_adder.vhd</CurrentItem>
+   </ItemView>
+   <ItemView guiview="Library" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>work</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000128000000010001000100000000000000000000000064ffffffff000000810000000000000001000001280000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>work</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Configure Target Device</ClosedNode>
+         <ClosedNode>Design Utilities</ClosedNode>
+         <ClosedNode>Implement Design</ClosedNode>
+         <ClosedNode>Synthesize - XST</ClosedNode>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000440000000010000000100000000000000000000000064ffffffff000000810000000000000001000004400000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/Accumulator_Quotient - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|Accumulator_Quotient.vhd</ClosedNode>
+         <ClosedNode>/Scan_component - Behavioral |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|Scan_component.vhd</ClosedNode>
+         <ClosedNode>/TSB_R_div - behavior |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|TSB_R_div.vhd/uut - R_Division - Strucutal</ClosedNode>
+         <ClosedNode>/carrySelect_addSub - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|carrySelect_addSub.vhd</ClosedNode>
+         <ClosedNode>/carrySelect_addSub - structural |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|carrySelect_addSub.vhd/carrySelect_adder_inst - carrySelect_adder - structural</ClosedNode>
+         <ClosedNode>/restoring_divider - Strucutal |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|R_Division.vhd</ClosedNode>
+         <ClosedNode>/restoring_divider_tb - behavior |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|restoring_divider_tb.vhd/uut - restoring_divider - Strucutal</ClosedNode>
+         <ClosedNode>/restoring_divider_tb - behavior |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|restoring_divider_tb.vhd/uut - restoring_divider - structural/Inst_Accumulator_Q - Accumulator_Quotient - structural</ClosedNode>
+         <ClosedNode>/restoring_divider_tb - behavior |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|restoring_divider_tb.vhd/uut - restoring_divider - structural/Inst_carrySelect_addSub - carrySelect_addSub - structural</ClosedNode>
+         <ClosedNode>/restoring_divider_tb - behavior |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|restoring_divider_tb.vhd/uut - restoring_divider - structural/Inst_ripple_carry_adder - ripple_carry_adder - structural</ClosedNode>
+         <ClosedNode>/restoring_divider_tb - behavior |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|restoring_divider_tb.vhd/uut - restoring_divider - structural/register_a - scan_chain - behavioural</ClosedNode>
+         <ClosedNode>/restoring_divider_tb - behavior |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|restoring_divider_tb.vhd/uut - restoring_divider - structural/register_q - scan_chain - behavioural</ClosedNode>
+         <ClosedNode>/tb_DivisorOnBoard - behavior |home|mirko|Desktop|ASE|ASE|Esercitazioni|Esercitazione_12|restoring|tb_DivisorOnBoard.vhd</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>uut - restoring_divider - structural (/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_12/restoring/R_Division.vhd)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000462000000020000000000000000000000000200000064ffffffff000000810000000300000002000004620000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>uut - restoring_divider - structural (/home/mirko/Desktop/ASE/ASE/Esercitazioni/Esercitazione_12/restoring/R_Division.vhd)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000222000000010000000100000000000000000000000064ffffffff000000810000000000000001000002220000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Simulate Behavioral Model</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001af000000010000000100000000000000000000000064ffffffff000000810000000000000001000001af0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Simulate Behavioral Model</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_UCF" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000228000000010000000100000000000000000000000064ffffffff000000810000000000000001000002280000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <SourceProcessView>000000ff0000000000000002000001430000011701000000060100000002</SourceProcessView>
+   <CurrentView>Implementation</CurrentView>
+</Project>

@@ -99,9 +99,9 @@ Descrivere la soluzione relizzata per mezzo di schematici e riportare il
 
 \begin_layout Standard
 Sulla board che abbiamo in dotazione per risparmiare sul numero di segnali
- necessari per pilotare 8 digit, la Digiland ha provveduto a collegare i
+ necessari per pilotare 8 digit, la Digilent ha provveduto a collegare i
  catodi in comune a tutte le digit tra di loro e collegare gli anodi di
- ogni led della digit tutti ad un anodo comune per ognidigit, come riportato
+ ogni led della digit tutti ad un anodo comune per ogni digit, come riportato
  in fig 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -116,9 +116,49 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-Pertanto per abilitare una digit si bisognerà innanzitutto alimentare opportunam
-ente l'anodo e poi pilotando i catodi opportunamente verrà mostrato sul
- display il valore.
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/display_7_segmenti_Nexys.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:display_7segmenti_nexys"
+
+\end_inset
+
+Display a 7 segmenti sulla Nexys 4
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pertanto per abilitare una digit bisognerà innanzitutto alimentare opportunament
+e l'anodo e poi pilotando i catodi opportunamente verrà mostrato sul display
+ il valore.
  Tale soluzione così fatta presenta però un problema di fondo, alimentando
  tutte le digit si mostrerà su di esse la stessa cifra.
  Pertanto si deve provvedere a realizzare una soluzione più ingegnosa, in
@@ -148,7 +188,55 @@ noprefix "false"
 \end_inset
 
 .
- I segnali in ingresso saranno:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/display_7_segmenti.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:display_7segmenti"
+
+\end_inset
+
+Schematico del display a 7 segmenti.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+I segnali in ingresso saranno:
 \end_layout
 
 \begin_layout Itemize
@@ -265,7 +353,7 @@ n
 anodes_manager -
 \shape default
  componente per la selezione degli anodi delle cifre da attivare, formato
- da un decoder 1-4;
+ da un decoder 2-4;
 \end_layout
 
 \begin_layout Itemize
@@ -308,92 +396,6 @@ _segmenti.vhd}
 \end_inset
 
 .
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement ph
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename images/display_7_segmenti_Nexys.png
-	scale 22
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:display_7segmenti_nexys"
-
-\end_inset
-
-Display 7 segmente sulla Nexys 4
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement ph
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename images/display_7_segmenti.png
-	scale 22
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:display_7segmenti"
-
-\end_inset
-
-Schematico del latch RS abilitato.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_body

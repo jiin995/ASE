@@ -276,7 +276,17 @@ Per quanto riguarda l'implementazione, è stata utilizzata una descrizione
 \shape italic
 structural
 \shape default
-.
+ (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:architettura-scan-chain"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
  In particolare, è stato generato un numero di flip-flop multiplexati pari
  al valore generico 
 \shape italic
@@ -347,7 +357,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/scanchain.PNG
-	scale 30
+	scale 50
 
 \end_inset
 
@@ -360,7 +370,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:display_7segmenti-1"
+name "fig:architettura-scan-chain"
 
 \end_inset
 

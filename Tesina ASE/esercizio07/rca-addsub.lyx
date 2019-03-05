@@ -170,13 +170,13 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/mappa-karnaugh-overflow.png
-	scale 35
+	scale 45
 
 \end_inset
 
@@ -230,13 +230,13 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/architettura-rca-addsub.png
-	scale 35
+	scale 50
 
 \end_inset
 
@@ -333,7 +333,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/simulazione-rca-addsub.png
-	scale 35
+	scale 50
 
 \end_inset
 

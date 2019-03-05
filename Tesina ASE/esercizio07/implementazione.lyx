@@ -91,6 +91,10 @@ Full Adder
 Per la realizzazione del RCA, si è dapprima proceduto alla realizzazione
  di un full adder.
  Per tale implementazione, si è utilizzata una descrizione di tipo data-flow:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -184,6 +188,10 @@ si generano
 width
 \shape default
  full adder, collegati secondo lo schema visto nel paragrafo precedente:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

@@ -1,0 +1,513 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{tikzpicture}
+\end_preamble
+\use_default_options true
+\master Tesina.lyx
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Sostituzione I/O
+\end_layout
+
+\begin_layout Subsection
+Architettura
+\end_layout
+
+\begin_layout Standard
+Ai fini dell'esercizio, si è proceduto a modificare il codice per prevedere
+ la possibilità di sostituire l'UART con un I/O generico mediante l'utilizzo
+ dei seguenti dispositivi presenti sulla board:
+\end_layout
+
+\begin_layout Itemize
+led - per visualizzare i risultati dell'elaborazione
+\end_layout
+
+\begin_layout Itemize
+display a 7 segmenti - per visualizzare i risultati dell'elaborazione
+\end_layout
+
+\begin_layout Itemize
+switch - per inserire gli operandi
+\end_layout
+
+\begin_layout Standard
+Tramite l'utilizzo dello switch 15 invece si piloterà un segnale 
+\shape italic
+IO_SWITCH
+\shape default
+, che ci permetterà di scegliere se utilizzare l'UART o una combinazione
+ di led, switch e display come dispositivi di I/O della macchina.
+\end_layout
+
+\begin_layout Subsection
+Implementazione
+\end_layout
+
+\begin_layout Standard
+Per realizzare tale architettura, si è deciso di aggiungere un nuovo componente
+ all'entità 
+\shape italic
+sistema_mic1 
+\shape default
+denominato 
+\shape italic
+io_controller
+\shape default
+: tale componente, oltre a contenere l'
+\shape italic
+io_uart
+\shape default
+ già presente nel sistema, conterrà anche un componente 
+\shape italic
+io_switch_led_display 
+\shape default
+per la gestione degli switch, dei led e del display:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Interfaccia dell'io controller.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+entity io_controller is
+\end_layout
+
+\begin_layout Plain Layout
+
+	Port ( 	CLOCK			: in 	std_logic	:= '0'; 	--clock
+\end_layout
+
+\begin_layout Plain Layout
+
+				IO_SWITCH	: in 	std_logic 	:= '0';	--selettore componenti i/o ('1' per
+ switch, display e led, '0' per uart)
+\end_layout
+
+\begin_layout Plain Layout
+
+				CE				: in 	STD_LOGIC 	:= '0';	
+\end_layout
+
+\begin_layout Plain Layout
+
+				RD				: in 	std_logic 	:= '0';  --	segnale di lettura
+\end_layout
+
+\begin_layout Plain Layout
+
+				WR				: in 	std_logic 	:= '0';	--	segnale di scrittura
+\end_layout
+
+\begin_layout Plain Layout
+
+				RXD			: in 	std_logic 	:= '1';
+\end_layout
+
+\begin_layout Plain Layout
+
+				START_READ	: in  STD_LOGIC	:= '0';	-- avvia la lettura
+\end_layout
+
+\begin_layout Plain Layout
+
+				SWITCH		: in 	STD_LOGIC_VECTOR (7 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+				TXD			: out std_logic 	:= '1';
+\end_layout
+
+\begin_layout Plain Layout
+
+				LEDS			: out std_logic_vector(7 downto 0) := "01010101";
+\end_layout
+
+\begin_layout Plain Layout
+
+				anodes 			: out STD_LOGIC_VECTOR (7 downto 0);	--! Uscita che pilota
+ gli anodi
+\end_layout
+
+\begin_layout Plain Layout
+
+				cathodes			: out STD_LOGIC_VECTOR (7 downto 0);	--! Uscita che pilota
+ i catodi
+\end_layout
+
+\begin_layout Plain Layout
+
+				IO_MDR		: inout std_logic_vector(31 downto 0) := "ZZZZZZZZZZZZZZZZZZZZZZZZZZ
+ZZZZZZ"  --verso il data bus a 32 bit
+\end_layout
+
+\begin_layout Plain Layout
+
+		);
+\end_layout
+
+\begin_layout Plain Layout
+
+end io_controller;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Quando 
+\shape italic
+CE
+\shape default
+ è alto, l'io_controller sceglierà se abilitare 
+\shape italic
+io_uart
+\shape default
+ o 
+\shape italic
+io_switch_led_display 
+\shape default
+a seconda del valore di io_switch.
+ Inoltre, se si è scelto di usare l'UART, i led vengono spenti.
+ L'implementazione completa del componente è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio14/design/mic1_sostituzione_io/io_controller.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+io
+\backslash
+_controller.vhd}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per quanto concerne il componente 
+\shape italic
+io_switch_led_display
+\shape default
+, questo è stato realizzato seguendo la stessa logica di 
+\shape italic
+io_uart
+\shape default
+.
+ In particolare, esso è stato realizzato come FSM con tre stati:
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+idle
+\shape default
+;
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+reading
+\shape default
+ - in cui permarrà durante la lettura dal buffer (come con la ricezione
+ nel caso UART);
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+read_done
+\shape default
+ - in cui finirà quando la lettura è terminata e il dato è disponibile sul
+ buffer in output;
+\end_layout
+
+\begin_layout Standard
+Dato il segnale start_read, la macchina andrà nello stato reading e verrà
+ abbassato il segnale
+\shape italic
+ zero_leggi_sig
+\shape default
+: tale segnale funge da selettore per un multiplexer che definisce quale
+ dato riportare sul data bus del MIC1 (
+\shape italic
+io_mdr
+\shape default
+).
+ In particolare, se zero_leggi_sig='1' si riporta una stringa di tutti zero,
+ mentre se zero_leggi_sig='0' si riporterà sul data bus il dato letto nell'input
+_buffer esteso su 32 bit (ossia quello prelevato dagli switch o ricevuto
+ dall'UART).
+ In tutti gli altri casi (es.
+ se CE='0', dispositivo di I/O disabilitato), verrà riportato un segnale
+ di alta impedenza, per far sì che gli altri dispositivi abilitati e che
+ condividono il data bus possano utilizzarlo:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Multiplexer per la scelta del dato
+ da mettere sul bus.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+io_mdr_sig <=   (others => 'Z') when CE='0' else 
+\end_layout
+
+\begin_layout Plain Layout
+
+				x"00000000" when (CE='1' and rd='1' and zero_leggi_sig='1') else
+\end_layout
+
+\begin_layout Plain Layout
+
+				(x"000000" & input_buffer) when (CE='1' and rd='1' and zero_leggi_sig='0')
+ else
+\end_layout
+
+\begin_layout Plain Layout
+
+			    (others => 'Z'); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'implementazione completa del componente è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio14/design/mic1_sostituzione_io/io_switch_led_display.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+io
+\backslash
+_switch
+\backslash
+_led
+\backslash
+_display.vhd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Sintesi
+\end_layout
+
+\begin_layout Standard
+Per testare il componente, lo si è sintetizzato su board e si è proceduto
+ ad effettuare le stesse operazioni del capitolo precedente.
+ In particolare, dapprima si è alzato lo switch 15 per impostare come dispositiv
+o di I/O gli switch, i led e il display.
+ Dopodiché, sono stati forniti gli operandi su 8 bit tramite gli switch:
+ una volta alzati, si preme sul bottone centrale (
+\shape italic
+start_read
+\shape default
+) per avviare la lettura.
+ Una volta inseriti entrambi gli operandi e premuto quindi il bottone centrale,
+ sia sui led che sul display saranno visualizzati gli ultimi 8 bit dell'output
+ buffer, ossia relativi al resto della divisione di cui si è discusso precedente
+mente (fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:test-mic1-onboard"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/test_mic1_onboard.jpg
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:test-mic1-onboard"
+
+\end_inset
+
+Test del MIC1 con switch, led e display come dispositivi I/O.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

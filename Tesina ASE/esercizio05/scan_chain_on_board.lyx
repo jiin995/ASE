@@ -80,35 +80,16 @@
 \begin_body
 
 \begin_layout Section
-Approfondimento: Scan Chain On Board
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Scan chain sulla board
-\end_layout
-
-\end_inset
-
-
+Approfondimento: Scan Chain on board
 \end_layout
 
 \begin_layout Standard
 Oltre alla classica simulazione, per testare il corretto funzionamento della
  scan chain abbiamo deciso di provare tale componente sulla board.
-\end_layout
-
-\begin_layout Standard
-In particolare si è realizzata una top level entity che utilizza la scan
- chain per sostenere il valore in ingresso alla batteria di display a 7
- segmenti presenti sulla board.
-\end_layout
-
-\begin_layout Standard
-L'interfaccia della top level entity è la seguente :
+ In particolare, si è realizzata una top level entity che utilizza la scan
+ chain per sostenere il valore in ingresso ad una batteria di display a
+ 7 segmenti presenti sulla board.
+ L'interfaccia della top level entity è la seguente:
 \begin_inset Newline newline
 \end_inset
 
@@ -123,16 +104,7 @@ status open
 
 
 \backslash
-begin{lstlisting}[language=VHDL,caption={Interfaccia top level entity .}]
-\end_layout
-
-\begin_layout Plain Layout
-
-[...]
-\end_layout
-
-\begin_layout Plain Layout
-
+begin{lstlisting}[language=VHDL,caption={Interfaccia top level entity.}]
 \end_layout
 
 \begin_layout Plain Layout
@@ -187,19 +159,6 @@ end scan_chain_on_board;
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
-[...]
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
 
 \backslash
 end{lstlisting}
@@ -215,61 +174,48 @@ selectlanguage{italian}%
 \begin_layout Standard
 In ingresso, oltre ai segnali di 
 \shape italic
-clock, scan_in e scan_en abbiamo anche scan_clk.
- Quest'ultimo segnale è il clock per la scan chain, ma essendo quello della
- board un segnale a frequenza troppo elevata, che ci avrebbe impedito di
- apprezzare il funzionamento della scan chain 
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-anche con un clock negli ordini dei khz premendo il pulsante associato a
- scan_en venivano eseguite troppe operazioni di shif
-\end_layout
-
-\end_inset
-
-.
- Pertanto abbiamo deciso, anche se sbagliato, di dare manualmente un impulso
+clock, scan_in e scan_en, 
+\shape default
+abbiamo anche
+\shape italic
+ scan_clk.
  
+\shape default
+Quest'ultimo segnale è il clock per la scan chain: essendo quello della
+ board un segnale a frequenza troppo elevata, abbiamo deciso di generare
+ manualmente il clock premendo uno dei pulsanti presenti sulla board per
+ poter apprezzare al meglio il funzionamento della scan chain sul display.
+ Tale scelta è stata fatta solo a scopo dimostrativo e non è da considerarsi
+ ideale nel caso pratico, come ci è stato segnalata anche dallo stesso tool
+ di sintesi: mappando infatti scan_clk su un pulsante viene generato un
+ errore.
+ Per aggirare tale problema, ci è stata suggerita dall'IDE l'opportuna modifica
+ da effettuare al file ucf, ossia aggiungere 
 \begin_inset Quotes eld
 \end_inset
 
-per simulare un clock personalizzato
-\begin_inset Quotes erd
-\end_inset
-
- premendo un pulsante presente sulla board.
- Quest'ultima scelta errata ci è stata segnalata anche dal tool di sintesi,
- infatti mappando scan_clk su un pulsante viene generato un errore, ma lo
- stesso tool suggerisce l'opportuna modifica da effettuare al file ucf per
- poter bypassare tale errore
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
 
 \shape italic
-Aggiungere al file ucf 
+CLOCK_DEDICATED_ROUTE = FALSE
 \shape default
 
-\begin_inset Quotes eld
-\end_inset
-
-CLOCK_DEDICATED_ROUTE = FALSE
 \begin_inset Quotes erd
 \end_inset
 
- alla riga dove si effettua il mapping del bottone.
-\end_layout
-
+ in corrispondenza della riga dove si effettua il mapping del bottone.
+ Di seguito è riportato il mapping di 
+\shape italic
+scan_en
+\shape default
+ e di 
+\shape italic
+scan_clk
+\shape default
+ sull'ucf: 
+\begin_inset Newline newline
 \end_inset
 
-.
-\end_layout
 
-\begin_layout Standard
-Di seguito il mapping di scan_en e di scan_clk sull'ucf: 
 \end_layout
 
 \begin_layout Standard
@@ -280,12 +226,8 @@ status open
 
 
 \backslash
-begin{lstlisting}[language=VHDL,caption={Interfaccia top level entity .}]
-\end_layout
-
-\begin_layout Plain Layout
-
-[...]
+begin{lstlisting}[language=VHDL,caption={NexysDDR4_master.ucf per scan chain
+ onBoard.}]
 \end_layout
 
 \begin_layout Plain Layout
@@ -307,16 +249,7 @@ begin{lstlisting}[language=VHDL,caption={Interfaccia top level entity .}]
 \begin_layout Plain Layout
 
 	NET "scan_clk"          CLOCK_DEDICATED_ROUTE = FALSE | LOC=P18 | IOSTANDARD=LV
-CMOS33; #IO_L9N_T1_DQS_D13_14 
-\end_layout
-
-\begin_layout Plain Layout
-
-[...]
-\end_layout
-
-\begin_layout Plain Layout
-
+CMOS33; #IO_L9N_T1_DQS_D13_14
 \end_layout
 
 \begin_layout Plain Layout
@@ -334,16 +267,22 @@ selectlanguage{italian}%
 \end_layout
 
 \begin_layout Standard
-Per testare il funzionamento del componente, bisogna settare il bit in ingresso
- alla scan chain spostando il primo switch e poi premere il pulsante centrale
- per abilitare l'operazione di shift e simulare i colpi di clock premedo
- il pulsante in basso.
- Se il bit in uscita alla scan chain è alto allora il primo led della batteria
- si illuminerà.
-\end_layout
-
-\begin_layout Standard
-L'implementazione completa della top level_entity è consultabile qui: 
+Per testare il funzionamento del componente, si è dapprima settato il bit
+ in ingresso alla scan chain (
+\shape italic
+scan_in
+\shape default
+) tramite il primo switch della board.
+ Premendo poi il pulsante centrale per abilitare 
+\shape italic
+scan_en
+\shape default
+, è stato possibile far shiftare il registro simulando i colpi di clock
+ tramite il pulsante in basso.
+ Infine, per rappresentare scan_out (ossia il bit in uscita dal registro
+ a fronte di uno shift) si è utilizzato il primo led della board, che si
+ illuminerà nel caso in cui il bit risulti alto.
+ L'implementazione completa della top level entity è consultabile qui: 
 \begin_inset ERT
 status open
 

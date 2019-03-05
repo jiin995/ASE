@@ -1049,7 +1049,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/tb_fsm_moore.png
-	scale 35
+	scale 50
 
 \end_inset
 
@@ -1085,7 +1085,25 @@ Simulazione con guardie (Mealy)
 
 \begin_layout Standard
 Per quanto concerne la macchina Mealy, dal momento che sono stati utilizzati
- i costrutti di guardia, non è stato possibile sintetizzarla.
+ i costrutti di guardia e la funzione di risoluzione, non è stato possibile
+ sintetizzarla poichè 
+\shape italic
+current_state
+\shape default
+ è pilotato da più segnali e ISE infatti rilancia il seguente errore: 
+\begin_inset Quotes eld
+\end_inset
+
+
+\shape italic
+Signal current_state[2] in unit fsm_mealy is connected to following multiple
+ drivers
+\shape default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
  I risultati della simulazione, effettuata dunque tramite il tool GHDL,
  sono riportati in fig.
 \begin_inset CommandInset ref
@@ -1112,7 +1130,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/tb_fsm_mealy.png
-	scale 35
+	scale 45
 
 \end_inset
 

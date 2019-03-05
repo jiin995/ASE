@@ -185,9 +185,9 @@ Il flip-flop D edge-triggered è stato realizzato tramite implementazione
  Nel caso in cui invece il reset venga portato al valore reset_level, il
  valore di Q viene resettato a prescindere dal comportamento del clock (reset
  asincrono).
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 
 \end_layout
 
@@ -314,7 +314,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/flipflopdedgetriggered/flipflop-d-edgetriggered-simulazione.png
-	scale 35
+	scale 45
 
 \end_inset
 
@@ -371,7 +371,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/flipflopdedgetriggered/flipflop-d-edgetriggered-simulazione-postmap.png
-	scale 35
+	scale 45
 
 \end_inset
 

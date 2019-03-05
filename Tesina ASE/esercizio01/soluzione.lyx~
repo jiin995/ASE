@@ -1175,10 +1175,6 @@ _dataflow.vhd}
 \end_layout
 
 \begin_layout Standard
-
-\end_layout
-
-\begin_layout Standard
 Si è poi proceduto alla realizzazione di un 
 \shape italic
 testbench 
@@ -1381,18 +1377,11 @@ noprefix "false"
 \end_inset
 
 .
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 placement ph
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1425,13 +1414,9 @@ Schema della macchina M a partire da blocchi full-adder.
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Per quanto concerne l'implementazione in VHDL, si è dapprima proceduto all'imple
-mentazione di un full-adder seguendo una modalità di descrizione di tipo
- “behavioural”.
+ Per quanto concerne l'implementazione in VHDL, si è dapprima proceduto
+ all'implementazione di un full-adder seguendo una modalità di descrizione
+ di tipo “behavioural”.
 \begin_inset Newline newline
 \end_inset
 
@@ -1446,8 +1431,8 @@ status open
 
 
 \backslash
-begin{lstlisting}[float][language=VHDL,caption={Implementazione in VHDL
- di un full-adder.}]
+begin{lstlisting}[language=VHDL,caption={Implementazione in VHDL di un full-adde
+r.}]
 \end_layout
 
 \begin_layout Plain Layout
@@ -1531,6 +1516,10 @@ selectlanguage{italian}%
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1555,10 +1544,7 @@ M.vhd}
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-Il risultato della simulazione è analogo a quello dell'esercizio 4.
+ Il risultato della simulazione è analogo a quello dell'esercizio 4.
 \end_layout
 
 \begin_layout Subsection

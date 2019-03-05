@@ -1377,10 +1377,6 @@ noprefix "false"
 \end_inset
 
 .
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -1388,7 +1384,7 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1419,6 +1415,10 @@ Schema della macchina M a partire da blocchi full-adder.
 
 \end_layout
 
+\end_inset
+
+
+\begin_inset Newline newline
 \end_inset
 
 
@@ -1527,6 +1527,10 @@ selectlanguage{italian}%
 \end_inset
 
 
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1551,10 +1555,7 @@ M.vhd}
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-Il risultato della simulazione è analogo a quello dell'esercizio 4.
+ Il risultato della simulazione è analogo a quello dell'esercizio 4.
 \end_layout
 
 \begin_layout Subsection

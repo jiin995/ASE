@@ -178,10 +178,14 @@ Implementazione
 \begin_layout Standard
 Il latch JK è stato realizzato mediante descrizione behavioural.
  Le condizioni if-else utilizzate controllano i valori di J e K in ingresso:
- per J alto e K basso, Q vien eportato a 1; nel caso contrario, Q è portato
+ per J alto e K basso, Q viene portato a 1; nel caso contrario, Q è portato
  a 0.
  Se entrambi sono alti, invece, il comportamento del latch JK è assimilabile
  a quello del latch T, e dunque il valore di Q viene invertito.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -193,7 +197,7 @@ status open
 
 \backslash
 begin{lstlisting}[language=VHDL,caption={Implementazione behavioural di
- un latch T abilitato.}]
+ un latch JK abilitato.}]
 \end_layout
 
 \begin_layout Plain Layout
@@ -342,7 +346,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/latchjk/latch-jk-simulazione.png
-	scale 20
+	scale 55
 
 \end_inset
 
@@ -386,8 +390,8 @@ noprefix "false"
 ): in corrispondenza di J=1 e K=1 si ripresentano gli stessi eventi oscillatori
  tipici del latch T, proprio perché il comportamento del latch JK è assimilabile
  a quello del latch T per questi due ingressi.
- Una volta posto J=0, invece, il comportamento ritorna ad essere quello
- descritto precedentemente e Q viene abbassato.
+ Una volta posto K=0, invece, il comportamento ritorna ad essere quello
+ descritto precedentemente e Q viene alzato.
 \end_layout
 
 \begin_layout Standard
@@ -401,7 +405,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/latchjk/latch-jk-simulazione-postmap.png
-	scale 20
+	scale 55
 
 \end_inset
 

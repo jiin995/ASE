@@ -137,13 +137,13 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/scan_chain_simulazione_shift_sinistra.png
-	scale 30
+	scale 50
 
 \end_inset
 
@@ -189,7 +189,7 @@ noprefix "false"
 \shape italic
 shift_direction
 \shape default
-=1), perfettamente coerente con il comportamento atteso.
+=0), perfettamente coerente con il comportamento atteso.
 \end_layout
 
 \begin_layout Standard
@@ -197,13 +197,13 @@ shift_direction
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/scan_chain_simulazione_shift_destra.png
-	scale 30
+	scale 50
 
 \end_inset
 
@@ -220,7 +220,7 @@ name "fig:scan-chain-destra"
 
 \end_inset
 
-Simulazione del componente scan chain (shift a sinistra).
+Simulazione del componente scan chain (shift a destra).
 \end_layout
 
 \end_inset

@@ -339,8 +339,6 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Standard
-
-\lang american
 \begin_inset ERT
 status open
 
@@ -357,8 +355,6 @@ end{frontmatter}
 \end_layout
 
 \begin_layout Standard
-
-\lang american
 \begin_inset ERT
 status open
 
@@ -440,7 +436,7 @@ Display a 7 segmenti
 \begin_layout Standard
 Illustrare la realizzazione di un'architettura che consenta di mostrare
  su un array di 4 display a 7 segmenti un valore intero.
- Tale puo essere una parola da 16 bit, composta cioe di 4 cifre esadecimali,
+ Tale puo essere una parola da 16 bit, composta cioè di 4 cifre esadecimali,
  ciascuna espressa su di un nibble (4 bit).
  Sviluppare la traccia discutendo l'approccio di design adottato.
 \end_layout
@@ -483,17 +479,17 @@ Progettare una rete composta da una serie di N Flip Flop D abilitati ad
 \end_layout
 
 \begin_layout Enumerate
-Modalita normale: l'array si comporta come un registro di N posizioni;
+Modalità normale: l'array si comporta come un registro di N posizioni;
 \end_layout
 
 \begin_layout Enumerate
-Modalita controllo: i flip-flop possono essere scritti e letti individualmente
- congurandoli in cascata come uno shift register.
+Modalità controllo: i flip-flop possono essere scritti e letti individualmente
+ configurandoli in cascata come uno shift register.
 \end_layout
 
 \begin_layout Standard
 Utilizzare una rete di controllo in grado di alimentare il primo stadio
- con un valore e generare tanti colpi di clock quanto e la distanza del
+ con un valore e generare tanti colpi di clock quanto è la distanza del
  primo stadio dalla cella da raggiungere.
 \end_layout
 
@@ -521,7 +517,8 @@ Realizzare un riconoscitore di una generica sequenza a N bit (e.g.
 \begin_layout Enumerate
 A partire dal riconoscitore di sequenza realizzato al punto 1 con i costrutti
  behavioral a singolo o doppio processo del VHDL, sintetizzare la macchina
- 1 specicando al tool di sintesi Xilinx ISE diverse codiche per gli stati.
+ 1 specificando al tool di sintesi Xilinx ISE diverse codifiche per gli
+ stati.
  Per quelle rilevanti estrapolare la codica assegnata dal sintetizzatore,
  area occupata e frequenza massima di lavoro, apportando eventuali commenti.
 \end_layout
@@ -545,7 +542,7 @@ Realizzare un'architettura di tipo Ripple Carry per un sommatore ad N bit
  generico.
  Il circuito deve essere realizzato a partire da blocchi di Full Adder,
  espresso mediante porte logiche XOR/AND/OR.
- Riportare considerazioni sul- l'area occupata e tempo di calcolo al variare
+ Riportare considerazioni sull'area occupata e tempo di calcolo al variare
  di N e commentare il risultato con le formule teoriche.
 \end_layout
 
@@ -648,12 +645,12 @@ Moltiplicatori
 
 \begin_layout Enumerate
 Realizzare in VHDL un circuito di moltiplicazione a celle MAC di N bit.
- La cella MAC deve contenere un Full Adder (descritto gia in esercizi precedenti
+ La cella MAC deve contenere un Full Adder (descritto già in esercizi precedenti
 ) ed una porta AND per la moltiplicazione parziale.
  Tale cella deve essere replicata in una struttura ordinata (per righe e
  colonne) per comporre il circuito intero di moltiplicazione.
  Effettuare considerazioni di occupazione di area e di tempi di propagazione
- dei segnali al variare di N per valori signicativi, apportando eventuali
+ dei segnali al variare di N per valori significativi, apportando eventuali
  commenti salienti.
 \end_layout
 
@@ -693,7 +690,7 @@ Divisori
 \end_layout
 
 \begin_layout Standard
-Nota: degli esercizi 1 e 2 occorre farne almeno uno, mentre l'altro e lasciato
+Nota: degli esercizi 1 e 2 occorre farne almeno uno, mentre l'altro è lasciato
  opzionale.
 \end_layout
 
@@ -749,9 +746,36 @@ filename "esercizio13/Tesina.lyx"
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Chapter
+MIC1
+\end_layout
 
-\lang american
+\begin_layout Enumerate
+Realizzare la sintesi di un'architettura MIC, di cui sono forniti i codici
+ VHDL e gli strumenti di sviluppo, completando un ciclo di sviluppo.
+ Effettuare, inoltre, la sostituzione del dispositivo per la comunicazione
+ UART utilizzando, invece, led e switch delle board FPGA sfruttando le istruzion
+i di IN e OUT.
+\end_layout
+
+\begin_layout Enumerate
+(Opzionale) Fornire l'implementazione di un I/O generico per il quale, dalle
+ istruzioni di IN e OUT, è possibile utilizzare uno tra D dispositivi disponibil
+i (e.g.
+ led, switch, push buttons, UART).
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "esercizio14/Tesina.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 

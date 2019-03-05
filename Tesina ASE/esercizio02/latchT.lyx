@@ -118,6 +118,10 @@ Si è implementato il latch T abilitato tramite descrizione behavioural.
  Come da comportamento previsto, il valore di Q verrà invertito solo in
  caso di abilitazione (en=1) e di valore in ingresso T=1, condizione espressa
  tramite struttura if then.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -236,7 +240,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/latcht/latch-T-simulazione.png
-	scale 35
+	scale 45
 
 \end_inset
 
@@ -270,7 +274,7 @@ Simulazione behavioural del latch T abilitato.
 E' interessante notare cosa succede nel caso di simulazione post-map (fig.
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:flipflop-rs-masterslave-simulazione-postmap"
+reference "fig:latch-t-simulazione-postmap"
 plural "false"
 caps "false"
 noprefix "false"
@@ -288,13 +292,13 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/latcht/latch-T-simulazione-postmap.png
-	scale 35
+	scale 50
 
 \end_inset
 
@@ -350,7 +354,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/latcht/latch-T-simulazione-postroute.png
-	scale 20
+	scale 55
 
 \end_inset
 

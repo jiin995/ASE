@@ -110,13 +110,13 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/architettura_csel.png
-	scale 50
+	scale 12
 
 \end_inset
 
@@ -159,7 +159,11 @@ c_in
 \shape default
 , ossia il riporto in ingresso.
  In base al valore effettivo del riporto in ingresso, calcolato allo stadio
- precedente, i due multiplexer selezioneranno i bit dell'uscita S e il 
+ precedente, i due multiplexer selezioneranno i bit dell'uscita 
+\shape italic
+S
+\shape default
+ e il 
 \shape italic
 c_out
 \shape default

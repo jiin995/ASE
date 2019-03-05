@@ -103,7 +103,7 @@ L'obiettivo di tale componente è la gestione degli anodi relativi alle cifre
  Dal momento che i singoli anodi relativi a ciascuna delle 4 cifre del display
  sono 0-attivi (la Nexys4 DDR utilizza i transistor per pilotare abbastanza
  corrente nel punto di anodo comune, le abilitazioni dell'anodo sono invertite),
- l'anodes manager dovrà attivare uno solo dei 4 diverso anodi mantenendo
+ l'anodes manager dovrà attivare uno solo dei 4 diversi anodi mantenendo
  basso uno solo dei 4 bit relativi agli anodi, utilizzando in ingresso il
  valore fornito dal contatore.
  Il componente dovrà inoltre tenere conto del segnale enable in ingresso,
@@ -120,7 +120,7 @@ Per realizzare l'anodes manager si è utilizzato un decoder 2-4: ricevuto
  in ingresso il valore del contatore, il decoder alza solo uno dei 4 bit
  relativi agli anodi.
  Tali uscite sono poi messe in AND con il segnale di enable per pilotare
- soltanto le digit che si è degiso di abilitare.
+ soltanto le digit che si è deciso di abilitare.
  Infine, i bit vengono invertiti per rispettare la logica 0-attiva.
  L'implementazione completa, effettuata tramite descrizione data-flow, è
  consultabile qui: 
@@ -161,7 +161,7 @@ others
 \end_inset
 
 , che genera in uscita tutti bit alti (che verranno poi negati successivamente).
- Tale tecnica serve ad evitare il fault masking, poiché avendo tutti 1 in
+ Tale tecnica serve ad evitare il fault masking, poiché avendo tutti 0 in
  uscita (caso non previsto dal normale funzionamento di un decoder) posso
  riconoscere subito la presenza di comportamenti imprevisti nel componente,
  che verrano poi manifestati all'esterno mostrando su tutte le digit lo

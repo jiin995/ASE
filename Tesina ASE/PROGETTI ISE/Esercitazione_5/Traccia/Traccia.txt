@@ -1,0 +1,4 @@
+Progettare una rete composta da una serie di N Flip Flop D abilitati ad operarenei seguenti due modi:
+1. Modalità normale: l’array si comporta come un registro di N posizioni;
+2. Modalità controllo: i flip flop possono essere scritti e letti individualmente configurandoli in cascata come uno shift register.
+Utilizzare una rete di controllo in grado di alimentare il primo stadio con un valore e generare tanti colpi di clock quanto è la distanza del primo stadio dalla cella da raggiungere.

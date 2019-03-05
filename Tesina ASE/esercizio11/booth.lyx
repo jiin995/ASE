@@ -106,13 +106,13 @@ noprefix "false"
 placement ph
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename images/architettura_booth.PNG
-	scale 45
+	scale 55
 
 \end_inset
 
@@ -129,7 +129,7 @@ name "fig:architettura-booth"
 
 \end_inset
 
-Architettura del moltiplicatore di Robertson.
+Architettura del moltiplicatore di Booth.
 \end_layout
 
 \end_inset
@@ -316,6 +316,10 @@ In particolare, per quanto riguarda la parte di controllo, questa è stata
 choice
 \shape default
 :
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -372,10 +376,6 @@ selectlanguage{italian}%
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -417,6 +417,10 @@ Parte operativa
 Il funzionamento della parte operativa è il seguente: inizialmente, il moltiplic
 ando X e il moltiplicatore Y vengono caricati rispettivamente nei registri
  Q e M, e viene posto il bit meno significativo di Q pari a 0:
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -447,16 +451,16 @@ selectlanguage{italian}%
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
 Per quanto concerne l'uscita, questa sarà determinata dalla concatenazione
  di A e Q (N+M bit), senza considerare il bit meno significativo di Q inserito
  all'inizio (pari a 0):
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -524,7 +528,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename images/simulazione_booth.png
-	scale 35
+	scale 45
 
 \end_inset
 
@@ -712,6 +716,265 @@ minimum period
 slice
 \shape default
  risulta minore.
+\end_layout
+
+\begin_layout Subsection
+Approfondimento: Moltiplicatore di Booth on board
+\end_layout
+
+\begin_layout Standard
+Tra i vari moltiplicatori presentati, abbiamo deciso di sintetizzare sulla
+ board il moltiplicatore di Booth.
+ In particolare, ricordando che l'FPGA è pensata per sintetizzare macchine
+ sincrone, si è realizzata una top level entity che utilizza dei registri
+ per sostenere gli input in ingresso al moltiplicatore.
+ L'interfaccia della top level entity è la seguente :
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Interfaccia della top level entity.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+entity booth_multiplier_onBoard is
+\end_layout
+
+\begin_layout Plain Layout
+
+    generic (N : NATURAL :=  8);     
+\end_layout
+
+\begin_layout Plain Layout
+
+	port (	
+\end_layout
+
+\begin_layout Plain Layout
+
+		clock : in STD_LOGIC ; 				
+\end_layout
+
+\begin_layout Plain Layout
+
+		start : in STD_LOGIC; 				
+\end_layout
+
+\begin_layout Plain Layout
+
+		start_led : out STD_LOGIC; 				
+\end_layout
+
+\begin_layout Plain Layout
+
+		stop : out STD_LOGIC; 				
+\end_layout
+
+\begin_layout Plain Layout
+
+		enable_a : in STD_LOGIC ; 				
+\end_layout
+
+\begin_layout Plain Layout
+
+		enable_b : in STD_LOGIC ;             
+\end_layout
+
+\begin_layout Plain Layout
+
+		subtract : in STD_LOGIC ; 					
+\end_layout
+
+\begin_layout Plain Layout
+
+		input : in STD_LOGIC_VECTOR ((N-1) downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+		overflow : out STD_LOGIC ;
+\end_layout
+
+\begin_layout Plain Layout
+
+		c_out : out STD_LOGIC ;
+\end_layout
+
+\begin_layout Plain Layout
+
+		anodes : out STD_LOGIC_VECTOR (7 downto 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+		cathodes : out STD_LOGIC_VECTOR (7 downto 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+	);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per definire moltiplicando e moltiplicatore, basterà definirli usando i
+ primi 8 switch (operandi con parallelismo di 8 bit) e premere uno dei tasti
+ per abilitare i registri corrispondenti (usando i segnali 
+\shape italic
+enable_a
+\shape default
+ e 
+\shape italic
+enable_b
+\shape default
+) e caricarli.
+ Una volta caricati entrambi gli operandi, basterà premere il tasto centrale:
+ un led acceso ci indicherà che è stato inviato il segnale di start alla
+ macchina.
+ Appena il led #15 sarà acceso, la macchina avrà inviato il segnale di stop,
+ e dunque il risultato sarà visibile sulle prime 4 cifre del display (parallelis
+mo di 16 bit).
+ Di seguito è riportato il mapping dei pulsanti e dei led con l' I/O del
+ componente di alto livello:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={Interfaccia top level entity .}]
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+#bottone centrale 
+\end_layout
+
+\begin_layout Plain Layout
+
+NET "start"	LOC=N17 | IOSTANDARD=LVCMOS33;	#IO_L9P_T1_DQS_14 
+\end_layout
+
+\begin_layout Plain Layout
+
+#bottone sinistro 
+\end_layout
+
+\begin_layout Plain Layout
+
+NET "enable_a
+\begin_inset Quotes erd
+\end_inset
+
+	LOC=P17 | IOSTANDARD=LVCMOS33;	#IO_L12P_T1_MRCC_14
+\end_layout
+
+\begin_layout Plain Layout
+
+#bottone destro 
+\end_layout
+
+\begin_layout Plain Layout
+
+NET "enable_b"	LOC=M17 | IOSTANDARD=LVCMOS33;	#IO_L10N_T1_D15_14
+\end_layout
+
+\begin_layout Plain Layout
+
+# led 0 
+\end_layout
+
+\begin_layout Plain Layout
+
+NET "start_led"	LOC=H17 | IOSTANDARD=LVCMOS33;	#IO_L18P_T2_A24_15
+\end_layout
+
+\begin_layout Plain Layout
+
+#led 15 
+\end_layout
+
+\begin_layout Plain Layout
+
+NET "stop"	LOC=V11 | IOSTANDARD=LVCMOS33;	#IO_L21N_T3_DQS_A06_D22_14
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'implementazione completa della top level entity è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio11/design/booth_on_board.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+booth
+\backslash
+_on
+\backslash
+_board.vhd}
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \end_body

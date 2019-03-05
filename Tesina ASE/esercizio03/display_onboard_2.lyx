@@ -1,0 +1,444 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\master Tesina.lyx
+\maintain_unincluded_children false
+\language italian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Approfondimento: Double display on-board
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Descrivere la soluzione relizzata per mezzo di schematici e riportare il
+ codice dei soli componenti significativi.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Osserviamo il funzionamento del display a 7 segmenti su board.
+ Per poter testare il componente descritto sulla board Nexys 4 utilizzando
+ tutte e 8 le digit, si è realizzata un'entità di più alto di livello denominata
+ 
+\shape italic
+DoubleDisplayOnBoard
+\shape default
+ che utilizza il componente descritto nel paragrafo precedente.
+ L'idea che abbiamo seguito consiste nel testare il funzionamento del display
+ mostrando su di esso il valore, in esadecimale, dato in input facendo commutare
+ i 16 switch presenti sulla board.
+ Il primo problema che abbiamo incontrato consiste nel fatto che per poter
+ mostrare il valore su tutte le 8 digit, abbiamo bisogno di un bus con paralleli
+smo di 32 bit, quindi con gli switch possiamo pilotare a massimo 4 digit.
+ Per risolvere tale problema abbiamo deciso di seguire la seguente idea.
+ Suddividere il bus values in ingresso al componente display_7_segments
+ e collegare le due metà a dei registri di tipo d abilitati con parallelismo
+ di 16 bit, in ingresso a tali registri abbiamo collegato i 16 switch e
+ collegando gli enable di tali registri con due pulsanti sulla board, possiamo
+ caricare la rappresentazione in binario del valore che vogliamo mostrare
+ nei registri in modo tale che tale metà verrà sostenuta in ingresso al
+ componente fino a quando non si provvederà ad un nuovo aggiornamento rieseguend
+o la procedura di load, premendo il pulsante.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={DoubleDisplayOnBoard.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+architecture structural of display_onBoard is
+\end_layout
+
+\begin_layout Plain Layout
+
+	entity DoubleDisplayOnBoard is     
+\end_layout
+
+\begin_layout Plain Layout
+
+			Port (  clock 			 : in  STD_LOGIC; 	
+\end_layout
+
+\begin_layout Plain Layout
+
+					values 			: in  STD_LOGIC_VECTOR (15 downto 0); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+					load_reg_0_3 	  : in  STD_LOGIC; 				
+\end_layout
+
+\begin_layout Plain Layout
+
+					load_reg_4_7 	  : in  STD_LOGIC; 				
+\end_layout
+
+\begin_layout Plain Layout
+
+					anodes 			: out  STD_LOGIC_VECTOR (7 downto 0); 				
+\end_layout
+
+\begin_layout Plain Layout
+
+					cathodes 		  : out  STD_LOGIC_VECTOR (7 downto 0) 			
+\end_layout
+
+\begin_layout Plain Layout
+
+			); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	end DoubleDisplayOnBoard;
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+alias values_0_3 is values_int (15 downto 0) ; 
+\end_layout
+
+\begin_layout Plain Layout
+
+alias values_4_7 is values_int (31 downto 16) ;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+begin
+\end_layout
+
+\begin_layout Plain Layout
+
+	register_0_3: register_d_Re_Ar PORT MAP (   clock 	=> clock,
+\end_layout
+
+\begin_layout Plain Layout
+
+												load 	 => load_reg_0_3, 				
+\end_layout
+
+\begin_layout Plain Layout
+
+												reset 	=> reset, 						
+\end_layout
+
+\begin_layout Plain Layout
+
+												d		 => values, 		
+\end_layout
+
+\begin_layout Plain Layout
+
+												q 		=> values_0_3 					
+\end_layout
+
+\begin_layout Plain Layout
+
+								); 														
+\end_layout
+
+\begin_layout Plain Layout
+
+	register_4_7: register_d_Re_Ar PORT MAP (   clock    => clock, 						
+\end_layout
+
+\begin_layout Plain Layout
+
+												load 	=> load_reg_4_7, 					
+\end_layout
+
+\begin_layout Plain Layout
+
+												reset    => reset, 					
+\end_layout
+
+\begin_layout Plain Layout
+
+												d		=> values, 				
+\end_layout
+
+\begin_layout Plain Layout
+
+												q 	   => values_4_7 				
+\end_layout
+
+\begin_layout Plain Layout
+
+								); 	
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+L'implementazione completa è consultabile qui: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{run:./esercizio03/design/double_display_on_board.vhd}{%
+\end_layout
+
+\begin_layout Plain Layout
+
+display
+\backslash
+_onBoard.vhd}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Inoltre, è stato opportunamente configurato il file Nexys4DDR_master.ucf
+ per effettuare il mapping tra i physical della board e le interfaccia di
+ ingresso/uscita del componente che abbiamo sintetizzato, un punto interessante
+ è il collegamento dei segnali di load dei registri ai bottoni presenti
+ sulla scheda.
+ Ciò ci permette di poter scegliere in quale registro e di conseguenza su
+ quale batteria di display mostrare il valore che stiamo dando in input
+ con gli switch.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}[language=VHDL,caption={DoubleDisplayOnBoard Nexys4DDR_master.uc
+f.}]
+\end_layout
+
+\begin_layout Plain Layout
+
+[...]
+\end_layout
+
+\begin_layout Plain Layout
+
+#bottone destro 
+\end_layout
+
+\begin_layout Plain Layout
+
+	NET "load_reg_0_3"           LOC=P17 | IOSTANDARD=LVCMOS33; #IO_L12P_T1_MRCC_14
+\end_layout
+
+\begin_layout Plain Layout
+
+#bottone sinistro 
+\end_layout
+
+\begin_layout Plain Layout
+
+	NET "load_reg_4_7"           LOC=M17 | IOSTANDARD=LVCMOS33; #IO_L10N_T1_D15_14
+\end_layout
+
+\begin_layout Plain Layout
+
+[..]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\backslash
+selectlanguage{italian}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement ph
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/sintesi_onboard.jpg
+	scale 15
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:sintesi-on-board"
+
+\end_inset
+
+Display a 7 segmenti su board Nexys 4.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

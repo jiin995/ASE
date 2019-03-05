@@ -175,10 +175,6 @@ selectlanguage{italian}%
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -217,7 +213,7 @@ status open
 
 
 \backslash
-href{run:./esercizio10/design/carry_select_block.vhd}{%
+href{run:./esercizio10/design/carry_select_cell.vhd}{%
 \end_layout
 
 \begin_layout Plain Layout
@@ -226,7 +222,7 @@ carry
 \backslash
 _select
 \backslash
-_block.vhd}
+_cell.vhd}
 \end_layout
 
 \end_inset
@@ -361,10 +357,10 @@ selectlanguage{italian}%
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
- L'implementazione completa è consultabile qui: 
+\begin_layout Standard
+L'implementazione completa è consultabile qui: 
 \begin_inset ERT
 status open
 

@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=/home/jiin995/ASE_WorkSpace/Mic1_Funzionante_su_Nexys4/mic1_fpga/impact.xsl
+OUTFILE=/home/jiin995/ASE_WorkSpace/Mic1_Funzionante_su_Nexys4/mic1_fpga/impact.xsl
+FAMILY=Single
+PART=Single
+WORKINGDIR=/home/jiin995/ASE_WorkSpace/Mic1_Funzionante_su_Nexys4/mic1_fpga
+LICENSE=iMPACT
+USER_INFO=iMPACT
