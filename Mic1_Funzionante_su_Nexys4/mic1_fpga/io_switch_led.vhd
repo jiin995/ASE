@@ -3,36 +3,19 @@ library IEEE;
 	use IEEE.STD_LOGIC_ARITH.ALL;
 	use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-entity io_switch_led_display is
+entity io_switch_led is
 	Port (	CLOCK				: in std_logic	:= '0'; 	-- clock
 				CE					: in std_logic := '0'; 	-- chip enable del componente
 				RD					: in std_logic := '0'; 	-- segnale di lettura
 				WR					: in std_logic := '0';	-- segnale di scrittura
 				START_READ		: in STD_LOGIC	:= '0';	-- avvia la lettura dagli switch, come se premessimo enter quando usiamo l'uart
-				ENABLE_DISPLAY : in STD_LOGIC := '1';
 				SWITCH 			: in std_logic_vector(7 downto 0);
 				LEDS				: out std_logic_vector(7 downto 0) := (others => '0');
-				anodes 			: out STD_LOGIC_VECTOR (7 downto 0);	--! Uscita che pilota gli anodi
-				cathodes			: out STD_LOGIC_VECTOR (7 downto 0);		--! Uscita che pilota i catodi
 				IO_MDR			: inout std_logic_vector(31 downto 0) := "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"  --verso il data bus a 32 bit
 			);
-end io_switch_led_display;
+end io_switch_led;
 
-architecture Behavioral of io_switch_led_display is
-	
-	
-	component display_7_segments 
-		PORT ( 	enable			: in STD_LOGIC;								--! enable del componente
-					clock 			: in STD_LOGIC;								--! clock
-					reset				: in STD_LOGIC;								--! reset 1-attivo
-					values 			: in STD_LOGIC_VECTOR (31 downto 0);	--! Stringa di bit del valore da mostrare
-					dots 				: in STD_LOGIC_VECTOR (7 downto 0) ;	--! Segnali che permette di pilotare i punti
-					enable_digit	: in STD_LOGIC_VECTOR (7 downto 0);		--! Segnali che attiva le digit
-					anodes 			: out STD_LOGIC_VECTOR (7 downto 0);	--! Uscita che pilota gli anodi
-					cathodes			: out STD_LOGIC_VECTOR (7 downto 0)		--! Uscita che pilota i catodi
-		);
-	end component;
-
+architecture Behavioral of io_switch_led is
 	
 	--dichiarazione stati della fsm di controllo della lettura
 	type stato_fsm is( idle,reading,read_done);
@@ -52,16 +35,6 @@ begin
 	
 	leds			<= output_buffer;
 	switch_in 	<= switch;
-	
-	display: display_7_segments port map (	clock => clock,
-														enable => enable_display,
-														reset => '0',
-														values => x"000000" & output_buffer,
-														dots => x"00",
-														enable_digit => x"03",
-														anodes => anodes,
-														cathodes => cathodes
-												);
 	
 	out_buffer:process(CLOCK)  --processo per registro buffer tx in scrittura su uart
 	begin
@@ -141,4 +114,6 @@ begin
 	end process;
 
 end Behavioral;
+
+
 
