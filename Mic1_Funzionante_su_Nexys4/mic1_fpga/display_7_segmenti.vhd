@@ -81,7 +81,7 @@ end component;
 signal select_digit 		: STD_LOGIC_VECTOR (2 downto 0) := ( others =>'0');
 signal clockfx 			: STD_LOGIC :='0';
 signal reset_internal 	: STD_LOGIC :='0';
-signal enable_internal 	: STD_LOGIC :='1';
+signal enable_internal 	: STD_LOGIC :='0';
 signal count_hit			: STD_LOGIC :='0';
 
 begin

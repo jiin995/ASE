@@ -106,8 +106,8 @@ architecture Behavioral of sistema_mic1 is
 	END COMPONENT;
 
 component io_switch_led 
-	Port (	CK		: in std_logic:= '0'; --clock
-				CE_UART		: in std_logic 	:= '0'; --chip enable del componente
+	Port (	CLOCK		: in std_logic:= '0'; --clock
+				CE		: in std_logic 	:= '0'; --chip enable del componente
 				IO_MDR	: inout std_logic_vector(31 downto 0) := "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ";  --verso il data bus a 32 bit
 				RD		: in std_logic 	:= '0';  --segnale di lettura
 				LEDS	: out std_logic_vector(7 downto 0) := "01010101"; --eco sui led del carattere ricevuto
@@ -220,8 +220,8 @@ begin
 		ce_ram => CE_ram_locvarframe_opstack
 	);
 
-
---ce_uart <= CE_uart_signal and not io_switch;
+--
+--ce_uart <= ce_io and not io_switch;
 --	Inst_if_uart: if_uart PORT MAP(
 --		TXD => TXD,
 --		RXD => RXD,
@@ -232,10 +232,10 @@ begin
 --		WR => wr_sig
 --	);
 --	
---ce_led <= CE_uart_signal and io_switch;
+--ce_led <= ce_io and io_switch;
 --	inst_io_controller: io_switch_led PORT MAP(
---		CK => ck_signal,
---		CE_UART => ce_led, --CE_uart_signal,
+--		Clock => ck_signal,
+--		CE => ce_led, --CE_uart_signal,
 --		IO_MDR => io_mdr_sig,
 --		RD => rd_sig,
 --		LEDS => led,
